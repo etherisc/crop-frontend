@@ -382,11 +382,11 @@
 		},
 		{
 			"path": "client/views/activations_map/activations_map.html",
-			"checksum": "7a7c894ad078390b66abf8e9c8ab1979382979c2"
+			"checksum": "590cc14d8b130bf4189f3df65d224ad4aa1d1865"
 		},
 		{
 			"path": "client/views/activations_map/activations_map.js",
-			"checksum": "d332d17983f6294a7506a7e38afe85102cc3f315"
+			"checksum": "3b2b88259f75030a8aefdedea1c42831daea638c"
 		},
 		{
 			"path": "client/views/activations_map/activations_map_controller.js",
@@ -921,6 +921,22 @@
 			"checksum": "4393d7342cc9f6b6b18da12c159d98cd2920f506"
 		},
 		{
+			"path": "both/collections/counts.js",
+			"checksum": "aa728a2039447d6f163baaa527d1bfbf2a8de221"
+		},
+		{
+			"path": "server/methods/counts.js",
+			"checksum": "9ce462293c82f275f237feba614940d94b3d6cab"
+		},
+		{
+			"path": "server/collections/counts.js",
+			"checksum": "37c1de7cdd521e6920fabae707711f5d6d343522"
+		},
+		{
+			"path": "server/publish/counts.js",
+			"checksum": "4b1fe0579d3f402bfea1694245086d8813c8cbdc"
+		},
+		{
 			"path": "client/styles/user_styles.less",
 			"checksum": "f08a3edc8a6d5d39aa62d62dfcfbe8ab3b608673"
 		},
@@ -946,7 +962,7 @@
 		},
 		{
 			"path": "server/methods/methods.js",
-			"checksum": "4d16c4b8a8216cf804e04bfeb5c8c59f6f846ba2"
+			"checksum": "ce1bb9fa0c26dc673c4b83ceea67336443cffaf1"
 		},
 		{
 			"path": "imports/server/methods/group-policy-reader.js",
@@ -967,6 +983,10 @@
 		{
 			"path": "client/lib/globals/googlemap_txtoverlay.js",
 			"checksum": "9e6b5753a7e6aa2f7b3f8cf33a358b2e0f7e4d89"
+		},
+		{
+			"path": "imports/server/methods/count.js",
+			"checksum": "5a826f4ad3fc2e2c75d50e09cd7ead9610068a24"
 		},
 		{
 			"path": "lib/string_utils.js",

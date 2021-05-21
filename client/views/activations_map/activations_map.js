@@ -7,7 +7,7 @@ Template.ActivationsMap.onDestroyed(function() {
 });
 
 Template.ActivationsMap.onRendered(function() {
-	Meteor.subscribe('activation_list');
+	Meteor.subscribe('count_list');
 	Meteor.defer(function() {
 		globalOnRendered();
 		$("input[autofocus]").focus();
@@ -63,7 +63,7 @@ Template.ActivationsMapMap.created = function() {
 					for (let lng = xmi; lng <= xma; lng += 1) {
 						const pixel = `Pixel${latLng2Pixel({lat: lat/10, lng: lng/10})}`;
 						///console.log(pixel, lat/10, lng/10);
-						const activation = Activations.findOne({pixel});
+						const activation = Counts.findOne({pixel});
 						const op = activation ? 0.35 : 0.0;
 						//console.log('Found!');
 						const rectangle = new google.maps.Rectangle({
@@ -118,5 +118,10 @@ Template.ActivationsMapMap.helpers({
 });
 
 Template.ActivationsMapMap.events({
+	"click #btn-reload": function (e,t) {
+		e.preventDefault();
+
+		Meteor.call('countActivations');
+	}
 
 });
