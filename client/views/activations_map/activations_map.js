@@ -36,7 +36,7 @@ Template.ActivationsMapMap.created = function() {
 			strokeWeight: 1,
 			fillColor: "#FF0000",
 			fillOpacity: 0.35,
-			map,
+			map: map.instance,
 			bounds: {
 				north: 0.05,
 				south: -0.05,
