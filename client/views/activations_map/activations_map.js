@@ -69,7 +69,7 @@ Template.ActivationsMapMap.helpers({
 			// Map initialization options
 			return {
 				center: new google.maps.LatLng(0.0, 37.0),
-				zoom: 8
+				zoom: 10.0
 			};
 		}
 	}
