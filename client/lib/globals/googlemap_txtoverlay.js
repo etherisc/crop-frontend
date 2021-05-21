@@ -57,7 +57,6 @@ GoogleMaps.ready('activationsMap', function(map) {
 		// We'll use these coordinates to resize the DIV.
 		var position = overlayProjection.fromLatLngToDivPixel(this.pos);
 
-		console.log(this);
 		var div = this.div_;
 		div.innerHTML = this.map.zoom >= 10 ? this.txt_ : '';
 		div.style.left = position.x + 'px';
