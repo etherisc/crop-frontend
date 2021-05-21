@@ -1,6 +1,7 @@
 const countActivations = () => {
 
 	activations = RecordCounts.find({});
+	console.log(activations);
 
 	while (activations.hasNext()) {
 		// load only one document from the resultset into memory
