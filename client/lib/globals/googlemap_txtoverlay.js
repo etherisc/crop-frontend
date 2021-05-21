@@ -59,7 +59,7 @@ GoogleMaps.ready('activationsMap', function(map) {
 
 		console.log(this);
 		var div = this.div_;
-		div.innerHTML = this.map.zoom >= 10 ? this._txt : '';
+		div.innerHTML = this.map.zoom >= 10 ? this.txt_ : '';
 		div.style.left = position.x + 'px';
 		div.style.top = position.y + 'px';
 

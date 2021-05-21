@@ -966,7 +966,7 @@
 		},
 		{
 			"path": "client/lib/globals/googlemap_txtoverlay.js",
-			"checksum": "533536bddb4d27a028dcb9bc8e069c148f36d818"
+			"checksum": "9c27258a85d34bb90a18dafc82023ef5a015174d"
 		},
 		{
 			"path": "lib/string_utils.js",
