@@ -921,20 +921,20 @@
 			"checksum": "4393d7342cc9f6b6b18da12c159d98cd2920f506"
 		},
 		{
-			"path": "both/collections/counts.js",
-			"checksum": "aa728a2039447d6f163baaa527d1bfbf2a8de221"
+			"path": "both/collections/record_counts.js",
+			"checksum": "86390aee55672f28b601911939ddc5278655f3e0"
 		},
 		{
-			"path": "server/methods/counts.js",
-			"checksum": "9ce462293c82f275f237feba614940d94b3d6cab"
+			"path": "server/methods/record_counts.js",
+			"checksum": "c53954fdf623f2290aba3aa1ba1c3c712d76e42f"
 		},
 		{
-			"path": "server/collections/counts.js",
-			"checksum": "37c1de7cdd521e6920fabae707711f5d6d343522"
+			"path": "server/collections/record_counts.js",
+			"checksum": "38d89b6b5330654f66cc0f69d35fa647ad091e25"
 		},
 		{
-			"path": "server/publish/counts.js",
-			"checksum": "4b1fe0579d3f402bfea1694245086d8813c8cbdc"
+			"path": "server/publish/record_counts.js",
+			"checksum": "a57087ff5cfe3859e5732c860fe04c6de1188bed"
 		},
 		{
 			"path": "client/styles/user_styles.less",
