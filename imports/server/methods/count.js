@@ -1,5 +1,6 @@
 const countActivations = () => {
 
+	RecordCounts.remove({});
 	activations = Activations.find({});
 
 	activations.forEach((activation) => {
