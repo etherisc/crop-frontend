@@ -97,5 +97,5 @@ TxtOverlay.prototype.toggleDOM = function() {
 	}
 }
 
-
+module.exports = TxtOverlay;
 
