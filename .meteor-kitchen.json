@@ -962,7 +962,7 @@
 		},
 		{
 			"path": "client/styles/googlemaps.css",
-			"checksum": "e83cc775ad3e94c051f1a83be0cd8c40d0de7f70"
+			"checksum": "ace363c4c7033eb75fc25d8150fd9d5312b5eb7c"
 		},
 		{
 			"path": "client/lib/globals/googlemap_txtoverlay.js",
