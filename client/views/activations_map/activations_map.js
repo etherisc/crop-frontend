@@ -34,11 +34,11 @@ Template.ActivationsMapMap.created = function() {
 				var bounds = map.getBounds();
 				const {lat: ymin, lng: xmin} = bounds.getSouthWest();
 				const {lat: ymax, lng: xmax} = bounds.getNorthEast();
-				console.log(xmin(), ymin(), xmax(), ymax());
+				//console.log(xmin(), ymin(), xmax(), ymax());
 				for (let lat = ymin(); lat <= ymax(); lat += 0.1) {
 					for (let lng = xmin(); lng <= xmax(); lng += 0.1) {
 						const pixel = `Pixel${latLng2Pixel({lat, lng})}`;
-						//console.log(pixel);
+						console.log(pixel);
 						const activation = Activations.findOne({pixel});
 						if (activation) {
 							console.log('Found!');
