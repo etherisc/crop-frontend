@@ -65,6 +65,21 @@ Template.ActivationsMapMap.destroyed = function() {
 
 Template.ActivationsMapMap.rendered = function() {
 
+	GoogleMaps.ready('activationsMap', function({instance: map, options}) {
+		
+		var marker = new google.maps.Marker({
+			position: options.center,
+			map
+		});
+
+		var bounds = map.getBounds();
+		console.log(bounds);
+//		var ne = bounds.getNorthEast(); // LatLng of the north-east corner
+//		var sw = bounds.getSouthWest(); // LatLng of the south-west corder
+
+
+		});
+
 };
 
 Template.ActivationsMapMap.helpers({
