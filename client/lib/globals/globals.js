@@ -103,9 +103,9 @@ notarize = function (type, message, payload, updateMethod) {
 // GoogleMaps.load({ v: '3', key: 'AIzaSyAIjsbPvYSEBicJeKvPeI679eS9VW3w5zg', libraries: 'places' });
 GoogleMaps.load({ v: '3', key: 'AIzaSyAuGOT9cn2Rp8O4gicXER-clMjVBMszlyY', libraries: 'places' });
 
-round = (num, places) => Math.round(Math.sign(num) * (Math.abs(num) + Number.EPSILON) * 10**places) / 10**places
+round = (num, places) => Math.round(Math.sign(num) * (Math.abs(num) + Number.EPSILON) * 10**places) / 10**places;
 
-latLng2Pixel = function ({ lat, lng }) => ( ( round( lng, 1 ) + 40.1 ) * 1000 + round( lat, 1 ) + 20.1 ) * 10
+latLng2Pixel = function ({ lat, lng }) => ( ( round( lng, 1 ) + 40.1 ) * 1000 + round( lat, 1 ) + 20.1 ) * 10;
 pixel2LatLng = function ( pixel ) => {
      lat: ( ( pixel - trunc( pixel / 1000 ) * 1000 ) / 10 ) - 20.1,
      lng: ( trunc( pixel / 1000 ) / 10 ) - 40.1
