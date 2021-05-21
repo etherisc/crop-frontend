@@ -24,7 +24,7 @@ Template.ActivationsMap.helpers({
 
 Template.ActivationsMapMap.created = function() {
 
-	GoogleMaps.ready('activationsMap', function({map: instance, options}) {
+	GoogleMaps.ready('activationsMap', function({instance: map, options}) {
 		
 		var marker = new google.maps.Marker({
 			position: options.center,
