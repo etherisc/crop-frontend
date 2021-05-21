@@ -36,9 +36,11 @@ Template.ActivationsMapMap.created = function() {
 
 
 				if (rectangles) {
-					rectangles.forEach((rect) => {
-						rect.setMap(null);
-						rect = null;
+					rectangles.forEach(({rectangle, txt}) => {
+						rectangle.setMap(null);
+						rectangle = null;
+						txt.setMap(null);
+						txt = null;
 					});
 					rectangles = [];
 				}
@@ -79,11 +81,13 @@ Template.ActivationsMapMap.created = function() {
 								},
 							});
 
-							rectangles.push(rectangle);
-							const latlng = new google.maps.LatLng(lat, lng);
+							const latlng = new google.maps.LatLng(lat/10, lng/10);
 							const customTxt = `<div>${pixel}</div>`;
 							const txt = new TxtOverlay(latlng, customTxt, "gmlp-textbox", map)
-							}
+
+							rectangles.push({rectangle, txt});
+							
+						}
 					}
 				}
 			}, 1000);				
