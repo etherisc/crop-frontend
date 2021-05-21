@@ -67,8 +67,8 @@ Template.ActivationsMapMap.created = function() {
 						const op = activation ? 0.35 : 0.0;
 						//console.log('Found!');
 						const rectangle = new google.maps.Rectangle({
-							strokeColor: "#FF0000",
-							strokeOpacity: 0.8,
+							strokeColor: "#FFFFFF",
+							strokeOpacity: 0.25,
 							strokeWeight: 1,
 							fillColor: "#FF0000",
 							fillOpacity: op,
