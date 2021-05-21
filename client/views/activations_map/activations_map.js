@@ -63,31 +63,31 @@ Template.ActivationsMapMap.created = function() {
 					for (let lng = xmi; lng <= xma; lng += 1) {
 						const pixel = `Pixel${latLng2Pixel({lat: lat/10, lng: lng/10})}`;
 						console.log(pixel, lat/10, lng/10);
-						const activation = true; //Activations.findOne({pixel});
-						if (activation) {
-							//console.log('Found!');
-							const rectangle = new google.maps.Rectangle({
-								strokeColor: "#FF0000",
-								strokeOpacity: 0.8,
-								strokeWeight: 1,
-								fillColor: "#FF0000",
-								fillOpacity: 0.35,
-								map,
-								bounds: {
-									north: (lat/10) + 0.05,
-									south: (lat/10) - 0.05,
-									east: (lng/10) + 0.05,
-									west: (lng/10) - 0.05,
-								},
-							});
+						const activation = Activations.findOne({pixel});
+						const bg = activation ? "#FF0000" : "";
+						//console.log('Found!');
+						const rectangle = new google.maps.Rectangle({
+							strokeColor: "#FF0000",
+							strokeOpacity: 0.8,
+							strokeWeight: 1,
+							fillColor: bg,
+							fillOpacity: 0.35,
+							map,
+							bounds: {
+								north: (lat/10) + 0.05,
+								south: (lat/10) - 0.05,
+								east: (lng/10) + 0.05,
+								west: (lng/10) - 0.05,
+							},
+						});
 
-							const latlng = new google.maps.LatLng(lat/10, lng/10);
-							const customTxt = `<div>${pixel}</div>`;
-							const txt = new TxtOverlay(latlng, customTxt, "gmlp-textbox", map)
+						const latlng = new google.maps.LatLng(lat/10, lng/10-0.25);
+						const customTxt = `<div>${pixel}</div>`;
+						const txt = new TxtOverlay(latlng, customTxt, "gmlp-textbox", map)
 
-							rectangles.push({rectangle, txt});
-							
-						}
+						rectangles.push({rectangle, txt});
+
+
 					}
 				}
 			}, 1000);				
