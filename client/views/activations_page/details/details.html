@@ -1,0 +1,132 @@
+<template name="ActivationsPageDetails">
+	<div class="page-container container" id="content">
+		<div class="row" id="title_row">
+			<div class="col-md-12">
+			</div>
+		</div>
+		{{> ActivationsPageDetailsForm}}
+	</div>
+</template>
+
+<template name="ActivationsPageDetailsForm">
+	<div id="activations-page-details-form" class="form-details">
+		<h2 id="component-title">
+			<a href="#" id="form-back-button" class="btn btn-default" title="back">
+				<span class="fa fa-chevron-left">
+				</span>
+			</a>
+			Activation Details
+		</h2>
+		<form role="form" class="form-horizontal">
+			{{#if errorMessage}}
+			<div class="alert alert-warning">
+				{{errorMessage}}
+			</div>
+			{{/if}}
+
+			{{#if infoMessage}}
+			<div class="alert alert-success">
+				{{infoMessage}}
+			</div>
+			{{/if}}
+			<div class="form-group  field-mobile_num">
+				<label for="mobile_num" class="col-sm-3 control-label">
+					Mobile Num
+				</label>
+				<div class="input-div col-sm-9">
+					<p class="form-control-static  control-field-mobile_num">
+						{{activation.mobile_num}}
+					</p>
+				</div>
+			</div>
+			<div class="form-group  field-call_time">
+				<label for="call_time" class="col-sm-3 control-label">
+					Call Time
+				</label>
+				<div class="input-div col-sm-9">
+					<p class="form-control-static  control-field-call_time">
+						{{formatDate activation.call_time 'YYYY-MMM-DD'}}
+					</p>
+				</div>
+			</div>
+			<div class="form-group  field-latitude">
+				<label for="latitude" class="col-sm-3 control-label">
+					Latitude
+				</label>
+				<div class="input-div col-sm-9">
+					<p class="form-control-static  control-field-latitude">
+						{{activation.latitude}}
+					</p>
+				</div>
+			</div>
+			<div class="form-group  field-longitude">
+				<label for="longitude" class="col-sm-3 control-label">
+					Longitude
+				</label>
+				<div class="input-div col-sm-9">
+					<p class="form-control-static  control-field-longitude">
+						{{activation.longitude}}
+					</p>
+				</div>
+			</div>
+			<div class="form-group  field-order_number">
+				<label for="order_number" class="col-sm-3 control-label">
+					Order Number
+				</label>
+				<div class="input-div col-sm-9">
+					<p class="form-control-static  control-field-order_number">
+						{{activation.order_number}}
+					</p>
+				</div>
+			</div>
+			<div class="form-group  field-activation_code">
+				<label for="activation_code" class="col-sm-3 control-label">
+					Activation Code
+				</label>
+				<div class="input-div col-sm-9">
+					<p class="form-control-static  control-field-activation_code">
+						{{activation.activation_code}}
+					</p>
+				</div>
+			</div>
+			<div class="form-group  field-value_chain">
+				<label for="value_chain" class="col-sm-3 control-label">
+					Value Chain
+				</label>
+				<div class="input-div col-sm-9">
+					<p class="form-control-static  control-field-value_chain">
+						{{activation.value_chain}}
+					</p>
+				</div>
+			</div>
+			<div class="form-group  field-amount_premium">
+				<label for="amount_premium" class="col-sm-3 control-label">
+					Amount Premium
+				</label>
+				<div class="input-div col-sm-9">
+					<p class="form-control-static  control-field-amount_premium">
+						{{activation.amount_premium}}
+					</p>
+				</div>
+			</div>
+			<div class="form-group  field-pixel">
+				<label for="pixel" class="col-sm-3 control-label">
+					Pixel
+				</label>
+				<div class="input-div col-sm-9">
+					<p class="form-control-static  control-field-pixel">
+						{{activation.pixel}}
+					</p>
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="submit-div col-sm-9 col-sm-offset-3">
+					<a href="#" id="form-close-button" class="btn btn-primary">
+						OK
+					</a>
+				</div>
+			</div>
+		</form>
+	</div>
+</template>
+

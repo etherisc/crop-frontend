@@ -1,0 +1,204 @@
+openapi: 3.0.1
+info:
+  title: OpenAPI USSD Integration
+  description: Provides Open API endpoints to send payment and activation events
+  version: "1.0"
+
+servers:
+  - url: http://localhost:8080/q/openapi
+    description: Optional dev mode server description
+
+paths:
+  /payments:
+    get:
+      description: List all policy payment events so far
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Payment'
+    post:
+      description: Create a payment event. Do not include an id attribute when posting payment event data.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Payment'
+      responses:
+        '200':
+          description: OK - new payment event created. The response provides the id of the new event.
+          content:
+            application/text: {}
+  /payments/{event_id}:
+    get:
+      description: Get a single policy payment event
+      parameters:
+        - $ref: '#/components/parameters/UUIDPathParam'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Payment'
+            text/csv:
+              schema:
+                type: object
+        '404':
+          description: ERROR - No paymnet event found for the id provided
+
+  /activations:
+    get:
+      description: List all policy activation events so far
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Activation'
+    post:
+      description: Create a policy activation event. Do not include an id attribute when posting activation event data.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Activation'
+      responses:
+        '200':
+          description: OK - new activation event created. The response provides the id of the new event.
+          content:
+            application/text: {}
+  /activation/{event_id}:
+    get:
+      description: Get a single policy activation event
+      parameters:
+        - $ref: '#/components/parameters/UUIDPathParam'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Activation'
+            text/csv:
+              schema:
+                type: object
+        '404':
+          description: ERROR - No activation event found for the id provided
+
+components:
+  parameters:
+    UUIDPathParam:
+      name: event_id
+      in: path
+      description: A resource identifier
+      required: true
+      schema:
+        type: string
+        format: uuid
+      example: '4ad6f91d-6378-4f52-b817-00cbc85ca39x'
+
+  schemas:
+    Payment:
+      properties:
+        id:
+          type: string
+          format: uuid
+          description: Unique id of the payment event, omit this attribute for posting new payment events
+          example: '8dd6f91d-6378-4f52-b817-00cbc85ca39e'
+        mobile_num:
+          type: string
+          minLength: 12
+          maxLength: 12
+          description: Mobile phone number
+          example: '254711234567'
+        call_time:
+          type: string
+          description: Timestamp of the initiation time of the call
+          format: date-time
+          example: '28.03.2020  12:28:54'
+        mpesa_code:
+          type: string
+          minLength: 9
+          maxLength: 9
+          description: MPesa transaction code
+          example: 'PC82GDN7C'
+        mpesa_name:
+          type: string
+          minLength: 3
+          maxLength: 64
+          description: First and last name of person associated with the call
+          example: 'Jon Doe'
+        order_number:
+          type: string
+          minLength: 3
+          maxLength: 64
+          description: The reference to the policy
+          example: 'A100097-0321'
+        amount_paid:
+          type: number
+          description: Amount paid for (partial) policy payment
+          minimum: 0.0
+          maximum: 1000000.0
+          example: 50.0
+    Activation:
+      properties:
+        id:
+          type: string
+          format: uuid
+          description: Unique id of the activation event, omit this attribute for posting new activation events
+          example: 'eaa6f91d-6378-4f52-b817-00cbc85ca37a'
+        mobile_num:
+          type: string
+          minLength: 12
+          maxLength: 12
+          description: Mobile phone number
+          example: '254711234567'
+        call_time:
+          type: string
+          description: Timestamp of the call, this is assumed to be the planting date
+          format: date-time
+          example: '28.03.2020  12:28:54'
+        latitude:
+          type: number
+          description: Latitude of the location of the mobile device at the time of the call. Any number between -40 (40 degress South) to 40 (40 degrees North)
+          minimum: -40.0
+          maximum: 40.0
+          example: 0.125583
+        longitude:
+          type: number
+          description: Longitude of the location of the mobile device at the time of the call. Any number between -20 (20 degress West) to 55 (55 degrees East)
+          minimum: -20.0
+          maximum: 55.0
+          example: 35.1592
+        order_number:
+          type: string
+          minLength: 1
+          maxLength: 16
+          description: The reference to the policy
+          example: 'A100097-0321'
+        activation_code:
+          type: string
+          minLength: 1
+          maxLength: 16
+          description: The activation code for the policy
+          example: '568947'
+        value_chain:
+          type: string
+          minLength: 1
+          maxLength: 16
+          description: The name of the insured crop
+          example: 'Maize'
+        amount_premium:
+          type: number
+          description: Premium amount for this policy
+          minimum: 0.0
+          maximum: 1000000.0
+          example: 500.0

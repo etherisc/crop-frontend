@@ -1,0 +1,1291 @@
+{
+	"output_files": [
+		{
+			"path": "client/views/router.js",
+			"checksum": "f1299b2b7a7b0306c13b0c95d2daadd2fdba82da"
+		},
+		{
+			"path": "server/controllers/router.js",
+			"checksum": "f9d076cc64b65aa4ce85d9ca7272d8cfefc46694"
+		},
+		{
+			"path": "client/client.js",
+			"checksum": "a2efee43465b67a622352b90fe0f12a78114e4e5"
+		},
+		{
+			"path": "server/server.js",
+			"checksum": "42f2046637fb03a1307f514625a5c9e560788aa0"
+		},
+		{
+			"path": "client/views/not_found/not_found.html",
+			"checksum": "df91b51c0a4787a26c4a7ea8ad72ca8310f72b41"
+		},
+		{
+			"path": "client/views/not_found/not_found.js",
+			"checksum": "b399a9a22e2f99c058a00b68bf264a244f09deaf"
+		},
+		{
+			"path": "client/views/loading/loading.html",
+			"checksum": "99e97ba60ddf18b9ed3977aa1f73b1fe3494922a"
+		},
+		{
+			"path": "client/views/loading/loading.js",
+			"checksum": "bd568a6b49a113afe91fedda35a96125c9731a87"
+		},
+		{
+			"path": "client/styles/styles/styles.less",
+			"checksum": "7adadcf337fc6d5676d0e8b2cea243baffbdd735"
+		},
+		{
+			"path": "client/views/layout/layout.html",
+			"checksum": "7f7418e7fdeeecadc4fa8e340840cc0807d80b5c"
+		},
+		{
+			"path": "client/views/layout/layout.js",
+			"checksum": "9a9abe709cd51be265b3fdba0f68c8b8e1f2daf4"
+		},
+		{
+			"path": "client/views/home_public/home_public.html",
+			"checksum": "e74963ca0b5b1147b5e40a04b18d8fd1e04940fa"
+		},
+		{
+			"path": "client/views/home_public/home_public.js",
+			"checksum": "d3e0f71b972ff642b33bd087e1ddabe44a1c4a54"
+		},
+		{
+			"path": "client/views/home_public/home_public_controller.js",
+			"checksum": "12cee04470a968b54f83f3d6b08fd5bac77bf068"
+		},
+		{
+			"path": "client/views/login/login.html",
+			"checksum": "21165a758c5a446df2eff004bfcab20ae2e5795a"
+		},
+		{
+			"path": "client/views/login/login.js",
+			"checksum": "4eaf5b85afa51af36ada32ebacf80fa432265643"
+		},
+		{
+			"path": "client/views/login/login_controller.js",
+			"checksum": "12ff3618658671871ba2358d300c9bc014e90c32"
+		},
+		{
+			"path": "client/views/register/register.html",
+			"checksum": "6f6a9f30c8dbeaf9c31335ab089db1bbe4aefacb"
+		},
+		{
+			"path": "client/views/register/register.js",
+			"checksum": "ffde23d9d657d642fc575a082eca518820a95265"
+		},
+		{
+			"path": "client/views/register/register_controller.js",
+			"checksum": "8e750fdc97f202c89ac042e33e5834b30d85fb49"
+		},
+		{
+			"path": "client/views/verify_email/verify_email.html",
+			"checksum": "db1771ff15f3af2c72830abeb2896158045d4f72"
+		},
+		{
+			"path": "client/views/verify_email/verify_email.js",
+			"checksum": "62d5ebc927a942911174e5ae1ed5616320ed0c64"
+		},
+		{
+			"path": "client/views/verify_email/verify_email_controller.js",
+			"checksum": "86f5c9336655d11a5d388bbd4973e7fc24e46644"
+		},
+		{
+			"path": "client/views/forgot_password/forgot_password.html",
+			"checksum": "d28a61ac325a7ee0fbdf8f805a11ffd9f488f219"
+		},
+		{
+			"path": "client/views/forgot_password/forgot_password.js",
+			"checksum": "fc7560f5782847c26b58f15f160aaa2e4c5646eb"
+		},
+		{
+			"path": "client/views/forgot_password/forgot_password_controller.js",
+			"checksum": "ba551d388f58731f999079653329747e3195446c"
+		},
+		{
+			"path": "client/views/reset_password/reset_password.html",
+			"checksum": "59b305ffe597317a5f904dd3321aa6ef0d82ba33"
+		},
+		{
+			"path": "client/views/reset_password/reset_password.js",
+			"checksum": "266da8ff02af1da2025807d0d10ca90f34abc6aa"
+		},
+		{
+			"path": "client/views/reset_password/reset_password_controller.js",
+			"checksum": "2135c4a7f8496142c1cbfb00bbe31c11559cc0e8"
+		},
+		{
+			"path": "client/views/home_private/home_private.html",
+			"checksum": "f578da20f68023625235a267dc1942479a05cc14"
+		},
+		{
+			"path": "client/views/home_private/home_private.js",
+			"checksum": "22a47643e16638da88d78ae6cedc06819e6b8c50"
+		},
+		{
+			"path": "client/views/home_private/home_private_controller.js",
+			"checksum": "de6b5d18d4e1968f2c735ff68b4fd7d0dbb321b0"
+		},
+		{
+			"path": "client/views/admin/admin.html",
+			"checksum": "84c24cb2f48aa06da66b9c50fc98570b076efbb2"
+		},
+		{
+			"path": "client/views/admin/admin.js",
+			"checksum": "f13550a4a045f79b72da1bc0570aad61a47a8e7a"
+		},
+		{
+			"path": "client/views/admin/admin_controller.js",
+			"checksum": "e24cf4553d7a23ef09b037f72a49cf6ba5fa1bb5"
+		},
+		{
+			"path": "client/views/admin/users/users.html",
+			"checksum": "b3e2874dd3833b2e0461486a4f2f1b5fbb1facad"
+		},
+		{
+			"path": "client/views/admin/users/users.js",
+			"checksum": "607c176aaf74b3af8aff0a9fe8c3a33a0a440cd8"
+		},
+		{
+			"path": "client/views/admin/users/users_controller.js",
+			"checksum": "0ebf27c29cebe4f39cd69955f8896db2e7e8c3b2"
+		},
+		{
+			"path": "client/views/admin/users/details/details.html",
+			"checksum": "fd30a75bb23098dc40ccb6099f8116b8518229cf"
+		},
+		{
+			"path": "client/views/admin/users/details/details.js",
+			"checksum": "ea2a14c6e7ebb41001fe4584d554a604316f2412"
+		},
+		{
+			"path": "client/views/admin/users/details/details_controller.js",
+			"checksum": "f6b5788ba43022986de8fee533dcadb79dbf6395"
+		},
+		{
+			"path": "client/views/admin/users/insert/insert.html",
+			"checksum": "25c10d7337d4e30bb62512957809ac5c9fdf8db9"
+		},
+		{
+			"path": "client/views/admin/users/insert/insert.js",
+			"checksum": "44fa1d070fa09badc1805cb215f50739e307bb79"
+		},
+		{
+			"path": "client/views/admin/users/insert/insert_controller.js",
+			"checksum": "699c372dc2fee76c38bb2b470d7d583d4df7ebcb"
+		},
+		{
+			"path": "client/views/admin/users/edit/edit.html",
+			"checksum": "e65debfa2329e3f02aaf78df4f34be9f28ae73fc"
+		},
+		{
+			"path": "client/views/admin/users/edit/edit.js",
+			"checksum": "7b632420a056dac009539f272c634938905f0386"
+		},
+		{
+			"path": "client/views/admin/users/edit/edit_controller.js",
+			"checksum": "39da99351d90fc0ecd60aefc186c01459c89cf65"
+		},
+		{
+			"path": "client/views/user_settings/user_settings.html",
+			"checksum": "b66575487b5619805f20728f1f80e96e8eef701d"
+		},
+		{
+			"path": "client/views/user_settings/user_settings.js",
+			"checksum": "af54981da1a1a6c1016a6960419b07ff41b10943"
+		},
+		{
+			"path": "client/views/user_settings/user_settings_controller.js",
+			"checksum": "7407febf3e9224c9ee45b2f07417aa26642e2c7b"
+		},
+		{
+			"path": "client/views/user_settings/profile/profile.html",
+			"checksum": "b7897a0075d25f89580b3401684cd3d067ec9ba0"
+		},
+		{
+			"path": "client/views/user_settings/profile/profile.js",
+			"checksum": "d558e3cb439b8bf4ba17e41ca2efbb32c2f636f2"
+		},
+		{
+			"path": "client/views/user_settings/profile/profile_controller.js",
+			"checksum": "f48717635d11e5d03b86f95a57ced57098517e8d"
+		},
+		{
+			"path": "client/views/user_settings/change_pass/change_pass.html",
+			"checksum": "33e7602afe9295992e2968e9e2f8efd93e3d761a"
+		},
+		{
+			"path": "client/views/user_settings/change_pass/change_pass.js",
+			"checksum": "0c551773e4aeafd9df6b886cbcd91db0da7f7432"
+		},
+		{
+			"path": "client/views/user_settings/change_pass/change_pass_controller.js",
+			"checksum": "bcb16c084a583d2853e3c68892207bdaca00dee5"
+		},
+		{
+			"path": "client/views/logout/logout.html",
+			"checksum": "ffde068f1a1cd15fdfee1b779579db44096d5975"
+		},
+		{
+			"path": "client/views/logout/logout.js",
+			"checksum": "39f0e9440d7fc5808462928c1f300227941c5837"
+		},
+		{
+			"path": "client/views/logout/logout_controller.js",
+			"checksum": "ee4540fdb88a92e2dca6e0476c262f56d2952445"
+		},
+		{
+			"path": "client/views/codes_page/codes_page.html",
+			"checksum": "e2fa955783ad649856671142079ef78d2cd58258"
+		},
+		{
+			"path": "client/views/codes_page/codes_page.js",
+			"checksum": "40d55c82b3fe63976efaeb51c7e142fd931138d2"
+		},
+		{
+			"path": "client/views/codes_page/codes_page_controller.js",
+			"checksum": "6d587839af1c87fc3484f8ab0a5f2e47c5128449"
+		},
+		{
+			"path": "client/views/codes_page/insert/insert.html",
+			"checksum": "67ee4d83338103bd495202e08e7bf4a982b26842"
+		},
+		{
+			"path": "client/views/codes_page/insert/insert.js",
+			"checksum": "741ea014fa0f60ae76ce0b32f64d9a8e2aa46992"
+		},
+		{
+			"path": "client/views/codes_page/insert/insert_controller.js",
+			"checksum": "33ad2297eb6ddaa6db43f6d04b5892354fdf39bd"
+		},
+		{
+			"path": "client/views/codes_page/update/update.html",
+			"checksum": "da83837c057181a554c665e4b13b5111f42c8f58"
+		},
+		{
+			"path": "client/views/codes_page/update/update.js",
+			"checksum": "a9908a49c8953671bedcece4fd0d9850d5a37b1b"
+		},
+		{
+			"path": "client/views/codes_page/update/update_controller.js",
+			"checksum": "e45aad654e3343ecdddc732f7b3dc49ca7029ec2"
+		},
+		{
+			"path": "client/views/codes_page/details/details.html",
+			"checksum": "d3ee4c22485e9deb175ead4361b4e76f354ee3de"
+		},
+		{
+			"path": "client/views/codes_page/details/details.js",
+			"checksum": "0b03dc00140f39d023fb52dda6be8afc8851b39e"
+		},
+		{
+			"path": "client/views/codes_page/details/details_controller.js",
+			"checksum": "b6fbd75e92cc47eb9d5d9fdf6a42d7f83f021f44"
+		},
+		{
+			"path": "client/views/payments_page/payments_page.html",
+			"checksum": "5ac15d1ae2459539b4ca467db9077db24c72a928"
+		},
+		{
+			"path": "client/views/payments_page/payments_page.js",
+			"checksum": "976ee0ce7466bc12831c9b582264967e4771bd25"
+		},
+		{
+			"path": "client/views/payments_page/payments_page_controller.js",
+			"checksum": "dbabe2879381b63a4b344c29905a5270c10de3bd"
+		},
+		{
+			"path": "client/views/payments_page/insert/insert.html",
+			"checksum": "5ed2e2216f91a610de3627e748670d19896ee70f"
+		},
+		{
+			"path": "client/views/payments_page/insert/insert.js",
+			"checksum": "a6832cced3723f0d4972fb7d3792dab63feeb6a2"
+		},
+		{
+			"path": "client/views/payments_page/insert/insert_controller.js",
+			"checksum": "577a4979b067c8f029219755259606eae5e7836f"
+		},
+		{
+			"path": "client/views/payments_page/update/update.html",
+			"checksum": "a37dcf6aa4779f2998597af2de2d04a46157318e"
+		},
+		{
+			"path": "client/views/payments_page/update/update.js",
+			"checksum": "ce6624eedb92ac0c45905df408ac02a8c4dd63c8"
+		},
+		{
+			"path": "client/views/payments_page/update/update_controller.js",
+			"checksum": "d0ff746fac3f7c6bb6832f7c34e2bc8b7bf1a9bc"
+		},
+		{
+			"path": "client/views/payments_page/details/details.html",
+			"checksum": "8f04ca31a7632b9a202684577a4d71673d8c9bfd"
+		},
+		{
+			"path": "client/views/payments_page/details/details.js",
+			"checksum": "5c975b74b2ab233a20f6e61b37daf4c45017b188"
+		},
+		{
+			"path": "client/views/payments_page/details/details_controller.js",
+			"checksum": "3c6b93c8f1b1646942aa423a89fbef3690f4cf7e"
+		},
+		{
+			"path": "client/views/activations_page/activations_page.html",
+			"checksum": "1ff7528fb41e070c1252c33bca5f4fd5127bf2e4"
+		},
+		{
+			"path": "client/views/activations_page/activations_page.js",
+			"checksum": "d3714dd329c8594f63633fbaf87393d50f1d1ce1"
+		},
+		{
+			"path": "client/views/activations_page/activations_page_controller.js",
+			"checksum": "c2fbca83eb4af4bdbee65d9b230ac206babbc3c7"
+		},
+		{
+			"path": "client/views/activations_page/insert/insert.html",
+			"checksum": "e4a13f43bec44f5b7c1d4c6919ea5210b221510a"
+		},
+		{
+			"path": "client/views/activations_page/insert/insert.js",
+			"checksum": "644ec858a03dbb165c1459a925e329802cc6264c"
+		},
+		{
+			"path": "client/views/activations_page/insert/insert_controller.js",
+			"checksum": "a04cf07de9c662d21a6b6d4e099c58c1f67059e0"
+		},
+		{
+			"path": "client/views/activations_page/update/update.html",
+			"checksum": "4b0d0e7689c77f1d3f06b2fc71bd984746180f00"
+		},
+		{
+			"path": "client/views/activations_page/update/update.js",
+			"checksum": "8c1bc77fabadd897c54882ad87e3c48c9f5caa89"
+		},
+		{
+			"path": "client/views/activations_page/update/update_controller.js",
+			"checksum": "ec2dd2e54e776218e8611f2cf668ed30bfa20ea5"
+		},
+		{
+			"path": "client/views/activations_page/details/details.html",
+			"checksum": "b112610e37b6e8e4d8aae47b1545d7018381861f"
+		},
+		{
+			"path": "client/views/activations_page/details/details.js",
+			"checksum": "1464d2a7307a0f08012a9dc1d573ef3a08bfe7c2"
+		},
+		{
+			"path": "client/views/activations_page/details/details_controller.js",
+			"checksum": "b8e9b8230c6c309c4bee6d2421fc823b96752e0a"
+		},
+		{
+			"path": "client/views/activations_map/activations_map.html",
+			"checksum": "7a7c894ad078390b66abf8e9c8ab1979382979c2"
+		},
+		{
+			"path": "client/views/activations_map/activations_map.js",
+			"checksum": "09a8f062e9dede8b151f27b8122533012178755a"
+		},
+		{
+			"path": "client/views/activations_map/activations_map_controller.js",
+			"checksum": "dcd20860447370eafa94a5ab730801eaa2dfae68"
+		},
+		{
+			"path": "client/views/blockchain/blockchain.html",
+			"checksum": "55a56074d5867d06efdf6571a4da64d18abefadc"
+		},
+		{
+			"path": "client/views/blockchain/blockchain.js",
+			"checksum": "fceaaa90475422bc62b0c1d026a614a0b31a999b"
+		},
+		{
+			"path": "client/views/blockchain/blockchain_controller.js",
+			"checksum": "7ba146fa4dfa4fa6cdf04c714a531011f4d278b7"
+		},
+		{
+			"path": "client/views/partners/partners.html",
+			"checksum": "dc0074097dc6d2d64333abbe7efb75d436797e7c"
+		},
+		{
+			"path": "client/views/partners/partners.js",
+			"checksum": "a5d123068f1dc6d51d2130e2c8a4ed5238cf764e"
+		},
+		{
+			"path": "client/views/partners/partners_controller.js",
+			"checksum": "9d30fc52434e9e2eb277b94860242a0033b6ee8e"
+		},
+		{
+			"path": "client/views/partners/insert/insert.html",
+			"checksum": "81704a4c6ec6aaede7eb34ca969015b9f913a89e"
+		},
+		{
+			"path": "client/views/partners/insert/insert.js",
+			"checksum": "822e24160ce4539d3cc3c450f12b7084a825c5ec"
+		},
+		{
+			"path": "client/views/partners/insert/insert_controller.js",
+			"checksum": "faa60d45995d453f10b538eb54a618283fdccff0"
+		},
+		{
+			"path": "client/views/partners/update/update.html",
+			"checksum": "a27e726e55f41ef90d0e3af4761d9a855ac4d9fd"
+		},
+		{
+			"path": "client/views/partners/update/update.js",
+			"checksum": "e04c06d62ff132333ec9bcf6e9d395dd514e6e07"
+		},
+		{
+			"path": "client/views/partners/update/update_controller.js",
+			"checksum": "2826f3a6c087e4dfec443bbfc9b5e2692d807918"
+		},
+		{
+			"path": "client/views/partners/details/details.html",
+			"checksum": "9a0dc57414f17627bfe7da0f3f04734336baec0f"
+		},
+		{
+			"path": "client/views/partners/details/details.js",
+			"checksum": "0aca2f9c2a06d7f7d68656242798feebf863e8f7"
+		},
+		{
+			"path": "client/views/partners/details/details_controller.js",
+			"checksum": "f9dc47ee6290e2f5b7a3d938ff2687acf6df57e4"
+		},
+		{
+			"path": "client/views/arc2_data_page/arc2_data_page.html",
+			"checksum": "f072789d0c7ad9c53910a0f05527822c3de9d336"
+		},
+		{
+			"path": "client/views/arc2_data_page/arc2_data_page.js",
+			"checksum": "db9e16b72694da467bcff15216d2f2fd1a0e5472"
+		},
+		{
+			"path": "client/views/arc2_data_page/arc2_data_page_controller.js",
+			"checksum": "17746bec5c3e759d8f27f6b4c3a3b6e928f1197f"
+		},
+		{
+			"path": "client/views/arc2_data_page/details/details.html",
+			"checksum": "6b63c86d49414f2710f0e81ae4ffa2493c961121"
+		},
+		{
+			"path": "client/views/arc2_data_page/details/details.js",
+			"checksum": "34d9e62cb0c3e86daf4752883e26362a6d620cd6"
+		},
+		{
+			"path": "client/views/arc2_data_page/details/details_controller.js",
+			"checksum": "7137b7c36622d0b4c83dd924c338c67b4784fe67"
+		},
+		{
+			"path": "client/views/policies_page/policies_page.html",
+			"checksum": "ff8fec02f715f29ea58a1465c0373eb2dd895f11"
+		},
+		{
+			"path": "client/views/policies_page/policies_page.js",
+			"checksum": "ba68d18706d9395b84632ce43da0de87c02cbb20"
+		},
+		{
+			"path": "client/views/policies_page/policies_page_controller.js",
+			"checksum": "4c2937081a0416559e2c4548930e05beb11d1199"
+		},
+		{
+			"path": "client/views/policies_page/insert/insert.html",
+			"checksum": "02af2948b4db61d107fcbe9f56c8ca448373d20b"
+		},
+		{
+			"path": "client/views/policies_page/insert/insert.js",
+			"checksum": "9789d281895c37a73dead9d5433660beb558ba96"
+		},
+		{
+			"path": "client/views/policies_page/insert/insert_controller.js",
+			"checksum": "4dea3ed0d963c1f74dbf86dd88f9f0e763fd3812"
+		},
+		{
+			"path": "client/views/policies_page/update/update.html",
+			"checksum": "5651e89ddc270d6cc3db6eccb8100a785fe4d2ee"
+		},
+		{
+			"path": "client/views/policies_page/update/update.js",
+			"checksum": "9abed75d759472dfe032c0c25c99b8b5cddd255b"
+		},
+		{
+			"path": "client/views/policies_page/update/update_controller.js",
+			"checksum": "fd8b2aecca62c6e8584ad5cf8d54c3cac8e1a595"
+		},
+		{
+			"path": "client/views/policies_page/details/details.html",
+			"checksum": "b671f056e121a7bc626245b0089e3616ca924153"
+		},
+		{
+			"path": "client/views/policies_page/details/details.js",
+			"checksum": "a9bcdacb355c3aeed3d6e165a761866d056d118f"
+		},
+		{
+			"path": "client/views/policies_page/details/details_controller.js",
+			"checksum": "05c03f098a68f7176bf9a3f59ceb15863444febd"
+		},
+		{
+			"path": "client/views/policies_page/partner_policies_details/partner_policies_details.html",
+			"checksum": "978aa63a821caadac057d38681de4341fa5a0401"
+		},
+		{
+			"path": "client/views/policies_page/partner_policies_details/partner_policies_details.js",
+			"checksum": "a3697e4880290357182a660645f0e7b1dee2f58a"
+		},
+		{
+			"path": "client/views/policies_page/partner_policies_details/partner_policies_details_controller.js",
+			"checksum": "f4d305db2be14ef14a439b61263eb98a021e3007"
+		},
+		{
+			"path": "client/views/audit_page/audit_page.html",
+			"checksum": "17769e5e0afebbb73c247831a8861821bcb55e71"
+		},
+		{
+			"path": "client/views/audit_page/audit_page.js",
+			"checksum": "21be981cc2a87458fe8dc62e0a37dd2d80b5a666"
+		},
+		{
+			"path": "client/views/audit_page/audit_page_controller.js",
+			"checksum": "a7f6000f4af8446331385ac372672d2c5b1bc43e"
+		},
+		{
+			"path": "client/views/contract_review_page/contract_review_page.html",
+			"checksum": "5128db4e07d74e4bd34bf8d5f5da5c18da930661"
+		},
+		{
+			"path": "client/views/contract_review_page/contract_review_page.js",
+			"checksum": "2c26832655758e1b6679c60a950f66831cd5d495"
+		},
+		{
+			"path": "client/views/contract_review_page/contract_review_page_controller.js",
+			"checksum": "bd756df9afb93fcfc74d6c1542c3947c7e424084"
+		},
+		{
+			"path": "client/views/contract_review_page/contract_review_detail/contract_review_detail.html",
+			"checksum": "6479c8ec8433ecbdf9dddb82f14bd89bcb1bcbbf"
+		},
+		{
+			"path": "client/views/contract_review_page/contract_review_detail/contract_review_detail.js",
+			"checksum": "51936c64439dc961b9b283d734bb85507d849809"
+		},
+		{
+			"path": "client/views/contract_review_page/contract_review_detail/contract_review_detail_controller.js",
+			"checksum": "8f09c03b3c54fd1c0770b15750bc26433b72722e"
+		},
+		{
+			"path": "client/views/payouts/payouts.html",
+			"checksum": "f1a4ea9054b86e04f2dafba7b7628a9ed2d8eccd"
+		},
+		{
+			"path": "client/views/payouts/payouts.js",
+			"checksum": "559a6b7492d5732412364780d76a9eabd480f13f"
+		},
+		{
+			"path": "client/views/payouts/payouts_controller.js",
+			"checksum": "f7a8f81811eabde24e5d5d2360f3df27ecb17873"
+		},
+		{
+			"path": "client/views/payouts/insert/insert.html",
+			"checksum": "1511a3a05925423c760f964e3c994d4e50bd602f"
+		},
+		{
+			"path": "client/views/payouts/insert/insert.js",
+			"checksum": "b75975ecc552825550a6bf0123af6cd42d93850d"
+		},
+		{
+			"path": "client/views/payouts/insert/insert_controller.js",
+			"checksum": "ea7613a40a4b783af352574096fb96d3407391d3"
+		},
+		{
+			"path": "client/views/payouts/update/update.html",
+			"checksum": "c0360e16bc6e0db5182bf310099d9c662142c255"
+		},
+		{
+			"path": "client/views/payouts/update/update.js",
+			"checksum": "c172e90abfc22e9d736a31241cca10ab29f76a5d"
+		},
+		{
+			"path": "client/views/payouts/update/update_controller.js",
+			"checksum": "6f0af08b42152e203108ccad2924558a865d6ff7"
+		},
+		{
+			"path": "client/views/payouts/details/details.html",
+			"checksum": "29ec595737547522461da59a0790b3db0bd4c845"
+		},
+		{
+			"path": "client/views/payouts/details/details.js",
+			"checksum": "db69950cc5ba5a8f31aa8e3a7fd97715062700f2"
+		},
+		{
+			"path": "client/views/payouts/details/details_controller.js",
+			"checksum": "4e88b7f3f10a66daefbe84228168213c1ecd3cd6"
+		},
+		{
+			"path": "client/views/payouts_demo/payouts_demo.html",
+			"checksum": "6d4548efce900089ff56fdfabffef318ab203224"
+		},
+		{
+			"path": "client/views/payouts_demo/payouts_demo.js",
+			"checksum": "39a64859bef8edabb0ace91273b1aba4fa6de7a7"
+		},
+		{
+			"path": "client/views/payouts_demo/payouts_demo_controller.js",
+			"checksum": "5fae1e55384ad269b95189c61f46de07b2061906"
+		},
+		{
+			"path": "client/views/payouts_demo/insert/insert.html",
+			"checksum": "15b96523406c7aaa6230fed0420993f581c64e9e"
+		},
+		{
+			"path": "client/views/payouts_demo/insert/insert.js",
+			"checksum": "1d2fd4dad0a52bc826505898ba8cdd34bb8586da"
+		},
+		{
+			"path": "client/views/payouts_demo/insert/insert_controller.js",
+			"checksum": "11d773036b6005de215db79bf30aa7015a0316fe"
+		},
+		{
+			"path": "client/views/payouts_demo/update/update.html",
+			"checksum": "de2e0c069ec6cdb66aaadfa536ba2ff3e2b06ef6"
+		},
+		{
+			"path": "client/views/payouts_demo/update/update.js",
+			"checksum": "bc4b66f57c59b025ec079d54a42e9c6912e8fc6c"
+		},
+		{
+			"path": "client/views/payouts_demo/update/update_controller.js",
+			"checksum": "a494c7e949104a32babf33a315049d92c7950010"
+		},
+		{
+			"path": "client/views/payouts_demo/details/details.html",
+			"checksum": "ec1bcc0c0fbbcc0605872b19b8dd725074b62a7e"
+		},
+		{
+			"path": "client/views/payouts_demo/details/details.js",
+			"checksum": "7c79a0b8a092f876452ee7fe9fa08cebde35a962"
+		},
+		{
+			"path": "client/views/payouts_demo/details/details_controller.js",
+			"checksum": "ff180d2af016d7f8388e511af1233f5bfd211c7a"
+		},
+		{
+			"path": "client/views/group_policies/group_policies.html",
+			"checksum": "707e17d4a32026c8818763d3908cc83154f1e75f"
+		},
+		{
+			"path": "client/views/group_policies/group_policies.js",
+			"checksum": "b1b50f8cdcc8555439380da46c6117bc4fbc7b4c"
+		},
+		{
+			"path": "client/views/group_policies/group_policies_controller.js",
+			"checksum": "d99f3071718968a460fae75d07270966cda46095"
+		},
+		{
+			"path": "client/views/group_policies/details/details.html",
+			"checksum": "2c8b0fb89b7513931ee971ea55843df557c8162e"
+		},
+		{
+			"path": "client/views/group_policies/details/details.js",
+			"checksum": "558be938807ae51e176ec67ff2385f9b8df80776"
+		},
+		{
+			"path": "client/views/group_policies/details/details_controller.js",
+			"checksum": "444786228cc2276a161fc4ad3416b41f6347a0ee"
+		},
+		{
+			"path": "server/publish/users.js",
+			"checksum": "16d198ea716570d6a64af8fe4fe08697d13e4205"
+		},
+		{
+			"path": "both/collections/partners.js",
+			"checksum": "14a48696073788fef101873c23ddfdd4fa0bfc9f"
+		},
+		{
+			"path": "server/methods/partners.js",
+			"checksum": "86b3ceebf48f648d4f6bac24d38dcfc83ea156da"
+		},
+		{
+			"path": "server/collections/partners.js",
+			"checksum": "859a167c3a473e9368d1a16ec624b5fa07168f44"
+		},
+		{
+			"path": "server/publish/partners.js",
+			"checksum": "aa81ea8d7c14cfbc69b98f16920b2afffb59e63f"
+		},
+		{
+			"path": "both/collections/policies.js",
+			"checksum": "b204a25de80733efa43ef5900989df6719d9d153"
+		},
+		{
+			"path": "server/methods/policies.js",
+			"checksum": "0112e0ee3db9bc8eed71f636eb0c744bb426e594"
+		},
+		{
+			"path": "server/collections/policies.js",
+			"checksum": "9254f55fddb563cec1bcad527514773a561785ce"
+		},
+		{
+			"path": "server/publish/policies.js",
+			"checksum": "75106dc8d16600cf05f935c9533b363eb9d6077d"
+		},
+		{
+			"path": "both/collections/policy_stages.js",
+			"checksum": "193d42b4eda85842df3238139e99ba92829d8e42"
+		},
+		{
+			"path": "server/methods/policy_stages.js",
+			"checksum": "62ee727d005327ce33738778c984cd4866958e78"
+		},
+		{
+			"path": "server/collections/policy_stages.js",
+			"checksum": "606e55e9a0ed0bc24c5657c4b3abaf7a08d7250e"
+		},
+		{
+			"path": "server/publish/policy_stages.js",
+			"checksum": "da39a3ee5e6b4b0d3255bfef95601890afd80709"
+		},
+		{
+			"path": "both/collections/arc2_data.js",
+			"checksum": "af1f4b89af5d621f3ea99aba6d45bfbae30434c1"
+		},
+		{
+			"path": "server/methods/arc2_data.js",
+			"checksum": "df63bb9aae5950ff48c34534f20879ae565ee091"
+		},
+		{
+			"path": "server/collections/arc2_data.js",
+			"checksum": "ee4209ff6f3b15873efafb46bc8368ba534a3ba4"
+		},
+		{
+			"path": "server/publish/arc2_data.js",
+			"checksum": "939ad3a04022c54b4220682412bb5ec036996bf5"
+		},
+		{
+			"path": "both/collections/codes.js",
+			"checksum": "297a8cdd1cdf1f393289aa0f88355eb8503a21ab"
+		},
+		{
+			"path": "server/methods/codes.js",
+			"checksum": "6eb5061913aaddfe2ac932c6d42ca6b177b9005e"
+		},
+		{
+			"path": "server/collections/codes.js",
+			"checksum": "dc47d99e0ff38afb33108d3af7d0c734ed88b4b6"
+		},
+		{
+			"path": "server/publish/codes.js",
+			"checksum": "c9f3d66b47f6006ad540a2c129f28fc4ec299dda"
+		},
+		{
+			"path": "both/collections/payments.js",
+			"checksum": "5cccb362cef33173b690f371e1207501a384025e"
+		},
+		{
+			"path": "server/methods/payments.js",
+			"checksum": "cb0a07b32fa486aa4a0d584d1d7328212d898c07"
+		},
+		{
+			"path": "server/collections/payments.js",
+			"checksum": "a5f82c50f16967d1b2b9e0eace4b8e0f6b8e5b1e"
+		},
+		{
+			"path": "server/publish/payments.js",
+			"checksum": "b10a03c247df29ae7ce5ffe3248dffde5ff65cc1"
+		},
+		{
+			"path": "both/collections/activations.js",
+			"checksum": "4155997afcfd2cc7278f634ff409f4eba2214c97"
+		},
+		{
+			"path": "server/methods/activations.js",
+			"checksum": "06a31dc346b1ffa9c34d608173e442a9cfaef063"
+		},
+		{
+			"path": "server/collections/activations.js",
+			"checksum": "680bafe62a32fb81da9b8c1c8e2c673a57b3fb8d"
+		},
+		{
+			"path": "server/publish/activations.js",
+			"checksum": "40c16a46d32353663251bbd1a828b76b4831a537"
+		},
+		{
+			"path": "both/collections/audit_trail.js",
+			"checksum": "b4a0197df428362c3ab9b266eacf1cf19f7d6b42"
+		},
+		{
+			"path": "server/methods/audit_trail.js",
+			"checksum": "c1ce11f0a53da133a16da20395629886583f967a"
+		},
+		{
+			"path": "server/collections/audit_trail.js",
+			"checksum": "5d814182874574119053590e44f152317bafc117"
+		},
+		{
+			"path": "server/publish/audit_trail.js",
+			"checksum": "693f9a623a1206a6cc4f42717ff8f76431b671ca"
+		},
+		{
+			"path": "both/collections/contract_review.js",
+			"checksum": "a8f85a352c8f8da014749f43e1dc14a4ea14bd7a"
+		},
+		{
+			"path": "server/methods/contract_review.js",
+			"checksum": "ecbc33dd8e8b353df7c92e29c1b3a5061f23c1b6"
+		},
+		{
+			"path": "server/collections/contract_review.js",
+			"checksum": "d6f7b48db1f92fd6cb7de6b491f227c60d12fbca"
+		},
+		{
+			"path": "server/publish/contract_review.js",
+			"checksum": "c7efd9e0214946386270b432a904279b73a64fb1"
+		},
+		{
+			"path": "both/collections/payouts.js",
+			"checksum": "2a48896f98a38edf014a2c95073a0e9246b5f971"
+		},
+		{
+			"path": "server/methods/payouts.js",
+			"checksum": "59a4ce1b4e5b5100387ffcbaf2df9119163aaf3a"
+		},
+		{
+			"path": "server/collections/payouts.js",
+			"checksum": "430142fd80535e0e87a6d909030788dcfd811f88"
+		},
+		{
+			"path": "server/publish/payouts.js",
+			"checksum": "bff736e24e8d7e9b40c68cd76a2ad27795f378f7"
+		},
+		{
+			"path": "both/collections/payouts_2.js",
+			"checksum": "afc67ab1d75737978a6c941934cb72089abfb09e"
+		},
+		{
+			"path": "server/methods/payouts_2.js",
+			"checksum": "88d8848fafe7e9cb3dba50e3ebaa7640d0636e05"
+		},
+		{
+			"path": "server/collections/payouts_2.js",
+			"checksum": "181a2677bd65b86fd2cb42f8904eebbf88c299bc"
+		},
+		{
+			"path": "server/publish/payouts_2.js",
+			"checksum": "3d30d3d38b14ed0005cf6f5122d4e06bee616d0c"
+		},
+		{
+			"path": "both/collections/group_policies.js",
+			"checksum": "0ce44d03590e8e370038c56659adfbe7036e12b7"
+		},
+		{
+			"path": "server/methods/group_policies.js",
+			"checksum": "8f0bee1bd2bacbfbc5ddcf8232d99891bf756f12"
+		},
+		{
+			"path": "server/collections/group_policies.js",
+			"checksum": "0313e93dcb4ad8e407b41acbb81f0e184c4afe3a"
+		},
+		{
+			"path": "server/publish/group_policies.js",
+			"checksum": "b5d267450fd28809d3d68082e5745c478d35deb0"
+		},
+		{
+			"path": "both/collections/crop_stages.js",
+			"checksum": "23559998622ecad28db29ee2fd3507431f380847"
+		},
+		{
+			"path": "server/methods/crop_stages.js",
+			"checksum": "44ff6dfa49c9ede4fc09e11cc21dfbc54c798bc5"
+		},
+		{
+			"path": "server/collections/crop_stages.js",
+			"checksum": "42527f130718dae2fe7a1a106821ca08543bce8b"
+		},
+		{
+			"path": "server/publish/crop_stages.js",
+			"checksum": "58b68fc3a8c8c266364e3baf8d68cb19cc82f132"
+		},
+		{
+			"path": "both/collections/i_policies.js",
+			"checksum": "7d1f33bdb5b3512989e8bf5962b10f55ef5ce5d0"
+		},
+		{
+			"path": "server/methods/i_policies.js",
+			"checksum": "cef52c291a41b3977f57772190ff3e83cd3963f3"
+		},
+		{
+			"path": "server/collections/i_policies.js",
+			"checksum": "f0574a94ff4cf69383b7ffc829859d70c22b72b8"
+		},
+		{
+			"path": "server/publish/i_policies.js",
+			"checksum": "4393d7342cc9f6b6b18da12c159d98cd2920f506"
+		},
+		{
+			"path": "client/styles/user_styles.less",
+			"checksum": "f08a3edc8a6d5d39aa62d62dfcfbe8ab3b608673"
+		},
+		{
+			"path": "both/routes/serverroutes.js",
+			"checksum": "7576c0e74936302199a9b33bba603694598051e0"
+		},
+		{
+			"path": "server/controllers/controller/apiController.js",
+			"checksum": "5de60db22fa9731bf28756e599662c908f56be1e"
+		},
+		{
+			"path": ".gitignore",
+			"checksum": "cd5b4f2eef4acae9f747b9eceb99a13aca1c9411"
+		},
+		{
+			"path": "server/controllers/ussd_integration.yaml",
+			"checksum": "9bf7f1c9f256bddcfa1882ddb9715416dd34513e"
+		},
+		{
+			"path": "client/lib/globals/globals.js",
+			"checksum": "0e8f51ca2968c63186b7bdb062f9bb8266a9af3d"
+		},
+		{
+			"path": "server/methods/methods.js",
+			"checksum": "4d16c4b8a8216cf804e04bfeb5c8c59f6f846ba2"
+		},
+		{
+			"path": "imports/server/methods/group-policy-reader.js",
+			"checksum": "8f417fedf9812d54ae138bb7dfeb896b8b42d80b"
+		},
+		{
+			"path": "client/lib/helpers.js",
+			"checksum": "ddd25f1a97067497d8cacddb7a0da190040416b7"
+		},
+		{
+			"path": "server/startup.js",
+			"checksum": "8857879b13fea6685befe82ced8cc8a7474c9534"
+		},
+		{
+			"path": "client/styles/googlemaps.css",
+			"checksum": "88a8f98ac2f548fc4535758c2a5c6f39b8911775"
+		},
+		{
+			"path": "lib/string_utils.js",
+			"checksum": "6bf8f64bf32bd7aff71cbeeba23df9fb8282a12c"
+		},
+		{
+			"path": "lib/case_utils.js",
+			"checksum": "552ee22b40c83544230a1132b3ee8e875270ec2a"
+		},
+		{
+			"path": "lib/object_utils.js",
+			"checksum": "c38a96268fd5b24afe76bf9976f62292798308c0"
+		},
+		{
+			"path": "lib/date_utils.js",
+			"checksum": "87ed4560414836020a5c3e45839200f355c1b649"
+		},
+		{
+			"path": "lib/database_utils.js",
+			"checksum": "144794067567b3eac48752c4fb2a81a0d6273800"
+		},
+		{
+			"path": "lib/adjacency_list_utils.js",
+			"checksum": "797a04eabb2d7b9ab471944ff7e03be96291123b"
+		},
+		{
+			"path": "lib/api_utils.js",
+			"checksum": "2f3f9977bffc90c22922059b80bf3650cc98a358"
+		},
+		{
+			"path": "client/lib/http_utils.js",
+			"checksum": "740095219b687a460a789da9ab9ef4d64a111b9c"
+		},
+		{
+			"path": "client/lib/router_utils.js",
+			"checksum": "0d46da090113fb0a55b452c6ff65dfef7a9d28d5"
+		},
+		{
+			"path": "client/components/confirmation_dialog/confirmation_dialog.html",
+			"checksum": "27a5db15d1de639e2b1a2a480f136332084d2c5b"
+		},
+		{
+			"path": "client/components/confirmation_dialog/confirmation_dialog.js",
+			"checksum": "7ab46ff82b06a36fc2bdbe30e7bd164b660dfc1b"
+		},
+		{
+			"path": "client/components/input_dialog/input_dialog.html",
+			"checksum": "4717e6ebb273c655f5f6d5c133a5814f5deee6c1"
+		},
+		{
+			"path": "client/components/input_dialog/input_dialog.js",
+			"checksum": "62dce4c81f8955ca99e429737ae41eb8416bf632"
+		},
+		{
+			"path": "client/styles/framework/bootstrap3/js/bootstrap.js",
+			"checksum": "3b965a36a6b08854ad6eddedf85c5319fd392b4a"
+		},
+		{
+			"path": "client/styles/framework/bootstrap3/less/bootstrap.import.less",
+			"checksum": "124360ed236fa8144e1387b6910ef081c4611347"
+		},
+		{
+			"path": "client/styles/framework/bootstrap3/less/custom.import.less",
+			"checksum": "875909dfd0477ec6714b79cbec176e943405a186"
+		},
+		{
+			"path": "client/styles/framework/bootstrap3/less/bootstrap.mixins.import.less",
+			"checksum": "b53332a4c7dffc57aefda1db82b4e09258dad07a"
+		},
+		{
+			"path": "public/fonts/glyphicons-halflings-regular.ttf",
+			"checksum": "44bc1850f570972267b169ae18f1cb06b611ffa2"
+		},
+		{
+			"path": "public/fonts/glyphicons-halflings-regular.woff",
+			"checksum": "278e49a86e634da6f2a02f3b47dd9d2a8f26210f"
+		},
+		{
+			"path": "public/fonts/glyphicons-halflings-regular.svg",
+			"checksum": "de51a8494180a6db074af2dee2383f0a363c5b08"
+		},
+		{
+			"path": "public/fonts/glyphicons-halflings-regular.woff2",
+			"checksum": "ca35b697d99cae4d1b60f2d60fcd37771987eb07"
+		},
+		{
+			"path": "public/fonts/glyphicons-halflings-regular.eot",
+			"checksum": "86b6f62b7853e67d3e635f6512a5a5efc58ea3c3"
+		},
+		{
+			"path": "client/styles/framework/bootstrap3-plugins/bootstrap-tagsinput/bootstrap-tagsinput.css",
+			"checksum": "49937990ee001ae632d23d1e9bb71dc4460ac7c1"
+		},
+		{
+			"path": "client/styles/framework/bootstrap3-plugins/bootstrap-tagsinput/bootstrap-tagsinput.js",
+			"checksum": "6f25a97cb1bb9b8edcf0cb297eabfc9f94f1a80d"
+		},
+		{
+			"path": "client/styles/framework/bootstrap3-plugins/bootstrap-fileinput/fileinput_locale_hu.js",
+			"checksum": "500bfd774110b73e07e9f4e23a4cbf9c896fbcea"
+		},
+		{
+			"path": "client/styles/framework/bootstrap3-plugins/bootstrap-fileinput/fileinput_locale_sk.js",
+			"checksum": "1dc9d65243156006cf762ed85cdf36501c27f38a"
+		},
+		{
+			"path": "client/styles/framework/bootstrap3-plugins/bootstrap-fileinput/fileinput_locale_it.js",
+			"checksum": "09d41c11dadf15f197bd443f5ad01a68e3408bde"
+		},
+		{
+			"path": "client/styles/framework/bootstrap3-plugins/bootstrap-fileinput/fileinput_locale_LANG.js",
+			"checksum": "e80901eda8d09ee66e3375ddd6d7f7a53dbfcda8"
+		},
+		{
+			"path": "client/styles/framework/bootstrap3-plugins/bootstrap-fileinput/fileinput_locale_zh.js",
+			"checksum": "f477aede4974871fc0ba71d3ed4f90d8b9f1a74e"
+		},
+		{
+			"path": "client/styles/framework/bootstrap3-plugins/bootstrap-fileinput/fileinput.js",
+			"checksum": "b6c83cb478c232284b8b6cae90d0ec2840d93332"
+		},
+		{
+			"path": "client/styles/framework/bootstrap3-plugins/bootstrap-fileinput/fileinput_locale_ru.js",
+			"checksum": "4939e4b72d235b9a68602aba3501bd72bde77611"
+		},
+		{
+			"path": "client/styles/framework/bootstrap3-plugins/bootstrap-fileinput/fileinput_locale_uk.js",
+			"checksum": "f5f6b5052a111fa87a5da8608a5d137d4116e6c5"
+		},
+		{
+			"path": "client/styles/framework/bootstrap3-plugins/bootstrap-fileinput/fileinput.css",
+			"checksum": "30ba45c948bcb125cf0cb550b4a9d2f13ffcc710"
+		},
+		{
+			"path": "client/styles/framework/bootstrap3-plugins/bootstrap-fileinput/fileinput_locale_pt.js",
+			"checksum": "f1d3b0c83a6a10b6e1cd7b8f523a98a7a51720ac"
+		},
+		{
+			"path": "client/styles/framework/bootstrap3-plugins/bootstrap-fileinput/fileinput_locale_ro.js",
+			"checksum": "7fcbd870c67fbd4646b6b53c4e07f84ebaf6ebd1"
+		},
+		{
+			"path": "client/styles/framework/bootstrap3-plugins/bootstrap-fileinput/fileinput_locale_pt-BR.js",
+			"checksum": "8caeab2c4b40a90eba4412eb5a31c76405e5a04a"
+		},
+		{
+			"path": "client/styles/framework/bootstrap3-plugins/bootstrap-fileinput/fileinput_locale_tr.js",
+			"checksum": "25e2ea3f23c594180a3496f814ae907343de1add"
+		},
+		{
+			"path": "client/styles/framework/bootstrap3-plugins/bootstrap-fileinput/fileinput_locale_fr.js",
+			"checksum": "aea834881f99fe187153560b32011c2af7f56092"
+		},
+		{
+			"path": "client/styles/framework/bootstrap3-plugins/bootstrap-fileinput/fileinput_locale_el.js",
+			"checksum": "d00eebe17389c41dbdfdd5611573ba52169f16eb"
+		},
+		{
+			"path": "client/styles/framework/bootstrap3-plugins/bootstrap-fileinput/fileinput_locale_th.js",
+			"checksum": "05fec04f2b334bd579126eeb54321fbec516470f"
+		},
+		{
+			"path": "client/styles/framework/bootstrap3-plugins/bootstrap-fileinput/fileinput_locale_pl.js",
+			"checksum": "77ce969c9532dc4cda50d57bad7c8e8c9e792386"
+		},
+		{
+			"path": "client/styles/framework/bootstrap3-plugins/bootstrap-fileinput/fileinput_locale_nl.js",
+			"checksum": "106dfa775832df6830675c8927603a813063986c"
+		},
+		{
+			"path": "client/styles/framework/bootstrap3-plugins/bootstrap-fileinput/fileinput_locale_cz.js",
+			"checksum": "146a2a2bd0e89b62b775eee929907970e875ddf6"
+		},
+		{
+			"path": "client/styles/framework/bootstrap3-plugins/bootstrap-fileinput/fileinput_locale_sr.js",
+			"checksum": "50ac58590814ab9959e34d94a4b2bb8cf9be35b9"
+		},
+		{
+			"path": "client/styles/framework/bootstrap3-plugins/bootstrap-fileinput/fileinput_locale_de.js",
+			"checksum": "fcad7c9406cb7ab1959ee5a62825a62b905f34a2"
+		},
+		{
+			"path": "client/styles/framework/bootstrap3-plugins/bootstrap-fileinput/fileinput_locale_es.js",
+			"checksum": "6eb5775359ee3e6199962d05fb6a2ddf79426766"
+		},
+		{
+			"path": "client/lib/form_utils.js",
+			"checksum": "56e09ae4e997201875b47316576beb1e3d2d63b2"
+		},
+		{
+			"path": "settings.json",
+			"checksum": "26761ca46cca5ce08f47665f51e023fd685901f9"
+		}
+	],
+	"output_directories": [
+		"both/",
+		"both/collections/",
+		"both/joins/",
+		"both/lib/",
+		"both/routes/",
+		"client/",
+		"client/components/",
+		"client/components/confirmation_dialog/",
+		"client/components/input_dialog/",
+		"client/lib/",
+		"client/lib/globals/",
+		"client/styles/",
+		"client/styles/framework/",
+		"client/styles/framework/bootstrap3-plugins/bootstrap-fileinput/",
+		"client/styles/framework/bootstrap3-plugins/bootstrap-tagsinput/",
+		"client/styles/framework/bootstrap3/js/",
+		"client/styles/framework/bootstrap3/less/",
+		"client/styles/styles/",
+		"client/styles/styles/theme/",
+		"client/views/",
+		"client/views/activations_map/",
+		"client/views/activations_page/",
+		"client/views/activations_page/details/",
+		"client/views/activations_page/insert/",
+		"client/views/activations_page/update/",
+		"client/views/admin/",
+		"client/views/admin/users/",
+		"client/views/admin/users/details/",
+		"client/views/admin/users/edit/",
+		"client/views/admin/users/insert/",
+		"client/views/arc2_data_page/",
+		"client/views/arc2_data_page/details/",
+		"client/views/audit_page/",
+		"client/views/blockchain/",
+		"client/views/codes_page/",
+		"client/views/codes_page/details/",
+		"client/views/codes_page/insert/",
+		"client/views/codes_page/update/",
+		"client/views/contract_review_page/",
+		"client/views/contract_review_page/contract_review_detail/",
+		"client/views/forgot_password/",
+		"client/views/group_policies/",
+		"client/views/group_policies/details/",
+		"client/views/home_private/",
+		"client/views/home_public/",
+		"client/views/layout/",
+		"client/views/loading/",
+		"client/views/login/",
+		"client/views/logout/",
+		"client/views/not_found/",
+		"client/views/partners/",
+		"client/views/partners/details/",
+		"client/views/partners/insert/",
+		"client/views/partners/update/",
+		"client/views/payments_page/",
+		"client/views/payments_page/details/",
+		"client/views/payments_page/insert/",
+		"client/views/payments_page/update/",
+		"client/views/payouts/",
+		"client/views/payouts/details/",
+		"client/views/payouts/insert/",
+		"client/views/payouts/update/",
+		"client/views/payouts_demo/",
+		"client/views/payouts_demo/details/",
+		"client/views/payouts_demo/insert/",
+		"client/views/payouts_demo/update/",
+		"client/views/policies_page/",
+		"client/views/policies_page/details/",
+		"client/views/policies_page/insert/",
+		"client/views/policies_page/partner_policies_details/",
+		"client/views/policies_page/update/",
+		"client/views/register/",
+		"client/views/reset_password/",
+		"client/views/user_settings/",
+		"client/views/user_settings/change_pass/",
+		"client/views/user_settings/profile/",
+		"client/views/verify_email/",
+		"imports/",
+		"imports/server/methods/",
+		"lib/",
+		"packages/",
+		"private/",
+		"public/",
+		"public/fonts/",
+		"public/images/",
+		"server/",
+		"server/collections/",
+		"server/controllers/",
+		"server/controllers/controller/",
+		"server/lib/",
+		"server/methods/",
+		"server/publish/"
+	],
+	"packages": {
+		"meteor": [
+			"ostrio:files",
+			"dburles:google-maps",
+			"accounts-password",
+			"tmeasday:publish-counts",
+			"blaze-html-templates",
+			"accounts-base",
+			"http",
+			"email",
+			"spiderable",
+			"ejson",
+			"random",
+			"session",
+			"underscore",
+			"momentjs:moment",
+			"iron:router",
+			"fortawesome:fontawesome",
+			"matb33:collection-hooks",
+			"perak:user-roles",
+			"copleykj:livestamp",
+			"less",
+			"reactive-dict",
+			"mizzao:bootboxjs",
+			"perak:markdown",
+			"rajit:bootstrap3-datepicker"
+		],
+		"npm": [
+			"openapi-validator-middleware",
+			"ethers",
+			"fs-jetpack",
+			"minio",
+			"bcrypt"
+		],
+		"mrt": [
+		]
+	}
+}

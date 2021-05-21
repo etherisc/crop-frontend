@@ -1,0 +1,432 @@
+<template name="Arc2DataPageDetails">
+	<div class="page-container container" id="content">
+		<div class="row" id="title_row">
+			<div class="col-md-12">
+			</div>
+		</div>
+		{{> Arc2DataPageDetailsForm}}
+	</div>
+</template>
+
+<template name="Arc2DataPageDetailsForm">
+	<div id="arc2data-page-details-form" class="form-details">
+		<h2 id="component-title">
+			<a href="#" id="form-back-button" class="btn btn-default" title="back">
+				<span class="fa fa-chevron-left">
+				</span>
+			</a>
+			Arc2 Pixel Details
+		</h2>
+		<form role="form" class="form-horizontal">
+			{{#if errorMessage}}
+			<div class="alert alert-warning">
+				{{errorMessage}}
+			</div>
+			{{/if}}
+
+			{{#if infoMessage}}
+			<div class="alert alert-success">
+				{{infoMessage}}
+			</div>
+			{{/if}}
+			<div class="form-group  field-pixel">
+				<label for="pixel" class="col-sm-3 control-label">
+					Pixel
+				</label>
+				<div class="input-div col-sm-9">
+					<p class="form-control-static  control-field-pixel">
+						{{arc2row.pixel}}
+					</p>
+				</div>
+			</div>
+			<div class="form-group  field-pixel_date">
+				<label for="pixel_date" class="col-sm-3 control-label">
+					Date
+				</label>
+				<div class="input-div col-sm-9">
+					<p class="form-control-static  control-field-pixel_date">
+						{{arc2row.pixel_date}}
+					</p>
+				</div>
+			</div>
+			<div class="form-group  field-y1983">
+				<label for="Y1983" class="col-sm-3 control-label">
+					1983
+				</label>
+				<div class="input-div col-sm-9">
+					<p class="form-control-static  control-field-y1983">
+						{{arc2row.Y1983}}
+					</p>
+				</div>
+			</div>
+			<div class="form-group  field-y1984">
+				<label for="Y1984" class="col-sm-3 control-label">
+					1984
+				</label>
+				<div class="input-div col-sm-9">
+					<p class="form-control-static  control-field-y1984">
+						{{arc2row.Y1984}}
+					</p>
+				</div>
+			</div>
+			<div class="form-group  field-y1985">
+				<label for="Y1985" class="col-sm-3 control-label">
+					1985
+				</label>
+				<div class="input-div col-sm-9">
+					<p class="form-control-static  control-field-y1985">
+						{{arc2row.Y1985}}
+					</p>
+				</div>
+			</div>
+			<div class="form-group  field-y1986">
+				<label for="Y1986" class="col-sm-3 control-label">
+					1986
+				</label>
+				<div class="input-div col-sm-9">
+					<p class="form-control-static  control-field-y1986">
+						{{arc2row.Y1986}}
+					</p>
+				</div>
+			</div>
+			<div class="form-group  field-y1987">
+				<label for="Y1987" class="col-sm-3 control-label">
+					1987
+				</label>
+				<div class="input-div col-sm-9">
+					<p class="form-control-static  control-field-y1987">
+						{{arc2row.Y1987}}
+					</p>
+				</div>
+			</div>
+			<div class="form-group  field-y1988">
+				<label for="Y1988" class="col-sm-3 control-label">
+					1988
+				</label>
+				<div class="input-div col-sm-9">
+					<p class="form-control-static  control-field-y1988">
+						{{arc2row.Y1988}}
+					</p>
+				</div>
+			</div>
+			<div class="form-group  field-y1989">
+				<label for="Y1989" class="col-sm-3 control-label">
+					1989
+				</label>
+				<div class="input-div col-sm-9">
+					<p class="form-control-static  control-field-y1989">
+						{{arc2row.Y1989}}
+					</p>
+				</div>
+			</div>
+			<div class="form-group  field-y1990">
+				<label for="Y1990" class="col-sm-3 control-label">
+					1990
+				</label>
+				<div class="input-div col-sm-9">
+					<p class="form-control-static  control-field-y1990">
+						{{arc2row.Y1990}}
+					</p>
+				</div>
+			</div>
+			<div class="form-group  field-y1991">
+				<label for="Y1991" class="col-sm-3 control-label">
+					1991
+				</label>
+				<div class="input-div col-sm-9">
+					<p class="form-control-static  control-field-y1991">
+						{{arc2row.Y1991}}
+					</p>
+				</div>
+			</div>
+			<div class="form-group  field-y1992">
+				<label for="Y1992" class="col-sm-3 control-label">
+					1992
+				</label>
+				<div class="input-div col-sm-9">
+					<p class="form-control-static  control-field-y1992">
+						{{arc2row.Y1992}}
+					</p>
+				</div>
+			</div>
+			<div class="form-group  field-y1993">
+				<label for="Y1993" class="col-sm-3 control-label">
+					1993
+				</label>
+				<div class="input-div col-sm-9">
+					<p class="form-control-static  control-field-y1993">
+						{{arc2row.Y1993}}
+					</p>
+				</div>
+			</div>
+			<div class="form-group  field-y1994">
+				<label for="Y1994" class="col-sm-3 control-label">
+					1994
+				</label>
+				<div class="input-div col-sm-9">
+					<p class="form-control-static  control-field-y1994">
+						{{arc2row.Y1994}}
+					</p>
+				</div>
+			</div>
+			<div class="form-group  field-y1995">
+				<label for="Y1995" class="col-sm-3 control-label">
+					1995
+				</label>
+				<div class="input-div col-sm-9">
+					<p class="form-control-static  control-field-y1995">
+						{{arc2row.Y1995}}
+					</p>
+				</div>
+			</div>
+			<div class="form-group  field-y1996">
+				<label for="Y1996" class="col-sm-3 control-label">
+					1996
+				</label>
+				<div class="input-div col-sm-9">
+					<p class="form-control-static  control-field-y1996">
+						{{arc2row.Y1996}}
+					</p>
+				</div>
+			</div>
+			<div class="form-group  field-y1997">
+				<label for="Y1997" class="col-sm-3 control-label">
+					1997
+				</label>
+				<div class="input-div col-sm-9">
+					<p class="form-control-static  control-field-y1997">
+						{{arc2row.Y1997}}
+					</p>
+				</div>
+			</div>
+			<div class="form-group  field-y1998">
+				<label for="Y1998" class="col-sm-3 control-label">
+					1998
+				</label>
+				<div class="input-div col-sm-9">
+					<p class="form-control-static  control-field-y1998">
+						{{arc2row.Y1998}}
+					</p>
+				</div>
+			</div>
+			<div class="form-group  field-y1999">
+				<label for="Y1999" class="col-sm-3 control-label">
+					1999
+				</label>
+				<div class="input-div col-sm-9">
+					<p class="form-control-static  control-field-y1999">
+						{{arc2row.Y1999}}
+					</p>
+				</div>
+			</div>
+			<div class="form-group  field-y2000">
+				<label for="Y2000" class="col-sm-3 control-label">
+					2000
+				</label>
+				<div class="input-div col-sm-9">
+					<p class="form-control-static  control-field-y2000">
+						{{arc2row.Y2000}}
+					</p>
+				</div>
+			</div>
+			<div class="form-group  field-y2001">
+				<label for="Y2001" class="col-sm-3 control-label">
+					2001
+				</label>
+				<div class="input-div col-sm-9">
+					<p class="form-control-static  control-field-y2001">
+						{{arc2row.Y2001}}
+					</p>
+				</div>
+			</div>
+			<div class="form-group  field-y2002">
+				<label for="Y2002" class="col-sm-3 control-label">
+					2002
+				</label>
+				<div class="input-div col-sm-9">
+					<p class="form-control-static  control-field-y2002">
+						{{arc2row.Y2002}}
+					</p>
+				</div>
+			</div>
+			<div class="form-group  field-y2003">
+				<label for="Y2003" class="col-sm-3 control-label">
+					2003
+				</label>
+				<div class="input-div col-sm-9">
+					<p class="form-control-static  control-field-y2003">
+						{{arc2row.Y2003}}
+					</p>
+				</div>
+			</div>
+			<div class="form-group  field-y2004">
+				<label for="Y2004" class="col-sm-3 control-label">
+					2004
+				</label>
+				<div class="input-div col-sm-9">
+					<p class="form-control-static  control-field-y2004">
+						{{arc2row.Y2004}}
+					</p>
+				</div>
+			</div>
+			<div class="form-group  field-y2005">
+				<label for="Y2005" class="col-sm-3 control-label">
+					2005
+				</label>
+				<div class="input-div col-sm-9">
+					<p class="form-control-static  control-field-y2005">
+						{{arc2row.Y2005}}
+					</p>
+				</div>
+			</div>
+			<div class="form-group  field-y2006">
+				<label for="Y2006" class="col-sm-3 control-label">
+					2006
+				</label>
+				<div class="input-div col-sm-9">
+					<p class="form-control-static  control-field-y2006">
+						{{arc2row.Y2006}}
+					</p>
+				</div>
+			</div>
+			<div class="form-group  field-y2007">
+				<label for="Y2007" class="col-sm-3 control-label">
+					2007
+				</label>
+				<div class="input-div col-sm-9">
+					<p class="form-control-static  control-field-y2007">
+						{{arc2row.Y2007}}
+					</p>
+				</div>
+			</div>
+			<div class="form-group  field-y2008">
+				<label for="Y2008" class="col-sm-3 control-label">
+					2008
+				</label>
+				<div class="input-div col-sm-9">
+					<p class="form-control-static  control-field-y2008">
+						{{arc2row.Y2008}}
+					</p>
+				</div>
+			</div>
+			<div class="form-group  field-y2009">
+				<label for="Y2009" class="col-sm-3 control-label">
+					2009
+				</label>
+				<div class="input-div col-sm-9">
+					<p class="form-control-static  control-field-y2009">
+						{{arc2row.Y2009}}
+					</p>
+				</div>
+			</div>
+			<div class="form-group  field-y2010">
+				<label for="Y2010" class="col-sm-3 control-label">
+					2010
+				</label>
+				<div class="input-div col-sm-9">
+					<p class="form-control-static  control-field-y2010">
+						{{arc2row.Y2010}}
+					</p>
+				</div>
+			</div>
+			<div class="form-group  field-y2011">
+				<label for="Y2011" class="col-sm-3 control-label">
+					2011
+				</label>
+				<div class="input-div col-sm-9">
+					<p class="form-control-static  control-field-y2011">
+						{{arc2row.Y2011}}
+					</p>
+				</div>
+			</div>
+			<div class="form-group  field-y2012">
+				<label for="Y2012" class="col-sm-3 control-label">
+					2012
+				</label>
+				<div class="input-div col-sm-9">
+					<p class="form-control-static  control-field-y2012">
+						{{arc2row.Y2012}}
+					</p>
+				</div>
+			</div>
+			<div class="form-group  field-y2013">
+				<label for="Y2013" class="col-sm-3 control-label">
+					2013
+				</label>
+				<div class="input-div col-sm-9">
+					<p class="form-control-static  control-field-y2013">
+						{{arc2row.Y2013}}
+					</p>
+				</div>
+			</div>
+			<div class="form-group  field-y2014">
+				<label for="Y2014" class="col-sm-3 control-label">
+					2014
+				</label>
+				<div class="input-div col-sm-9">
+					<p class="form-control-static  control-field-y2014">
+						{{arc2row.Y2014}}
+					</p>
+				</div>
+			</div>
+			<div class="form-group  field-y2015">
+				<label for="Y2015" class="col-sm-3 control-label">
+					2015
+				</label>
+				<div class="input-div col-sm-9">
+					<p class="form-control-static  control-field-y2015">
+						{{arc2row.Y2015}}
+					</p>
+				</div>
+			</div>
+			<div class="form-group  field-y2016">
+				<label for="Y2016" class="col-sm-3 control-label">
+					2016
+				</label>
+				<div class="input-div col-sm-9">
+					<p class="form-control-static  control-field-y2016">
+						{{arc2row.Y2016}}
+					</p>
+				</div>
+			</div>
+			<div class="form-group  field-y2017">
+				<label for="Y2017" class="col-sm-3 control-label">
+					2017
+				</label>
+				<div class="input-div col-sm-9">
+					<p class="form-control-static  control-field-y2017">
+						{{arc2row.Y2017}}
+					</p>
+				</div>
+			</div>
+			<div class="form-group  field-y2018">
+				<label for="Y2018" class="col-sm-3 control-label">
+					2018
+				</label>
+				<div class="input-div col-sm-9">
+					<p class="form-control-static  control-field-y2018">
+						{{arc2row.Y2018}}
+					</p>
+				</div>
+			</div>
+			<div class="form-group  field-y2019">
+				<label for="Y2019" class="col-sm-3 control-label">
+					2019
+				</label>
+				<div class="input-div col-sm-9">
+					<p class="form-control-static  control-field-y2019">
+						{{arc2row.Y2019}}
+					</p>
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="submit-div col-sm-9 col-sm-offset-3">
+					<a href="#" id="form-close-button" class="btn btn-primary">
+						OK
+					</a>
+				</div>
+			</div>
+		</form>
+	</div>
+</template>
+

@@ -1,0 +1,110 @@
+<template name="AuditPage">
+	<div class="page-container container" id="content">
+		<div class="row" id="title_row">
+			<div class="col-md-12">
+			</div>
+		</div>
+		{{> AuditPageHeader}}{{> AuditPageAuditTrailView}}
+	</div>
+</template>
+
+<template name="AuditPageHeader">
+</template>
+
+<template name="AuditPageAuditTrailView">
+	<div id="audit-page-audit-trail-view" class="">
+		<h2 id="component-title">
+			Audit Trail
+		</h2>
+		<form id="dataview-controls" class="form-inline">
+			<div id="dataview-controls-search">
+				<div id="dataview-controls-search-group" class="input-group">
+					<input type="text" class="form-control" id="dataview-search-input" placeholder="Search" name="search" value="{{searchString}}" autofocus="autofocus">
+					<span class="input-group-btn">
+						<button type="button" id="dataview-search-button" class="btn btn-primary">
+							<span class="fa fa-search">
+							</span>
+						</button>
+					</span>
+				</div>
+			</div>
+		</form>
+		{{#if isNotEmpty}}
+		<div id="dataview-data">
+			{{#if viewAsTable}} {{> AuditPageAuditTrailViewTable}} {{/if}}
+		</div>
+		<nav aria-label="...">
+			<ul class="pager">
+				{{#if gotPrevPage}}
+				<li>
+					<a href="#" class="prev-page-link">
+						Previous page
+					</a>
+					&nbsp;
+				</li>
+				{{/if}}
+					{{#if gotNextPage}}
+				<li>
+					&nbsp;
+					<a href="#" class="next-page-link">
+						Next page
+					</a>
+				</li>
+				{{/if}}
+			</ul>
+		</nav>
+		{{else}}
+			{{#if isNotFound}}
+		<div class="alert alert-warning">
+			"{{searchString}}" not found.
+		</div>
+		{{else}}
+		<div class="alert alert-info">
+			Empty.
+		</div>
+		{{/if}}
+		{{/if}}
+	</div>
+</template>
+
+<template name="AuditPageAuditTrailViewTable">
+	<table id="dataview-table" class="table table-striped">
+		<thead id="dataview-table-header">
+			<tr id="dataview-table-header-row">
+				<th class="th-sortable" data-sort="type">
+					Type
+				</th>
+				<th class="th-sortable" data-sort="message">
+					Message
+				</th>
+				<th class="th-sortable" data-sort="user">
+					User
+				</th>
+				<th class="th-sortable" data-sort="hash">
+					Proof
+				</th>
+			</tr>
+		</thead>
+		<tbody id="dataview-table-items">
+			{{#each audit_trail_list_paged}} {{> AuditPageAuditTrailViewTableItems}} {{/each}}
+		</tbody>
+	</table>
+</template>
+
+<template name="AuditPageAuditTrailViewTableItems">
+	<tr id="dataview-table-items-row">
+		<td>
+			{{type}}
+		</td>
+		<td>
+			{{message}}
+		</td>
+		<td>
+			{{user}}
+		</td>
+		<td>
+			{{hash}}
+		</td>
+	</tr>
+</template>
+

@@ -1,0 +1,375 @@
+<template name="PoliciesPagePartnerPoliciesDetails">
+	<div class="page-container container" id="content">
+		<div class="row" id="title_row">
+			<div class="col-md-12">
+			</div>
+		</div>
+		{{> PoliciesPagePartnerPoliciesDetailsForm}}{{> PoliciesPagePartnerPoliciesDetailsCustomActions}}{{> PoliciesPagePartnerPoliciesDetailsPolicyPaymentsView}}{{> PoliciesPagePartnerPoliciesDetailsPolicyActivationsView}}
+	</div>
+</template>
+
+<template name="PoliciesPagePartnerPoliciesDetailsForm">
+	<div id="policies-page-partner-policies-details-form" class="">
+		<h2 id="component-title">
+			<a href="#" id="form-back-button" class="btn btn-default" title="back">
+				<span class="fa fa-chevron-left">
+				</span>
+			</a>
+			Policy
+		</h2>
+		<form role="form" class="form-horizontal">
+			{{#if errorMessage}}
+			<div class="alert alert-warning">
+				{{errorMessage}}
+			</div>
+			{{/if}}
+
+			{{#if infoMessage}}
+			<div class="alert alert-success">
+				{{infoMessage}}
+			</div>
+			{{/if}}
+			<div class="form-group  field-id">
+				<label for="id" class="col-sm-3 control-label">
+					Id
+				</label>
+				<div class="input-div col-sm-9">
+					<p class="form-control-static  control-field-id">
+						{{policy.id}}
+					</p>
+				</div>
+			</div>
+			<div class="form-group  field-site-table_id">
+				<label for="siteTable_id" class="col-sm-3 control-label">
+					Sitetable Id
+				</label>
+				<div class="input-div col-sm-9">
+					<p class="form-control-static  control-field-site-table_id">
+						{{policy.siteTable_id}}
+					</p>
+				</div>
+			</div>
+			<div class="form-group  field-policy-status_code">
+				<label for="policyStatus_code" class="col-sm-3 control-label">
+					Policy Status Code
+				</label>
+				<div class="input-div col-sm-9">
+					<p class="form-control-static  control-field-policy-status_code">
+						{{policy.policyStatus_code}}
+					</p>
+				</div>
+			</div>
+			<div class="form-group  field-start-date">
+				<label for="startDate" class="col-sm-3 control-label">
+					Start Date
+				</label>
+				<div class="input-div col-sm-9">
+					<p class="form-control-static  control-field-start-date">
+						{{formatDate policy.startDate ''}}
+					</p>
+				</div>
+			</div>
+			<div class="form-group  field-end-date">
+				<label for="endDate" class="col-sm-3 control-label">
+					End Date
+				</label>
+				<div class="input-div col-sm-9">
+					<p class="form-control-static  control-field-end-date">
+						{{formatDate policy.endDate ''}}
+					</p>
+				</div>
+			</div>
+			<div class="form-group  field-order_number">
+				<label for="order_number" class="col-sm-3 control-label">
+					Order Number
+				</label>
+				<div class="input-div col-sm-9">
+					<p class="form-control-static  control-field-order_number">
+						{{policy.order_number}}
+					</p>
+				</div>
+			</div>
+			<div class="form-group  field-mobile_num">
+				<label for="mobile_num" class="col-sm-3 control-label">
+					Mobile Phone
+				</label>
+				<div class="input-div col-sm-9">
+					<p class="form-control-static  control-field-mobile_num">
+						{{policy.mobile_num}}
+					</p>
+				</div>
+			</div>
+			<div class="form-group  field-is_signed">
+				<label for="is_signed" class="col-sm-3 control-label">
+					Notarized
+				</label>
+				<div class="input-div col-sm-9">
+					<p class="form-control-static  control-field-is_signed">
+						{{booleanToYesNo policy.is_signed}}
+					</p>
+				</div>
+			</div>
+			<div class="form-group  field-tx_hash">
+				<label for="tx_hash" class="col-sm-3 control-label">
+					Audit Trail
+				</label>
+				<div class="input-div col-sm-9">
+					<p class="form-control-static  control-field-tx_hash">
+						{{policy.tx_hash}}
+					</p>
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="submit-div col-sm-9 col-sm-offset-3">
+				</div>
+			</div>
+		</form>
+	</div>
+</template>
+
+<template name="PoliciesPagePartnerPoliciesDetailsCustomActions">
+	{{#if IsSigned}}
+	<button id="btn-notarize" class="btn btn-warning">
+		<span class="fa fa-pencil-square-o" aria-hidden="true">
+		</span>
+		Calculate Payouts
+	</button>
+	{{/if}}
+</template>
+
+<template name="PoliciesPagePartnerPoliciesDetailsPolicyPaymentsView">
+	<div id="policies-page-partner-policies-details-policy-payments-view" class="">
+		<h2 id="component-title">
+			Payments for policy
+		</h2>
+		<form id="dataview-controls" class="form-inline">
+			<div id="dataview-controls-search">
+				<div id="dataview-controls-search-group" class="input-group">
+					<input type="text" class="form-control" id="dataview-search-input" placeholder="Search" name="search" value="{{searchString}}" autofocus="autofocus">
+					<span class="input-group-btn">
+						<button type="button" id="dataview-search-button" class="btn btn-primary">
+							<span class="fa fa-search">
+							</span>
+						</button>
+					</span>
+				</div>
+			</div>
+		</form>
+		{{#if isNotEmpty}}
+		<div id="dataview-data">
+			{{#if viewAsTable}} {{> PoliciesPagePartnerPoliciesDetailsPolicyPaymentsViewTable}} {{/if}}
+		</div>
+		<nav aria-label="...">
+			<ul class="pager">
+				{{#if gotPrevPage}}
+				<li>
+					<a href="#" class="prev-page-link">
+						Previous page
+					</a>
+					&nbsp;
+				</li>
+				{{/if}}
+					{{#if gotNextPage}}
+				<li>
+					&nbsp;
+					<a href="#" class="next-page-link">
+						Next page
+					</a>
+				</li>
+				{{/if}}
+			</ul>
+		</nav>
+		{{else}}
+			{{#if isNotFound}}
+		<div class="alert alert-warning">
+			"{{searchString}}" not found.
+		</div>
+		{{else}}
+		<div class="alert alert-info">
+			Empty.
+		</div>
+		{{/if}}
+		{{/if}}
+	</div>
+</template>
+
+<template name="PoliciesPagePartnerPoliciesDetailsPolicyPaymentsViewTable">
+	<table id="dataview-table" class="table table-striped">
+		<thead id="dataview-table-header">
+			<tr id="dataview-table-header-row">
+				<th class="th-sortable" data-sort="mobile_num">
+					Mobile Num
+				</th>
+				<th class="th-sortable" data-sort="call_time">
+					Call Time
+				</th>
+				<th class="th-sortable" data-sort="mpesa_code">
+					Mpesa Code
+				</th>
+				<th class="th-sortable" data-sort="mpesa_name">
+					Mpesa Name
+				</th>
+				<th class="th-sortable" data-sort="order_number">
+					Order Number
+				</th>
+				<th class="th-sortable" data-sort="amount_paid">
+					Amount Paid
+				</th>
+			</tr>
+		</thead>
+		<tbody id="dataview-table-items">
+			{{#each filtered_payments_list_paged}} {{> PoliciesPagePartnerPoliciesDetailsPolicyPaymentsViewTableItems}} {{/each}}
+		</tbody>
+	</table>
+</template>
+
+<template name="PoliciesPagePartnerPoliciesDetailsPolicyPaymentsViewTableItems">
+	<tr id="dataview-table-items-row">
+		<td>
+			{{mobile_num}}
+		</td>
+		<td>
+			{{formatDate call_time 'YYYY-MMM-DD'}}
+		</td>
+		<td>
+			{{mpesa_code}}
+		</td>
+		<td>
+			{{mpesa_name}}
+		</td>
+		<td>
+			{{order_number}}
+		</td>
+		<td>
+			{{amount_paid}}
+		</td>
+	</tr>
+</template>
+
+<template name="PoliciesPagePartnerPoliciesDetailsPolicyActivationsView">
+	<div id="policies-page-partner-policies-details-policy-activations-view" class="">
+		<h2 id="component-title">
+			Activations for policy
+		</h2>
+		<form id="dataview-controls" class="form-inline">
+			<div id="dataview-controls-search">
+				<div id="dataview-controls-search-group" class="input-group">
+					<input type="text" class="form-control" id="dataview-search-input" placeholder="Search" name="search" value="{{searchString}}" autofocus="autofocus">
+					<span class="input-group-btn">
+						<button type="button" id="dataview-search-button" class="btn btn-primary">
+							<span class="fa fa-search">
+							</span>
+						</button>
+					</span>
+				</div>
+			</div>
+		</form>
+		{{#if isNotEmpty}}
+		<div id="dataview-data">
+			{{#if viewAsTable}} {{> PoliciesPagePartnerPoliciesDetailsPolicyActivationsViewTable}} {{/if}}
+		</div>
+		<nav aria-label="...">
+			<ul class="pager">
+				{{#if gotPrevPage}}
+				<li>
+					<a href="#" class="prev-page-link">
+						Previous page
+					</a>
+					&nbsp;
+				</li>
+				{{/if}}
+					{{#if gotNextPage}}
+				<li>
+					&nbsp;
+					<a href="#" class="next-page-link">
+						Next page
+					</a>
+				</li>
+				{{/if}}
+			</ul>
+		</nav>
+		{{else}}
+			{{#if isNotFound}}
+		<div class="alert alert-warning">
+			"{{searchString}}" not found.
+		</div>
+		{{else}}
+		<div class="alert alert-info">
+			Empty.
+		</div>
+		{{/if}}
+		{{/if}}
+	</div>
+</template>
+
+<template name="PoliciesPagePartnerPoliciesDetailsPolicyActivationsViewTable">
+	<table id="dataview-table" class="table table-striped">
+		<thead id="dataview-table-header">
+			<tr id="dataview-table-header-row">
+				<th class="th-sortable" data-sort="mobile_num">
+					Mobile Num
+				</th>
+				<th class="th-sortable" data-sort="call_time">
+					Call Time
+				</th>
+				<th class="th-sortable" data-sort="latitude">
+					Latitude
+				</th>
+				<th class="th-sortable" data-sort="longitude">
+					Longitude
+				</th>
+				<th class="th-sortable" data-sort="order_number">
+					Order Number
+				</th>
+				<th class="th-sortable" data-sort="activation_code">
+					Activation Code
+				</th>
+				<th class="th-sortable" data-sort="value_chain">
+					Value Chain
+				</th>
+				<th class="th-sortable" data-sort="amount_premium">
+					Amount Premium
+				</th>
+				<th class="th-sortable" data-sort="pixel">
+					Pixel
+				</th>
+			</tr>
+		</thead>
+		<tbody id="dataview-table-items">
+			{{#each filtered_activations_list_paged}} {{> PoliciesPagePartnerPoliciesDetailsPolicyActivationsViewTableItems}} {{/each}}
+		</tbody>
+	</table>
+</template>
+
+<template name="PoliciesPagePartnerPoliciesDetailsPolicyActivationsViewTableItems">
+	<tr id="dataview-table-items-row">
+		<td>
+			{{mobile_num}}
+		</td>
+		<td>
+			{{formatDate call_time 'YYYY-MMM-DD'}}
+		</td>
+		<td>
+			{{latitude}}
+		</td>
+		<td>
+			{{longitude}}
+		</td>
+		<td>
+			{{order_number}}
+		</td>
+		<td>
+			{{activation_code}}
+		</td>
+		<td>
+			{{value_chain}}
+		</td>
+		<td>
+			{{amount_premium}}
+		</td>
+		<td>
+			{{pixel}}
+		</td>
+	</tr>
+</template>
+

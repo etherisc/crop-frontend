@@ -1,0 +1,206 @@
+<template name="GroupPolicies">
+	<div class="page-container container" id="content">
+		<div class="row" id="title_row">
+			<div class="col-md-12">
+				<h2 id="page_title" class="pull-left">
+					Group Policies
+				</h2>
+			</div>
+		</div>
+		{{> GroupPoliciesGpAggregates}}{{> GroupPoliciesView}}
+	</div>
+</template>
+
+<template name="GroupPoliciesGpAggregates">
+	<div>
+		<form role="form" class="form-horizontal">
+			<div class="form-group">
+				<label for="gp_sum_insured" class="col-sm-3 control-label">
+					Sum Insured
+				</label>
+				<div class="input-div col-sm-9">
+					<p class="form-control-static  control-field-gp_sum_insured">
+						{{aggregates.sum_insured}}
+					</p>
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="gp_payments" class="col-sm-3 control-label">
+					Payments
+				</label>
+				<div class="input-div col-sm-9">
+					<p class="form-control-static  control-field-gp_payments">
+						{{aggregates.payments}}
+					</p>
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="gp_amount" class="col-sm-3 control-label">
+					Payout Amount
+				</label>
+				<div class="input-div col-sm-9">
+					<p class="form-control-static  control-field-gp_amount">
+						{{aggregates.amount}}
+					</p>
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="gp_policies" class="col-sm-3 control-label">
+					# Policies
+				</label>
+				<div class="input-div col-sm-9">
+					<p class="form-control-static  control-field-gp_policies">
+						{{aggregates.policies}}
+					</p>
+				</div>
+			</div>
+		</form>
+	</div>
+</template>
+
+<template name="GroupPoliciesView">
+	<div id="group-policies-view" class="">
+		<form id="dataview-controls" class="form-inline">
+			<div id="dataview-controls-search">
+				<div id="dataview-controls-search-group" class="input-group">
+					<input type="text" class="form-control" id="dataview-search-input" placeholder="Search" name="search" value="{{searchString}}" autofocus="autofocus">
+					<span class="input-group-btn">
+						<button type="button" id="dataview-search-button" class="btn btn-primary">
+							<span class="fa fa-search">
+							</span>
+						</button>
+					</span>
+				</div>
+				{{> GroupPoliciesViewCustomActions}}
+			</div>
+		</form>
+		{{#if isNotEmpty}}
+		<div id="dataview-data">
+			{{#if viewAsTable}} {{> GroupPoliciesViewTable}} {{/if}}
+		</div>
+		<nav aria-label="...">
+			<ul class="pager">
+				{{#if gotPrevPage}}
+				<li>
+					<a href="#" class="prev-page-link">
+						Previous page
+					</a>
+					&nbsp;
+				</li>
+				{{/if}}
+					{{#if gotNextPage}}
+				<li>
+					&nbsp;
+					<a href="#" class="next-page-link">
+						Next page
+					</a>
+				</li>
+				{{/if}}
+			</ul>
+		</nav>
+		{{else}}
+			{{#if isNotFound}}
+		<div class="alert alert-warning">
+			"{{searchString}}" not found.
+		</div>
+		{{else}}
+		<div class="alert alert-info">
+			Empty.
+		</div>
+		{{/if}}
+		{{/if}}
+	</div>
+</template>
+
+<template name="GroupPoliciesViewTable">
+	<table id="dataview-table" class="table table-striped table-hover">
+		<thead id="dataview-table-header">
+			<tr id="dataview-table-header-row">
+				<th class="th-sortable" data-sort="season">
+					Season
+				</th>
+				<th class="th-sortable" data-sort="value_chain">
+					Value Chain
+				</th>
+				<th class="th-sortable" data-sort="location">
+					Location
+				</th>
+				<th class="th-sortable" data-sort="date_begin">
+					Date Begin
+				</th>
+				<th class="th-sortable" data-sort="date_end">
+					Date End
+				</th>
+				<th class="th-sortable" data-sort="sw_date">
+					SW Date
+				</th>
+				<th class="th-sortable" data-sort="acc_payments">
+					Acc Payments
+				</th>
+				<th class="th-sortable" data-sort="acc_sum_insured">
+					Acc Sum Insured
+				</th>
+				<th class="th-sortable" data-sort="acc_amount">
+					Acc Amount
+				</th>
+				<th class="th-sortable" data-sort="acc_policies">
+					# Policies
+				</th>
+				<th class="th-sortable" data-sort="select_for_payout">
+					Payout?
+				</th>
+			</tr>
+		</thead>
+		<tbody id="dataview-table-items">
+			{{#each group_policy_list_paged}} {{> GroupPoliciesViewTableItems}} {{/each}}
+		</tbody>
+	</table>
+</template>
+
+<template name="GroupPoliciesViewTableItems">
+	<tr id="dataview-table-items-row">
+		<td>
+			{{season}}
+		</td>
+		<td>
+			{{value_chain}}
+		</td>
+		<td>
+			{{location}}
+		</td>
+		<td>
+			{{formatDate date_begin 'MMM-DD'}}
+		</td>
+		<td>
+			{{formatDate date_end 'MMM-DD'}}
+		</td>
+		<td>
+			{{formatDate sw_date 'MM-DD'}}
+		</td>
+		<td>
+			{{currency acc_payments this}}
+		</td>
+		<td>
+			{{currency acc_sum_insured this}}
+		</td>
+		<td>
+			{{currency acc_amount this}}
+		</td>
+		<td>
+			{{acc_policies}}
+		</td>
+		<td>
+			<input type="checkbox" class="inline-checkbox {{editButtonClass}}" data-field="select_for_payout" {{checked select_for_payout}}>
+		</td>
+	</tr>
+</template>
+
+<template name="GroupPoliciesViewCustomActions">
+	<button class="btn btn-warning" id="btn-payout">
+		Payout selected policies
+	</button>
+	<button class="btn btn-warning" id="btn-clear">
+		Deselect all
+	</button>
+</template>
+
