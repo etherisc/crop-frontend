@@ -58,8 +58,8 @@ GoogleMaps.ready('activationsMap', function(map) {
 		var position = overlayProjection.fromLatLngToDivPixel(this.pos);
 
 		console.log(this);
-		div.innerHTML = this.map.zoom >= 10 ? this._txt : '';
 		var div = this.div_;
+		div.innerHTML = this.map.zoom >= 10 ? this._txt : '';
 		div.style.left = position.x + 'px';
 		div.style.top = position.y + 'px';
 
