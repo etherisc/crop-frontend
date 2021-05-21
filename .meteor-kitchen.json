@@ -942,7 +942,7 @@
 		},
 		{
 			"path": "client/lib/globals/globals.js",
-			"checksum": "a28ac475d485a5fe5667792da283bd2a31156639"
+			"checksum": "3c64ccbedbd738ba0575e42b4f374e0b4aeafc57"
 		},
 		{
 			"path": "server/methods/methods.js",
