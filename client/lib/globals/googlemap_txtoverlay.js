@@ -33,7 +33,6 @@ GoogleMaps.ready('activationsMap', function(map) {
 		// Create the DIV and set some basic attributes.
 		var div = document.createElement('DIV');
 		div.className = this.cls_;
-
 		div.innerHTML = this.txt_;
 
 		// Set the overlay's div_ property to this DIV
@@ -58,7 +57,7 @@ GoogleMaps.ready('activationsMap', function(map) {
 		// We'll use these coordinates to resize the DIV.
 		var position = overlayProjection.fromLatLngToDivPixel(this.pos);
 
-
+		div.innerHTML = this.getZoom() >= 10 ? this._txt : '';
 		var div = this.div_;
 		div.style.left = position.x + 'px';
 		div.style.top = position.y + 'px';
