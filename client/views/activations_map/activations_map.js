@@ -31,24 +31,6 @@ Template.ActivationsMapMap.created = function() {
 			map
 		});
 
-		const rectangle = new google.maps.Rectangle({
-			strokeColor: "#FF0000",
-			strokeOpacity: 0.8,
-			strokeWeight: 1,
-			fillColor: "#FF0000",
-			fillOpacity: 0.35,
-			map,
-			bounds: {
-				north: 0.05,
-				south: -0.05,
-				east: 35.05,
-				west: 34.95,
-			},
-		});
-
-		const latlng = new google.maps.LatLng(0.0, 34.975);
-		const customTxt = "<div>123456</div>"
-		const txt = new TxtOverlay(latlng, customTxt, "gmlp-textbox", map)
 
 		//		var ne = bounds.getNorthEast(); // LatLng of the north-east corner
 		//		var sw = bounds.getSouthWest(); // LatLng of the south-west corder
@@ -59,15 +41,34 @@ Template.ActivationsMapMap.created = function() {
 			if (timer) window.clearTimeout(timer);
 			timer = window.setTimeout(() => {
 				var bounds = map.getBounds();
-
-
-
 				const {lat: ymin, lng: xmin} = bounds.getSouthWest();
 				const {lat: ymax, lng: xmax} = bounds.getNorthEast();
 
-
-				console.log(xmin(), ymin(), xmax(), ymax());
-				console.log('Pixel: ', latLng2Pixel({lat: xmin(), lng: ymin()}));
+				for (let lat = ymin; lat <= ymax; lat += 0.1) {
+					for (let lng = xmin(); lng <= xmax(); lng += 0.1) {
+						const pixel = `Pixel${latLng2Pixel({lat, lng})}`;
+						const activation = Activations.findOne({pixel});
+						if (activation) {
+							const rectangle = new google.maps.Rectangle({
+								strokeColor: "#FF0000",
+								strokeOpacity: 0.8,
+								strokeWeight: 1,
+								fillColor: "#FF0000",
+								fillOpacity: 0.35,
+								map,
+								bounds: {
+									north: lat + 0.05,
+									south: lat - 0.05,
+									east: lng + 0.05,
+									west: lng - 0.05,
+								},
+							});
+							const latlng = new google.maps.LatLng(lat, lng);
+							const customTxt = `<div>${pixel}</div>`;
+							const txt = new TxtOverlay(latlng, customTxt, "gmlp-textbox", map)
+						}
+					}
+				}
 			}, 1000);				
 		});
 
