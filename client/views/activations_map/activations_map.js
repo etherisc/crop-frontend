@@ -22,7 +22,7 @@ Template.ActivationsMap.helpers({
 	
 });
 
-import * from '/imports/client/googlemaps_textbox.js';
+import TxtOverlay from '/imports/client/googlemaps_textbox.js';
 
 
 Template.ActivationsMapMap.created = function() {
