@@ -39,8 +39,12 @@ Template.ActivationsMapMap.created = function() {
 					console.log('too many');
 					return;
 				}
-				for (let lat = ymin(); lat <= ymax(); lat += 0.1) {
-					for (let lng = xmin(); lng <= xmax(); lng += 0.1) {
+				const xmi = round(xmin(), 1);
+				const ymi = round(ymin(), 1);
+				const xma = round(xmax(), 1);
+				const yma = round(ymax(), 1);
+				for (let lat = ymi; lat <= yma; lat += 0.1) {
+					for (let lng = xmi; lng <= xma; lng += 0.1) {
 						const pixel = `Pixel${latLng2Pixel({lat, lng})}`;
 						console.log(pixel);
 						const activation = true; //Activations.findOne({pixel});
