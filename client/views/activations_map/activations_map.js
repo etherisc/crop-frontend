@@ -27,7 +27,7 @@ Template.ActivationsMapMap.created = function() {
 	GoogleMaps.ready('activationsMap', function({instance: map, options}) {
 
 		let timer;
-		let rectangles;
+		let rectangles = [];
 		map.addListener("bounds_changed", () => {
 
 			if (timer) window.clearTimeout(timer);
@@ -38,6 +38,7 @@ Template.ActivationsMapMap.created = function() {
 						rect.setMap(null);
 						rect = null;
 					});
+					rectangles = [];
 				}
 
 				var bounds = map.getBounds();
