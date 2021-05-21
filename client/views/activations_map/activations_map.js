@@ -63,10 +63,8 @@ Template.ActivationsMapMap.created = function() {
 					for (let lng = xmi; lng <= xma; lng += 1) {
 						const pixel = `Pixel${latLng2Pixel({lat: lat/10, lng: lng/10})}`;
 						///console.log(pixel, lat/10, lng/10);
-						const act = RecordCounts.findOne({pixel});
-						console.log(act);
-						const activations = 0;
-						const op = activations ? 0.35 : 0.0;
+						const { count } = RecordCounts.findOne({pixel});
+						const op = count ? 0.35 : 0.0;
 						//console.log('Found!');
 						const rectangle = new google.maps.Rectangle({
 							strokeColor: "#000000",
@@ -84,7 +82,7 @@ Template.ActivationsMapMap.created = function() {
 						});
 
 						const latlng = new google.maps.LatLng(lat/10, lng/10-0.04);
-						const customTxt = `<div>${pixel}${activations ? `<br />Act.: ${activations}`: ''}</div>`;
+						const customTxt = `<div>${pixel}${count ? `<br />Act.: ${count}`: ''}</div>`;
 						const txt = new TxtOverlay(latlng, customTxt, "gmlp-textbox", map)
 
 						rectangles.push({rectangle, txt});
