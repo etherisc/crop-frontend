@@ -61,8 +61,8 @@ Template.ActivationsMapMap.created = function() {
 			const {lat: ymax, lng: xmax} = bounds.getNorthEast();
 			
 			
-			console.log(xmin, ymin, xmax, ymax);
-			console.log('Pixel: ', latLng2Pixel(xmin, ymin));
+			console.log(xmin(), ymin(), xmax(), ymax());
+			console.log('Pixel: ', latLng2Pixel({lat: xmin(), lng: ymin()}));
 			
 		});
 
