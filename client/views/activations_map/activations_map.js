@@ -49,7 +49,7 @@ Template.ActivationsMapMap.created = function() {
 				const {lat: ymin, lng: xmin} = bounds.getSouthWest();
 				const {lat: ymax, lng: xmax} = bounds.getNorthEast();
 				//console.log(xmin(), ymin(), xmax(), ymax());
-				if (ymax() - ymin() > 2 || xmax() - xmin() > 2) {
+				if (ymax() - ymin() > 3 || xmax() - xmin() > 3) {
 					console.log('too many');
 					return;
 				}
