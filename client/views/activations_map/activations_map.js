@@ -36,7 +36,7 @@ Template.ActivationsMapMap.created = function() {
 				rectangles.forEach((rect) => {
 					rect.setMap(null);
 					rect = null;
-				}
+				});
 				var bounds = map.getBounds();
 				const {lat: ymin, lng: xmin} = bounds.getSouthWest();
 				const {lat: ymax, lng: xmax} = bounds.getNorthEast();
