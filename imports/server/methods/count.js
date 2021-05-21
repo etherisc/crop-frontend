@@ -1,7 +1,6 @@
 const countActivations = () => {
 
-	activations = Activations.find({}, {pixel: 1}).fetch();
-	console.log(activations);
+	activation = Activations.find({});
 
 	activations.forEach((activation) => {
 		const count = RecordCounts.findOne({pixel: activation.pixel});
