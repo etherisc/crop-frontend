@@ -32,12 +32,14 @@ Template.ActivationsMapMap.created = function() {
 
 			if (timer) window.clearTimeout(timer);
 			timer = window.setTimeout(() => {
-				
-				rectangles.forEach((rect) => {
-					rect.setMap(null);
-					rect = null;
-				});
-				
+
+				if (rectangles) {
+					rectangles.forEach((rect) => {
+						rect.setMap(null);
+						rect = null;
+					});
+				}
+
 				var bounds = map.getBounds();
 				const {lat: ymin, lng: xmin} = bounds.getSouthWest();
 				const {lat: ymax, lng: xmax} = bounds.getNorthEast();
@@ -46,12 +48,12 @@ Template.ActivationsMapMap.created = function() {
 					console.log('too many');
 					return;
 				}
-				
+
 				const xmi = Math.round(xmin() * 10);
 				const ymi = Math.round(ymin() * 10);
 				const xma = Math.round(xmax() * 10);
 				const yma = Math.round(ymax() * 10);
-				
+
 				for (let lat = ymi; lat <= yma; lat += 1) {
 					for (let lng = xmi; lng <= xma; lng += 1) {
 						const pixel = `Pixel${latLng2Pixel({lat: lat/10, lng: lng/10})}`;
@@ -73,12 +75,12 @@ Template.ActivationsMapMap.created = function() {
 									west: (lng/10) - 0.05,
 								},
 							});
-							
+
 							rectangles.push(rectangle);
 							const latlng = new google.maps.LatLng(lat, lng);
 							const customTxt = `<div>${pixel}</div>`;
 							const txt = new TxtOverlay(latlng, customTxt, "gmlp-textbox", map)
-						}
+							}
 					}
 				}
 			}, 1000);				
