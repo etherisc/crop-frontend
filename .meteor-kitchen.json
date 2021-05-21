@@ -986,7 +986,7 @@
 		},
 		{
 			"path": "imports/server/methods/count.js",
-			"checksum": "45640f98aef204cdfb0b1e916e8cea04e9a361ee"
+			"checksum": "3ad1b8f274cc56696f2ec35550e70251fa13a0a9"
 		},
 		{
 			"path": "lib/string_utils.js",

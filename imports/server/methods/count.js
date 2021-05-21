@@ -1,18 +1,15 @@
 const countActivations = () => {
 
-	activations = RecordCounts.find({});
-	console.log(activations);
+	activations = RecordCounts.find({}, {pixel: 1}).fetch();
 
-	while (activations.hasNext()) {
-		// load only one document from the resultset into memory
-		var activation = cursor.next();
+	activations.forEach((activation) => {
 		const count = Count.findOne({pixel: activation.pixel});
 		if (count) {
 			Count.update({pixel: activation.pixel}, {$set: {count: count.count + 1}});
 		} else {
 			Count.insert({pixel: activation.pixel, count: 1});
 		}
-	};
+	});
 	
 }; 
 
