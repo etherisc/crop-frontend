@@ -26,15 +26,6 @@ Template.ActivationsMapMap.created = function() {
 
 	GoogleMaps.ready('activationsMap', function({instance: map, options}) {
 
-		var marker = new google.maps.Marker({
-			position: options.center,
-			map
-		});
-
-
-		//		var ne = bounds.getNorthEast(); // LatLng of the north-east corner
-		//		var sw = bounds.getSouthWest(); // LatLng of the south-west corder
-
 		let timer;
 		map.addListener("bounds_changed", () => {
 
