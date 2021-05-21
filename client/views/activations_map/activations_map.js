@@ -62,7 +62,7 @@ Template.ActivationsMapMap.created = function() {
 				for (let lat = ymi; lat <= yma; lat += 1) {
 					for (let lng = xmi; lng <= xma; lng += 1) {
 						const pixel = `Pixel${latLng2Pixel({lat: lat/10, lng: lng/10})}`;
-						console.log(pixel, lat/10, lng/10);
+						///console.log(pixel, lat/10, lng/10);
 						const activation = Activations.findOne({pixel});
 						const bg = activation ? "#FF0000" : "";
 						//console.log('Found!');
