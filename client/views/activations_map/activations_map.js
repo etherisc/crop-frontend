@@ -63,7 +63,9 @@ Template.ActivationsMapMap.created = function() {
 					for (let lng = xmi; lng <= xma; lng += 1) {
 						const pixel = `Pixel${latLng2Pixel({lat: lat/10, lng: lng/10})}`;
 						///console.log(pixel, lat/10, lng/10);
-						const { activations } = RecordCounts.findOne({pixel});
+						const act = RecordCounts.findOne({pixel});
+						console.log(act);
+						const activations = 0;
 						const op = activations ? 0.35 : 0.0;
 						//console.log('Found!');
 						const rectangle = new google.maps.Rectangle({
