@@ -25,7 +25,7 @@ Template.ActivationsMap.helpers({
 Template.ActivationsMapMap.created = function() {
 
 	GoogleMaps.ready('activationsMap', function({instance: map, options}) {
-		
+
 		var marker = new google.maps.Marker({
 			position: options.center,
 			map
@@ -50,13 +50,17 @@ Template.ActivationsMapMap.created = function() {
 		const customTxt = "<div>123456</div>"
 		const txt = new TxtOverlay(latlng, customTxt, "gmlp-textbox", map)
 
-		var bounds = map.getBounds();
-		console.log(bounds);
-//		var ne = bounds.getNorthEast(); // LatLng of the north-east corner
-//		var sw = bounds.getSouthWest(); // LatLng of the south-west corder
+		//		var ne = bounds.getNorthEast(); // LatLng of the north-east corner
+		//		var sw = bounds.getSouthWest(); // LatLng of the south-west corder
 
+
+		map.addListener("bounds_changed", () => {
+			var bounds = map.getBounds();
+			console.log(bounds);
 
 		});
+
+	});
 };
 
 Template.ActivationsMapMap.destroyed = function() {
@@ -64,21 +68,6 @@ Template.ActivationsMapMap.destroyed = function() {
 };
 
 Template.ActivationsMapMap.rendered = function() {
-
-	GoogleMaps.ready('activationsMap', function({instance: map, options}) {
-		
-		var marker = new google.maps.Marker({
-			position: options.center,
-			map
-		});
-
-		var bounds = map.getBounds();
-		console.log(bounds);
-//		var ne = bounds.getNorthEast(); // LatLng of the north-east corner
-//		var sw = bounds.getSouthWest(); // LatLng of the south-west corder
-
-
-		});
 
 };
 
