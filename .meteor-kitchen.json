@@ -386,7 +386,7 @@
 		},
 		{
 			"path": "client/views/activations_map/activations_map.js",
-			"checksum": "2a1fec078405ddfa0e83c3a6068a393f3ccc2494"
+			"checksum": "313183324897fc8664af3de4d0d97819ef1c03f1"
 		},
 		{
 			"path": "client/views/activations_map/activations_map_controller.js",
@@ -942,7 +942,7 @@
 		},
 		{
 			"path": "client/lib/globals/globals.js",
-			"checksum": "0e8f51ca2968c63186b7bdb062f9bb8266a9af3d"
+			"checksum": "6ba038fbb0030a33bad145beaf04c34072bb8586"
 		},
 		{
 			"path": "server/methods/methods.js",
@@ -965,8 +965,8 @@
 			"checksum": "e83cc775ad3e94c051f1a83be0cd8c40d0de7f70"
 		},
 		{
-			"path": "client/lib/globals/googlemap_txt.js",
-			"checksum": "4f4f9921889d612b94f739f64754c4fc99dd1f38"
+			"path": "imports/client/googlemaps_textbox.js",
+			"checksum": "2ec924a63c979463e4e90291122b5e997fea6233"
 		},
 		{
 			"path": "lib/string_utils.js",
@@ -1240,6 +1240,7 @@
 		"client/views/user_settings/profile/",
 		"client/views/verify_email/",
 		"imports/",
+		"imports/client/",
 		"imports/server/methods/",
 		"lib/",
 		"packages/",
