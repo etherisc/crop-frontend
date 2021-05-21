@@ -54,7 +54,7 @@ Template.ActivationsMapMap.created = function() {
 					return;
 				}
 
-				const xmi = Math.round(xmin() * 10);
+				const xmi = Math.round(xmin() * 10); 
 				const ymi = Math.round(ymin() * 10);
 				const xma = Math.round(xmax() * 10);
 				const yma = Math.round(ymax() * 10);
