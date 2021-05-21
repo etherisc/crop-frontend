@@ -24,10 +24,11 @@ Template.ActivationsMap.helpers({
 
 Template.ActivationsMapMap.created = function() {
 
-	GoogleMaps.ready('activationsMap', function(map) {
+	GoogleMaps.ready('activationsMap', function({map, options}) {
+		
 		var marker = new google.maps.Marker({
-			position: map.options.center,
-			map: map.instance
+			position: options.center,
+			map
 		});
 
 		const rectangle = new google.maps.Rectangle({
@@ -36,7 +37,7 @@ Template.ActivationsMapMap.created = function() {
 			strokeWeight: 1,
 			fillColor: "#FF0000",
 			fillOpacity: 0.35,
-			map: map.instance,
+			map,
 			bounds: {
 				north: 0.05,
 				south: -0.05,
@@ -47,8 +48,11 @@ Template.ActivationsMapMap.created = function() {
 
 		const latlng = new google.maps.LatLng(0.0, 34.975);
 		const customTxt = "<div>123456</div>"
-		const txt = new TxtOverlay(latlng, customTxt, "gmlp-textbox", map.instance)
+		const txt = new TxtOverlay(latlng, customTxt, "gmlp-textbox", map)
 
+		var bounds = map.getBounds();
+		var ne = bounds.getNorthEast(); // LatLng of the north-east corner
+		var sw = bounds.getSouthWest(); // LatLng of the south-west corder
 
 
 		});
@@ -69,7 +73,7 @@ Template.ActivationsMapMap.helpers({
 			// Map initialization options
 			return {
 				center: new google.maps.LatLng(0.0, 37.0),
-				zoom: 10
+				zoom: 8
 			};
 		}
 	}
