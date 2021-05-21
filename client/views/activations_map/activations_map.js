@@ -35,7 +35,7 @@ Template.ActivationsMapMap.created = function() {
 				const {lat: ymin, lng: xmin} = bounds.getSouthWest();
 				const {lat: ymax, lng: xmax} = bounds.getNorthEast();
 
-				for (let lat = ymin; lat <= ymax; lat += 0.1) {
+				for (let lat = ymin(); lat <= ymax(); lat += 0.1) {
 					for (let lng = xmin(); lng <= xmax(); lng += 0.1) {
 						const pixel = `Pixel${latLng2Pixel({lat, lng})}`;
 						console.log(pixel);
