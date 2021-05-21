@@ -1,7 +1,6 @@
 const countActivations = () => {
 
-	activations = Activations.find({});
-	var cursor = db.collection.find();
+	activations = RecordCounts.find({});
 
 	while (activations.hasNext()) {
 		// load only one document from the resultset into memory
