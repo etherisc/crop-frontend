@@ -27,26 +27,34 @@ Template.ActivationsMapMap.created = function() {
 	GoogleMaps.ready('activationsMap', function({instance: map, options}) {
 
 		let timer;
+		let rectangles;
 		map.addListener("bounds_changed", () => {
 
 			if (timer) window.clearTimeout(timer);
 			timer = window.setTimeout(() => {
+				
+				rectangles.forEach((rect) => {
+					rect.setMap(null);
+					rect = null;
+				}
 				var bounds = map.getBounds();
 				const {lat: ymin, lng: xmin} = bounds.getSouthWest();
 				const {lat: ymax, lng: xmax} = bounds.getNorthEast();
 				//console.log(xmin(), ymin(), xmax(), ymax());
-				if (ymax() - ymin() > 1 || xmax() - xmin() > 1) {
+				if (ymax() - ymin() > 2 || xmax() - xmin() > 2) {
 					console.log('too many');
 					return;
 				}
-				const xmi = round(xmin(), 1);
-				const ymi = round(ymin(), 1);
-				const xma = round(xmax(), 1);
-				const yma = round(ymax(), 1);
-				for (let lat = ymi; lat <= yma; lat += 0.1) {
-					for (let lng = xmi; lng <= xma; lng += 0.1) {
-						const pixel = `Pixel${latLng2Pixel({lat, lng})}`;
-						console.log(pixel, lat, lng);
+				
+				const xmi = Math.round(xmin() * 10);
+				const ymi = Math.round(ymin() * 10);
+				const xma = Math.round(xmax() * 10);
+				const yma = Math.round(ymax() * 10);
+				
+				for (let lat = ymi; lat <= yma; lat += 1) {
+					for (let lng = xmi; lng <= xma; lng += 1) {
+						const pixel = `Pixel${latLng2Pixel({lat/10, lng/10})}`;
+						console.log(pixel, lat/10, lng/10);
 						const activation = true; //Activations.findOne({pixel});
 						if (activation) {
 							//console.log('Found!');
@@ -58,12 +66,14 @@ Template.ActivationsMapMap.created = function() {
 								fillOpacity: 0.35,
 								map,
 								bounds: {
-									north: lat + 0.05,
-									south: lat - 0.05,
-									east: lng + 0.05,
-									west: lng - 0.05,
+									north: (lat/10) + 0.05,
+									south: (lat/10) - 0.05,
+									east: (lng/10) + 0.05,
+									west: (lng/10) - 0.05,
 								},
 							});
+							
+							rectangles.push(rectangle);
 							const latlng = new google.maps.LatLng(lat, lng);
 							const customTxt = `<div>${pixel}</div>`;
 							const txt = new TxtOverlay(latlng, customTxt, "gmlp-textbox", map)
