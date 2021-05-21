@@ -64,14 +64,14 @@ Template.ActivationsMapMap.created = function() {
 						const pixel = `Pixel${latLng2Pixel({lat: lat/10, lng: lng/10})}`;
 						///console.log(pixel, lat/10, lng/10);
 						const activation = Activations.findOne({pixel});
-						const bg = activation ? "#FF0000" : "";
+						const op = activation ? 0.35 : 0.0;
 						//console.log('Found!');
 						const rectangle = new google.maps.Rectangle({
 							strokeColor: "#FF0000",
 							strokeOpacity: 0.8,
 							strokeWeight: 1,
-							fillColor: bg,
-							fillOpacity: 0.35,
+							fillColor: "#FF0000",
+							fillOpacity: op,
 							map,
 							bounds: {
 								north: (lat/10) + 0.05,
