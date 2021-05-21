@@ -109,5 +109,5 @@ latLng2Pixel = ({ lat, lng }) => ( ( round( lng, 1 ) + 40.1 ) * 1000 + round( la
 pixel2LatLng = ( pixel ) => {
      lat: ( ( pixel - trunc( pixel / 1000 ) * 1000 ) / 10 ) - 20.1,
      lng: ( trunc( pixel / 1000 ) / 10 ) - 40.1
-}
+};
 
