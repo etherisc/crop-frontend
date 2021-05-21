@@ -4,6 +4,7 @@ const countActivations = () => {
 
 	activations.forEach((activation) => {
 		const count = Count.findOne({pixel: activation.pixel});
+		console.log(count);
 		if (count) {
 			Count.update({pixel: activation.pixel}, {$set: {count: count.count + 1}});
 		} else {
