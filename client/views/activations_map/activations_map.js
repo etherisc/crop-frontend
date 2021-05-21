@@ -22,6 +22,9 @@ Template.ActivationsMap.helpers({
 	
 });
 
+import * from '/imports/client/googlemaps_textbox.js';
+
+
 Template.ActivationsMapMap.created = function() {
 
 	GoogleMaps.ready('activationsMap', function(map) {

@@ -102,3 +102,4 @@ notarize = function (type, message, payload, updateMethod) {
 
 // GoogleMaps.load({ v: '3', key: 'AIzaSyAIjsbPvYSEBicJeKvPeI679eS9VW3w5zg', libraries: 'places' });
 GoogleMaps.load({ v: '3', key: 'AIzaSyAuGOT9cn2Rp8O4gicXER-clMjVBMszlyY', libraries: 'places' });
+
