@@ -386,7 +386,7 @@
 		},
 		{
 			"path": "client/views/activations_map/activations_map.js",
-			"checksum": "cb0c0a395decece06894eb17463d8fc621be4400"
+			"checksum": "9b0587fdc4c5df0c047efc73691c2c2b1d4045eb"
 		},
 		{
 			"path": "client/views/activations_map/activations_map_controller.js",
