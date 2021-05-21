@@ -46,10 +46,10 @@ Template.ActivationsMapMap.created = function() {
 				for (let lat = ymi; lat <= yma; lat += 0.1) {
 					for (let lng = xmi; lng <= xma; lng += 0.1) {
 						const pixel = `Pixel${latLng2Pixel({lat, lng})}`;
-						console.log(pixel);
+						console.log(pixel, lat, lng);
 						const activation = true; //Activations.findOne({pixel});
 						if (activation) {
-							console.log('Found!');
+							//console.log('Found!');
 							const rectangle = new google.maps.Rectangle({
 								strokeColor: "#FF0000",
 								strokeOpacity: 0.8,
