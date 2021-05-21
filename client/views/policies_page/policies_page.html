@@ -1,0 +1,164 @@
+<template name="PoliciesPage">
+	<div class="page-container container" id="content">
+		<div class="row" id="title_row">
+			<div class="col-md-12">
+			</div>
+		</div>
+		{{> PoliciesPageHeader}}{{> PoliciesPageView}}
+	</div>
+</template>
+
+<template name="PoliciesPageHeader">
+</template>
+
+<template name="PoliciesPageView">
+	<div id="policies-page-view" class="">
+		<h2 id="component-title">
+			Policies
+		</h2>
+		<form id="dataview-controls" class="form-inline">
+			<div id="dataview-controls-insert" class="form-group {{insertButtonClass}}">
+				<button type="submit" id="dataview-insert-button" class="btn btn-success">
+					<span class="fa fa-plus">
+					</span>
+					Add new
+				</button>
+			</div>
+			<div id="dataview-controls-search">
+				<div id="dataview-controls-search-group" class="input-group">
+					<input type="text" class="form-control" id="dataview-search-input" placeholder="Search" name="search" value="{{searchString}}" autofocus="autofocus">
+					<span class="input-group-btn">
+						<button type="button" id="dataview-search-button" class="btn btn-primary">
+							<span class="fa fa-search">
+							</span>
+						</button>
+					</span>
+				</div>
+			</div>
+		</form>
+		{{#if isNotEmpty}}
+		<div id="dataview-data">
+			{{#if viewAsTable}} {{> PoliciesPageViewTable}} {{/if}}
+		</div>
+		<nav aria-label="...">
+			<ul class="pager">
+				{{#if gotPrevPage}}
+				<li>
+					<a href="#" class="prev-page-link">
+						Previous page
+					</a>
+					&nbsp;
+				</li>
+				{{/if}}
+					{{#if gotNextPage}}
+				<li>
+					&nbsp;
+					<a href="#" class="next-page-link">
+						Next page
+					</a>
+				</li>
+				{{/if}}
+			</ul>
+		</nav>
+		{{else}}
+			{{#if isNotFound}}
+		<div class="alert alert-warning">
+			"{{searchString}}" not found.
+		</div>
+		{{else}}
+		<div class="alert alert-info">
+			Empty.
+		</div>
+		{{/if}}
+		{{/if}}
+	</div>
+</template>
+
+<template name="PoliciesPageViewTable">
+	<table id="dataview-table" class="table table-striped table-hover">
+		<thead id="dataview-table-header">
+			<tr id="dataview-table-header-row">
+				<th class="th-sortable" data-sort="id">
+					Id
+				</th>
+				<th class="th-sortable" data-sort="siteTable_id">
+					Sitetable Id
+				</th>
+				<th class="th-sortable" data-sort="policyStatus_code">
+					Policy Status Code
+				</th>
+				<th class="th-sortable" data-sort="startDate">
+					Start Date
+				</th>
+				<th class="th-sortable" data-sort="endDate">
+					End Date
+				</th>
+				<th class="th-sortable" data-sort="order_number">
+					Order Number
+				</th>
+				<th class="th-sortable" data-sort="mobile_num">
+					Mobile Phone
+				</th>
+				<th class="th-sortable" data-sort="is_signed">
+					Notarized
+				</th>
+				<th>
+					&nbsp;
+				</th>
+				<th>
+					&nbsp;
+				</th>
+				<th>
+					&nbsp;
+				</th>
+			</tr>
+		</thead>
+		<tbody id="dataview-table-items">
+			{{#each policy_list_paged}} {{> PoliciesPageViewTableItems}} {{/each}}
+		</tbody>
+	</table>
+</template>
+
+<template name="PoliciesPageViewTableItems">
+	<tr id="dataview-table-items-row">
+		<td>
+			{{id}}
+		</td>
+		<td>
+			{{siteTable_id}}
+		</td>
+		<td>
+			{{policyStatus_code}}
+		</td>
+		<td>
+			{{formatDate startDate ''}}
+		</td>
+		<td>
+			{{formatDate endDate ''}}
+		</td>
+		<td>
+			{{order_number}}
+		</td>
+		<td>
+			{{mobile_num}}
+		</td>
+		<td>
+			<input type="checkbox" class="inline-checkbox {{editButtonClass}}" data-field="is_signed" {{checked is_signed}}>
+		</td>
+		<td class="td-icon">
+			<span id="edit-button" class="fa fa-pencil {{editButtonClass}}" title="Edit">
+			</span>
+		</td>
+		<td class="td-icon">
+			<span id="delete-button" class="fa fa-trash-o {{deleteButtonClass}}" title="Delete">
+			</span>
+		</td>
+		<td class="td-icon">
+			{{#if isEnabledSign}}
+			<span id="action-button" data-action="sign" class="fa fa-pencil-square-o ACTION_CLASS" title="sign">
+			</span>
+			{{/if}}
+		</td>
+	</tr>
+</template>
+

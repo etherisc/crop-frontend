@@ -1,0 +1,164 @@
+<template name="ActivationsPage">
+	<div class="page-container container" id="content">
+		<div class="row" id="title_row">
+			<div class="col-md-12">
+			</div>
+		</div>
+		{{> ActivationsPageHeader}}{{> ActivationsPageView}}{{> ActivationsPageFooter}}
+	</div>
+</template>
+
+<template name="ActivationsPageHeader">
+</template>
+
+<template name="ActivationsPageView">
+	<div id="activations-page-view" class="">
+		<h2 id="component-title">
+			Activations
+		</h2>
+		<form id="dataview-controls" class="form-inline">
+			<div id="dataview-controls-insert" class="form-group {{insertButtonClass}}">
+				<button type="submit" id="dataview-insert-button" class="btn btn-success">
+					<span class="fa fa-plus">
+					</span>
+					Add new
+				</button>
+			</div>
+			<div id="dataview-controls-search">
+				<div id="dataview-controls-search-group" class="input-group">
+					<input type="text" class="form-control" id="dataview-search-input" placeholder="Search" name="search" value="{{searchString}}" autofocus="autofocus">
+					<span class="input-group-btn">
+						<button type="button" id="dataview-search-button" class="btn btn-primary">
+							<span class="fa fa-search">
+							</span>
+						</button>
+					</span>
+				</div>
+			</div>
+		</form>
+		{{#if isNotEmpty}}
+		<div id="dataview-data">
+			{{#if viewAsTable}} {{> ActivationsPageViewTable}} {{/if}}
+		</div>
+		<nav aria-label="...">
+			<ul class="pager">
+				{{#if gotPrevPage}}
+				<li>
+					<a href="#" class="prev-page-link">
+						Previous page
+					</a>
+					&nbsp;
+				</li>
+				{{/if}}
+					{{#if gotNextPage}}
+				<li>
+					&nbsp;
+					<a href="#" class="next-page-link">
+						Next page
+					</a>
+				</li>
+				{{/if}}
+			</ul>
+		</nav>
+		{{else}}
+			{{#if isNotFound}}
+		<div class="alert alert-warning">
+			"{{searchString}}" not found.
+		</div>
+		{{else}}
+		<div class="alert alert-info">
+			Empty.
+		</div>
+		{{/if}}
+		{{/if}}
+	</div>
+</template>
+
+<template name="ActivationsPageViewTable">
+	<table id="dataview-table" class="table table-striped table-hover">
+		<thead id="dataview-table-header">
+			<tr id="dataview-table-header-row">
+				<th class="th-sortable" data-sort="mobile_num">
+					Mobile Num
+				</th>
+				<th class="th-sortable" data-sort="call_time">
+					Call Time
+				</th>
+				<th class="th-sortable" data-sort="latitude">
+					Latitude
+				</th>
+				<th class="th-sortable" data-sort="longitude">
+					Longitude
+				</th>
+				<th class="th-sortable" data-sort="order_number">
+					Order Number
+				</th>
+				<th class="th-sortable" data-sort="activation_code">
+					Activation Code
+				</th>
+				<th class="th-sortable" data-sort="value_chain">
+					Value Chain
+				</th>
+				<th class="th-sortable" data-sort="amount_premium">
+					Amount Premium
+				</th>
+				<th class="th-sortable" data-sort="pixel">
+					Pixel
+				</th>
+				<th>
+					&nbsp;
+				</th>
+				<th>
+					&nbsp;
+				</th>
+			</tr>
+		</thead>
+		<tbody id="dataview-table-items">
+			{{#each activation_list_paged}} {{> ActivationsPageViewTableItems}} {{/each}}
+		</tbody>
+	</table>
+</template>
+
+<template name="ActivationsPageViewTableItems">
+	<tr id="dataview-table-items-row">
+		<td>
+			{{mobile_num}}
+		</td>
+		<td>
+			{{formatDate call_time 'YYYY-MMM-DD'}}
+		</td>
+		<td>
+			{{latitude}}
+		</td>
+		<td>
+			{{longitude}}
+		</td>
+		<td>
+			{{order_number}}
+		</td>
+		<td>
+			{{activation_code}}
+		</td>
+		<td>
+			{{value_chain}}
+		</td>
+		<td>
+			{{amount_premium}}
+		</td>
+		<td>
+			{{pixel}}
+		</td>
+		<td class="td-icon">
+			<span id="edit-button" class="fa fa-pencil {{editButtonClass}}" title="Edit">
+			</span>
+		</td>
+		<td class="td-icon">
+			<span id="delete-button" class="fa fa-trash-o {{deleteButtonClass}}" title="Delete">
+			</span>
+		</td>
+	</tr>
+</template>
+
+<template name="ActivationsPageFooter">
+</template>
+

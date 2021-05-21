@@ -1,0 +1,84 @@
+/* Google Maps Location Picker */
+
+/* Always set the map height explicitly to define the size of the div
+ * element that contains the map. */
+
+.gmlp-map-container {
+	height: 500px;
+}
+
+#gmlp-map {
+  /* height: 100%; */
+}
+
+#gmlp-description {
+  font-family: Roboto;
+  font-size: 15px;
+  font-weight: 300;
+}
+
+#gmlp-infowindow-content .title {
+  font-weight: bold;
+}
+
+#gmlp-infowindow-content {
+  display: none;
+}
+
+#gmlp-map #gmlp-infowindow-content {
+  display: inline;
+}
+
+.gmlp-pac-card {
+  margin: 10px 10px 0 0;
+  border-radius: 2px 0 0 2px;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  outline: none;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+  background-color: #fff;
+  font-family: Roboto;
+}
+
+#gmlp-pac-container {
+  padding-bottom: 12px;
+  margin-right: 12px;
+}
+
+.gmlp-pac-controls {
+  display: inline-block;
+  padding: 5px 11px;
+}
+
+.gmlp-pac-controls label {
+  font-family: Roboto;
+  font-size: 13px;
+  font-weight: 300;
+}
+
+#gmlp-pac-input {
+  background-color: #fff;
+  font-family: Roboto;
+  font-size: 15px;
+  font-weight: 300;
+  margin-left: 12px;
+  padding: 0 11px 0 13px;
+  text-overflow: ellipsis;
+  width: 400px;
+}
+
+#gmlp-pac-input:focus {
+  border-color: #4d90fe;
+}
+
+#gmlp-title {
+  font-family: Roboto;
+  color: #fff;
+  background-color: #4d90fe;
+  font-size: 20px;
+  font-weight: 500;
+  padding: 6px 12px;
+}
+
+/******/
+

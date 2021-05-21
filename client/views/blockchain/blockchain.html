@@ -1,0 +1,28 @@
+<template name="Blockchain">
+	<div class="page-container container" id="content">
+		<div class="row" id="title_row">
+			<div class="col-md-12">
+				<h2 id="page_title" class="pull-left">
+					Connect to Wallet
+				</h2>
+			</div>
+		</div>
+		{{> BlockchainHeader}}{{> BlockchainSignatureComponent}}
+	</div>
+</template>
+
+<template name="BlockchainHeader">
+</template>
+
+<template name="BlockchainSignatureComponent">
+	{{#if IsMetamaskConnected}}
+	<button class="btn btn-warning" id="btn-send-tx">
+		Send Transaction
+	</button>
+	{{else}}
+	<button class="btn btn-warning" id="btn-connect">
+		Connect
+	</button>
+	{{/if}}
+</template>
+

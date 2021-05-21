@@ -1,0 +1,19 @@
+<template name="HomePrivate">
+	<div class="page-container container" id="content">
+		<div class="row" id="title_row">
+			<div class="col-md-12">
+				<h2 id="page_title" class="pull-left">
+					Welcome {{userFullName}}!
+				</h2>
+			</div>
+		</div>
+		{{> HomePrivateKeyVisual}}
+	</div>
+</template>
+
+<template name="HomePrivateKeyVisual">
+	<div class="col-md-12">
+		<img src="/images/keyvisual_2.jpg" style="width: 100%; padding-top: 100px;" />
+	</div>
+</template>
+

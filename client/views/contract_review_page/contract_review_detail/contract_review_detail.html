@@ -1,0 +1,429 @@
+<template name="ContractReviewPageContractReviewDetail">
+	<div class="page-container container" id="content">
+		<div class="row" id="title_row">
+			<div class="col-md-12">
+			</div>
+		</div>
+		{{> ContractReviewPageContractReviewDetailForm}}
+	</div>
+</template>
+
+<template name="ContractReviewPageContractReviewDetailForm">
+	<div id="contract-review-page-contract-review-detail-form" class="">
+		<h2 id="component-title">
+			<a href="#" id="form-back-button" class="btn btn-default" title="back">
+				<span class="fa fa-chevron-left">
+				</span>
+			</a>
+			Contract Review Detail
+		</h2>
+		<form role="form" class="form-horizontal">
+			{{#if errorMessage}}
+			<div class="alert alert-warning">
+				{{errorMessage}}
+			</div>
+			{{/if}}
+
+			{{#if infoMessage}}
+			<div class="alert alert-success">
+				{{infoMessage}}
+			</div>
+			{{/if}}
+			<div class="form-group  field-contract">
+				<label for="Contract" class="col-sm-3 control-label">
+					Contract
+				</label>
+				<div class="input-div col-sm-9">
+					<p class="form-control-static  control-field-contract">
+						{{contract_review_detail.Contract}}
+					</p>
+				</div>
+			</div>
+			<div class="form-group  field-window-start">
+				<label for="WindowStart" class="col-sm-3 control-label">
+					WindowStart
+				</label>
+				<div class="input-div col-sm-9">
+					<p class="form-control-static  control-field-window-start">
+						{{contract_review_detail.WindowStart}}
+					</p>
+				</div>
+			</div>
+			<div class="form-group  field-window-end">
+				<label for="WindowEnd" class="col-sm-3 control-label">
+					WindowEnd
+				</label>
+				<div class="input-div col-sm-9">
+					<p class="form-control-static  control-field-window-end">
+						{{contract_review_detail.WindowEnd}}
+					</p>
+				</div>
+			</div>
+			<div class="form-group  field-start-day">
+				<label for="StartDay" class="col-sm-3 control-label">
+					StartDay
+				</label>
+				<div class="input-div col-sm-9">
+					<p class="form-control-static  control-field-start-day">
+						{{contract_review_detail.StartDay}}
+					</p>
+				</div>
+			</div>
+			<div class="form-group  field-germ-drought-cover-start">
+				<label for="GermDroughtCoverStart" class="col-sm-3 control-label">
+					GermDroughtCoverStart
+				</label>
+				<div class="input-div col-sm-9">
+					<p class="form-control-static  control-field-germ-drought-cover-start">
+						{{contract_review_detail.GermDroughtCoverStart}}
+					</p>
+				</div>
+			</div>
+			<div class="form-group  field-germ-drought-cover-end">
+				<label for="GermDroughtCoverEnd" class="col-sm-3 control-label">
+					GermDroughtCoverEnd
+				</label>
+				<div class="input-div col-sm-9">
+					<p class="form-control-static  control-field-germ-drought-cover-end">
+						{{contract_review_detail.GermDroughtCoverEnd}}
+					</p>
+				</div>
+			</div>
+			<div class="form-group  field-germ-dry-pay-pct">
+				<label for="GermDryPayPct" class="col-sm-3 control-label">
+					GermDryPayPct
+				</label>
+				<div class="input-div col-sm-9">
+					<p class="form-control-static  control-field-germ-dry-pay-pct">
+						{{contract_review_detail.GermDryPayPct}}
+					</p>
+				</div>
+			</div>
+			<div class="form-group  field-germ-dry-trigger-mm">
+				<label for="GermDryTriggerMM" class="col-sm-3 control-label">
+					GermDryTriggerMM
+				</label>
+				<div class="input-div col-sm-9">
+					<p class="form-control-static  control-field-germ-dry-trigger-mm">
+						{{contract_review_detail.GermDryTriggerMM}}
+					</p>
+				</div>
+			</div>
+			<div class="form-group  field-germ-ave-rain-mm">
+				<label for="GermAveRainMM" class="col-sm-3 control-label">
+					GermAveRainMM
+				</label>
+				<div class="input-div col-sm-9">
+					<p class="form-control-static  control-field-germ-ave-rain-mm">
+						{{contract_review_detail.GermAveRainMM}}
+					</p>
+				</div>
+			</div>
+			<div class="form-group  field-germ-dry-comment">
+				<label for="GermDryComment" class="col-sm-3 control-label">
+					GermDryComment
+				</label>
+				<div class="input-div col-sm-9">
+					<p class="form-control-static  control-field-germ-dry-comment">
+						{{contract_review_detail.GermDryComment}}
+					</p>
+				</div>
+			</div>
+			<div class="form-group  field-germ-excess-rain-cover-start">
+				<label for="GermExcessRainCoverStart" class="col-sm-3 control-label">
+					GermExcessRainCoverStart
+				</label>
+				<div class="input-div col-sm-9">
+					<p class="form-control-static  control-field-germ-excess-rain-cover-start">
+						{{contract_review_detail.GermExcessRainCoverStart}}
+					</p>
+				</div>
+			</div>
+			<div class="form-group  field-germ-excess-rain-cover-end">
+				<label for="GermExcessRainCoverEnd" class="col-sm-3 control-label">
+					GermExcessRainCoverEnd
+				</label>
+				<div class="input-div col-sm-9">
+					<p class="form-control-static  control-field-germ-excess-rain-cover-end">
+						{{contract_review_detail.GermExcessRainCoverEnd}}
+					</p>
+				</div>
+			</div>
+			<div class="form-group  field-germ-wet-pay-pct">
+				<label for="GermWetPayPct" class="col-sm-3 control-label">
+					GermWetPayPct
+				</label>
+				<div class="input-div col-sm-9">
+					<p class="form-control-static  control-field-germ-wet-pay-pct">
+						{{contract_review_detail.GermWetPayPct}}
+					</p>
+				</div>
+			</div>
+			<div class="form-group  field-germ-wet-trigger-mm">
+				<label for="GermWetTriggerMM" class="col-sm-3 control-label">
+					GermWetTriggerMM
+				</label>
+				<div class="input-div col-sm-9">
+					<p class="form-control-static  control-field-germ-wet-trigger-mm">
+						{{contract_review_detail.GermWetTriggerMM}}
+					</p>
+				</div>
+			</div>
+			<div class="form-group  field-germ-wet-ave-rain-mm">
+				<label for="GermWetAveRainMM" class="col-sm-3 control-label">
+					GermWetAveRainMM
+				</label>
+				<div class="input-div col-sm-9">
+					<p class="form-control-static  control-field-germ-wet-ave-rain-mm">
+						{{contract_review_detail.GermWetAveRainMM}}
+					</p>
+				</div>
+			</div>
+			<div class="form-group  field-germ-wet-comment">
+				<label for="GermWetComment" class="col-sm-3 control-label">
+					GermWetComment
+				</label>
+				<div class="input-div col-sm-9">
+					<p class="form-control-static  control-field-germ-wet-comment">
+						{{contract_review_detail.GermWetComment}}
+					</p>
+				</div>
+			</div>
+			<div class="form-group  field-veg-drought-cover-start">
+				<label for="VegDroughtCoverStart" class="col-sm-3 control-label">
+					VegDroughtCoverStart
+				</label>
+				<div class="input-div col-sm-9">
+					<p class="form-control-static  control-field-veg-drought-cover-start">
+						{{contract_review_detail.VegDroughtCoverStart}}
+					</p>
+				</div>
+			</div>
+			<div class="form-group  field-veg-drought-cover-end">
+				<label for="VegDroughtCoverEnd" class="col-sm-3 control-label">
+					VegDroughtCoverEnd
+				</label>
+				<div class="input-div col-sm-9">
+					<p class="form-control-static  control-field-veg-drought-cover-end">
+						{{contract_review_detail.VegDroughtCoverEnd}}
+					</p>
+				</div>
+			</div>
+			<div class="form-group  field-veg-dry-pay-pct">
+				<label for="VegDryPayPct" class="col-sm-3 control-label">
+					VegDryPayPct
+				</label>
+				<div class="input-div col-sm-9">
+					<p class="form-control-static  control-field-veg-dry-pay-pct">
+						{{contract_review_detail.VegDryPayPct}}
+					</p>
+				</div>
+			</div>
+			<div class="form-group  field-veg-trigger-mm">
+				<label for="VegTriggerMM" class="col-sm-3 control-label">
+					VegTriggerMM
+				</label>
+				<div class="input-div col-sm-9">
+					<p class="form-control-static  control-field-veg-trigger-mm">
+						{{contract_review_detail.VegTriggerMM}}
+					</p>
+				</div>
+			</div>
+			<div class="form-group  field-veg-rainto-date-mm">
+				<label for="VegRaintoDateMM" class="col-sm-3 control-label">
+					VegRaintoDateMM
+				</label>
+				<div class="input-div col-sm-9">
+					<p class="form-control-static  control-field-veg-rainto-date-mm">
+						{{contract_review_detail.VegRaintoDateMM}}
+					</p>
+				</div>
+			</div>
+			<div class="form-group  field-veg-dry-comment">
+				<label for="VegDryComment" class="col-sm-3 control-label">
+					VegDryComment
+				</label>
+				<div class="input-div col-sm-9">
+					<p class="form-control-static  control-field-veg-dry-comment">
+						{{contract_review_detail.VegDryComment}}
+					</p>
+				</div>
+			</div>
+			<div class="form-group  field-flowering-cover-start">
+				<label for="FloweringCoverStart" class="col-sm-3 control-label">
+					FloweringCoverStart
+				</label>
+				<div class="input-div col-sm-9">
+					<p class="form-control-static  control-field-flowering-cover-start">
+						{{contract_review_detail.FloweringCoverStart}}
+					</p>
+				</div>
+			</div>
+			<div class="form-group  field-flowering-cover-end">
+				<label for="FloweringCoverEnd" class="col-sm-3 control-label">
+					FloweringCoverEnd
+				</label>
+				<div class="input-div col-sm-9">
+					<p class="form-control-static  control-field-flowering-cover-end">
+						{{contract_review_detail.FloweringCoverEnd}}
+					</p>
+				</div>
+			</div>
+			<div class="form-group  field-flower-pay-pct">
+				<label for="FlowerPayPct" class="col-sm-3 control-label">
+					FlowerPayPct
+				</label>
+				<div class="input-div col-sm-9">
+					<p class="form-control-static  control-field-flower-pay-pct">
+						{{contract_review_detail.FlowerPayPct}}
+					</p>
+				</div>
+			</div>
+			<div class="form-group  field-flwr-trigger-mm">
+				<label for="FlwrTriggerMM" class="col-sm-3 control-label">
+					FlwrTriggerMM
+				</label>
+				<div class="input-div col-sm-9">
+					<p class="form-control-static  control-field-flwr-trigger-mm">
+						{{contract_review_detail.FlwrTriggerMM}}
+					</p>
+				</div>
+			</div>
+			<div class="form-group  field-flwr-ave-rain-mm">
+				<label for="FlwrAveRainMM" class="col-sm-3 control-label">
+					FlwrAveRainMM
+				</label>
+				<div class="input-div col-sm-9">
+					<p class="form-control-static  control-field-flwr-ave-rain-mm">
+						{{contract_review_detail.FlwrAveRainMM}}
+					</p>
+				</div>
+			</div>
+			<div class="form-group  field-flower-comment">
+				<label for="FlowerComment" class="col-sm-3 control-label">
+					FlowerComment
+				</label>
+				<div class="input-div col-sm-9">
+					<p class="form-control-static  control-field-flower-comment">
+						{{contract_review_detail.FlowerComment}}
+					</p>
+				</div>
+			</div>
+			<div class="form-group  field-excess-rain-cover-start">
+				<label for="ExcessRainCoverStart" class="col-sm-3 control-label">
+					ExcessRainCoverStart
+				</label>
+				<div class="input-div col-sm-9">
+					<p class="form-control-static  control-field-excess-rain-cover-start">
+						{{contract_review_detail.ExcessRainCoverStart}}
+					</p>
+				</div>
+			</div>
+			<div class="form-group  field-excess-rain-cover-end">
+				<label for="ExcessRainCoverEnd" class="col-sm-3 control-label">
+					ExcessRainCoverEnd
+				</label>
+				<div class="input-div col-sm-9">
+					<p class="form-control-static  control-field-excess-rain-cover-end">
+						{{contract_review_detail.ExcessRainCoverEnd}}
+					</p>
+				</div>
+			</div>
+			<div class="form-group  field-excess-rain-pay-pct">
+				<label for="ExcessRainPayPct" class="col-sm-3 control-label">
+					ExcessRainPayPct
+				</label>
+				<div class="input-div col-sm-9">
+					<p class="form-control-static  control-field-excess-rain-pay-pct">
+						{{contract_review_detail.ExcessRainPayPct}}
+					</p>
+				</div>
+			</div>
+			<div class="form-group  field-excess-trigger-mm">
+				<label for="ExcessTriggerMM" class="col-sm-3 control-label">
+					ExcessTriggerMM
+				</label>
+				<div class="input-div col-sm-9">
+					<p class="form-control-static  control-field-excess-trigger-mm">
+						{{contract_review_detail.ExcessTriggerMM}}
+					</p>
+				</div>
+			</div>
+			<div class="form-group  field-excess-ave-rain-mm">
+				<label for="ExcessAveRainMM" class="col-sm-3 control-label">
+					ExcessAveRainMM
+				</label>
+				<div class="input-div col-sm-9">
+					<p class="form-control-static  control-field-excess-ave-rain-mm">
+						{{contract_review_detail.ExcessAveRainMM}}
+					</p>
+				</div>
+			</div>
+			<div class="form-group  field-excess-rain-cover-comment">
+				<label for="ExcessRainCoverComment" class="col-sm-3 control-label">
+					ExcessRainCoverComment
+				</label>
+				<div class="input-div col-sm-9">
+					<p class="form-control-static  control-field-excess-rain-cover-comment">
+						{{contract_review_detail.ExcessRainCoverComment}}
+					</p>
+				</div>
+			</div>
+			<div class="form-group  field-contract-end-date">
+				<label for="ContractEndDate" class="col-sm-3 control-label">
+					ContractEndDate
+				</label>
+				<div class="input-div col-sm-9">
+					<p class="form-control-static  control-field-contract-end-date">
+						{{contract_review_detail.ContractEndDate}}
+					</p>
+				</div>
+			</div>
+			<div class="form-group  field-sum-insured">
+				<label for="SumInsured" class="col-sm-3 control-label">
+					SumInsured
+				</label>
+				<div class="input-div col-sm-9">
+					<p class="form-control-static  control-field-sum-insured">
+						{{contract_review_detail.SumInsured}}
+					</p>
+				</div>
+			</div>
+			<div class="form-group  field-total-pay-pct">
+				<label for="TotalPayPct" class="col-sm-3 control-label">
+					TotalPayPct
+				</label>
+				<div class="input-div col-sm-9">
+					<p class="form-control-static  control-field-total-pay-pct">
+						{{contract_review_detail.TotalPayPct}}
+					</p>
+				</div>
+			</div>
+			<div class="form-group  field-actual-pay-pct">
+				<label for="ActualPayPct" class="col-sm-3 control-label">
+					ActualPayPct
+				</label>
+				<div class="input-div col-sm-9">
+					<p class="form-control-static  control-field-actual-pay-pct">
+						{{contract_review_detail.ActualPayPct}}
+					</p>
+				</div>
+			</div>
+			<div class="form-group  field-actual-pay">
+				<label for="ActualPay" class="col-sm-3 control-label">
+					ActualPay
+				</label>
+				<div class="input-div col-sm-9">
+					<p class="form-control-static  control-field-actual-pay">
+						{{contract_review_detail.ActualPay}}
+					</p>
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="submit-div col-sm-9 col-sm-offset-3">
+				</div>
+			</div>
+		</form>
+	</div>
+</template>
+

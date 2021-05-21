@@ -1,0 +1,149 @@
+<template name="ActivationsPageInsert">
+	<div class="page-container container" id="content">
+		<div class="row" id="title_row">
+			<div class="col-md-12">
+			</div>
+		</div>
+		{{> ActivationsPageInsertForm}}
+	</div>
+</template>
+
+<template name="ActivationsPageInsertForm">
+	<div id="activations-page-insert-form" class="">
+		<h2 id="component-title">
+			New Activation
+		</h2>
+		<form role="form" class="form-horizontal">
+			{{#if errorMessage}}
+			<div class="alert alert-warning">
+				{{errorMessage}}
+			</div>
+			{{/if}}
+
+			{{#if infoMessage}}
+			<div class="alert alert-success">
+				{{infoMessage}}
+			</div>
+			{{/if}}
+			<div class="form-group  field-mobile_num">
+				<label for="mobile_num" class="col-sm-3 control-label">
+					Mobile Num
+				</label>
+				<div class="input-div col-sm-9">
+					<input type="text" name="mobile_num" value="" class="form-control " autofocus="autofocus" required="required" data-type="string">
+					<span id="help-text" class="help-block">
+					</span>
+					<span id="error-text" class="help-block">
+					</span>
+				</div>
+			</div>
+			<div class="form-group  field-call_time">
+				<label for="call_time" class="col-sm-3 control-label">
+					Call Time
+				</label>
+				<div class="input-div col-sm-9">
+					<input type="text" name="call_time" value="" class="form-control " required="required" data-type="date" data-format="YYYY-MMM-DD">
+					<span id="help-text" class="help-block">
+					</span>
+					<span id="error-text" class="help-block">
+					</span>
+				</div>
+			</div>
+			<div class="form-group  field-latitude">
+				<label for="latitude" class="col-sm-3 control-label">
+					Latitude
+				</label>
+				<div class="input-div col-sm-9">
+					<input type="text" name="latitude" value="" class="form-control " required="required" data-type="float">
+					<span id="help-text" class="help-block">
+					</span>
+					<span id="error-text" class="help-block">
+					</span>
+				</div>
+			</div>
+			<div class="form-group  field-longitude">
+				<label for="longitude" class="col-sm-3 control-label">
+					Longitude
+				</label>
+				<div class="input-div col-sm-9">
+					<input type="text" name="longitude" value="" class="form-control " required="required" data-type="float">
+					<span id="help-text" class="help-block">
+					</span>
+					<span id="error-text" class="help-block">
+					</span>
+				</div>
+			</div>
+			<div class="form-group  field-order_number">
+				<label for="order_number" class="col-sm-3 control-label">
+					Order Number
+				</label>
+				<div class="input-div col-sm-9">
+					<input type="text" name="order_number" value="" class="form-control " required="required" data-type="string">
+					<span id="help-text" class="help-block">
+					</span>
+					<span id="error-text" class="help-block">
+					</span>
+				</div>
+			</div>
+			<div class="form-group  field-activation_code">
+				<label for="activation_code" class="col-sm-3 control-label">
+					Activation Code
+				</label>
+				<div class="input-div col-sm-9">
+					<input type="text" name="activation_code" value="" class="form-control " required="required" data-type="string">
+					<span id="help-text" class="help-block">
+					</span>
+					<span id="error-text" class="help-block">
+					</span>
+				</div>
+			</div>
+			<div class="form-group  field-value_chain">
+				<label for="value_chain" class="col-sm-3 control-label">
+					Value Chain
+				</label>
+				<div class="input-div col-sm-9">
+					<input type="text" name="value_chain" value="" class="form-control " required="required" data-type="string">
+					<span id="help-text" class="help-block">
+					</span>
+					<span id="error-text" class="help-block">
+					</span>
+				</div>
+			</div>
+			<div class="form-group  field-amount_premium">
+				<label for="amount_premium" class="col-sm-3 control-label">
+					Amount Premium
+				</label>
+				<div class="input-div col-sm-9">
+					<input type="text" name="amount_premium" value="" class="form-control " required="required" data-type="integer">
+					<span id="help-text" class="help-block">
+					</span>
+					<span id="error-text" class="help-block">
+					</span>
+				</div>
+			</div>
+			<div class="form-group  field-pixel">
+				<label for="pixel" class="col-sm-3 control-label">
+					Pixel
+				</label>
+				<div class="input-div col-sm-9">
+					<input type="text" name="pixel" value="" class="form-control " data-type="string">
+					<span id="help-text" class="help-block">
+					</span>
+					<span id="error-text" class="help-block">
+					</span>
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="submit-div col-sm-9 col-sm-offset-3">
+					<a href="#" id="form-cancel-button" class="btn btn-default">
+						Cancel
+					</a>
+					<button id="form-submit-button" class="btn btn-success" type="submit">
+						Save
+					</button>
+				</div>
+			</div>
+		</form>
+	</div>
+</template>
+

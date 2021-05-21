@@ -1,0 +1,106 @@
+<template name="PartnersUpdate">
+	<div class="page-container container" id="content">
+		<div class="row" id="title_row">
+			<div class="col-md-12">
+			</div>
+		</div>
+		{{> PartnersUpdateForm}}
+	</div>
+</template>
+
+<template name="PartnersUpdateForm">
+	<div id="partners-update-form" class="">
+		<h2 id="component-title">
+			Edit Farmer
+		</h2>
+		<form role="form" class="form-horizontal">
+			{{#if errorMessage}}
+			<div class="alert alert-warning">
+				{{errorMessage}}
+			</div>
+			{{/if}}
+
+			{{#if infoMessage}}
+			<div class="alert alert-success">
+				{{infoMessage}}
+			</div>
+			{{/if}}
+			<div class="form-group  field-id">
+				<label for="id" class="col-sm-3 control-label">
+					Id
+				</label>
+				<div class="input-div col-sm-9">
+					<input type="text" name="id" value="{{partner.id}}" class="form-control " autofocus="autofocus" required="required" data-type="string">
+					<span id="help-text" class="help-block">
+					</span>
+					<span id="error-text" class="help-block">
+					</span>
+				</div>
+			</div>
+			<div class="form-group  field-first-name">
+				<label for="firstName" class="col-sm-3 control-label">
+					First Name
+				</label>
+				<div class="input-div col-sm-9">
+					<input type="text" name="firstName" value="{{partner.firstName}}" class="form-control " data-type="string">
+					<span id="help-text" class="help-block">
+					</span>
+					<span id="error-text" class="help-block">
+					</span>
+				</div>
+			</div>
+			<div class="form-group  field-last-name">
+				<label for="lastName" class="col-sm-3 control-label">
+					Last Name
+				</label>
+				<div class="input-div col-sm-9">
+					<input type="text" name="lastName" value="{{partner.lastName}}" class="form-control " required="required" data-type="string">
+					<span id="help-text" class="help-block">
+					</span>
+					<span id="error-text" class="help-block">
+					</span>
+				</div>
+			</div>
+			<div class="form-group  field-mobile_num">
+				<label for="mobile_num" class="col-sm-3 control-label">
+					Mobile Phone
+				</label>
+				<div class="input-div col-sm-9">
+					<input type="text" name="mobile_num" value="{{partner.mobile_num}}" class="form-control " required="required" data-type="string">
+					<span id="help-text" class="help-block">
+					</span>
+					<span id="error-text" class="help-block">
+					</span>
+				</div>
+			</div>
+			<div class="form-group  field-is_signed">
+				<label for="is_signed" class="col-sm-3 control-label">
+					&nbsp;
+				</label>
+				<div class="input-div col-sm-9">
+					<div class="checkbox">
+						<label>
+							<input type="checkbox" value="{{partner.is_signed}}" name="is_signed" data-type="bool" {{itemIsChecked partner.is_signed true}}>
+							Is Signed
+						</label>
+					</div>
+					<span id="help-text" class="help-block">
+					</span>
+					<span id="error-text" class="help-block">
+					</span>
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="submit-div col-sm-9 col-sm-offset-3">
+					<a href="#" id="form-cancel-button" class="btn btn-default">
+						Cancel
+					</a>
+					<button id="form-submit-button" class="btn btn-success" type="submit">
+						Save
+					</button>
+				</div>
+			</div>
+		</form>
+	</div>
+</template>
+

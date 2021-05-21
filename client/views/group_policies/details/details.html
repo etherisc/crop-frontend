@@ -1,0 +1,509 @@
+<template name="GroupPoliciesDetails">
+	<div class="page-container container" id="content">
+		<div class="row" id="title_row">
+			<div class="col-md-12">
+			</div>
+		</div>
+		{{> GroupPoliciesDetailsForm}}{{> GroupPoliciesDetailsGpCropStages}}{{> GroupPoliciesDetailsGpIndividualPolicies}}
+	</div>
+</template>
+
+<template name="GroupPoliciesDetailsForm">
+	<div id="group-policies-details-form" class="">
+		<h2 id="component-title">
+			<a href="#" id="form-back-button" class="btn btn-default" title="back">
+				<span class="fa fa-chevron-left">
+				</span>
+			</a>
+			Group Policy Details
+		</h2>
+		<form role="form" class="form-horizontal">
+			{{#if errorMessage}}
+			<div class="alert alert-warning">
+				{{errorMessage}}
+			</div>
+			{{/if}}
+
+			{{#if infoMessage}}
+			<div class="alert alert-success">
+				{{infoMessage}}
+			</div>
+			{{/if}}
+			<div class="form-group  field-gp_id">
+				<label for="gp_id" class="col-sm-3 control-label">
+					Group Policy Id
+				</label>
+				<div class="input-div col-sm-9">
+					<p class="form-control-static  control-field-gp_id">
+						{{group_policy.gp_id}}
+					</p>
+				</div>
+			</div>
+			<div class="form-group  field-season">
+				<label for="season" class="col-sm-3 control-label">
+					Season
+				</label>
+				<div class="input-div col-sm-9">
+					<p class="form-control-static  control-field-season">
+						{{group_policy.season}}
+					</p>
+				</div>
+			</div>
+			<div class="form-group  field-value_chain">
+				<label for="value_chain" class="col-sm-3 control-label">
+					Value Chain
+				</label>
+				<div class="input-div col-sm-9">
+					<p class="form-control-static  control-field-value_chain">
+						{{group_policy.value_chain}}
+					</p>
+				</div>
+			</div>
+			<div class="form-group  field-location">
+				<label for="location" class="col-sm-3 control-label">
+					Location
+				</label>
+				<div class="input-div col-sm-9">
+					<p class="form-control-static  control-field-location">
+						{{group_policy.location}}
+					</p>
+				</div>
+			</div>
+			<div class="form-group  field-date_begin">
+				<label for="date_begin" class="col-sm-3 control-label">
+					Date Begin
+				</label>
+				<div class="input-div col-sm-9">
+					<p class="form-control-static  control-field-date_begin">
+						{{formatDate group_policy.date_begin 'MMM-DD'}}
+					</p>
+				</div>
+			</div>
+			<div class="form-group  field-date_end">
+				<label for="date_end" class="col-sm-3 control-label">
+					Date End
+				</label>
+				<div class="input-div col-sm-9">
+					<p class="form-control-static  control-field-date_end">
+						{{formatDate group_policy.date_end 'MMM-DD'}}
+					</p>
+				</div>
+			</div>
+			<div class="form-group  field-payout_total">
+				<label for="payout_total" class="col-sm-3 control-label">
+					Payout Total
+				</label>
+				<div class="input-div col-sm-9">
+					<p class="form-control-static  control-field-payout_total">
+						{{round2 group_policy.payout_total group_policy}}
+					</p>
+				</div>
+			</div>
+			<div class="form-group  field-hurdle">
+				<label for="hurdle" class="col-sm-3 control-label">
+					Hurdle
+				</label>
+				<div class="input-div col-sm-9">
+					<p class="form-control-static  control-field-hurdle">
+						{{round2 group_policy.hurdle group_policy}}
+					</p>
+				</div>
+			</div>
+			<div class="form-group  field-payout_actual">
+				<label for="payout_actual" class="col-sm-3 control-label">
+					Payout Actual
+				</label>
+				<div class="input-div col-sm-9">
+					<p class="form-control-static  control-field-payout_actual">
+						{{round2 group_policy.payout_actual group_policy}}
+					</p>
+				</div>
+			</div>
+			<div class="form-group  field-sw_date_begin">
+				<label for="sw_date_begin" class="col-sm-3 control-label">
+					SW Date Begin
+				</label>
+				<div class="input-div col-sm-9">
+					<p class="form-control-static  control-field-sw_date_begin">
+						{{formatDate group_policy.sw_date_begin 'MMM-DD'}}
+					</p>
+				</div>
+			</div>
+			<div class="form-group  field-sw_count">
+				<label for="sw_count" class="col-sm-3 control-label">
+					SW Count
+				</label>
+				<div class="input-div col-sm-9">
+					<p class="form-control-static  control-field-sw_count">
+						{{group_policy.sw_count}}
+					</p>
+				</div>
+			</div>
+			<div class="form-group  field-sw_length">
+				<label for="sw_length" class="col-sm-3 control-label">
+					SW Length
+				</label>
+				<div class="input-div col-sm-9">
+					<p class="form-control-static  control-field-sw_length">
+						{{group_policy.sw_length}}
+					</p>
+				</div>
+			</div>
+			<div class="form-group  field-sw_window">
+				<label for="sw_window" class="col-sm-3 control-label">
+					SW Window
+				</label>
+				<div class="input-div col-sm-9">
+					<p class="form-control-static  control-field-sw_window">
+						{{group_policy.sw_window}}
+					</p>
+				</div>
+			</div>
+			<div class="form-group  field-sw_date">
+				<label for="sw_date" class="col-sm-3 control-label">
+					SW Date
+				</label>
+				<div class="input-div col-sm-9">
+					<p class="form-control-static  control-field-sw_date">
+						{{formatDate group_policy.sw_date 'MM-DD'}}
+					</p>
+				</div>
+			</div>
+			<div class="form-group  field-acc_payments">
+				<label for="acc_payments" class="col-sm-3 control-label">
+					Acc Payments
+				</label>
+				<div class="input-div col-sm-9">
+					<p class="form-control-static  control-field-acc_payments">
+						{{currency group_policy.acc_payments group_policy}}
+					</p>
+				</div>
+			</div>
+			<div class="form-group  field-acc_sum_insured">
+				<label for="acc_sum_insured" class="col-sm-3 control-label">
+					Acc Sum Insured
+				</label>
+				<div class="input-div col-sm-9">
+					<p class="form-control-static  control-field-acc_sum_insured">
+						{{currency group_policy.acc_sum_insured group_policy}}
+					</p>
+				</div>
+			</div>
+			<div class="form-group  field-acc_amount_total">
+				<label for="acc_amount_total" class="col-sm-3 control-label">
+					Acc Amount Total
+				</label>
+				<div class="input-div col-sm-9">
+					<p class="form-control-static  control-field-acc_amount_total">
+						{{currency group_policy.acc_amount_total group_policy}}
+					</p>
+				</div>
+			</div>
+			<div class="form-group  field-acc_amount_deductible">
+				<label for="acc_amount_deductible" class="col-sm-3 control-label">
+					Acc Amount Deductible
+				</label>
+				<div class="input-div col-sm-9">
+					<p class="form-control-static  control-field-acc_amount_deductible">
+						{{currency group_policy.acc_amount_deductible group_policy}}
+					</p>
+				</div>
+			</div>
+			<div class="form-group  field-acc_amount">
+				<label for="acc_amount" class="col-sm-3 control-label">
+					Acc Amount
+				</label>
+				<div class="input-div col-sm-9">
+					<p class="form-control-static  control-field-acc_amount">
+						{{currency group_policy.acc_amount group_policy}}
+					</p>
+				</div>
+			</div>
+			<div class="form-group  field-acc_policies">
+				<label for="acc_policies" class="col-sm-3 control-label">
+					# Policies
+				</label>
+				<div class="input-div col-sm-9">
+					<p class="form-control-static  control-field-acc_policies">
+						{{group_policy.acc_policies}}
+					</p>
+				</div>
+			</div>
+			<div class="form-group  field-select_for_payout">
+				<label for="select_for_payout" class="col-sm-3 control-label">
+					Payout?
+				</label>
+				<div class="input-div col-sm-9">
+					<p class="form-control-static  control-field-select_for_payout">
+						{{booleanToYesNo group_policy.select_for_payout}}
+					</p>
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="submit-div col-sm-9 col-sm-offset-3">
+				</div>
+			</div>
+		</form>
+	</div>
+</template>
+
+<template name="GroupPoliciesDetailsGpCropStages">
+	<div id="group-policies-details-gp-crop-stages" class="">
+		<h2 id="component-title">
+			Crop Stages
+		</h2>
+		<form id="dataview-controls" class="form-inline">
+			<div id="dataview-controls-search">
+				<div id="dataview-controls-search-group" class="input-group">
+					<input type="text" class="form-control" id="dataview-search-input" placeholder="Search" name="search" value="{{searchString}}" autofocus="autofocus">
+					<span class="input-group-btn">
+						<button type="button" id="dataview-search-button" class="btn btn-primary">
+							<span class="fa fa-search">
+							</span>
+						</button>
+					</span>
+				</div>
+			</div>
+		</form>
+		{{#if isNotEmpty}}
+		<div id="dataview-data">
+			{{#if viewAsTable}} {{> GroupPoliciesDetailsGpCropStagesTable}} {{/if}}
+		</div>
+		<nav aria-label="...">
+			<ul class="pager">
+				{{#if gotPrevPage}}
+				<li>
+					<a href="#" class="prev-page-link">
+						Previous page
+					</a>
+					&nbsp;
+				</li>
+				{{/if}}
+					{{#if gotNextPage}}
+				<li>
+					&nbsp;
+					<a href="#" class="next-page-link">
+						Next page
+					</a>
+				</li>
+				{{/if}}
+			</ul>
+		</nav>
+		{{else}}
+			{{#if isNotFound}}
+		<div class="alert alert-warning">
+			"{{searchString}}" not found.
+		</div>
+		{{else}}
+		<div class="alert alert-info">
+			Empty.
+		</div>
+		{{/if}}
+		{{/if}}
+	</div>
+</template>
+
+<template name="GroupPoliciesDetailsGpCropStagesTable">
+	<table id="dataview-table" class="table table-striped">
+		<thead id="dataview-table-header">
+			<tr id="dataview-table-header-row">
+				<th class="th-sortable" data-sort="cs_id">
+					Crop Stage Id
+				</th>
+				<th class="th-sortable" data-sort="weight">
+					Weight
+				</th>
+				<th class="th-sortable" data-sort="date_begin">
+					Date Begin
+				</th>
+				<th class="th-sortable" data-sort="date_end">
+					Date End
+				</th>
+				<th class="th-sortable" data-sort="trigger">
+					Trigger
+				</th>
+				<th class="th-sortable" data-sort="blocks_total">
+					Blocks Total
+				</th>
+				<th class="th-sortable" data-sort="blocks_loss">
+					Blocks Loss
+				</th>
+				<th class="th-sortable" data-sort="payout">
+					Payout
+				</th>
+			</tr>
+		</thead>
+		<tbody id="dataview-table-items">
+			{{#each gp_crop_stages_list_paged}} {{> GroupPoliciesDetailsGpCropStagesTableItems}} {{/each}}
+		</tbody>
+	</table>
+</template>
+
+<template name="GroupPoliciesDetailsGpCropStagesTableItems">
+	<tr id="dataview-table-items-row">
+		<td>
+			{{cs_id}}
+		</td>
+		<td>
+			{{round2 weight this}}
+		</td>
+		<td>
+			{{formatDate date_begin 'MM-DD'}}
+		</td>
+		<td>
+			{{formatDate date_end 'MMM-DD'}}
+		</td>
+		<td>
+			{{round2 trigger this}}
+		</td>
+		<td>
+			{{blocks_total}}
+		</td>
+		<td>
+			{{blocks_loss}}
+		</td>
+		<td>
+			{{round2 payout this}}
+		</td>
+	</tr>
+</template>
+
+<template name="GroupPoliciesDetailsGpIndividualPolicies">
+	<div id="group-policies-details-gp-individual-policies" class="">
+		<h2 id="component-title">
+			Individual Policies
+		</h2>
+		<form id="dataview-controls" class="form-inline">
+			<div id="dataview-controls-search">
+				<div id="dataview-controls-search-group" class="input-group">
+					<input type="text" class="form-control" id="dataview-search-input" placeholder="Search" name="search" value="{{searchString}}" autofocus="autofocus">
+					<span class="input-group-btn">
+						<button type="button" id="dataview-search-button" class="btn btn-primary">
+							<span class="fa fa-search">
+							</span>
+						</button>
+					</span>
+				</div>
+			</div>
+		</form>
+		{{#if isNotEmpty}}
+		<div id="dataview-data">
+			{{#if viewAsTable}} {{> GroupPoliciesDetailsGpIndividualPoliciesTable}} {{/if}}
+		</div>
+		<nav aria-label="...">
+			<ul class="pager">
+				{{#if gotPrevPage}}
+				<li>
+					<a href="#" class="prev-page-link">
+						Previous page
+					</a>
+					&nbsp;
+				</li>
+				{{/if}}
+					{{#if gotNextPage}}
+				<li>
+					&nbsp;
+					<a href="#" class="next-page-link">
+						Next page
+					</a>
+				</li>
+				{{/if}}
+			</ul>
+		</nav>
+		{{else}}
+			{{#if isNotFound}}
+		<div class="alert alert-warning">
+			"{{searchString}}" not found.
+		</div>
+		{{else}}
+		<div class="alert alert-info">
+			Empty.
+		</div>
+		{{/if}}
+		{{/if}}
+	</div>
+</template>
+
+<template name="GroupPoliciesDetailsGpIndividualPoliciesTable">
+	<table id="dataview-table" class="table table-striped">
+		<thead id="dataview-table-header">
+			<tr id="dataview-table-header-row">
+				<th class="th-sortable" data-sort="voucher_no">
+					Voucher No
+				</th>
+				<th class="th-sortable" data-sort="phone_no">
+					Phone No
+				</th>
+				<th class="th-sortable" data-sort="crop">
+					Crop
+				</th>
+				<th class="th-sortable" data-sort="activation_window">
+					Activation W.
+				</th>
+				<th class="th-sortable" data-sort="date_begin">
+					Date Begin
+				</th>
+				<th class="th-sortable" data-sort="date_end">
+					Date End
+				</th>
+				<th class="th-sortable" data-sort="activation_timestamp">
+					Activation
+				</th>
+				<th class="th-sortable" data-sort="premium">
+					Premium
+				</th>
+				<th class="th-sortable" data-sort="sum_insured">
+					Sum Insured
+				</th>
+				<th class="th-sortable" data-sort="paym_amount">
+					Paym Amount
+				</th>
+				<th class="th-sortable" data-sort="payout_amount">
+					Payout Amount
+				</th>
+			</tr>
+		</thead>
+		<tbody id="dataview-table-items">
+			{{#each gp_individual_policies_paged}} {{> GroupPoliciesDetailsGpIndividualPoliciesTableItems}} {{/each}}
+		</tbody>
+	</table>
+</template>
+
+<template name="GroupPoliciesDetailsGpIndividualPoliciesTableItems">
+	<tr id="dataview-table-items-row">
+		<td>
+			{{voucher_no}}
+		</td>
+		<td>
+			{{phone_no}}
+		</td>
+		<td>
+			{{crop}}
+		</td>
+		<td>
+			{{activation_window}}
+		</td>
+		<td>
+			{{formatDate date_begin 'MMM-DD'}}
+		</td>
+		<td>
+			{{formatDate date_end 'MMM-DD'}}
+		</td>
+		<td>
+			{{formatDate activation_timestamp 'MMM-DD'}}
+		</td>
+		<td>
+			{{currency premium this}}
+		</td>
+		<td>
+			{{currency sum_insured this}}
+		</td>
+		<td>
+			{{currency paym_amount this}}
+		</td>
+		<td>
+			{{currency payout_amount this}}
+		</td>
+	</tr>
+</template>
+

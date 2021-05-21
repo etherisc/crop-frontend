@@ -1,0 +1,165 @@
+<template name="PayoutsInsert">
+	<div class="page-container container" id="content">
+		<div class="row" id="title_row">
+			<div class="col-md-12">
+			</div>
+		</div>
+		{{> PayoutsInsertForm}}
+	</div>
+</template>
+
+<template name="PayoutsInsertForm">
+	<div id="payouts-insert-form" class="">
+		<h2 id="component-title">
+			New Payout
+		</h2>
+		<form role="form">
+			{{#if errorMessage}}
+			<div class="alert alert-warning">
+				{{errorMessage}}
+			</div>
+			{{/if}}
+
+			{{#if infoMessage}}
+			<div class="alert alert-success">
+				{{infoMessage}}
+			</div>
+			{{/if}}
+			<div class="form-group  field-order_number">
+				<label for="order_number">
+					Order Number
+				</label>
+				<div class="input-div">
+					<input type="text" name="order_number" value="" class="form-control " autofocus="autofocus" data-type="string">
+					<span id="help-text" class="help-block">
+					</span>
+					<span id="error-text" class="help-block">
+					</span>
+				</div>
+			</div>
+			<div class="form-group  field-germ-dry">
+				<label for="GermDry">
+					Germ Dry
+				</label>
+				<div class="input-div">
+					<input type="text" name="GermDry" value="" class="form-control " data-type="string">
+					<span id="help-text" class="help-block">
+					</span>
+					<span id="error-text" class="help-block">
+					</span>
+				</div>
+			</div>
+			<div class="form-group  field-germ-wet">
+				<label for="GermWet">
+					Germ Wet
+				</label>
+				<div class="input-div">
+					<input type="text" name="GermWet" value="" class="form-control " data-type="string">
+					<span id="help-text" class="help-block">
+					</span>
+					<span id="error-text" class="help-block">
+					</span>
+				</div>
+			</div>
+			<div class="form-group  field-veg-dry">
+				<label for="VegDry">
+					Veg Dry
+				</label>
+				<div class="input-div">
+					<input type="text" name="VegDry" value="" class="form-control " data-type="string">
+					<span id="help-text" class="help-block">
+					</span>
+					<span id="error-text" class="help-block">
+					</span>
+				</div>
+			</div>
+			<div class="form-group  field-flower">
+				<label for="Flower">
+					Flower
+				</label>
+				<div class="input-div">
+					<input type="text" name="Flower" value="" class="form-control " data-type="string">
+					<span id="help-text" class="help-block">
+					</span>
+					<span id="error-text" class="help-block">
+					</span>
+				</div>
+			</div>
+			<div class="form-group  field-excess-rain">
+				<label for="ExcessRain">
+					Excess Rain
+				</label>
+				<div class="input-div">
+					<input type="text" name="ExcessRain" value="" class="form-control " data-type="string">
+					<span id="help-text" class="help-block">
+					</span>
+					<span id="error-text" class="help-block">
+					</span>
+				</div>
+			</div>
+			<div class="form-group  field-total">
+				<label for="Total">
+					Total
+				</label>
+				<div class="input-div">
+					<input type="text" name="Total" value="" class="form-control " data-type="string">
+					<span id="help-text" class="help-block">
+					</span>
+					<span id="error-text" class="help-block">
+					</span>
+				</div>
+			</div>
+			<div class="form-group  field-actual">
+				<label for="Actual">
+					Actual
+				</label>
+				<div class="input-div">
+					<input type="text" name="Actual" value="" class="form-control " data-type="string">
+					<span id="help-text" class="help-block">
+					</span>
+					<span id="error-text" class="help-block">
+					</span>
+				</div>
+			</div>
+			<div class="form-group  field-execute">
+				<div class="input-div">
+					<div class="checkbox">
+						<label>
+							<input type="checkbox" value="" name="execute" data-type="bool">
+							Execute
+						</label>
+					</div>
+					<span id="help-text" class="help-block">
+					</span>
+					<span id="error-text" class="help-block">
+					</span>
+				</div>
+			</div>
+			<div class="form-group  field-executed">
+				<div class="input-div">
+					<div class="checkbox">
+						<label>
+							<input type="checkbox" value="" name="executed" data-type="bool">
+							Executed
+						</label>
+					</div>
+					<span id="help-text" class="help-block">
+					</span>
+					<span id="error-text" class="help-block">
+					</span>
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="submit-div">
+					<a href="#" id="form-cancel-button" class="btn btn-default">
+						Cancel
+					</a>
+					<button id="form-submit-button" class="btn btn-success" type="submit">
+						Save
+					</button>
+				</div>
+			</div>
+		</form>
+	</div>
+</template>
+

@@ -1,0 +1,188 @@
+<template name="PayoutsDemo">
+	<div class="page-container container" id="content">
+		<div class="row" id="title_row">
+			<div class="col-md-12">
+			</div>
+		</div>
+		{{> PayoutsDemoView}}
+	</div>
+</template>
+
+<template name="PayoutsDemoView">
+	<div id="payouts-demo-view" class="">
+		<h2 id="component-title">
+			Payouts 2
+		</h2>
+		<form id="dataview-controls" class="form-inline">
+			<div id="dataview-controls-insert" class="form-group {{insertButtonClass}}">
+				<button type="submit" id="dataview-insert-button" class="btn btn-success">
+					<span class="fa fa-plus">
+					</span>
+					Add new
+				</button>
+			</div>
+			<div id="dataview-controls-search">
+				<div id="dataview-controls-search-group" class="input-group">
+					<input type="text" class="form-control" id="dataview-search-input" placeholder="Search" name="search" value="{{searchString}}" autofocus="autofocus">
+					<span class="input-group-btn">
+						<button type="button" id="dataview-search-button" class="btn btn-primary">
+							<span class="fa fa-search">
+							</span>
+						</button>
+					</span>
+				</div>
+			</div>
+		</form>
+		{{#if isNotEmpty}}
+		<div id="dataview-data">
+			{{#if viewAsTable}} {{> PayoutsDemoViewTable}} {{/if}}
+		</div>
+		<nav aria-label="...">
+			<ul class="pager">
+				{{#if gotPrevPage}}
+				<li>
+					<a href="#" class="prev-page-link">
+						Previous page
+					</a>
+					&nbsp;
+				</li>
+				{{/if}}
+					{{#if gotNextPage}}
+				<li>
+					&nbsp;
+					<a href="#" class="next-page-link">
+						Next page
+					</a>
+				</li>
+				{{/if}}
+			</ul>
+		</nav>
+		{{else}}
+			{{#if isNotFound}}
+		<div class="alert alert-warning">
+			"{{searchString}}" not found.
+		</div>
+		{{else}}
+		<div class="alert alert-info">
+			Empty.
+		</div>
+		{{/if}}
+		{{/if}}
+	</div>
+</template>
+
+<template name="PayoutsDemoViewTable">
+	<table id="dataview-table" class="table table-striped table-hover">
+		<thead id="dataview-table-header">
+			<tr id="dataview-table-header-row">
+				<th class="th-sortable" data-sort="name">
+					Name
+				</th>
+				<th class="th-sortable" data-sort="mobile_number">
+					Mobile Number
+				</th>
+				<th class="th-sortable" data-sort="sum_insured">
+					Sum Insured
+				</th>
+				<th class="th-sortable" data-sort="order_number">
+					Order Number
+				</th>
+				<th class="th-sortable" data-sort="value_chain">
+					Value Chain
+				</th>
+				<th class="th-sortable" data-sort="start_date">
+					Start Date
+				</th>
+				<th class="th-sortable" data-sort="pixel">
+					Pixel
+				</th>
+				<th class="th-sortable" data-sort="end_date">
+					End Date
+				</th>
+				<th class="th-sortable" data-sort="germ_wet_pay">
+					Germ. Wet Payout
+				</th>
+				<th class="th-sortable" data-sort="germ_dry_pay">
+					Germ Dry Payout
+				</th>
+				<th class="th-sortable" data-sort="veg_wet_pay">
+					Veg Wet Payout
+				</th>
+				<th class="th-sortable" data-sort="veg_dry_pay">
+					Veg Dry Payout
+				</th>
+				<th class="th-sortable" data-sort="flower_pay">
+					Flowering Payout
+				</th>
+				<th class="th-sortable" data-sort="excess_rain_pay">
+					Excess Rain Payout
+				</th>
+				<th>
+					&nbsp;
+				</th>
+				<th>
+					&nbsp;
+				</th>
+			</tr>
+		</thead>
+		<tbody id="dataview-table-items">
+			{{#each payout_2_list_paged}} {{> PayoutsDemoViewTableItems}} {{/each}}
+		</tbody>
+	</table>
+</template>
+
+<template name="PayoutsDemoViewTableItems">
+	<tr id="dataview-table-items-row">
+		<td>
+			{{name}}
+		</td>
+		<td>
+			{{mobile_number}}
+		</td>
+		<td>
+			{{sum_insured}}
+		</td>
+		<td>
+			{{order_number}}
+		</td>
+		<td>
+			{{value_chain}}
+		</td>
+		<td>
+			{{start_date}}
+		</td>
+		<td>
+			{{pixel}}
+		</td>
+		<td>
+			{{end_date}}
+		</td>
+		<td>
+			{{germ_wet_pay}}
+		</td>
+		<td>
+			{{germ_dry_pay}}
+		</td>
+		<td>
+			{{veg_wet_pay}}
+		</td>
+		<td>
+			{{veg_dry_pay}}
+		</td>
+		<td>
+			{{flower_pay}}
+		</td>
+		<td>
+			{{excess_rain_pay}}
+		</td>
+		<td class="td-icon">
+			<span id="edit-button" class="fa fa-pencil {{editButtonClass}}" title="Edit">
+			</span>
+		</td>
+		<td class="td-icon">
+			<span id="delete-button" class="fa fa-trash-o {{deleteButtonClass}}" title="Delete">
+			</span>
+		</td>
+	</tr>
+</template>
+

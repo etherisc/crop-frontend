@@ -1,0 +1,170 @@
+<template name="Arc2DataPage">
+	<div class="page-container container" id="content">
+		<div class="row" id="title_row">
+			<div class="col-md-12">
+			</div>
+		</div>
+		{{> Arc2DataPageHeader}}{{> Arc2DataPageView}}
+	</div>
+</template>
+
+<template name="Arc2DataPageHeader">
+</template>
+
+<template name="Arc2DataPageView">
+	<div id="arc2data-page-view" class="">
+		<h2 id="component-title">
+			Arc2 Rainfall Data
+		</h2>
+		<form id="dataview-controls" class="form-inline">
+			<div id="dataview-controls-search">
+				<div id="dataview-controls-search-group" class="input-group">
+					<input type="text" class="form-control" id="dataview-search-input" placeholder="Search" name="search" value="{{searchString}}" autofocus="autofocus">
+					<span class="input-group-btn">
+						<button type="button" id="dataview-search-button" class="btn btn-primary">
+							<span class="fa fa-search">
+							</span>
+						</button>
+					</span>
+				</div>
+			</div>
+		</form>
+		{{#if isNotEmpty}}
+		<div id="dataview-data">
+			{{#if viewAsTable}} {{> Arc2DataPageViewTable}} {{/if}}
+		</div>
+		<nav aria-label="...">
+			<ul class="pager">
+				{{#if gotPrevPage}}
+				<li>
+					<a href="#" class="prev-page-link">
+						Previous page
+					</a>
+					&nbsp;
+				</li>
+				{{/if}}
+					{{#if gotNextPage}}
+				<li>
+					&nbsp;
+					<a href="#" class="next-page-link">
+						Next page
+					</a>
+				</li>
+				{{/if}}
+			</ul>
+		</nav>
+		{{else}}
+			{{#if isNotFound}}
+		<div class="alert alert-warning">
+			"{{searchString}}" not found.
+		</div>
+		{{else}}
+		<div class="alert alert-info">
+			Empty.
+		</div>
+		{{/if}}
+		{{/if}}
+	</div>
+</template>
+
+<template name="Arc2DataPageViewTable">
+	<table id="dataview-table" class="table table-striped table-hover">
+		<thead id="dataview-table-header">
+			<tr id="dataview-table-header-row">
+				<th class="th-sortable" data-sort="pixel">
+					Pixel
+				</th>
+				<th class="th-sortable" data-sort="pixel_date">
+					Date
+				</th>
+				<th class="th-sortable" data-sort="Y1983">
+					1983
+				</th>
+				<th class="th-sortable" data-sort="_dummy">
+					1984-2009
+				</th>
+				<th class="th-sortable" data-sort="Y2010">
+					2010
+				</th>
+				<th class="th-sortable" data-sort="Y2011">
+					2011
+				</th>
+				<th class="th-sortable" data-sort="Y2012">
+					2012
+				</th>
+				<th class="th-sortable" data-sort="Y2013">
+					2013
+				</th>
+				<th class="th-sortable" data-sort="Y2014">
+					2014
+				</th>
+				<th class="th-sortable" data-sort="Y2015">
+					2015
+				</th>
+				<th class="th-sortable" data-sort="Y2016">
+					2016
+				</th>
+				<th class="th-sortable" data-sort="Y2017">
+					2017
+				</th>
+				<th class="th-sortable" data-sort="Y2018">
+					2018
+				</th>
+				<th class="th-sortable" data-sort="Y2019">
+					2019
+				</th>
+			</tr>
+		</thead>
+		<tbody id="dataview-table-items">
+			{{#each arc2row_list_paged}} {{> Arc2DataPageViewTableItems}} {{/each}}
+		</tbody>
+	</table>
+</template>
+
+<template name="Arc2DataPageViewTableItems">
+	<tr id="dataview-table-items-row">
+		<td>
+			{{pixel}}
+		</td>
+		<td>
+			{{pixel_date}}
+		</td>
+		<td>
+			{{Y1983}}
+		</td>
+		<td>
+			{{showDummy _dummy this}}
+		</td>
+		<td>
+			{{Y2010}}
+		</td>
+		<td>
+			{{Y2011}}
+		</td>
+		<td>
+			{{Y2012}}
+		</td>
+		<td>
+			{{Y2013}}
+		</td>
+		<td>
+			{{Y2014}}
+		</td>
+		<td>
+			{{Y2015}}
+		</td>
+		<td>
+			{{Y2016}}
+		</td>
+		<td>
+			{{Y2017}}
+		</td>
+		<td>
+			{{Y2018}}
+		</td>
+		<td>
+			{{Y2019}}
+		</td>
+	</tr>
+</template>
+
