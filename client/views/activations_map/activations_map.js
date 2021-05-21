@@ -28,10 +28,12 @@ Template.ActivationsMapMap.created = function() {
 
 		let timer;
 		let rectangles = [];
+
 		map.addListener("bounds_changed", () => {
 
 			if (timer) window.clearTimeout(timer);
 			timer = window.setTimeout(() => {
+
 
 				if (rectangles) {
 					rectangles.forEach((rect) => {
