@@ -56,8 +56,14 @@ Template.ActivationsMapMap.created = function() {
 
 		map.addListener("bounds_changed", () => {
 			var bounds = map.getBounds();
-			console.log(bounds);
-
+			
+			const {lat: ymin, lng: xmin} = bounds.getSouthWest();
+			const {lat: ymax, lng: xmax} = bounds.getNorthEast();
+			
+			
+			console.log(xmin, ymin, xmax, ymax);
+			console.log('Pixel: ', latLng2Pixel(xmin, ymin));
+			
 		});
 
 	});
