@@ -53,17 +53,22 @@ Template.ActivationsMapMap.created = function() {
 		//		var ne = bounds.getNorthEast(); // LatLng of the north-east corner
 		//		var sw = bounds.getSouthWest(); // LatLng of the south-west corder
 
-
+		let timer;
 		map.addListener("bounds_changed", () => {
-			var bounds = map.getBounds();
-			
-			const {lat: ymin, lng: xmin} = bounds.getSouthWest();
-			const {lat: ymax, lng: xmax} = bounds.getNorthEast();
-			
-			
-			console.log(xmin(), ymin(), xmax(), ymax());
-			console.log('Pixel: ', latLng2Pixel({lat: xmin(), lng: ymin()}));
-			
+
+			if (timer) window.clearTimeout(timer);
+			timer = window.setTimeout(() => {
+				var bounds = map.getBounds();
+
+
+
+				const {lat: ymin, lng: xmin} = bounds.getSouthWest();
+				const {lat: ymax, lng: xmax} = bounds.getNorthEast();
+
+
+				console.log(xmin(), ymin(), xmax(), ymax());
+				console.log('Pixel: ', latLng2Pixel({lat: xmin(), lng: ymin()}));
+			}, 1000);				
 		});
 
 	});
