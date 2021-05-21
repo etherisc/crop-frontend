@@ -386,7 +386,7 @@
 		},
 		{
 			"path": "client/views/activations_map/activations_map.js",
-			"checksum": "3eb3b0692bdc62d2385a195c897a5d0a3660513f"
+			"checksum": "cae09a2b25cefe741947a7acbad23cdb8392bf40"
 		},
 		{
 			"path": "client/views/activations_map/activations_map_controller.js",
@@ -963,6 +963,10 @@
 		{
 			"path": "client/styles/googlemaps.css",
 			"checksum": "e83cc775ad3e94c051f1a83be0cd8c40d0de7f70"
+		},
+		{
+			"path": "client/lib/globals/googlemap_txtoverlay.js",
+			"checksum": "1c3941a1a38900b95163ffec16868a980336e3ea"
 		},
 		{
 			"path": "lib/string_utils.js",
