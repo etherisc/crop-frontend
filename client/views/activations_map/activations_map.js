@@ -1,9 +1,9 @@
 Template.ActivationsMap.onCreated(function() {
-	
+
 });
 
 Template.ActivationsMap.onDestroyed(function() {
-	
+
 });
 
 Template.ActivationsMap.onRendered(function() {
@@ -15,11 +15,11 @@ Template.ActivationsMap.onRendered(function() {
 });
 
 Template.ActivationsMap.events({
-	
+
 });
 
 Template.ActivationsMap.helpers({
-	
+
 });
 
 Template.ActivationsMapMap.created = function() {
@@ -50,11 +50,11 @@ Template.ActivationsMapMap.created = function() {
 				const {lat: ymax, lng: xmax} = bounds.getNorthEast();
 				//console.log(xmin(), ymin(), xmax(), ymax());
 				if (ymax() - ymin() > 2.5 || xmax() - xmin() > 3.5) {
-					console.log('too many', xmax()-xmin(), ymax()-ymin()); 
+					console.log('too many', xmax()-xmin(), ymax()-ymin());
 					return;
 				}
 
-				const xmi = Math.round(xmin() * 10); 
+				const xmi = Math.round(xmin() * 10);
 				const ymi = Math.round(ymin() * 10);
 				const xma = Math.round(xmax() * 10);
 				const yma = Math.round(ymax() * 10);
@@ -68,7 +68,7 @@ Template.ActivationsMapMap.created = function() {
 						//console.log('Found!');
 						const rectangle = new google.maps.Rectangle({
 							strokeColor: "#000000",
-							strokeOpacity: 0.35, 
+							strokeOpacity: 0.08,
 							strokeWeight: 1,
 							fillColor: "#FF0000",
 							fillOpacity: op,
@@ -90,7 +90,7 @@ Template.ActivationsMapMap.created = function() {
 
 					}
 				}
-			}, 1000);				
+			}, 1000);
 		});
 
 	});
