@@ -45,7 +45,7 @@ Template.ActivationsMapMap.created = function() {
 			},
 		});
 
-		const latlng = new google.maps.LatLng(0.0, 35.0);
+		const latlng = new google.maps.LatLng(0.0, 34.975);
 		const customTxt = "<div>123456</div>"
 		const txt = new TxtOverlay(latlng, customTxt, "gmlp-textbox", map.instance)
 
