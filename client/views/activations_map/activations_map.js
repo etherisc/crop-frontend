@@ -38,8 +38,10 @@ Template.ActivationsMapMap.created = function() {
 				for (let lat = ymin; lat <= ymax; lat += 0.1) {
 					for (let lng = xmin(); lng <= xmax(); lng += 0.1) {
 						const pixel = `Pixel${latLng2Pixel({lat, lng})}`;
+						console.log(pixel);
 						const activation = Activations.findOne({pixel});
 						if (activation) {
+							console.log('Found!');
 							const rectangle = new google.maps.Rectangle({
 								strokeColor: "#FF0000",
 								strokeOpacity: 0.8,
