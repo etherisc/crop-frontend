@@ -958,7 +958,7 @@
 		},
 		{
 			"path": "client/lib/globals/globals.js",
-			"checksum": "44815e650f6a69a1886a4b9b77af149544c88a5b"
+			"checksum": "94d5731714981a2d314f60f7c1443d347f353209"
 		},
 		{
 			"path": "server/methods/methods.js",
@@ -986,7 +986,7 @@
 		},
 		{
 			"path": "imports/server/methods/count.js",
-			"checksum": "07ad38ae1811a156626829760527a454fe001438"
+			"checksum": "79b88d5d5ab5f3128cf1c668cf6811df93e2c23a"
 		},
 		{
 			"path": "lib/string_utils.js",
