@@ -21,6 +21,10 @@ Router.privateRoutes = [
 	"admin.users.details",
 	"admin.users.insert",
 	"admin.users.edit",
+	"admin.import_jobs",
+	"admin.import_jobs.insert",
+	"admin.import_jobs.update",
+	"admin.import_jobs.details",
 	"user_settings",
 	"user_settings.profile",
 	"user_settings.change_pass",
@@ -75,6 +79,10 @@ Router.roleMap = [
 	{ route: "admin.users.details",	roles: ["admin"] },
 	{ route: "admin.users.insert",	roles: ["admin"] },
 	{ route: "admin.users.edit",	roles: ["admin"] },
+	{ route: "admin.import_jobs",	roles: ["admin"] },
+	{ route: "admin.import_jobs.insert",	roles: ["admin"] },
+	{ route: "admin.import_jobs.update",	roles: ["admin"] },
+	{ route: "admin.import_jobs.details",	roles: ["admin"] },
 	{ route: "user_settings",	roles: ["user","admin"] },
 	{ route: "user_settings.profile",	roles: ["user","admin"] },
 	{ route: "user_settings.change_pass",	roles: ["user","admin"] }
@@ -129,6 +137,10 @@ Router.map(function () {
 	this.route("/admin/users/details/:userId", {name: "admin.users.details", title: "", controller: "AdminUsersDetailsController"});
 	this.route("/admin/users/insert", {name: "admin.users.insert", title: "", controller: "AdminUsersInsertController"});
 	this.route("/admin/users/edit/:userId", {name: "admin.users.edit", title: "", controller: "AdminUsersEditController"});
+	this.route("/admin/import_jobs", {name: "admin.import_jobs", title: "", controller: "AdminImportJobsController"});
+	this.route("/admin/import_jobs/insert", {name: "admin.import_jobs.insert", title: "", controller: "AdminImportJobsInsertController"});
+	this.route("/admin/import_jobs/update/:importJobId", {name: "admin.import_jobs.update", title: "", controller: "AdminImportJobsUpdateController"});
+	this.route("/admin/import_jobs/details/:importJobId", {name: "admin.import_jobs.details", title: "", controller: "AdminImportJobsDetailsController"});
 	this.route("/user_settings", {name: "user_settings", title: "", controller: "UserSettingsController"});
 	this.route("/user_settings/profile", {name: "user_settings.profile", title: "", controller: "UserSettingsProfileController"});
 	this.route("/user_settings/change_pass", {name: "user_settings.change_pass", title: "", controller: "UserSettingsChangePassController"});

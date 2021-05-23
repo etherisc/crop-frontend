@@ -22,7 +22,7 @@ this.PaymentsPageController = RouteController.extend({
 			sortBy: Session.get("PaymentListPagedSortBy") || "",
 			sortAscending: Session.get("PaymentListPagedSortAscending"),
 			pageNo: Session.get("PaymentListPagedPageNo") || 0,
-			pageSize: Session.get("PaymentListPagedPageSize") || 0
+			pageSize: Session.get("PaymentListPagedPageSize") || 25
 		};
 
 

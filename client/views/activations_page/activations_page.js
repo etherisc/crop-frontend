@@ -345,6 +345,31 @@ Template.ActivationsPageViewTableItems.helpers({
 	}
 });
 
+Template.ActivationsPageViewCustomActions.created = function() {
+
+};
+
+Template.ActivationsPageViewCustomActions.destroyed = function() {
+
+};
+
+Template.ActivationsPageViewCustomActions.rendered = function() {
+
+};
+
+Template.ActivationsPageViewCustomActions.helpers({
+
+});
+
+Template.ActivationsPageViewCustomActions.events({
+	"click #btn-import": function (e,t) {
+		e.preventDefault();
+
+		const counter = Meteor.call('readActivationsFile');
+		alert (`${counter} records imported.`);
+	}
+});
+
 Template.ActivationsPageFooter.created = function() {
 
 };

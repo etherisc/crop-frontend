@@ -4,12 +4,11 @@ const countActivations = () => {
 	activations = Activations.find({});
 
 	activations.forEach((activation) => {
-		
-		const newPixel = latLng2PixelStr(activation.latitude, activation.longitude);
+		const newPixel = latLng2PixelStr({lat: activation.latitude, lng: activation.longitude});
+		console.log(newPixel);
 		Activations.update({_id: activation._id}, {$set: {pixel: newPixel}});
 		
 		const count = RecordCounts.findOne({pixel: newPixel});
-		console.log(count);
 		if (count) {
 			RecordCounts.update({pixel: newPixel}, {$set: {count: count.count + 1}});
 		} else {
@@ -19,4 +18,4 @@ const countActivations = () => {
 	
 }; 
 
-module.exports = { countActivations };
+module.exports = { countActivations }; 

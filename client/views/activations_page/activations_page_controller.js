@@ -22,7 +22,7 @@ this.ActivationsPageController = RouteController.extend({
 			sortBy: Session.get("ActivationListPagedSortBy") || "",
 			sortAscending: Session.get("ActivationListPagedSortAscending"),
 			pageNo: Session.get("ActivationListPagedPageNo") || 0,
-			pageSize: Session.get("ActivationListPagedPageSize") || 0
+			pageSize: Session.get("ActivationListPagedPageSize") || 25
 		};
 
 
@@ -56,6 +56,9 @@ this.ActivationsPageController = RouteController.extend({
 		if(this.isReady() && this.activationListPagedExtraParams.pageNo >= data.activation_list_paged_page_count) {
 			Session.set("ActivationListPagedPageNo", data.activation_list_paged_page_count > 0 ? data.activation_list_paged_page_count - 1 : 0);
 		}
+/** Custom data code **/
+/** Custom data code end **/
+
 
 
 		return data;

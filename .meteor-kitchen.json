@@ -2,7 +2,7 @@
 	"output_files": [
 		{
 			"path": "client/views/router.js",
-			"checksum": "f1299b2b7a7b0306c13b0c95d2daadd2fdba82da"
+			"checksum": "c2903c77394410184fde08a76f95511b37912b46"
 		},
 		{
 			"path": "server/controllers/router.js",
@@ -130,7 +130,7 @@
 		},
 		{
 			"path": "client/views/admin/admin.html",
-			"checksum": "84c24cb2f48aa06da66b9c50fc98570b076efbb2"
+			"checksum": "8658f3f3227d54482198aeed473b19228b3d1b4e"
 		},
 		{
 			"path": "client/views/admin/admin.js",
@@ -187,6 +187,54 @@
 		{
 			"path": "client/views/admin/users/edit/edit_controller.js",
 			"checksum": "39da99351d90fc0ecd60aefc186c01459c89cf65"
+		},
+		{
+			"path": "client/views/admin/import_jobs/import_jobs.html",
+			"checksum": "335c1f2c31beece962f963cdc7dfe11cbb547623"
+		},
+		{
+			"path": "client/views/admin/import_jobs/import_jobs.js",
+			"checksum": "3122db5ed52969089105fe3e71229c60ceee1f1a"
+		},
+		{
+			"path": "client/views/admin/import_jobs/import_jobs_controller.js",
+			"checksum": "55b175af1741d5fa19d7b22fcaebdae0e01896fd"
+		},
+		{
+			"path": "client/views/admin/import_jobs/insert/insert.html",
+			"checksum": "5803a3fd119f0f88faced66486fa4329043ad5d0"
+		},
+		{
+			"path": "client/views/admin/import_jobs/insert/insert.js",
+			"checksum": "b2f3eeb4256e0d402c6683ce633afb0e92284eb9"
+		},
+		{
+			"path": "client/views/admin/import_jobs/insert/insert_controller.js",
+			"checksum": "58b73be3ed24845032c98d0d554374b9b465df2b"
+		},
+		{
+			"path": "client/views/admin/import_jobs/update/update.html",
+			"checksum": "a468e0719e2b551736263d945f63c798d36d2f7b"
+		},
+		{
+			"path": "client/views/admin/import_jobs/update/update.js",
+			"checksum": "8d6a22a6165e3eea89277f53b91c78eef196c0b7"
+		},
+		{
+			"path": "client/views/admin/import_jobs/update/update_controller.js",
+			"checksum": "1777e1eebc9942f11daa2204792a5b9e6b9d62c9"
+		},
+		{
+			"path": "client/views/admin/import_jobs/details/details.html",
+			"checksum": "069fc9aa77c83f68d3fa11ab92a65ab45de45506"
+		},
+		{
+			"path": "client/views/admin/import_jobs/details/details.js",
+			"checksum": "72d107d36ea45b2eb65d6c4ca4593d0e4f9587c6"
+		},
+		{
+			"path": "client/views/admin/import_jobs/details/details_controller.js",
+			"checksum": "a9b45ec78526a9b207efa02919e153c7d64740eb"
 		},
 		{
 			"path": "client/views/user_settings/user_settings.html",
@@ -294,7 +342,7 @@
 		},
 		{
 			"path": "client/views/payments_page/payments_page_controller.js",
-			"checksum": "dbabe2879381b63a4b344c29905a5270c10de3bd"
+			"checksum": "b97b651ff540544bfdc3cca67931de310ab92db6"
 		},
 		{
 			"path": "client/views/payments_page/insert/insert.html",
@@ -334,15 +382,15 @@
 		},
 		{
 			"path": "client/views/activations_page/activations_page.html",
-			"checksum": "1ff7528fb41e070c1252c33bca5f4fd5127bf2e4"
+			"checksum": "15d63ad1eaf731800792590ccbe6df6917630041"
 		},
 		{
 			"path": "client/views/activations_page/activations_page.js",
-			"checksum": "d3714dd329c8594f63633fbaf87393d50f1d1ce1"
+			"checksum": "993162f3602bb426e1cf2102ebd64d6cc60a219f"
 		},
 		{
 			"path": "client/views/activations_page/activations_page_controller.js",
-			"checksum": "c2fbca83eb4af4bdbee65d9b230ac206babbc3c7"
+			"checksum": "40265b31a363c0e19144314d510c11a39a1c6a0f"
 		},
 		{
 			"path": "client/views/activations_page/insert/insert.html",
@@ -382,11 +430,11 @@
 		},
 		{
 			"path": "client/views/activations_map/activations_map.html",
-			"checksum": "590cc14d8b130bf4189f3df65d224ad4aa1d1865"
+			"checksum": "03b76426536ad2794cd95700da0d3070d2afe523"
 		},
 		{
 			"path": "client/views/activations_map/activations_map.js",
-			"checksum": "c450ab78e6f9bd2e13e5e530a50f43f69632589e"
+			"checksum": "5ad13ab13d16a61c075dc91e74a13ebcdb2015f2"
 		},
 		{
 			"path": "client/views/activations_map/activations_map_controller.js",
@@ -937,6 +985,22 @@
 			"checksum": "a57087ff5cfe3859e5732c860fe04c6de1188bed"
 		},
 		{
+			"path": "both/collections/import_jobs.js",
+			"checksum": "d27d641e550e9aef7d4470329218f1c93d8d4810"
+		},
+		{
+			"path": "server/methods/import_jobs.js",
+			"checksum": "71c80acb97085dcaa56fad0c8985b043136d720c"
+		},
+		{
+			"path": "server/collections/import_jobs.js",
+			"checksum": "966f262224039946f2881b7bdd0ca5588daa109b"
+		},
+		{
+			"path": "server/publish/import_jobs.js",
+			"checksum": "181516796176a8fbc43b781afe0948c02416903e"
+		},
+		{
 			"path": "client/styles/user_styles.less",
 			"checksum": "f08a3edc8a6d5d39aa62d62dfcfbe8ab3b608673"
 		},
@@ -958,11 +1022,11 @@
 		},
 		{
 			"path": "client/lib/globals/globals.js",
-			"checksum": "94d5731714981a2d314f60f7c1443d347f353209"
+			"checksum": "6ba038fbb0030a33bad145beaf04c34072bb8586"
 		},
 		{
 			"path": "server/methods/methods.js",
-			"checksum": "ce1bb9fa0c26dc673c4b83ceea67336443cffaf1"
+			"checksum": "ca9bb04085cfa42272de1cc6cbc6db9705f45145"
 		},
 		{
 			"path": "imports/server/methods/group-policy-reader.js",
@@ -978,15 +1042,23 @@
 		},
 		{
 			"path": "client/styles/googlemaps.css",
-			"checksum": "33ea0a1a442278d9b739d4485ed2dacbc3e9fe5e"
+			"checksum": "b1b5ed1b0adf61e2bbeacf4f3d7c942b95acd9c5"
 		},
 		{
 			"path": "client/lib/globals/googlemap_txtoverlay.js",
-			"checksum": "9e6b5753a7e6aa2f7b3f8cf33a358b2e0f7e4d89"
+			"checksum": "dc08031dbee2b697cdc3fee44964cd15ef2a8ca3"
 		},
 		{
 			"path": "imports/server/methods/count.js",
-			"checksum": "79b88d5d5ab5f3128cf1c668cf6811df93e2c23a"
+			"checksum": "364f9814a38f6c11a41792a35e5dbc0bbb619aaa"
+		},
+		{
+			"path": "both/lib/geo-utilities.js",
+			"checksum": "b3f6c51db8b7d56d1fc9191dda266b6be3138c41"
+		},
+		{
+			"path": "imports/server/methods/activations-reader.js",
+			"checksum": "9adfd7a106421e51941e37c9dd7564818470d09f"
 		},
 		{
 			"path": "lib/string_utils.js",
@@ -1208,6 +1280,10 @@
 		"client/views/activations_page/insert/",
 		"client/views/activations_page/update/",
 		"client/views/admin/",
+		"client/views/admin/import_jobs/",
+		"client/views/admin/import_jobs/details/",
+		"client/views/admin/import_jobs/insert/",
+		"client/views/admin/import_jobs/update/",
 		"client/views/admin/users/",
 		"client/views/admin/users/details/",
 		"client/views/admin/users/edit/",

@@ -1,6 +1,7 @@
 
 import { gp_aggregates, clear_selected } from '/imports/server/methods/group-policy-reader.js';
 import { countActivations } from '/imports/server/methods/count.js';
+import { readActivationsFile } from '/imports/server/methods/activations-reader.js';
 
 const executePayouts = () => {
 	Payouts.update({execute: true}, {$set: {execute: false, executed: true}}, {multi: true});
@@ -16,5 +17,6 @@ Meteor.methods({
 	"select": selectPayouts,
 	gp_aggregates,
 	clear_selected,
-	countActivations
+	countActivations,
+	readActivationsFile
 });
