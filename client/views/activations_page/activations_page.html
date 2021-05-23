@@ -4,7 +4,7 @@
 			<div class="col-md-12">
 			</div>
 		</div>
-		{{> ActivationsPageHeader}}{{> ActivationsPageView}}{{> ActivationsPageFooter}}
+		{{> ActivationsPageHeader}}{{> ActivationsPageView}}{{> ActivationsPageFooter}}{{> ActivationsPageTest}}
 	</div>
 </template>
 
@@ -167,5 +167,87 @@
 </template>
 
 <template name="ActivationsPageFooter">
+</template>
+
+<template name="ActivationsPageTest">
+	<div id="activations-page-test" class="">
+		<form id="dataview-controls" class="form-inline">
+			<div id="dataview-controls-search">
+				<div id="dataview-controls-search-group" class="input-group">
+					<input type="text" class="form-control" id="dataview-search-input" placeholder="Search" name="search" value="{{searchString}}" autofocus="autofocus">
+					<span class="input-group-btn">
+						<button type="button" id="dataview-search-button" class="btn btn-primary">
+							<span class="fa fa-search">
+							</span>
+						</button>
+					</span>
+				</div>
+			</div>
+		</form>
+		{{#if isNotEmpty}}
+		<div id="dataview-data">
+			{{#if viewAsTable}} {{> ActivationsPageTestTable}} {{/if}}
+		</div>
+		<nav aria-label="...">
+			<ul class="pager">
+				{{#if gotPrevPage}}
+				<li>
+					<a href="#" class="prev-page-link">
+						Previous page
+					</a>
+					&nbsp;
+				</li>
+				{{/if}}
+					{{#if gotNextPage}}
+				<li>
+					&nbsp;
+					<a href="#" class="next-page-link">
+						Next page
+					</a>
+				</li>
+				{{/if}}
+			</ul>
+		</nav>
+		{{else}}
+			{{#if isNotFound}}
+		<div class="alert alert-warning">
+			"{{searchString}}" not found.
+		</div>
+		{{else}}
+		<div class="alert alert-info">
+			Empty.
+		</div>
+		{{/if}}
+		{{/if}}
+	</div>
+</template>
+
+<template name="ActivationsPageTestTable">
+	<table id="dataview-table" class="table table-striped">
+		<thead id="dataview-table-header">
+			<tr id="dataview-table-header-row">
+				<th class="th-sortable" data-sort="new_field">
+					new_field
+				</th>
+				<th class="th-sortable" data-sort="new_field1">
+					new_field1
+				</th>
+			</tr>
+		</thead>
+		<tbody id="dataview-table-items">
+			{{#each activation_list_paged}} {{> ActivationsPageTestTableItems}} {{/each}}
+		</tbody>
+	</table>
+</template>
+
+<template name="ActivationsPageTestTableItems">
+	<tr id="dataview-table-items-row">
+		<td>
+			{{new_field}}
+		</td>
+		<td>
+			{{new_field1}}
+		</td>
+	</tr>
 </template>
 
