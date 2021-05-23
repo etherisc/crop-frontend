@@ -1,20 +1,17 @@
-<template name="ActivationsPage">
+<template name="AdminImportJobs">
 	<div class="page-container container" id="content">
 		<div class="row" id="title_row">
 			<div class="col-md-12">
 			</div>
 		</div>
-		{{> ActivationsPageHeader}}{{> ActivationsPageView}}{{> ActivationsPageFooter}}
+		{{> AdminImportJobsView}}
 	</div>
 </template>
 
-<template name="ActivationsPageHeader">
-</template>
-
-<template name="ActivationsPageView">
-	<div id="activations-page-view" class="">
+<template name="AdminImportJobsView">
+	<div id="admin-import-jobs-view" class="">
 		<h2 id="component-title">
-			Activations
+			Import Jobs
 		</h2>
 		<form id="dataview-controls" class="form-inline">
 			<div id="dataview-controls-insert" class="form-group {{insertButtonClass}}">
@@ -34,12 +31,11 @@
 						</button>
 					</span>
 				</div>
-				{{> ActivationsPageViewCustomActions}}
 			</div>
 		</form>
 		{{#if isNotEmpty}}
 		<div id="dataview-data">
-			{{#if viewAsTable}} {{> ActivationsPageViewTable}} {{/if}}
+			{{#if viewAsTable}} {{> AdminImportJobsViewTable}} {{/if}}
 		</div>
 		<nav aria-label="...">
 			<ul class="pager">
@@ -75,36 +71,27 @@
 	</div>
 </template>
 
-<template name="ActivationsPageViewTable">
+<template name="AdminImportJobsViewTable">
 	<table id="dataview-table" class="table table-striped table-hover">
 		<thead id="dataview-table-header">
 			<tr id="dataview-table-header-row">
-				<th class="th-sortable" data-sort="mobile_num">
-					Mobile Num
+				<th class="th-sortable" data-sort="folder">
+					Folder
 				</th>
-				<th class="th-sortable" data-sort="call_time">
-					Call Time
+				<th class="th-sortable" data-sort="filename">
+					Filename
 				</th>
-				<th class="th-sortable" data-sort="latitude">
-					Latitude
+				<th class="th-sortable" data-sort="action">
+					Action
 				</th>
-				<th class="th-sortable" data-sort="longitude">
-					Longitude
+				<th class="th-sortable" data-sort="prefix">
+					Prefix
 				</th>
-				<th class="th-sortable" data-sort="order_number">
-					Order Number
+				<th class="th-sortable" data-sort="status">
+					Status
 				</th>
-				<th class="th-sortable" data-sort="activation_code">
-					Activation Code
-				</th>
-				<th class="th-sortable" data-sort="value_chain">
-					Value Chain
-				</th>
-				<th class="th-sortable" data-sort="amount_premium">
-					Amount Premium
-				</th>
-				<th class="th-sortable" data-sort="pixel">
-					Pixel
+				<th>
+					&nbsp;
 				</th>
 				<th>
 					&nbsp;
@@ -115,39 +102,27 @@
 			</tr>
 		</thead>
 		<tbody id="dataview-table-items">
-			{{#each activation_list_paged}} {{> ActivationsPageViewTableItems}} {{/each}}
+			{{#each import_job_list_paged}} {{> AdminImportJobsViewTableItems}} {{/each}}
 		</tbody>
 	</table>
 </template>
 
-<template name="ActivationsPageViewTableItems">
+<template name="AdminImportJobsViewTableItems">
 	<tr id="dataview-table-items-row">
 		<td>
-			{{mobile_num}}
+			{{folder}}
 		</td>
 		<td>
-			{{formatDate call_time 'YYYY-MMM-DD'}}
+			{{filename}}
 		</td>
 		<td>
-			{{latitude}}
+			{{action}}
 		</td>
 		<td>
-			{{longitude}}
+			{{prefix}}
 		</td>
 		<td>
-			{{order_number}}
-		</td>
-		<td>
-			{{activation_code}}
-		</td>
-		<td>
-			{{value_chain}}
-		</td>
-		<td>
-			{{amount_premium}}
-		</td>
-		<td>
-			{{pixel}}
+			{{status}}
 		</td>
 		<td class="td-icon">
 			<span id="edit-button" class="fa fa-pencil {{editButtonClass}}" title="Edit">
@@ -157,15 +132,10 @@
 			<span id="delete-button" class="fa fa-trash-o {{deleteButtonClass}}" title="Delete">
 			</span>
 		</td>
+		<td class="td-icon">
+			<span id="action-button" data-action="import" class="fa fa-upload ACTION_CLASS" title="Import">
+			</span>
+		</td>
 	</tr>
-</template>
-
-<template name="ActivationsPageViewCustomActions">
-	<button class="btn btn-warning" id="btn-import">
-		Import Activations
-	</button>
-</template>
-
-<template name="ActivationsPageFooter">
 </template>
 

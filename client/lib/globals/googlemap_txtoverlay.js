@@ -6,7 +6,7 @@ GoogleMaps.ready('activationsMap', function(map) {
 
 		// Now initialize all properties.
 		this.pos = pos;
-		this.txt_ = txt;
+		this.txt_ = `<div>${txt}</div>`;
 		this.cls_ = cls;
 		this.map_ = map;
 
@@ -59,8 +59,9 @@ GoogleMaps.ready('activationsMap', function(map) {
 
 		var div = this.div_;
 		div.innerHTML = this.map.zoom >= 10 ? this.txt_ : '';
-		div.style.left = position.x + 'px';
-		div.style.top = position.y + 'px';
+		div.className = this.map.zoom >= 10 ? this.cls_ : '';
+		div.style.left = (position.x - 75) + 'px';
+		div.style.top = (position.y - 20) + 'px';
 
 	}
 

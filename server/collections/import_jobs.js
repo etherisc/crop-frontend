@@ -1,4 +1,4 @@
-Counts.allow({
+ImportJobs.allow({
 	insert: function (userId, doc) {
 		return false;
 	},
@@ -12,7 +12,7 @@ Counts.allow({
 	}
 });
 
-Counts.before.insert(function(userId, doc) {
+ImportJobs.before.insert(function(userId, doc) {
 	doc.createdAt = new Date();
 	doc.createdBy = userId;
 	doc.modifiedAt = doc.createdAt;
@@ -22,7 +22,7 @@ Counts.before.insert(function(userId, doc) {
 	if(!doc.createdBy) doc.createdBy = userId;
 });
 
-Counts.before.update(function(userId, doc, fieldNames, modifier, options) {
+ImportJobs.before.update(function(userId, doc, fieldNames, modifier, options) {
 	modifier.$set = modifier.$set || {};
 	modifier.$set.modifiedAt = new Date();
 	modifier.$set.modifiedBy = userId;
@@ -30,7 +30,7 @@ Counts.before.update(function(userId, doc, fieldNames, modifier, options) {
 	
 });
 
-Counts.before.upsert(function(userId, selector, modifier, options) {
+ImportJobs.before.upsert(function(userId, selector, modifier, options) {
 	modifier.$set = modifier.$set || {};
 	modifier.$set.modifiedAt = new Date();
 	modifier.$set.modifiedBy = userId;
@@ -38,18 +38,18 @@ Counts.before.upsert(function(userId, selector, modifier, options) {
 	/*BEFORE_UPSERT_CODE*/
 });
 
-Counts.before.remove(function(userId, doc) {
+ImportJobs.before.remove(function(userId, doc) {
 	
 });
 
-Counts.after.insert(function(userId, doc) {
+ImportJobs.after.insert(function(userId, doc) {
 	
 });
 
-Counts.after.update(function(userId, doc, fieldNames, modifier, options) {
+ImportJobs.after.update(function(userId, doc, fieldNames, modifier, options) {
 	
 });
 
-Counts.after.remove(function(userId, doc) {
+ImportJobs.after.remove(function(userId, doc) {
 	
 });

@@ -1,0 +1,92 @@
+<template name="AdminImportJobsDetails">
+	<div class="page-container container" id="content">
+		<div class="row" id="title_row">
+			<div class="col-md-12">
+			</div>
+		</div>
+		{{> AdminImportJobsDetailsForm}}
+	</div>
+</template>
+
+<template name="AdminImportJobsDetailsForm">
+	<div id="admin-import-jobs-details-form" class="">
+		<h2 id="component-title">
+			<a href="#" id="form-back-button" class="btn btn-default" title="back">
+				<span class="fa fa-chevron-left">
+				</span>
+			</a>
+			Import Job Details
+		</h2>
+		<form role="form" class="form-horizontal">
+			{{#if errorMessage}}
+			<div class="alert alert-warning">
+				{{errorMessage}}
+			</div>
+			{{/if}}
+
+			{{#if infoMessage}}
+			<div class="alert alert-success">
+				{{infoMessage}}
+			</div>
+			{{/if}}
+			<div class="form-group  field-folder">
+				<label for="folder" class="col-sm-3 control-label">
+					Folder
+				</label>
+				<div class="input-div col-sm-9">
+					<p class="form-control-static  control-field-folder">
+						{{import_job.folder}}
+					</p>
+				</div>
+			</div>
+			<div class="form-group  field-filename">
+				<label for="filename" class="col-sm-3 control-label">
+					Filename
+				</label>
+				<div class="input-div col-sm-9">
+					<p class="form-control-static  control-field-filename">
+						{{import_job.filename}}
+					</p>
+				</div>
+			</div>
+			<div class="form-group  field-action">
+				<label for="action" class="col-sm-3 control-label">
+					Action
+				</label>
+				<div class="input-div col-sm-9">
+					<p class="form-control-static  control-field-action">
+						{{import_job.action}}
+					</p>
+				</div>
+			</div>
+			<div class="form-group  field-prefix">
+				<label for="prefix" class="col-sm-3 control-label">
+					Prefix
+				</label>
+				<div class="input-div col-sm-9">
+					<p class="form-control-static  control-field-prefix">
+						{{import_job.prefix}}
+					</p>
+				</div>
+			</div>
+			<div class="form-group  field-status">
+				<label for="status" class="col-sm-3 control-label">
+					Status
+				</label>
+				<div class="input-div col-sm-9">
+					<p class="form-control-static  control-field-status">
+						{{import_job.status}}
+					</p>
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="submit-div col-sm-9 col-sm-offset-3">
+					<a href="#" id="form-close-button" class="btn btn-primary">
+						OK
+					</a>
+				</div>
+			</div>
+		</form>
+	</div>
+</template>
+
