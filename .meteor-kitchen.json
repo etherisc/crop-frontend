@@ -382,15 +382,15 @@
 		},
 		{
 			"path": "client/views/activations_page/activations_page.html",
-			"checksum": "15d63ad1eaf731800792590ccbe6df6917630041"
+			"checksum": "0a0c354b60e55a9831881571f7152303fc624984"
 		},
 		{
 			"path": "client/views/activations_page/activations_page.js",
-			"checksum": "993162f3602bb426e1cf2102ebd64d6cc60a219f"
+			"checksum": "5e3ad1ad3b96050cfe5b6754a650255ac204d673"
 		},
 		{
 			"path": "client/views/activations_page/activations_page_controller.js",
-			"checksum": "40265b31a363c0e19144314d510c11a39a1c6a0f"
+			"checksum": "0fc9e642e16c13ecb912d640b3425cffb1561d1a"
 		},
 		{
 			"path": "client/views/activations_page/insert/insert.html",
