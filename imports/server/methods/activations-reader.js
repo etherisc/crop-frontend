@@ -113,6 +113,7 @@ const readActivationsFile = async ({ _id }) => {
 	} catch (e) {
 		error(`Error in readActivations, Error: ${e.message}`, {stack: e.stack});
 		ImportJobs.update({_id}, {$set: {status: 'Error', message: e.message, last_run: Date.now()}});
+		throw new Meteor.Error('Error', e.message, e.stack);
 	}
 }
 
