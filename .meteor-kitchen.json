@@ -130,7 +130,7 @@
 		},
 		{
 			"path": "client/views/admin/admin.html",
-			"checksum": "d4af80f72ac7980aaf15e78af109f8af13036bbe"
+			"checksum": "46f8946eabc943c1d63881cfca76fb4c8c728d69"
 		},
 		{
 			"path": "client/views/admin/admin.js",
@@ -1141,6 +1141,10 @@
 			"checksum": "d1cb94afefe6cb52de70e02bb7b5c69fdc2c84a4"
 		},
 		{
+			"path": "client/styles/compatibility/jquery.json-viewer.css",
+			"checksum": "2300e5ebd560fcd724a704883b8e1f9233a546df"
+		},
+		{
 			"path": "lib/string_utils.js",
 			"checksum": "6bf8f64bf32bd7aff71cbeeba23df9fb8282a12c"
 		},
@@ -1347,6 +1351,7 @@
 		"client/lib/compatibility/",
 		"client/lib/globals/",
 		"client/styles/",
+		"client/styles/compatibility/",
 		"client/styles/framework/",
 		"client/styles/framework/bootstrap3-plugins/bootstrap-fileinput/",
 		"client/styles/framework/bootstrap3-plugins/bootstrap-tagsinput/",
