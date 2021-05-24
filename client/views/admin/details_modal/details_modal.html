@@ -28,7 +28,7 @@
 				</label>
 				<div class="input-div col-sm-9">
 					<p class="form-control-static  control-field-timestamp">
-						{{formatDate loglines_server.timestamp 'DD/MM/YYYY HH:mm:ss'}}
+						{{formatDate logline.timestamp 'DD/MM/YYYY HH:mm:ss'}}
 					</p>
 				</div>
 			</div>
@@ -38,7 +38,7 @@
 				</label>
 				<div class="input-div col-sm-9">
 					<p class="form-control-static  control-field-type">
-						{{loglines_server.type}}
+						{{logline.type}}
 					</p>
 				</div>
 			</div>
@@ -48,7 +48,7 @@
 				</label>
 				<div class="input-div col-sm-9">
 					<p class="form-control-static  control-field-source">
-						{{loglines_server.source}}
+						{{logline.source}}
 					</p>
 				</div>
 			</div>
@@ -58,7 +58,7 @@
 				</label>
 				<div class="input-div col-sm-9">
 					<p class="form-control-static  control-field-message">
-						{{loglines_server.message}}
+						{{logline.message}}
 					</p>
 				</div>
 			</div>
@@ -68,7 +68,7 @@
 				</label>
 				<div class="input-div col-sm-9">
 					<p class="form-control-static  control-field-args">
-						{{loglines_server.args}}
+						{{logline.args}}
 					</p>
 				</div>
 			</div>
