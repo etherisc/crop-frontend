@@ -47,6 +47,7 @@ const readActivationsFile = async ({ bucket, filename, action }) => {
 
 		const act_json = JSON.parse(act_content);
 
+		info('readActivations successful');
 		return;
 		Activations.remove({prefix});	
 
