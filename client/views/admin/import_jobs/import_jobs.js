@@ -248,8 +248,7 @@ Template.AdminImportJobsViewTableItems.onRendered(function() {
 Template.AdminImportJobsViewTableItems.events({
 	"click [data-action='import']": function(e, t) {
 /**** Action code Import ****/
-alert('click');
-
+console.log(t);
 /****************************/
 },
 
