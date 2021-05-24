@@ -247,12 +247,10 @@ Template.AdminImportJobsViewTableItems.onRendered(function() {
 
 Template.AdminImportJobsViewTableItems.events({
 	"click [data-action='execute']": function(e, t) {
-/**** Action code Import ****/
-
 e.preventDefault();
 Meteor.call("readActivationsFile", t.data);
+return false;
 
-/****************************/
 },
 
 
