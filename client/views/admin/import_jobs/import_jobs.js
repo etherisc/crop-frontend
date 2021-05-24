@@ -253,9 +253,9 @@ toast_info(`Import Job started. Please be patient, processing can take some time
 
 Meteor.call("readActivationsFile", t.data, function (err, result) {
 	if (err) {
-		alert(`${err} : ${err.error}`);
+		toast_error(`${err} : ${err.error}`);
 	} else {
-		alert(`${result} Activations imported.`);
+		toast_info(`${result} Activations imported.`);
 	}
 });
 
