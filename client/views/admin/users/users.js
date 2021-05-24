@@ -244,11 +244,7 @@ Template.AdminUsersViewTableItems.onRendered(function() {
 });
 
 Template.AdminUsersViewTableItems.events({
-	"click [data-action='new_action']": function(e, t) {
-
-},
-
-
+	
 
 	"click td": function(e, t) {
 		e.preventDefault();
