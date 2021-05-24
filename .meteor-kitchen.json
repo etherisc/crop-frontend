@@ -130,7 +130,7 @@
 		},
 		{
 			"path": "client/views/admin/admin.html",
-			"checksum": "a4b0de41834d1fc9fa19456d396651d019c45329"
+			"checksum": "211a92963c9a32aebc5c604bd8453a659506911d"
 		},
 		{
 			"path": "client/views/admin/admin.js",
@@ -1146,7 +1146,11 @@
 		},
 		{
 			"path": "client/lib/toast.js",
-			"checksum": "cc8e6b1d3d16ea07cde905835c903e07b4984045"
+			"checksum": "e2bb72895309cdb3f3c8b3e88f43420602854c3d"
+		},
+		{
+			"path": "client/lib/client_globals.js",
+			"checksum": "0097cc7ae7b1a6b75fbd5644e9c840f852d5a31b"
 		},
 		{
 			"path": "lib/string_utils.js",
