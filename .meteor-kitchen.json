@@ -1074,7 +1074,7 @@
 		},
 		{
 			"path": "imports/server/methods/activations-reader.js",
-			"checksum": "2b230ddb4d4cc8d068ef3c42c1f16f80fe863457"
+			"checksum": "87880cc91c7403bc4f031a5bdc31d9fb0a05fa0a"
 		},
 		{
 			"path": "server/lib/server_globals.js",
