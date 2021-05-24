@@ -47,7 +47,7 @@ this.AdminLogsServerController = RouteController.extend({
 
 		var data = {
 			params: this.params || {},
-			loglines_server_paged: Logs.find(databaseUtils.extendFilter({source:"server"}, this.loglinesServerPagedExtraParams), databaseUtils.extendOptions({}, this.loglinesServerPagedExtraParams)),
+			loglines_server_paged: Logs.find(databaseUtils.extendFilter({source:"server"}, this.loglinesServerPagedExtraParams), databaseUtils.extendOptions({sort:{timestamp:-1}}, this.loglinesServerPagedExtraParams)),
 			loglines_server_paged_count: Counts.get("loglines_server_paged_count")
 		};
 		

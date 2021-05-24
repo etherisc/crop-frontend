@@ -47,7 +47,7 @@ this.AdminLogsBrowserController = RouteController.extend({
 
 		var data = {
 			params: this.params || {},
-			loglines_browser_paged: Logs.find(databaseUtils.extendFilter({source:"browser"}, this.loglinesBrowserPagedExtraParams), databaseUtils.extendOptions({}, this.loglinesBrowserPagedExtraParams)),
+			loglines_browser_paged: Logs.find(databaseUtils.extendFilter({source:"browser"}, this.loglinesBrowserPagedExtraParams), databaseUtils.extendOptions({sort:{timestamp:-1}}, this.loglinesBrowserPagedExtraParams)),
 			loglines_browser_paged_count: Counts.get("loglines_browser_paged_count")
 		};
 		
