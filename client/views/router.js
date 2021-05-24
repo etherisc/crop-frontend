@@ -25,6 +25,8 @@ Router.privateRoutes = [
 	"admin.import_jobs.insert",
 	"admin.import_jobs.update",
 	"admin.import_jobs.details",
+	"admin.logs_browser",
+	"admin.logs_server",
 	"user_settings",
 	"user_settings.profile",
 	"user_settings.change_pass",
@@ -83,6 +85,8 @@ Router.roleMap = [
 	{ route: "admin.import_jobs.insert",	roles: ["admin"] },
 	{ route: "admin.import_jobs.update",	roles: ["admin"] },
 	{ route: "admin.import_jobs.details",	roles: ["admin"] },
+	{ route: "admin.logs_browser",	roles: ["admin"] },
+	{ route: "admin.logs_server",	roles: ["admin"] },
 	{ route: "user_settings",	roles: ["user","admin"] },
 	{ route: "user_settings.profile",	roles: ["user","admin"] },
 	{ route: "user_settings.change_pass",	roles: ["user","admin"] }
@@ -141,6 +145,8 @@ Router.map(function () {
 	this.route("/admin/import_jobs/insert", {name: "admin.import_jobs.insert", title: "", controller: "AdminImportJobsInsertController"});
 	this.route("/admin/import_jobs/update/:importJobId", {name: "admin.import_jobs.update", title: "", controller: "AdminImportJobsUpdateController"});
 	this.route("/admin/import_jobs/details/:importJobId", {name: "admin.import_jobs.details", title: "", controller: "AdminImportJobsDetailsController"});
+	this.route("/admin/logs_browser", {name: "admin.logs_browser", title: "", controller: "AdminLogsBrowserController"});
+	this.route("/admin/logs_server", {name: "admin.logs_server", title: "", controller: "AdminLogsServerController"});
 	this.route("/user_settings", {name: "user_settings", title: "", controller: "UserSettingsController"});
 	this.route("/user_settings/profile", {name: "user_settings.profile", title: "", controller: "UserSettingsProfileController"});
 	this.route("/user_settings/change_pass", {name: "user_settings.change_pass", title: "", controller: "UserSettingsChangePassController"});

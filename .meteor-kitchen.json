@@ -2,7 +2,7 @@
 	"output_files": [
 		{
 			"path": "client/views/router.js",
-			"checksum": "c2903c77394410184fde08a76f95511b37912b46"
+			"checksum": "6161ed12d43046c026cdda0936be018f17b9c9be"
 		},
 		{
 			"path": "server/controllers/router.js",
@@ -130,7 +130,7 @@
 		},
 		{
 			"path": "client/views/admin/admin.html",
-			"checksum": "8658f3f3227d54482198aeed473b19228b3d1b4e"
+			"checksum": "8e53e364f48a101cd0943649a581436d66c69113"
 		},
 		{
 			"path": "client/views/admin/admin.js",
@@ -235,6 +235,30 @@
 		{
 			"path": "client/views/admin/import_jobs/details/details_controller.js",
 			"checksum": "a9b45ec78526a9b207efa02919e153c7d64740eb"
+		},
+		{
+			"path": "client/views/admin/logs_browser/logs_browser.html",
+			"checksum": "de84c55bbf01dfb8811ae91987e85f5cf7418212"
+		},
+		{
+			"path": "client/views/admin/logs_browser/logs_browser.js",
+			"checksum": "0711e7412e093b17ef7f5f4c01656ff467f1f5a8"
+		},
+		{
+			"path": "client/views/admin/logs_browser/logs_browser_controller.js",
+			"checksum": "f70ee419107f818a05662156a379408965dc0553"
+		},
+		{
+			"path": "client/views/admin/logs_server/logs_server.html",
+			"checksum": "7660c0485d39900073150accdfd4a541afc7a545"
+		},
+		{
+			"path": "client/views/admin/logs_server/logs_server.js",
+			"checksum": "a589d3cf7a9792b271a5929136a5255948b0b8ea"
+		},
+		{
+			"path": "client/views/admin/logs_server/logs_server_controller.js",
+			"checksum": "e001ae53fda5f69b1dac050dbc61ac28749206cb"
 		},
 		{
 			"path": "client/views/user_settings/user_settings.html",
@@ -1017,6 +1041,22 @@
 			"checksum": "c51ca964c61ad05f3d67a11538e07b6523c56aa4"
 		},
 		{
+			"path": "both/collections/logs.js",
+			"checksum": "d3eb589c82f19d1a4ed302c1567d82d2bfa8ec7b"
+		},
+		{
+			"path": "server/methods/logs.js",
+			"checksum": "98503e1aab9ee0913ac68bacce509c2617768dd4"
+		},
+		{
+			"path": "server/collections/logs.js",
+			"checksum": "dbdbaf4e8b5fcbce90c5900607e9f10de8a705ac"
+		},
+		{
+			"path": "server/publish/logs.js",
+			"checksum": "5fdff40476f53a0ca11d380226ed21454ee7e567"
+		},
+		{
 			"path": "client/styles/user_styles.less",
 			"checksum": "f08a3edc8a6d5d39aa62d62dfcfbe8ab3b608673"
 		},
@@ -1074,11 +1114,15 @@
 		},
 		{
 			"path": "imports/server/methods/activations-reader.js",
-			"checksum": "547c3d332d514aec918bd5dc044bb240c3be8ae4"
+			"checksum": "a8e2a29f0da4ef2165ac1ee624e8878f31443010"
 		},
 		{
 			"path": "server/lib/server_globals.js",
 			"checksum": "8177a29b6bd96f95f7fa06aa109e22bd69f8fba3"
+		},
+		{
+			"path": "client/lib/compatibility/json-viewer.js",
+			"checksum": "13e7e8fdd273548975b6a74ae108382685b6e37e"
 		},
 		{
 			"path": "lib/string_utils.js",
@@ -1284,6 +1328,7 @@
 		"client/components/confirmation_dialog/",
 		"client/components/input_dialog/",
 		"client/lib/",
+		"client/lib/compatibility/",
 		"client/lib/globals/",
 		"client/styles/",
 		"client/styles/framework/",
@@ -1304,6 +1349,8 @@
 		"client/views/admin/import_jobs/details/",
 		"client/views/admin/import_jobs/insert/",
 		"client/views/admin/import_jobs/update/",
+		"client/views/admin/logs_browser/",
+		"client/views/admin/logs_server/",
 		"client/views/admin/users/",
 		"client/views/admin/users/details/",
 		"client/views/admin/users/edit/",
@@ -1403,6 +1450,7 @@
 			"ethers",
 			"fs-jetpack",
 			"minio",
+			"jquery.json-viewer",
 			"bcrypt"
 		],
 		"mrt": [
