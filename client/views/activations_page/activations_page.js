@@ -393,17 +393,17 @@ Template.ActivationsPageFooter.events({
 
 var ActivationsPageTestExport = function(fileType) {
 	var extraParams = {
-		searchText: Session.get("ActivationListPagedSearchString") || "",
-		searchFields: Session.get("ActivationListPagedSearchFields") || ["new_field", "new_field1"],
-		sortBy: Session.get("ActivationListPagedSortBy") || "",
-		sortAscending: Session.get("ActivationListPagedSortAscending") || true
+		searchText: Session.get("EmptyPagedSearchString") || "",
+		searchFields: Session.get("EmptyPagedSearchFields") || ["new_field", "new_field1"],
+		sortBy: Session.get("EmptyPagedSortBy") || "",
+		sortAscending: Session.get("EmptyPagedSortAscending") || true
 	};
 
 	var exportFields = [];
 
 	
 
-	Meteor.call("activationListPagedExport", extraParams, exportFields, fileType, function(e, data) {
+	Meteor.call("emptyPagedExport", extraParams, exportFields, fileType, function(e, data) {
 		if(e) {
 			alert(e);
 			return;
@@ -440,7 +440,7 @@ Template.ActivationsPageTest.events({
 			if(searchInput) {
 				searchInput.focus();
 				var searchString = searchInput.val();
-				Session.set("ActivationListPagedSearchString", searchString);
+				Session.set("EmptyPagedSearchString", searchString);
 			}
 
 		}
@@ -456,7 +456,7 @@ Template.ActivationsPageTest.events({
 				var searchInput = form.find("#dataview-search-input");
 				if(searchInput) {
 					var searchString = searchInput.val();
-					Session.set("ActivationListPagedSearchString", searchString);
+					Session.set("EmptyPagedSearchString", searchString);
 				}
 
 			}
@@ -471,7 +471,7 @@ Template.ActivationsPageTest.events({
 				var searchInput = form.find("#dataview-search-input");
 				if(searchInput) {
 					searchInput.val("");
-					Session.set("ActivationListPagedSearchString", "");
+					Session.set("EmptyPagedSearchString", "");
 				}
 
 			}
@@ -508,17 +508,17 @@ Template.ActivationsPageTest.events({
 
 	"click .prev-page-link": function(e, t) {
 		e.preventDefault();
-		var currentPage = Session.get("ActivationListPagedPageNo") || 0;
+		var currentPage = Session.get("EmptyPagedPageNo") || 0;
 		if(currentPage > 0) {
-			Session.set("ActivationListPagedPageNo", currentPage - 1);
+			Session.set("EmptyPagedPageNo", currentPage - 1);
 		}
 	},
 
 	"click .next-page-link": function(e, t) {
 		e.preventDefault();
-		let currentPage = Session.get("ActivationListPagedPageNo") || 0;
-		if(currentPage < this.activation_list_paged_page_count - 1) {
-			Session.set("ActivationListPagedPageNo", currentPage + 1);
+		let currentPage = Session.get("EmptyPagedPageNo") || 0;
+		if(currentPage < this.empty_paged_page_count - 1) {
+			Session.set("EmptyPagedPageNo", currentPage + 1);
 		}
 	}
 
@@ -528,26 +528,26 @@ Template.ActivationsPageTest.events({
 Template.ActivationsPageTest.helpers({
 
 	"insertButtonClass": function() {
-		return Activations.userCanInsert(Meteor.userId(), {}) ? "" : "hidden";
+		return Empty.userCanInsert(Meteor.userId(), {}) ? "" : "hidden";
 	},
 
 	"isEmpty": function() {
-		return !this.activation_list_paged || this.activation_list_paged.count() == 0;
+		return !this.empty_paged || this.empty_paged.count() == 0;
 	},
 	"isNotEmpty": function() {
-		return this.activation_list_paged && this.activation_list_paged.count() > 0;
+		return this.empty_paged && this.empty_paged.count() > 0;
 	},
 	"isNotFound": function() {
-		return this.activation_list_paged && this.activation_list_paged.count() == 0 && Session.get("ActivationListPagedSearchString");
+		return this.empty_paged && this.empty_paged.count() == 0 && Session.get("EmptyPagedSearchString");
 	},
 	"gotPrevPage": function() {
-		return !!Session.get("ActivationListPagedPageNo");
+		return !!Session.get("EmptyPagedPageNo");
 	},
 	"gotNextPage": function() {
-		return (Session.get("ActivationListPagedPageNo") || 0) < this.activation_list_paged_page_count - 1;
+		return (Session.get("EmptyPagedPageNo") || 0) < this.empty_paged_page_count - 1;
 	},
 	"searchString": function() {
-		return Session.get("ActivationListPagedSearchString");
+		return Session.get("EmptyPagedSearchString");
 	},
 	"viewAsTable": function() {
 		return Session.get("ActivationsPageTestStyle") == "table";
@@ -581,18 +581,18 @@ Template.ActivationsPageTestTable.onRendered(function() {
 Template.ActivationsPageTestTable.events({
 	"click .th-sortable": function(e, t) {
 		e.preventDefault();
-		var oldSortBy = Session.get("ActivationListPagedSortBy");
+		var oldSortBy = Session.get("EmptyPagedSortBy");
 		var newSortBy = $(e.target).attr("data-sort");
 
-		Session.set("ActivationListPagedSortBy", newSortBy);
+		Session.set("EmptyPagedSortBy", newSortBy);
 		if(oldSortBy == newSortBy) {
-			var sortAscending = Session.get("ActivationListPagedSortAscending");
+			var sortAscending = Session.get("EmptyPagedSortAscending");
 			if(typeof sortAscending == "undefined") {
 				sortAscending = true;
 			}
-			Session.set("ActivationListPagedSortAscending", !sortAscending);
+			Session.set("EmptyPagedSortAscending", !sortAscending);
 		} else {
-			Session.set("ActivationListPagedSortAscending", true);
+			Session.set("EmptyPagedSortAscending", true);
 		}
 	}
 });
@@ -637,7 +637,7 @@ Template.ActivationsPageTestTableItems.events({
 		var values = {};
 		values[fieldName] = !this[fieldName];
 
-		Meteor.call("activationsUpdate", this._id, values, function(err, res) {
+		Meteor.call("emptyUpdate", this._id, values, function(err, res) {
 			if(err) {
 				alert(err.message);
 			}
@@ -658,7 +658,7 @@ Template.ActivationsPageTestTableItems.events({
 					label: "Yes",
 					className: "btn-success",
 					callback: function() {
-						Meteor.call("activationsRemove", me._id, function(err, res) {
+						Meteor.call("emptyRemove", me._id, function(err, res) {
 							if(err) {
 								alert(err.message);
 							}
@@ -685,10 +685,10 @@ Template.ActivationsPageTestTableItems.helpers({
 
 	"checked": function(value) { return value ? "checked" : "" }, 
 	"editButtonClass": function() {
-		return Activations.userCanUpdate(Meteor.userId(), this) ? "" : "hidden";
+		return Empty.userCanUpdate(Meteor.userId(), this) ? "" : "hidden";
 	},
 
 	"deleteButtonClass": function() {
-		return Activations.userCanRemove(Meteor.userId(), this) ? "" : "hidden";
+		return Empty.userCanRemove(Meteor.userId(), this) ? "" : "hidden";
 	}
 });
