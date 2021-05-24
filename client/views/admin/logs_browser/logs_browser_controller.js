@@ -17,13 +17,13 @@ this.AdminLogsBrowserController = RouteController.extend({
 	},
 
 	isReady: function() {
-		this.loglinePagedExtraParams = {
-			searchText: Session.get("LoglinePagedSearchString") || "",
-			searchFields: Session.get("LoglinePagedSearchFields") || ["timestamp", "type", "source", "message", "args"],
-			sortBy: Session.get("LoglinePagedSortBy") || "",
-			sortAscending: Session.get("LoglinePagedSortAscending"),
-			pageNo: Session.get("LoglinePagedPageNo") || 0,
-			pageSize: Session.get("LoglinePagedPageSize") || 0
+		this.loglinesBrowserPagedExtraParams = {
+			searchText: Session.get("LoglinesBrowserPagedSearchString") || "",
+			searchFields: Session.get("LoglinesBrowserPagedSearchFields") || ["timestamp", "type", "source", "message", "args"],
+			sortBy: Session.get("LoglinesBrowserPagedSortBy") || "",
+			sortAscending: Session.get("LoglinesBrowserPagedSortAscending"),
+			pageNo: Session.get("LoglinesBrowserPagedPageNo") || 0,
+			pageSize: Session.get("LoglinesBrowserPagedPageSize") || 0
 		};
 
 
@@ -31,8 +31,8 @@ this.AdminLogsBrowserController = RouteController.extend({
 		
 
 		var subs = [
-			Meteor.subscribe("logline_paged", this.loglinePagedExtraParams),
-			Meteor.subscribe("logline_paged_count", this.loglinePagedExtraParams)
+			Meteor.subscribe("loglines_browser_paged", this.loglinesBrowserPagedExtraParams),
+			Meteor.subscribe("loglines_browser_paged_count", this.loglinesBrowserPagedExtraParams)
 		];
 		var ready = true;
 		_.each(subs, function(sub) {
@@ -47,15 +47,15 @@ this.AdminLogsBrowserController = RouteController.extend({
 
 		var data = {
 			params: this.params || {},
-			logline_paged: Logs.find(databaseUtils.extendFilter({}, this.loglinePagedExtraParams), databaseUtils.extendOptions({}, this.loglinePagedExtraParams)),
-			logline_paged_count: Counts.get("logline_paged_count")
+			loglines_browser_paged: Logs.find(databaseUtils.extendFilter({source:"browser"}, this.loglinesBrowserPagedExtraParams), databaseUtils.extendOptions({}, this.loglinesBrowserPagedExtraParams)),
+			loglines_browser_paged_count: Counts.get("loglines_browser_paged_count")
 		};
 		
 
 		
-		data.logline_paged_page_count = this.loglinePagedExtraParams && this.loglinePagedExtraParams.pageSize ? Math.ceil(data.logline_paged_count / this.loglinePagedExtraParams.pageSize) : 1;
-		if(this.isReady() && this.loglinePagedExtraParams.pageNo >= data.logline_paged_page_count) {
-			Session.set("LoglinePagedPageNo", data.logline_paged_page_count > 0 ? data.logline_paged_page_count - 1 : 0);
+		data.loglines_browser_paged_page_count = this.loglinesBrowserPagedExtraParams && this.loglinesBrowserPagedExtraParams.pageSize ? Math.ceil(data.loglines_browser_paged_count / this.loglinesBrowserPagedExtraParams.pageSize) : 1;
+		if(this.isReady() && this.loglinesBrowserPagedExtraParams.pageNo >= data.loglines_browser_paged_page_count) {
+			Session.set("LoglinesBrowserPagedPageNo", data.loglines_browser_paged_page_count > 0 ? data.loglines_browser_paged_page_count - 1 : 0);
 		}
 
 

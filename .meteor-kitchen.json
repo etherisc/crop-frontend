@@ -130,7 +130,7 @@
 		},
 		{
 			"path": "client/views/admin/admin.html",
-			"checksum": "69b9b6a0cb59340488cf03cb4e15106a6cfed790"
+			"checksum": "7ffc12ee34e037d8393b0b914f35b16ba8b94a84"
 		},
 		{
 			"path": "client/views/admin/admin.js",
@@ -238,15 +238,15 @@
 		},
 		{
 			"path": "client/views/admin/logs_browser/logs_browser.html",
-			"checksum": "c0342e150a7ed080ca3605c25477c64df50800dc"
+			"checksum": "2489f44a5e2ebc00bd1acda3176b198cb5218972"
 		},
 		{
 			"path": "client/views/admin/logs_browser/logs_browser.js",
-			"checksum": "2656793bc0290a812d35bfe287b6f427a35eaa28"
+			"checksum": "0711e7412e093b17ef7f5f4c01656ff467f1f5a8"
 		},
 		{
 			"path": "client/views/admin/logs_browser/logs_browser_controller.js",
-			"checksum": "b4768ee9f23b40fc36a705737f011598359b0a98"
+			"checksum": "200d72b82a784752d95d98ead8fc0b2bd076aac6"
 		},
 		{
 			"path": "client/views/admin/logs_server/logs_server.html",
@@ -262,7 +262,7 @@
 		},
 		{
 			"path": "client/views/admin/details_modal/details_modal.html",
-			"checksum": "83726e32833c8607651cadc6711e47740c83fd92"
+			"checksum": "cb515db2d384e1d909d50ed35e3ce466169c118c"
 		},
 		{
 			"path": "client/views/admin/details_modal/details_modal.js",
@@ -270,7 +270,7 @@
 		},
 		{
 			"path": "client/views/admin/details_modal/details_modal_controller.js",
-			"checksum": "ff76bf6cb26e26a92b7cd1bbedc7f3f6d511affc"
+			"checksum": "bd87781363c86d059e0ac0be74535bc116de347d"
 		},
 		{
 			"path": "client/views/user_settings/user_settings.html",
@@ -1066,7 +1066,7 @@
 		},
 		{
 			"path": "server/publish/logs.js",
-			"checksum": "d829fe1bbc6f3bb8b73473f644623a1903f2369e"
+			"checksum": "4a70686a48cd5acc648944b99b56e616c91b0072"
 		},
 		{
 			"path": "client/styles/user_styles.less",

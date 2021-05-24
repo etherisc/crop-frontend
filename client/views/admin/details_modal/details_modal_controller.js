@@ -21,7 +21,7 @@ this.AdminDetailsModalController = RouteController.extend({
 		
 
 		var subs = [
-			Meteor.subscribe("loglines_server")
+			Meteor.subscribe("logline")
 		];
 		var ready = true;
 		_.each(subs, function(sub) {
@@ -36,7 +36,7 @@ this.AdminDetailsModalController = RouteController.extend({
 
 		var data = {
 			params: this.params || {},
-			loglines_server: Logs.find({source:"server"}, {})
+			logline: Logs.findOne({}, {})
 		};
 		
 
