@@ -12,11 +12,11 @@ const select = (obj, keys) => {
 };
 
 
-const getMinioObject = Meteor.wrapAsync((bucket, path, cb) => {
+const getMinioObject = Meteor.wrapAsync((bucket, filename, cb) => {
 
 	let content = '';
 
-	minioClient.getObject(bucket, path, function(err, dataStream) {
+	minioClient.getObject(bucket, filename, function(err, dataStream) {
 		if (err) {
 			cb(err, null);
 		}
@@ -34,10 +34,10 @@ const getMinioObject = Meteor.wrapAsync((bucket, path, cb) => {
 });
 
 
-const readActivationsFile = async (jsonFile, prefix) => {
+const readActivationsFile = async (bucket, filename, prefix) => {
 
 	try {
-		const act_content = getMinioObject(dataPath, jsonFile);
+		const act_content = getMinioObject(bucket, filename);
 
 		const act_json = JSON.parse(act_content);
 
