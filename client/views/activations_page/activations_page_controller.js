@@ -77,7 +77,7 @@ this.ActivationsPageController = RouteController.extend({
 /** Custom data code end **/
 
 		/* Custom Data Code  Test */
-
+   
 
 
 		return data;
