@@ -75,7 +75,7 @@ Template.AdminDetailsModalForm.events({
 		var self = this;
 
 		function submitAction(result, msg) {
-			var adminDetailsModalFormMode = "insert";
+			var adminDetailsModalFormMode = "read_only";
 			if(!t.find("#form-cancel-button")) {
 				switch(adminDetailsModalFormMode) {
 					case "insert": {
@@ -109,7 +109,7 @@ Template.AdminDetailsModalForm.events({
 			function(values) {
 				
 
-				Meteor.call("logsInsert", values, function(e, r) { if(e) errorAction(e); else submitAction(r); });
+				
 			}
 		);
 
