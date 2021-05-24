@@ -64,7 +64,7 @@ Template.ActivationsMapMap.created = function() {
 						const pixel = `Pixel${latLng2Pixel({lat: lat/10, lng: lng/10})}`;
 						const counts = RecordCounts.findOne({pixel});
 						if (counts) {
-							const op = (counts.count)/1400 + 0.3 > 0.8 ? 0.8 : (counts.count)/1400 + 0.2;
+							const op = (counts.count)/1400 + 0.4 > 0.9 ? 0.9 : (counts.count)/1400 + 0.4;
 							const rectangle = new google.maps.Rectangle({
 								strokeColor: "#000000",
 								strokeOpacity: 0.00,
