@@ -5,7 +5,6 @@ const countActivations = () => {
 
 	activations.forEach((activation) => {
 		const newPixel = latLng2PixelStr({lat: activation.latitude, lng: activation.longitude});
-		console.log(newPixel);
 		Activations.update({_id: activation._id}, {$set: {pixel: newPixel}});
 		
 		const count = RecordCounts.findOne({pixel: newPixel});
