@@ -249,8 +249,9 @@ Template.AdminImportJobsViewTableItems.events({
 	"click [data-action='execute']": function(e, t) {
 e.preventDefault();
 
-const count = Meteor.call("readActivationsFile", t.data);
-alert(`${count} Activations imported.`);
+Meteor.call("readActivationsFile", t.data, function (err, result) {
+	alert(`${result} Activations imported.`);
+});
 
 return false;
 
