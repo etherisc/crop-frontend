@@ -1,9 +1,10 @@
 this.AdminLogsServerController = RouteController.extend({
-	template: "AdminLogsServer",
+	template: "Admin",
 	
 
 	yieldTemplates: {
-		/*YIELD_TEMPLATES*/
+		'AdminLogsServer': { to: 'AdminSubcontent'}
+		
 	},
 
 	onBeforeAction: function() {
@@ -11,7 +12,7 @@ this.AdminLogsServerController = RouteController.extend({
 	},
 
 	action: function() {
-		if(this.isReady()) { this.render(); } else { this.render("loading"); }
+		if(this.isReady()) { this.render(); } else { this.render("Admin"); this.render("loading", { to: "AdminSubcontent" });}
 		/*ACTION_FUNCTION*/
 	},
 
