@@ -90,6 +90,9 @@
 				<th class="th-sortable" data-sort="status">
 					Status
 				</th>
+				<th class="th-sortable" data-sort="last_run">
+					Last Run
+				</th>
 				<th>
 					&nbsp;
 				</th>
@@ -123,6 +126,9 @@
 		</td>
 		<td>
 			{{status}}
+		</td>
+		<td>
+			{{formatDate last_run ''}}
 		</td>
 		<td class="td-icon">
 			<span id="edit-button" class="fa fa-pencil {{editButtonClass}}" title="Edit">
