@@ -40,3 +40,7 @@ Meteor.methods({
 	}
 });
 
+Meteor.publish("loglines_server_find_one", function() {
+	return Logs.find({source:"server"}, {});
+});
+

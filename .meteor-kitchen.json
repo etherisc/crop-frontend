@@ -2,7 +2,7 @@
 	"output_files": [
 		{
 			"path": "client/views/router.js",
-			"checksum": "6161ed12d43046c026cdda0936be018f17b9c9be"
+			"checksum": "091cc99d14cf28bd6a9c58934bdb41859aa813d2"
 		},
 		{
 			"path": "server/controllers/router.js",
@@ -130,7 +130,7 @@
 		},
 		{
 			"path": "client/views/admin/admin.html",
-			"checksum": "965ed71449cc2f377acb854707952f3e7854e84f"
+			"checksum": "9deeae151c4410fa76189e4f37d13280b14d254e"
 		},
 		{
 			"path": "client/views/admin/admin.js",
@@ -259,6 +259,18 @@
 		{
 			"path": "client/views/admin/logs_server/logs_server_controller.js",
 			"checksum": "9545ec66a70ec619a0f7f8ce4661083c235557b8"
+		},
+		{
+			"path": "client/views/admin/details_modal/details_modal.html",
+			"checksum": "546e643277159b877f3a993796d46e73e4682323"
+		},
+		{
+			"path": "client/views/admin/details_modal/details_modal.js",
+			"checksum": "2d2b408dac83818d4965260f84ce2c15efc3c8b5"
+		},
+		{
+			"path": "client/views/admin/details_modal/details_modal_controller.js",
+			"checksum": "ff76bf6cb26e26a92b7cd1bbedc7f3f6d511affc"
 		},
 		{
 			"path": "client/views/user_settings/user_settings.html",
@@ -1054,7 +1066,7 @@
 		},
 		{
 			"path": "server/publish/logs.js",
-			"checksum": "5fdff40476f53a0ca11d380226ed21454ee7e567"
+			"checksum": "f27f305255d0c8ef97618ff128dd9e51d3bcdc4c"
 		},
 		{
 			"path": "client/styles/user_styles.less",
@@ -1349,6 +1361,7 @@
 		"client/views/activations_page/insert/",
 		"client/views/activations_page/update/",
 		"client/views/admin/",
+		"client/views/admin/details_modal/",
 		"client/views/admin/import_jobs/",
 		"client/views/admin/import_jobs/details/",
 		"client/views/admin/import_jobs/insert/",

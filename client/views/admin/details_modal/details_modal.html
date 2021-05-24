@@ -1,0 +1,92 @@
+<template name="AdminDetailsModal">
+	<div class="page-container container" id="content">
+		<div class="row" id="title_row">
+			<div class="col-md-12">
+			</div>
+		</div>
+		{{> AdminDetailsModalForm}}
+	</div>
+</template>
+
+<template name="AdminDetailsModalForm">
+	<div id="admin-details-modal-form" class="">
+		<form role="form">
+			{{#if errorMessage}}
+			<div class="alert alert-warning">
+				{{errorMessage}}
+			</div>
+			{{/if}}
+
+			{{#if infoMessage}}
+			<div class="alert alert-success">
+				{{infoMessage}}
+			</div>
+			{{/if}}
+			<div class="form-group  field-timestamp">
+				<label for="timestamp">
+					Timestamp
+				</label>
+				<div class="input-div">
+					<input type="text" name="timestamp" value="" class="form-control " autofocus="autofocus" required="required" data-type="date" data-format="DD/MM/YYYY HH:mm:ss">
+					<span id="help-text" class="help-block">
+					</span>
+					<span id="error-text" class="help-block">
+					</span>
+				</div>
+			</div>
+			<div class="form-group  field-type">
+				<label for="type">
+					Type
+				</label>
+				<div class="input-div">
+					<input type="text" name="type" value="" class="form-control " required="required" data-type="string">
+					<span id="help-text" class="help-block">
+					</span>
+					<span id="error-text" class="help-block">
+					</span>
+				</div>
+			</div>
+			<div class="form-group  field-source">
+				<label for="source">
+					Source
+				</label>
+				<div class="input-div">
+					<input type="text" name="source" value="" class="form-control " required="required" data-type="string">
+					<span id="help-text" class="help-block">
+					</span>
+					<span id="error-text" class="help-block">
+					</span>
+				</div>
+			</div>
+			<div class="form-group  field-message">
+				<label for="message">
+					Message
+				</label>
+				<div class="input-div">
+					<input type="text" name="message" value="" class="form-control " required="required" data-type="string">
+					<span id="help-text" class="help-block">
+					</span>
+					<span id="error-text" class="help-block">
+					</span>
+				</div>
+			</div>
+			<div class="form-group  field-args">
+				<label for="args">
+					Args
+				</label>
+				<div class="input-div">
+					<input type="text" name="args" value="" class="form-control " data-type="object">
+					<span id="help-text" class="help-block">
+					</span>
+					<span id="error-text" class="help-block">
+					</span>
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="submit-div">
+				</div>
+			</div>
+		</form>
+	</div>
+</template>
+
