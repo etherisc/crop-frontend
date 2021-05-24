@@ -248,7 +248,10 @@ Template.AdminImportJobsViewTableItems.onRendered(function() {
 Template.AdminImportJobsViewTableItems.events({
 	"click [data-action='execute']": function(e, t) {
 e.preventDefault();
-Meteor.call("readActivationsFile", t.data);
+
+const count = Meteor.call("readActivationsFile", t.data);
+alert(`${count} Activations imported.`);
+
 return false;
 
 },

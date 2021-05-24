@@ -48,7 +48,7 @@ const readActivationsFile = async ({ bucket, filename, action }) => {
 		const act_json = JSON.parse(act_content);
 
 		info('readActivations successful', {act_content: act_content.slice(0,80)});
-		return;
+		return(5);
 		Activations.remove({prefix});	
 
 		let counter = 0;
