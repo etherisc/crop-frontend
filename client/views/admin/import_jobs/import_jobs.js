@@ -26,7 +26,7 @@ Template.AdminImportJobs.helpers({
 var AdminImportJobsViewExport = function(fileType) {
 	var extraParams = {
 		searchText: Session.get("ImportJobListPagedSearchString") || "",
-		searchFields: Session.get("ImportJobListPagedSearchFields") || ["folder", "filename", "action", "prefix", "status"],
+		searchFields: Session.get("ImportJobListPagedSearchFields") || ["bucket", "filename", "action", "prefix", "status"],
 		sortBy: Session.get("ImportJobListPagedSortBy") || "",
 		sortAscending: Session.get("ImportJobListPagedSortAscending") || true
 	};
