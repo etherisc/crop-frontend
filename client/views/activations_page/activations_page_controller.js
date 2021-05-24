@@ -73,10 +73,7 @@ this.ActivationsPageController = RouteController.extend({
 		if(this.isReady() && this.activationListPagedExtraParams.pageNo >= data.activation_list_paged_page_count) {
 			Session.set("ActivationListPagedPageNo", data.activation_list_paged_page_count > 0 ? data.activation_list_paged_page_count - 1 : 0);
 		}
-/** Custom data code **/
-/** Custom data code end **/
-
-		/* Custom Data Code  Test */
+/* Custom Data Code  Test */
    
 
 
