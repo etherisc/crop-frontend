@@ -130,7 +130,7 @@
 		},
 		{
 			"path": "client/views/admin/admin.html",
-			"checksum": "a0f58832fdde2c1e14ad4cfb6ecb2243e083c45d"
+			"checksum": "1e89ae75201bffb85419a1b35ec16fc56cabe5af"
 		},
 		{
 			"path": "client/views/admin/admin.js",
@@ -194,7 +194,7 @@
 		},
 		{
 			"path": "client/views/admin/import_jobs/import_jobs.js",
-			"checksum": "5d752724e72956e28bde1462faf27bb6fa73075a"
+			"checksum": "6c40204e003278ac3be256598e053f4a33fe0391"
 		},
 		{
 			"path": "client/views/admin/import_jobs/import_jobs_controller.js",
@@ -1126,7 +1126,7 @@
 		},
 		{
 			"path": "imports/server/methods/activations-reader.js",
-			"checksum": "ffbc1888271de810c921ef040b092b8c41f83287"
+			"checksum": "e9acc4df17a2b54dc0e93484d01e727150682581"
 		},
 		{
 			"path": "server/lib/server_globals.js",
