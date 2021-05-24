@@ -41,22 +41,32 @@ const executeImportJob = ({_id}) => {
 
 	const { bucket, filename, prefix, action } = ImportJobs.findOne({_id});
 
-	switch (action) {
-			
-		case 'readActivations': 
-			return readActivationsFile(bucket, filename, prefix);
-			break;
-			
-		case 'countActivations': 
-			return countActivations();
-			break; 
-			
-		default: 
-			const msg = `executeImportJob: Action ${action} not implemented`;
-			error(msg);
-			throw new Meteor.Error(msg);
+	let result;
+	try {
+		switch (action) {
+
+			case 'readActivations': 
+				result = readActivationsFile(bucket, filename, prefix);
+				break;
+
+			case 'countActivations': 
+				result = countActivations();
+				break; 
+
+			default: 
+				const msg = `executeImportJob: Action ${action} not implemented`;
+				error(msg);
+				throw new Meteor.Error(msg);
+		}
+
+		ImportJobs.update({_id}, {$set: {status: 'Success', message: '', last_run: Date.now()}});
+
+		return result;
+	} catch (err) {
+		error(`Error in ${action}, Error: ${e.message}`, {stack: e.stack});
+		ImportJobs.update({_id}, {$set: {status: 'Error', message: e.message, last_run: Date.now()}});
+		throw new Meteor.Error('Error', e.message, e.stack);
 	}
-		
 };
 
 
@@ -98,7 +108,7 @@ const readActivationsFile = (bucket, filename, prefix) => {
 			order_number = serial_number ? serial_number : (order_number ? order_number : null);
 			const amount_premium = premium_amount ? premium_amount : (denomination ? denomination : null);
 			const pixel = latLng2PixelStr({lat: Number(latitude), lng: Number(longitude)});
-			
+
 			const result = Activations.upsert(
 				{ order_number },
 				{ 
@@ -123,7 +133,7 @@ const readActivationsFile = (bucket, filename, prefix) => {
 					}
 				}
 			);
-			
+
 			incrementCount(pixel);
 
 		});
@@ -133,19 +143,17 @@ const readActivationsFile = (bucket, filename, prefix) => {
 			counter
 		});
 
-		ImportJobs.update({_id}, {$set: {status: 'Success', message: '', last_run: Date.now()}});
-
 		return `${counter} activations imported.`;
 
 	} catch (e) {
-		error(`Error in readActivations, Error: ${e.message}`, {stack: e.stack});
-		ImportJobs.update({_id}, {$set: {status: 'Error', message: e.message, last_run: Date.now()}});
 		throw new Meteor.Error('Error', e.message, e.stack);
 	}
 };
 
 const incrementCount = (pixel) => {
+	
 	const count = RecordCounts.findOne({pixel});
+	
 	if (count) {
 		RecordCounts.update({pixel}, {$set: {count: count.count + 1}});
 	} else {
@@ -165,6 +173,8 @@ const countActivations = () => {
 
 	});
 	
+	info('countActivations successful');
+
 	return `Activations counter updated.`;
 
 
