@@ -66,7 +66,6 @@ const readActivationsFile = async (jsonFile, prefix) => {
 				village,
 				value_chain,
 				voucher_code,
-				serial_number,
 				longitude,
 				latitude,
 				mpesa_ref,
