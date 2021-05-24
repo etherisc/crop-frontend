@@ -250,7 +250,11 @@ Template.AdminImportJobsViewTableItems.events({
 e.preventDefault();
 
 Meteor.call("readActivationsFile", t.data, function (err, result) {
-	alert(`${result} Activations imported.`);
+	if (err) {
+		alert(`${err} : ${err.error}`);
+	} else {
+		alert(`${result} Activations imported.`);
+	}
 });
 
 return false;
