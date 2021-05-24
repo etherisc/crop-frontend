@@ -102,7 +102,7 @@
 					Last Run
 				</label>
 				<div class="input-div col-sm-9">
-					<input type="text" name="last_run" value="{{formatDate import_job.last_run ''}}" class="form-control " data-type="date">
+					<input type="text" name="last_run" value="{{formatDate import_job.last_run 'DD/MM/YYYY HH:mm:ss'}}" class="form-control " data-type="date" data-format="DD/MM/YYYY HH:mm:ss">
 					<span id="help-text" class="help-block">
 					</span>
 					<span id="error-text" class="help-block">

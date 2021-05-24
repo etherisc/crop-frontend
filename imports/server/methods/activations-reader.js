@@ -110,13 +110,13 @@ const readActivationsFile = async ({ _id }) => {
 			counter
 		});
 
-		ImportJobs.update({_id}, {$set: {status: 'Success', last_run: Date.now()}});
+		ImportJobs.update({_id}, {$set: {status: 'Success', message: '', last_run: Date.now()}});
 
 		return counter;
 		
 	} catch (e) {
 		error(`Error in readActivations, Error: ${e.message}`, {stack: e.stack});
-		ImportJobs.update({_id}, {$set: {status: e.message, last_run: Date.now()}});
+		ImportJobs.update({_id}, {$set: {status: 'Error', message: e.message, last_run: Date.now()}});
 	}
 }
 
