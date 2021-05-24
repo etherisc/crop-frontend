@@ -249,6 +249,8 @@ Template.AdminImportJobsViewTableItems.events({
 	"click [data-action='execute']": function(e, t) {
 e.preventDefault();
 
+toast_info(`Import Job started. Please be patient, processing can take some time!`);
+
 Meteor.call("readActivationsFile", t.data, function (err, result) {
 	if (err) {
 		alert(`${err} : ${err.error}`);

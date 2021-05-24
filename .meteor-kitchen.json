@@ -130,7 +130,7 @@
 		},
 		{
 			"path": "client/views/admin/admin.html",
-			"checksum": "1cee796231287cbbdfb36245a737510821c218c5"
+			"checksum": "a4b0de41834d1fc9fa19456d396651d019c45329"
 		},
 		{
 			"path": "client/views/admin/admin.js",
@@ -194,7 +194,7 @@
 		},
 		{
 			"path": "client/views/admin/import_jobs/import_jobs.js",
-			"checksum": "6c966e4ce8a93988961cdaec4e53444796147137"
+			"checksum": "033ff448b7face9331c93afe950c564b686ec1d5"
 		},
 		{
 			"path": "client/views/admin/import_jobs/import_jobs_controller.js",
@@ -466,7 +466,7 @@
 		},
 		{
 			"path": "client/views/activations_map/activations_map.html",
-			"checksum": "03b76426536ad2794cd95700da0d3070d2afe523"
+			"checksum": "7a7c894ad078390b66abf8e9c8ab1979382979c2"
 		},
 		{
 			"path": "client/views/activations_map/activations_map.js",
@@ -1143,6 +1143,10 @@
 		{
 			"path": "client/styles/compatibility/jquery.json-viewer.css",
 			"checksum": "2300e5ebd560fcd724a704883b8e1f9233a546df"
+		},
+		{
+			"path": "client/lib/toast.js",
+			"checksum": "cc8e6b1d3d16ea07cde905835c903e07b4984045"
 		},
 		{
 			"path": "lib/string_utils.js",
