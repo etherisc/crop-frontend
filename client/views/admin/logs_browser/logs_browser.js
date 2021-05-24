@@ -25,17 +25,17 @@ Template.AdminLogsBrowser.helpers({
 
 var AdminLogsBrowserLogsViewExport = function(fileType) {
 	var extraParams = {
-		searchText: Session.get("LoglinesBrowserPagedSearchString") || "",
-		searchFields: Session.get("LoglinesBrowserPagedSearchFields") || ["timestamp", "type", "source", "message", "args"],
-		sortBy: Session.get("LoglinesBrowserPagedSortBy") || "",
-		sortAscending: Session.get("LoglinesBrowserPagedSortAscending") || true
+		searchText: Session.get("LoglinePagedSearchString") || "",
+		searchFields: Session.get("LoglinePagedSearchFields") || ["timestamp", "type", "source", "message", "args"],
+		sortBy: Session.get("LoglinePagedSortBy") || "",
+		sortAscending: Session.get("LoglinePagedSortAscending") || true
 	};
 
 	var exportFields = [];
 
 	
 
-	Meteor.call("loglinesBrowserPagedExport", extraParams, exportFields, fileType, function(e, data) {
+	Meteor.call("loglinePagedExport", extraParams, exportFields, fileType, function(e, data) {
 		if(e) {
 			alert(e);
 			return;
@@ -72,7 +72,7 @@ Template.AdminLogsBrowserLogsView.events({
 			if(searchInput) {
 				searchInput.focus();
 				var searchString = searchInput.val();
-				Session.set("LoglinesBrowserPagedSearchString", searchString);
+				Session.set("LoglinePagedSearchString", searchString);
 			}
 
 		}
@@ -88,7 +88,7 @@ Template.AdminLogsBrowserLogsView.events({
 				var searchInput = form.find("#dataview-search-input");
 				if(searchInput) {
 					var searchString = searchInput.val();
-					Session.set("LoglinesBrowserPagedSearchString", searchString);
+					Session.set("LoglinePagedSearchString", searchString);
 				}
 
 			}
@@ -103,7 +103,7 @@ Template.AdminLogsBrowserLogsView.events({
 				var searchInput = form.find("#dataview-search-input");
 				if(searchInput) {
 					searchInput.val("");
-					Session.set("LoglinesBrowserPagedSearchString", "");
+					Session.set("LoglinePagedSearchString", "");
 				}
 
 			}
@@ -140,17 +140,17 @@ Template.AdminLogsBrowserLogsView.events({
 
 	"click .prev-page-link": function(e, t) {
 		e.preventDefault();
-		var currentPage = Session.get("LoglinesBrowserPagedPageNo") || 0;
+		var currentPage = Session.get("LoglinePagedPageNo") || 0;
 		if(currentPage > 0) {
-			Session.set("LoglinesBrowserPagedPageNo", currentPage - 1);
+			Session.set("LoglinePagedPageNo", currentPage - 1);
 		}
 	},
 
 	"click .next-page-link": function(e, t) {
 		e.preventDefault();
-		let currentPage = Session.get("LoglinesBrowserPagedPageNo") || 0;
-		if(currentPage < this.loglines_browser_paged_page_count - 1) {
-			Session.set("LoglinesBrowserPagedPageNo", currentPage + 1);
+		let currentPage = Session.get("LoglinePagedPageNo") || 0;
+		if(currentPage < this.logline_paged_page_count - 1) {
+			Session.set("LoglinePagedPageNo", currentPage + 1);
 		}
 	}
 
@@ -164,22 +164,22 @@ Template.AdminLogsBrowserLogsView.helpers({
 	},
 
 	"isEmpty": function() {
-		return !this.loglines_browser_paged || this.loglines_browser_paged.count() == 0;
+		return !this.logline_paged || this.logline_paged.count() == 0;
 	},
 	"isNotEmpty": function() {
-		return this.loglines_browser_paged && this.loglines_browser_paged.count() > 0;
+		return this.logline_paged && this.logline_paged.count() > 0;
 	},
 	"isNotFound": function() {
-		return this.loglines_browser_paged && this.loglines_browser_paged.count() == 0 && Session.get("LoglinesBrowserPagedSearchString");
+		return this.logline_paged && this.logline_paged.count() == 0 && Session.get("LoglinePagedSearchString");
 	},
 	"gotPrevPage": function() {
-		return !!Session.get("LoglinesBrowserPagedPageNo");
+		return !!Session.get("LoglinePagedPageNo");
 	},
 	"gotNextPage": function() {
-		return (Session.get("LoglinesBrowserPagedPageNo") || 0) < this.loglines_browser_paged_page_count - 1;
+		return (Session.get("LoglinePagedPageNo") || 0) < this.logline_paged_page_count - 1;
 	},
 	"searchString": function() {
-		return Session.get("LoglinesBrowserPagedSearchString");
+		return Session.get("LoglinePagedSearchString");
 	},
 	"viewAsTable": function() {
 		return Session.get("AdminLogsBrowserLogsViewStyle") == "table";
@@ -213,18 +213,18 @@ Template.AdminLogsBrowserLogsViewTable.onRendered(function() {
 Template.AdminLogsBrowserLogsViewTable.events({
 	"click .th-sortable": function(e, t) {
 		e.preventDefault();
-		var oldSortBy = Session.get("LoglinesBrowserPagedSortBy");
+		var oldSortBy = Session.get("LoglinePagedSortBy");
 		var newSortBy = $(e.target).attr("data-sort");
 
-		Session.set("LoglinesBrowserPagedSortBy", newSortBy);
+		Session.set("LoglinePagedSortBy", newSortBy);
 		if(oldSortBy == newSortBy) {
-			var sortAscending = Session.get("LoglinesBrowserPagedSortAscending");
+			var sortAscending = Session.get("LoglinePagedSortAscending");
 			if(typeof sortAscending == "undefined") {
 				sortAscending = true;
 			}
-			Session.set("LoglinesBrowserPagedSortAscending", !sortAscending);
+			Session.set("LoglinePagedSortAscending", !sortAscending);
 		} else {
-			Session.set("LoglinesBrowserPagedSortAscending", true);
+			Session.set("LoglinePagedSortAscending", true);
 		}
 	}
 });
