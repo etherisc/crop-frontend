@@ -6,19 +6,23 @@ Meteor.publish("loglines_browser", function() {
 	return Logs.find({source:"browser"}, {});
 });
 
-Meteor.publish("loglines_browser_paged", function(extraOptions) {
-	extraOptions.doSkip = true;
-	return Logs.find(databaseUtils.extendFilter({source:"browser"}, extraOptions), databaseUtils.extendOptions({}, extraOptions));
+Meteor.publish("logline", function() {
+	return Logs.find({}, {});
 });
 
-Meteor.publish("loglines_browser_paged_count", function(extraOptions) {
-	Counts.publish(this, "loglines_browser_paged_count", Logs.find(databaseUtils.extendFilter({source:"browser"}, extraOptions), { fields: { _id: 1 } }));
+Meteor.publish("logline_paged", function(extraOptions) {
+	extraOptions.doSkip = true;
+	return Logs.find(databaseUtils.extendFilter({}, extraOptions), databaseUtils.extendOptions({}, extraOptions));
+});
+
+Meteor.publish("logline_paged_count", function(extraOptions) {
+	Counts.publish(this, "logline_paged_count", Logs.find(databaseUtils.extendFilter({}, extraOptions), { fields: { _id: 1 } }));
 });
 
 Meteor.methods({
-	"loglinesBrowserPagedExport": function(extraOptions, exportFields, fileType) {
+	"loglinePagedExport": function(extraOptions, exportFields, fileType) {
 		extraOptions.noPaging = true;
-		var data = Logs.find(databaseUtils.extendFilter({source:"browser"}, extraOptions), databaseUtils.extendOptions({}, extraOptions)).fetch();
+		var data = Logs.find(databaseUtils.extendFilter({}, extraOptions), databaseUtils.extendOptions({}, extraOptions)).fetch();
 		return objectUtils.exportArrayOfObjects(data, exportFields, fileType);
 	}
 });
