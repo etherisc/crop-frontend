@@ -54,10 +54,6 @@ const readActivationsFile = async ({ _id }) => {
 		let counter = 0;
 		act_json.forEach(item => {
 
-
-			if (!order_number) return;
-
-
 			counter += 1;
 
 			let { 
