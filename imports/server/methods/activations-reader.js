@@ -20,6 +20,9 @@ const getMinioObject = Meteor.wrapAsync((bucket, filename, cb) => {
 		if (err) {
 			cb(err, null);
 		}
+		if (dataStream) {
+		} else {
+			cb(new Error('dataStream not provided'), null);
 		dataStream.on('data', function(chunk) {
 			content += chunk;
 		})
