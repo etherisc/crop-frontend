@@ -19,7 +19,7 @@ this.AdminImportJobsController = RouteController.extend({
 	isReady: function() {
 		this.importJobListPagedExtraParams = {
 			searchText: Session.get("ImportJobListPagedSearchString") || "",
-			searchFields: Session.get("ImportJobListPagedSearchFields") || ["bucket", "filename", "action", "prefix", "status"],
+			searchFields: Session.get("ImportJobListPagedSearchFields") || ["bucket", "filename", "action", "prefix", "status", "last_run"],
 			sortBy: Session.get("ImportJobListPagedSortBy") || "",
 			sortAscending: Session.get("ImportJobListPagedSortAscending"),
 			pageNo: Session.get("ImportJobListPagedPageNo") || 0,

@@ -34,8 +34,10 @@ const getMinioObject = Meteor.wrapAsync((bucket, filename, cb) => {
 });
 
 
-const readActivationsFile = async ({ bucket, filename, action }) => {
+const readActivationsFile = async ({ _id }) => {
 
+	const { bucket, filename, prefix, action } = ImportJobs.findOne({_id});
+		
 	try {
 				
 		if (action != 'readActivations') {
@@ -108,10 +110,13 @@ const readActivationsFile = async ({ bucket, filename, action }) => {
 			counter
 		});
 
+		ImportJobs.update({_id}, {$set: {status: 'Success', last_run: Date.now()}});
+
 		return counter;
 		
 	} catch (e) {
 		error(`Error in readActivations, Error: ${e.message}`, {stack: e.stack});
+		ImportJobs.update({_id}, {$set: {status: e.message, last_run: Date.now()}});
 	}
 }
 
