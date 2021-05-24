@@ -194,7 +194,7 @@
 		},
 		{
 			"path": "client/views/admin/import_jobs/import_jobs.js",
-			"checksum": "3122db5ed52969089105fe3e71229c60ceee1f1a"
+			"checksum": "4fc865f624a824b751dbb7e9d5e7311e10f9c9c4"
 		},
 		{
 			"path": "client/views/admin/import_jobs/import_jobs_controller.js",
@@ -382,15 +382,15 @@
 		},
 		{
 			"path": "client/views/activations_page/activations_page.html",
-			"checksum": "8151137c85bdb39758db1ace704983d548a35b5c"
+			"checksum": "6a8f1585d9a3af4b69e9e332163f1cb657d49323"
 		},
 		{
 			"path": "client/views/activations_page/activations_page.js",
-			"checksum": "62ff29e55f055bcb3b818f3d8527ceed5cb1dfae"
+			"checksum": "7c0e1c7cd18668ee56fdf2df06e06bcbedddcc3b"
 		},
 		{
 			"path": "client/views/activations_page/activations_page_controller.js",
-			"checksum": "e7a0f6e4347d51342c63a11d44de5d58563431ff"
+			"checksum": "54b7f7da5f91d9d4b2309682b78a034c671838d0"
 		},
 		{
 			"path": "client/views/activations_page/insert/insert.html",

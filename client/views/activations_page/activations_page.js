@@ -22,26 +22,6 @@ Template.ActivationsPage.helpers({
 	
 });
 
-Template.ActivationsPageHeader.created = function() {
-
-};
-
-Template.ActivationsPageHeader.destroyed = function() {
-
-};
-
-Template.ActivationsPageHeader.rendered = function() {
-
-};
-
-Template.ActivationsPageHeader.helpers({
-
-});
-
-Template.ActivationsPageHeader.events({
-
-});
-
 
 var ActivationsPageViewExport = function(fileType) {
 	var extraParams = {
@@ -368,26 +348,6 @@ Template.ActivationsPageViewCustomActions.events({
 		const counter = Meteor.call('readActivationsFile');
 		alert (`${counter} records imported.`);
 	}
-});
-
-Template.ActivationsPageFooter.created = function() {
-
-};
-
-Template.ActivationsPageFooter.destroyed = function() {
-
-};
-
-Template.ActivationsPageFooter.rendered = function() {
-
-};
-
-Template.ActivationsPageFooter.helpers({
-
-});
-
-Template.ActivationsPageFooter.events({
-
 });
 
 
