@@ -37,17 +37,32 @@ const getMinioObject = Meteor.wrapAsync((bucket, filename, cb) => {
 
 });
 
-
-const readActivationsFile = async ({ _id }) => {
+const executeImportJob = ({_id}) => {
 
 	const { bucket, filename, prefix, action } = ImportJobs.findOne({_id});
 
-	try {
+	switch (action) {
+			
+		case 'readActivations': 
+			return readActivationsFile(bucket, filename, prefix);
+			break;
+			
+		case 'countActivations': 
+			return countActivations();
+			break; 
+			
+		default: 
+			const msg = `executeImportJob: Action ${action} not implemented`;
+			error(msg);
+			throw new Meteor.Error(msg);
+	}
+		
+};
 
-		if (action != 'readActivations') {
-			error(`Wrong Action (expected: readActivations, received: ${data.action}`, data);
-			return;
-		}
+
+const readActivationsFile = (bucket, filename, prefix) => {
+
+	try {
 
 		const act_content = getMinioObject(bucket, filename);
 
@@ -82,7 +97,8 @@ const readActivationsFile = async ({ _id }) => {
 
 			order_number = serial_number ? serial_number : (order_number ? order_number : null);
 			const amount_premium = premium_amount ? premium_amount : (denomination ? denomination : null);
-
+			const pixel = latLng2PixelStr({lat: Number(latitude), lng: Number(longitude)});
+			
 			const result = Activations.upsert(
 				{ order_number },
 				{ 
@@ -100,13 +116,15 @@ const readActivationsFile = async ({ _id }) => {
 						ward,
 						district,
 						village,
-						pixel: latLng2PixelStr({lat: Number(latitude), lng: Number(longitude)}),
+						pixel,
 						mpesa_ref,
 						mpesa_name,
 						prefix					
 					}
 				}
 			);
+			
+			incrementCount(pixel);
 
 		});
 
@@ -117,19 +135,42 @@ const readActivationsFile = async ({ _id }) => {
 
 		ImportJobs.update({_id}, {$set: {status: 'Success', message: '', last_run: Date.now()}});
 
-		return counter;
+		return `${counter} activations imported.`;
 
 	} catch (e) {
 		error(`Error in readActivations, Error: ${e.message}`, {stack: e.stack});
 		ImportJobs.update({_id}, {$set: {status: 'Error', message: e.message, last_run: Date.now()}});
 		throw new Meteor.Error('Error', e.message, e.stack);
 	}
-}
+};
+
+const incrementCount = (pixel) => {
+	const count = RecordCounts.findOne({pixel});
+	if (count) {
+		RecordCounts.update({pixel}, {$set: {count: count.count + 1}});
+	} else {
+		RecordCounts.insert({pixel, count: 1});
+	}
+};
+
+const countActivations = () => {
+
+	RecordCounts.remove({});
+	activations = Activations.find({});
+
+	activations.forEach((activation) => {
+		const newPixel = latLng2PixelStr({lat: activation.latitude, lng: activation.longitude});
+		Activations.update({_id: activation._id}, {$set: {pixel: newPixel}});
+		incrementCount(newPixel);
+
+	});
+	
+	return `Activations counter updated.`;
 
 
+}; 
 
-
-module.exports = { readActivationsFile };
+module.exports = { executeImportJob, countActivations, readActivationsFile };
 
 
 
