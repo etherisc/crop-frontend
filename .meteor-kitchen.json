@@ -130,7 +130,7 @@
 		},
 		{
 			"path": "client/views/admin/admin.html",
-			"checksum": "9deeae151c4410fa76189e4f37d13280b14d254e"
+			"checksum": "2bb7677298ed52e9487b0c2a8524bd3ab64f9620"
 		},
 		{
 			"path": "client/views/admin/admin.js",
@@ -262,11 +262,11 @@
 		},
 		{
 			"path": "client/views/admin/details_modal/details_modal.html",
-			"checksum": "546e643277159b877f3a993796d46e73e4682323"
+			"checksum": "83726e32833c8607651cadc6711e47740c83fd92"
 		},
 		{
 			"path": "client/views/admin/details_modal/details_modal.js",
-			"checksum": "2d2b408dac83818d4965260f84ce2c15efc3c8b5"
+			"checksum": "0c266fc892751f920304757204bbaff66f424c6d"
 		},
 		{
 			"path": "client/views/admin/details_modal/details_modal_controller.js",

@@ -10,7 +10,7 @@
 
 <template name="AdminDetailsModalForm">
 	<div id="admin-details-modal-form" class="">
-		<form role="form">
+		<form role="form" class="form-horizontal">
 			{{#if errorMessage}}
 			<div class="alert alert-warning">
 				{{errorMessage}}
@@ -23,67 +23,57 @@
 			</div>
 			{{/if}}
 			<div class="form-group  field-timestamp">
-				<label for="timestamp">
+				<label for="timestamp" class="col-sm-3 control-label">
 					Timestamp
 				</label>
-				<div class="input-div">
-					<input type="text" name="timestamp" value="" class="form-control " autofocus="autofocus" required="required" data-type="date" data-format="DD/MM/YYYY HH:mm:ss">
-					<span id="help-text" class="help-block">
-					</span>
-					<span id="error-text" class="help-block">
-					</span>
+				<div class="input-div col-sm-9">
+					<p class="form-control-static  control-field-timestamp">
+						{{formatDate loglines_server.timestamp 'DD/MM/YYYY HH:mm:ss'}}
+					</p>
 				</div>
 			</div>
 			<div class="form-group  field-type">
-				<label for="type">
+				<label for="type" class="col-sm-3 control-label">
 					Type
 				</label>
-				<div class="input-div">
-					<input type="text" name="type" value="" class="form-control " required="required" data-type="string">
-					<span id="help-text" class="help-block">
-					</span>
-					<span id="error-text" class="help-block">
-					</span>
+				<div class="input-div col-sm-9">
+					<p class="form-control-static  control-field-type">
+						{{loglines_server.type}}
+					</p>
 				</div>
 			</div>
 			<div class="form-group  field-source">
-				<label for="source">
+				<label for="source" class="col-sm-3 control-label">
 					Source
 				</label>
-				<div class="input-div">
-					<input type="text" name="source" value="" class="form-control " required="required" data-type="string">
-					<span id="help-text" class="help-block">
-					</span>
-					<span id="error-text" class="help-block">
-					</span>
+				<div class="input-div col-sm-9">
+					<p class="form-control-static  control-field-source">
+						{{loglines_server.source}}
+					</p>
 				</div>
 			</div>
 			<div class="form-group  field-message">
-				<label for="message">
+				<label for="message" class="col-sm-3 control-label">
 					Message
 				</label>
-				<div class="input-div">
-					<input type="text" name="message" value="" class="form-control " required="required" data-type="string">
-					<span id="help-text" class="help-block">
-					</span>
-					<span id="error-text" class="help-block">
-					</span>
+				<div class="input-div col-sm-9">
+					<p class="form-control-static  control-field-message">
+						{{loglines_server.message}}
+					</p>
 				</div>
 			</div>
 			<div class="form-group  field-args">
-				<label for="args">
+				<label for="args" class="col-sm-3 control-label">
 					Args
 				</label>
-				<div class="input-div">
-					<input type="text" name="args" value="" class="form-control " data-type="object">
-					<span id="help-text" class="help-block">
-					</span>
-					<span id="error-text" class="help-block">
-					</span>
+				<div class="input-div col-sm-9">
+					<p class="form-control-static  control-field-args">
+						{{loglines_server.args}}
+					</p>
 				</div>
 			</div>
 			<div class="form-group">
-				<div class="submit-div">
+				<div class="submit-div col-sm-9 col-sm-offset-3">
 				</div>
 			</div>
 		</form>
