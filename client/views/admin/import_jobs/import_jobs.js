@@ -248,7 +248,10 @@ Template.AdminImportJobsViewTableItems.onRendered(function() {
 Template.AdminImportJobsViewTableItems.events({
 	"click [data-action='import']": function(e, t) {
 /**** Action code Import ****/
-console.log(t);
+
+e.preventDefault();
+Meteor.call("readActivationsFile", t.data);
+
 /****************************/
 },
 

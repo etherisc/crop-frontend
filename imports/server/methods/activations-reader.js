@@ -34,9 +34,15 @@ const getMinioObject = Meteor.wrapAsync((bucket, filename, cb) => {
 });
 
 
-const readActivationsFile = async (bucket, filename, prefix) => {
+const readActivationsFile = async ({ bucket, filename, action }) => {
 
 	try {
+				
+		if (action != 'readActivations') {
+			error(`Wrong Action (expected: readActivations, received: ${data.action}`, data);
+			return;
+		}
+		
 		const act_content = getMinioObject(bucket, filename);
 
 		const act_json = JSON.parse(act_content);
