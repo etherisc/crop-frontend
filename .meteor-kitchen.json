@@ -190,11 +190,11 @@
 		},
 		{
 			"path": "client/views/admin/import_jobs/import_jobs.html",
-			"checksum": "e2f3ebd3a7b748ff25d4cecd523d3fac3e43c400"
+			"checksum": "4e01af2746e873d5cd5816dc91c0a18dc0236dec"
 		},
 		{
 			"path": "client/views/admin/import_jobs/import_jobs.js",
-			"checksum": "9a2b75706a17181e2f4cbb7d56858d4e49c00293"
+			"checksum": "4f1cd30419d0a38dd1f596bc0208f73d36d0baea"
 		},
 		{
 			"path": "client/views/admin/import_jobs/import_jobs_controller.js",
