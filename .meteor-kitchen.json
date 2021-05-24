@@ -130,7 +130,7 @@
 		},
 		{
 			"path": "client/views/admin/admin.html",
-			"checksum": "f916b83c119ed494ff63075b08ac990d4f13e4c7"
+			"checksum": "6315dc3e54e228246b96d0ce2e8f4c7535e67379"
 		},
 		{
 			"path": "client/views/admin/admin.js",
@@ -194,7 +194,7 @@
 		},
 		{
 			"path": "client/views/admin/import_jobs/import_jobs.js",
-			"checksum": "8ef275918658f0b08519fa670c93d4e3a0c9b2d0"
+			"checksum": "f054f31dcd6494840d4d9dcd7f4034f787c73033"
 		},
 		{
 			"path": "client/views/admin/import_jobs/import_jobs_controller.js",
@@ -1094,7 +1094,7 @@
 		},
 		{
 			"path": "server/methods/methods.js",
-			"checksum": "e3307e34e180432db5e9ee8639587c8f64530955"
+			"checksum": "e965c722b7fbaa723e27db7d694ec1c987ec7b80"
 		},
 		{
 			"path": "imports/server/methods/group-policy-reader.js",
@@ -1117,16 +1117,12 @@
 			"checksum": "dc08031dbee2b697cdc3fee44964cd15ef2a8ca3"
 		},
 		{
-			"path": "imports/server/methods/count.js",
-			"checksum": "6bdf799b4aa82e6640d8457f6b4bf88ad94964f2"
-		},
-		{
 			"path": "both/lib/geo-utilities.js",
 			"checksum": "b3f6c51db8b7d56d1fc9191dda266b6be3138c41"
 		},
 		{
 			"path": "imports/server/methods/activations-reader.js",
-			"checksum": "be2301b0f25213f3c1dc91b44d9ed842d08d0413"
+			"checksum": "dd6ae76d05f806c6234891289c8d1dc0799189dd"
 		},
 		{
 			"path": "server/lib/server_globals.js",
