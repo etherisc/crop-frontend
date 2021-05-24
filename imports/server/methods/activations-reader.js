@@ -21,17 +21,18 @@ const getMinioObject = Meteor.wrapAsync((bucket, filename, cb) => {
 			cb(err, null);
 		}
 		if (dataStream) {
+			dataStream.on('data', function(chunk) {
+				content += chunk;
+			})
+			dataStream.on('end', function() {
+				cb(null, content);
+			})
+			dataStream.on('error', function(err) {
+				cb(err, null);
+			})
 		} else {
 			cb(new Error('dataStream not provided'), null);
-		dataStream.on('data', function(chunk) {
-			content += chunk;
-		})
-		dataStream.on('end', function() {
-			cb(null, content);
-		})
-		dataStream.on('error', function(err) {
-			cb(err, null);
-		})
+		}
 	})
 
 });
@@ -40,14 +41,14 @@ const getMinioObject = Meteor.wrapAsync((bucket, filename, cb) => {
 const readActivationsFile = async ({ _id }) => {
 
 	const { bucket, filename, prefix, action } = ImportJobs.findOne({_id});
-		
+
 	try {
-				
+
 		if (action != 'readActivations') {
 			error(`Wrong Action (expected: readActivations, received: ${data.action}`, data);
 			return;
 		}
-		
+
 		const act_content = getMinioObject(bucket, filename);
 
 		const act_json = JSON.parse(act_content);
@@ -112,7 +113,7 @@ const readActivationsFile = async ({ _id }) => {
 		ImportJobs.update({_id}, {$set: {status: 'Success', message: '', last_run: Date.now()}});
 
 		return counter;
-		
+
 	} catch (e) {
 		error(`Error in readActivations, Error: ${e.message}`, {stack: e.stack});
 		ImportJobs.update({_id}, {$set: {status: 'Error', message: e.message, last_run: Date.now()}});
