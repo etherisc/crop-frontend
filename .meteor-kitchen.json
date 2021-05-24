@@ -130,7 +130,7 @@
 		},
 		{
 			"path": "client/views/admin/admin.html",
-			"checksum": "88013e92ce220740a1d8104fa71802dc1430e09f"
+			"checksum": "46065364392f98dab0c18efd924d25bf28a05596"
 		},
 		{
 			"path": "client/views/admin/admin.js",
@@ -1118,7 +1118,7 @@
 		},
 		{
 			"path": "imports/server/methods/count.js",
-			"checksum": "364f9814a38f6c11a41792a35e5dbc0bbb619aaa"
+			"checksum": "6bdf799b4aa82e6640d8457f6b4bf88ad94964f2"
 		},
 		{
 			"path": "both/lib/geo-utilities.js",
