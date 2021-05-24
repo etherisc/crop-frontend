@@ -1,9 +1,9 @@
 Meteor.publish("loglines_server", function() {
-	return Logs.find({source:"server"}, {});
+	return Logs.find({source:"server"}, {sort:{timestamp:-1}});
 });
 
 Meteor.publish("loglines_browser", function() {
-	return Logs.find({source:"browser"}, {});
+	return Logs.find({source:"browser"}, {sort:{timestamp:-1}});
 });
 
 Meteor.publish("logline", function() {
@@ -12,7 +12,7 @@ Meteor.publish("logline", function() {
 
 Meteor.publish("loglines_browser_paged", function(extraOptions) {
 	extraOptions.doSkip = true;
-	return Logs.find(databaseUtils.extendFilter({source:"browser"}, extraOptions), databaseUtils.extendOptions({}, extraOptions));
+	return Logs.find(databaseUtils.extendFilter({source:"browser"}, extraOptions), databaseUtils.extendOptions({sort:{timestamp:-1}}, extraOptions));
 });
 
 Meteor.publish("loglines_browser_paged_count", function(extraOptions) {
@@ -22,14 +22,14 @@ Meteor.publish("loglines_browser_paged_count", function(extraOptions) {
 Meteor.methods({
 	"loglinesBrowserPagedExport": function(extraOptions, exportFields, fileType) {
 		extraOptions.noPaging = true;
-		var data = Logs.find(databaseUtils.extendFilter({source:"browser"}, extraOptions), databaseUtils.extendOptions({}, extraOptions)).fetch();
+		var data = Logs.find(databaseUtils.extendFilter({source:"browser"}, extraOptions), databaseUtils.extendOptions({sort:{timestamp:-1}}, extraOptions)).fetch();
 		return objectUtils.exportArrayOfObjects(data, exportFields, fileType);
 	}
 });
 
 Meteor.publish("loglines_server_paged", function(extraOptions) {
 	extraOptions.doSkip = true;
-	return Logs.find(databaseUtils.extendFilter({source:"server"}, extraOptions), databaseUtils.extendOptions({}, extraOptions));
+	return Logs.find(databaseUtils.extendFilter({source:"server"}, extraOptions), databaseUtils.extendOptions({sort:{timestamp:-1}}, extraOptions));
 });
 
 Meteor.publish("loglines_server_paged_count", function(extraOptions) {
@@ -39,7 +39,7 @@ Meteor.publish("loglines_server_paged_count", function(extraOptions) {
 Meteor.methods({
 	"loglinesServerPagedExport": function(extraOptions, exportFields, fileType) {
 		extraOptions.noPaging = true;
-		var data = Logs.find(databaseUtils.extendFilter({source:"server"}, extraOptions), databaseUtils.extendOptions({}, extraOptions)).fetch();
+		var data = Logs.find(databaseUtils.extendFilter({source:"server"}, extraOptions), databaseUtils.extendOptions({sort:{timestamp:-1}}, extraOptions)).fetch();
 		return objectUtils.exportArrayOfObjects(data, exportFields, fileType);
 	}
 });
