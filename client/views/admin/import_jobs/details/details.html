@@ -29,6 +29,16 @@
 				{{infoMessage}}
 			</div>
 			{{/if}}
+			<div class="form-group  field-action">
+				<label for="action" class="col-sm-3 control-label">
+					Action
+				</label>
+				<div class="input-div col-sm-9">
+					<p class="form-control-static  control-field-action">
+						{{import_job.action}}
+					</p>
+				</div>
+			</div>
 			<div class="form-group  field-bucket">
 				<label for="bucket" class="col-sm-3 control-label">
 					Bucket
@@ -46,16 +56,6 @@
 				<div class="input-div col-sm-9">
 					<p class="form-control-static  control-field-filename">
 						{{import_job.filename}}
-					</p>
-				</div>
-			</div>
-			<div class="form-group  field-action">
-				<label for="action" class="col-sm-3 control-label">
-					Action
-				</label>
-				<div class="input-div col-sm-9">
-					<p class="form-control-static  control-field-action">
-						{{import_job.action}}
 					</p>
 				</div>
 			</div>
