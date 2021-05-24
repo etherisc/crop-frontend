@@ -47,8 +47,6 @@ const readActivationsFile = async ({ bucket, filename, action }) => {
 
 		const act_json = JSON.parse(act_content);
 
-		info('readActivations successful', {act_content: act_content.slice(0,80)});
-		return(5);
 		Activations.remove({prefix});	
 
 		let counter = 0;
@@ -105,9 +103,15 @@ const readActivationsFile = async ({ bucket, filename, action }) => {
 
 		});
 
+		info('readActivations successful', {
+			act_content: act_content.slice(0,80),
+			counter
+		});
+
 		return counter;
+		
 	} catch (e) {
-		error(e.message, {stack: e.stack});
+		error(`Error in readActivations, Error: ${e.message}`, {stack: e.stack});
 	}
 }
 
