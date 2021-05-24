@@ -107,7 +107,7 @@ const readActivationsFile = async ({ bucket, filename, action }) => {
 
 		return counter;
 	} catch (e) {
-		err(e.message, {stack: e.stack});
+		error(e.message, {stack: e.stack});
 	}
 }
 

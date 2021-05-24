@@ -9,6 +9,7 @@
     "bcrypt": "^5.0.1",
     "ethers": "^5.2.0",
     "fs-jetpack": "^4.1.0",
+    "jquery.json-viewer": "^1.4.0",
     "meteor-node-stubs": "^1.0.1",
     "minio": "^7.0.18",
     "openapi-validator-middleware": "^3.2.2"

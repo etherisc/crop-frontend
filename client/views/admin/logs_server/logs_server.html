@@ -1,0 +1,105 @@
+<template name="AdminLogsServer">
+	<div class="page-container container" id="content">
+		<div class="row" id="title_row">
+			<div class="col-md-12">
+			</div>
+		</div>
+		{{> AdminLogsServerLogsView}}
+	</div>
+</template>
+
+<template name="AdminLogsServerLogsView">
+	<div id="admin-logs-server-logs-view" class="">
+		<form id="dataview-controls" class="form-inline">
+			<div id="dataview-controls-search">
+				<div id="dataview-controls-search-group" class="input-group">
+					<input type="text" class="form-control" id="dataview-search-input" placeholder="Search" name="search" value="{{searchString}}" autofocus="autofocus">
+					<span class="input-group-btn">
+						<button type="button" id="dataview-search-button" class="btn btn-primary">
+							<span class="fa fa-search">
+							</span>
+						</button>
+					</span>
+				</div>
+				{{> AdminLogsServerLogsViewCustomActions}}
+			</div>
+		</form>
+		{{#if isNotEmpty}}
+		<div id="dataview-data">
+			{{#if viewAsTable}} {{> AdminLogsServerLogsViewTable}} {{/if}}
+		</div>
+		<nav aria-label="...">
+			<ul class="pager">
+				{{#if gotPrevPage}}
+				<li>
+					<a href="#" class="prev-page-link">
+						Previous page
+					</a>
+					&nbsp;
+				</li>
+				{{/if}}
+					{{#if gotNextPage}}
+				<li>
+					&nbsp;
+					<a href="#" class="next-page-link">
+						Next page
+					</a>
+				</li>
+				{{/if}}
+			</ul>
+		</nav>
+		{{else}}
+			{{#if isNotFound}}
+		<div class="alert alert-warning">
+			"{{searchString}}" not found.
+		</div>
+		{{else}}
+		<div class="alert alert-info">
+			Empty.
+		</div>
+		{{/if}}
+		{{/if}}
+	</div>
+</template>
+
+<template name="AdminLogsServerLogsViewTable">
+	<table id="dataview-table" class="table table-striped">
+		<thead id="dataview-table-header">
+			<tr id="dataview-table-header-row">
+				<th class="th-sortable" data-sort="timestamp">
+					Timestamp
+				</th>
+				<th class="th-sortable" data-sort="type">
+					Type
+				</th>
+				<th class="th-sortable" data-sort="message">
+					Message
+				</th>
+			</tr>
+		</thead>
+		<tbody id="dataview-table-items">
+			{{#each loglines_server_paged}} {{> AdminLogsServerLogsViewTableItems}} {{/each}}
+		</tbody>
+	</table>
+</template>
+
+<template name="AdminLogsServerLogsViewTableItems">
+	<tr id="dataview-table-items-row">
+		<td>
+			{{formatDate timestamp ''}}
+		</td>
+		<td>
+			{{type}}
+		</td>
+		<td>
+			{{message}}
+		</td>
+	</tr>
+</template>
+
+<template name="AdminLogsServerLogsViewCustomActions">
+	<button class="btn btn-warning" id="btn-clear">
+		Clear logs
+	</button>
+</template>
+
