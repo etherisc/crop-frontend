@@ -4,19 +4,11 @@ import { getMinioObject } from '/imports/server/methods/minio.js';
 
 const readGroupPoliciesFile = (bucket, filename, prefix) => {
 	
-	const gp_content = getMinioObject(bucket, filename)fs.read(dataPath + 'bimapima-2020-1-large.b.group_policies.json');
-	if (!gp_content) {
-		console.log('Group Policy Data file not found');
-		return;
-	}
+	const gp_content = getMinioObject(bucket, filename);
 
 	const gp_json = JSON.parse(gp_content);
 	
-	const ip_content = fs.read(dataPath + 'bimapima-2020-1-large.b.policies.json');
-	if (!ip_content) {
-		console.log('Policy Data file not found');
-		return;
-	}
+	const ip_content = getMinioObject(bucket, filename);
 	
 	const ip_json = JSON.parse(ip_content);
 	
