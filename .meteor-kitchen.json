@@ -130,7 +130,7 @@
 		},
 		{
 			"path": "client/views/admin/admin.html",
-			"checksum": "279e603224bf6bb5aba926552681ac76161884c4"
+			"checksum": "35b8996fabe5b77d453173477904303f95465a60"
 		},
 		{
 			"path": "client/views/admin/admin.js",
@@ -1018,7 +1018,7 @@
 		},
 		{
 			"path": "server/publish/record_counts.js",
-			"checksum": "a57087ff5cfe3859e5732c860fe04c6de1188bed"
+			"checksum": "44af434e17eee25a2dc86b9f5417c8aa3529c947"
 		},
 		{
 			"path": "both/collections/import_jobs.js",
