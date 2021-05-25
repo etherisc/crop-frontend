@@ -6,7 +6,7 @@ import { readGroupPoliciesFile, gp_aggregates, clear_selected } from '/imports/s
 
 const executeJob = ({_id}) => {
 
-	const { bucket, filename, prefix, action } = ImportJobs.findOne({_id});
+	const { bucket, filename, filename_2, prefix, action } = ImportJobs.findOne({_id});
 
 	let result;
 	try {
@@ -21,7 +21,7 @@ const executeJob = ({_id}) => {
 				break; 
 
 			case 'readGroupPolicies': 
-				result = readGroupPoliciesFile(bucket, filename, prefix);
+				result = readGroupPoliciesFile(bucket, filename, filename_2, prefix);
 				break; 
 
 			default: 

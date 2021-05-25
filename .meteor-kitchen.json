@@ -130,7 +130,7 @@
 		},
 		{
 			"path": "client/views/admin/admin.html",
-			"checksum": "2a36449d64a5d96ce144b86514860a0ba0bf3f77"
+			"checksum": "279e603224bf6bb5aba926552681ac76161884c4"
 		},
 		{
 			"path": "client/views/admin/admin.js",
@@ -1098,15 +1098,11 @@
 		},
 		{
 			"path": "imports/server/methods/group-policy-reader.js",
-			"checksum": "d765253056cf0d9a11627bab84c7d55f6d38ef3e"
+			"checksum": "d3f5c7c07a4b3e8215a91821d7aac2d0f2ff58bb"
 		},
 		{
 			"path": "client/lib/helpers.js",
 			"checksum": "ddd25f1a97067497d8cacddb7a0da190040416b7"
-		},
-		{
-			"path": "server/startup.js",
-			"checksum": "8857879b13fea6685befe82ced8cc8a7474c9534"
 		},
 		{
 			"path": "client/styles/googlemaps.css",
@@ -1154,7 +1150,7 @@
 		},
 		{
 			"path": "imports/server/methods/job-execution.js",
-			"checksum": "fb534354e19c420611f7c23c5f4b04eb8df2cd1b"
+			"checksum": "58f391e7cf3e88dcdbe376555dffc36ae130efbe"
 		},
 		{
 			"path": "lib/string_utils.js",
