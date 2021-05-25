@@ -2,14 +2,14 @@
 
 import { getMinioObject } from '/imports/server/methods/minio.js';
 
-const readGroupPoliciesFile = (bucket, filename, prefix) => {
+const readGroupPoliciesFile = (bucket, filename, filename_2, prefix) => {
 	return;
 	
 	const gp_content = getMinioObject(bucket, filename);
 
 	const gp_json = JSON.parse(gp_content);
 	
-	const ip_content = getMinioObject(bucket, filename);
+	const ip_content = getMinioObject(bucket, filename_2);
 	
 	const ip_json = JSON.parse(ip_content);
 	
@@ -26,7 +26,9 @@ const readGroupPoliciesFile = (bucket, filename, prefix) => {
 		const location = idParts[5];
 		
 		const result = GroupPolicies.upsert(
-			{ 'gp_id': item.id },
+			{ 
+				'gp_id': item.id 
+			},
 			{ 
 				$set: {
 					gp_id: item.id,
