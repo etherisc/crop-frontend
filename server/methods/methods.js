@@ -1,7 +1,7 @@
 
 import logger from '/imports/server/methods/logger.js';
 import { gp_aggregates, clear_selected } from '/imports/server/methods/group-policy-reader.js';
-import { countActivations, executeImportJob, readActivationsFile } from '/imports/server/methods/activations-reader.js';
+import { executeJob } from '/imports/server/methods/job-execution.js';
 
 const executePayouts = () => {
 	Payouts.update({execute: true}, {$set: {execute: false, executed: true}}, {multi: true});
@@ -23,7 +23,5 @@ Meteor.methods({
 	"select": selectPayouts,
 	gp_aggregates,
 	clear_selected,
-	countActivations,
-	readActivationsFile,
-	executeImportJob
+	executeJob
 });

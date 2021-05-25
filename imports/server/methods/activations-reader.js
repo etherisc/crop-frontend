@@ -1,73 +1,6 @@
 /* Activations Reader */
 
-const minio = require('minio');
-
-
-const select = (obj, keys) => {
-
-	let target = {};
-	keys.forEach(item => target = Object.assign(obj[item], target));
-	return target;
-
-};
-
-
-const getMinioObject = Meteor.wrapAsync((bucket, filename, cb) => {
-
-	let content = '';
-
-	minioClient.getObject(bucket, filename, function(err, dataStream) {
-		if (err) {
-			cb(err, null);
-		}
-		if (dataStream) {
-			dataStream.on('data', function(chunk) {
-				content += chunk;
-			})
-			dataStream.on('end', function() {
-				cb(null, content);
-			})
-			dataStream.on('error', function(err) {
-				cb(err, null);
-			})
-		} else {
-			cb(new Error('dataStream not provided'), null);
-		}
-	})
-
-});
-
-const executeImportJob = ({_id}) => {
-
-	const { bucket, filename, prefix, action } = ImportJobs.findOne({_id});
-
-	let result;
-	try {
-		switch (action) {
-
-			case 'readActivations': 
-				result = readActivationsFile(bucket, filename, prefix);
-				break;
-
-			case 'countActivations': 
-				result = countActivations();
-				break; 
-
-			default: 
-				const msg = `executeImportJob: Action ${action} not implemented`;
-				error(msg);
-				throw new Meteor.Error(msg);
-		}
-
-		ImportJobs.update({_id}, {$set: {status: 'Success', message: '', last_run: Date.now()}});
-
-		return result;
-	} catch (err) {
-		error(`Error in ${action}, Error: ${e.message}`, {stack: e.stack});
-		ImportJobs.update({_id}, {$set: {status: 'Error', message: e.message, last_run: Date.now()}});
-		throw new Meteor.Error('Error', e.message, e.stack);
-	}
-};
+import { getMinioObject } from '/imports/server/methods/minio.js';
 
 
 const readActivationsFile = (bucket, filename, prefix) => {
@@ -180,7 +113,7 @@ const countActivations = () => {
 
 }; 
 
-module.exports = { executeImportJob, countActivations, readActivationsFile };
+module.exports = { countActivations, readActivationsFile };
 
 
 

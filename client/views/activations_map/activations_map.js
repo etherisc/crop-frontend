@@ -66,8 +66,8 @@ Template.ActivationsMapMap.created = function() {
 						if (counts) {
 							const op = (counts.count)/1400 + 0.4 > 0.9 ? 0.9 : (counts.count)/1400 + 0.4;
 							const rectangle = new google.maps.Rectangle({
-								strokeColor: "#000000",
-								strokeOpacity: 0.00,
+								strokeColor: "#FFFFFF",
+								strokeOpacity: 0.5,
 								strokeWeight: 1, 
 								fillColor: "#FF0000", 
 								fillOpacity: op, 
