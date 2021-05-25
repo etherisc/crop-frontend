@@ -130,7 +130,7 @@
 		},
 		{
 			"path": "client/views/admin/admin.html",
-			"checksum": "b68e1282d025d434203273730eefcfcc8aea1927"
+			"checksum": "1b0156354d4f3445602f5486f3774981a578184c"
 		},
 		{
 			"path": "client/views/admin/admin.js",
@@ -190,19 +190,19 @@
 		},
 		{
 			"path": "client/views/admin/import_jobs/import_jobs.html",
-			"checksum": "cda96bdb5ab0ebdf9f51977626c4511b8ec28485"
+			"checksum": "cd719590a26d8f0df7d02bdf040502a8fa1e71df"
 		},
 		{
 			"path": "client/views/admin/import_jobs/import_jobs.js",
-			"checksum": "aea7e13a350965918e62e18dcaf90e775672cb2e"
+			"checksum": "ce0e7c494773bf8bda48cf66e2b0ea0b9c37a7c1"
 		},
 		{
 			"path": "client/views/admin/import_jobs/import_jobs_controller.js",
-			"checksum": "1ec264ebcd1f7e8ef822e1a3bd0ce2919670cb1f"
+			"checksum": "b0dde75fd98537ced2eb449a4f32899400bc3edb"
 		},
 		{
 			"path": "client/views/admin/import_jobs/insert/insert.html",
-			"checksum": "0b1125cc9e99abb165e6a3a1f6bc2a3380bcd7b2"
+			"checksum": "7fd4a098c0122181c2162c51610a11eb38434d1e"
 		},
 		{
 			"path": "client/views/admin/import_jobs/insert/insert.js",
@@ -214,7 +214,7 @@
 		},
 		{
 			"path": "client/views/admin/import_jobs/update/update.html",
-			"checksum": "f9855a34f3e64a99ee63ee3d932c0065ffd7aaba"
+			"checksum": "3a6612687782098b79475765a95959d1b86b4071"
 		},
 		{
 			"path": "client/views/admin/import_jobs/update/update.js",
@@ -226,7 +226,7 @@
 		},
 		{
 			"path": "client/views/admin/import_jobs/details/details.html",
-			"checksum": "124b0cd62f285b9507c54e38bc655ebdad43c159"
+			"checksum": "3202557c9008a2933251ba7b2eb6f5a12e702a5f"
 		},
 		{
 			"path": "client/views/admin/import_jobs/details/details.js",
