@@ -4,7 +4,7 @@ import { readGroupPoliciesFile, gp_aggregates, clear_selected } from '/imports/s
 
 
 
-const executeImportJob = ({_id}) => {
+const executeJob = ({_id}) => {
 
 	const { bucket, filename, prefix, action } = ImportJobs.findOne({_id});
 
@@ -41,4 +41,4 @@ const executeImportJob = ({_id}) => {
 };
 
 
-module.exports = { executeImportJob };
+module.exports = { executeJob };
