@@ -1,23 +1,10 @@
 /* Group Policy Reader */
 
+import { getMinioObject } from '/imports/server/methods/minio.js';
 
-const dataPath = '/opt/etherisc/acre-africa-data/2020-01/';
-
-const fs = require('fs-jetpack');
-
-const select = (obj, keys) => {
+const readGroupPoliciesFile = (bucket, filename, prefix) => {
 	
-	let target = {};
-	keys.forEach(item => target = Object.assign(obj[item], target));
-	return target;
-	
-};
-
-
-
-const readGroupPoliciesFile = () => {
-	
-	const gp_content = fs.read(dataPath + 'bimapima-2020-1-large.b.group_policies.json');
+	const gp_content = getMinioObject(bucket, filename)fs.read(dataPath + 'bimapima-2020-1-large.b.group_policies.json');
 	if (!gp_content) {
 		console.log('Group Policy Data file not found');
 		return;
@@ -185,7 +172,8 @@ const gp_aggregates = function (filter) {
 		amount = amount + item.acc_amount;
 	});
 
-	console.log(payments, sum_insured, policies, amount);
+	info('Calculate Group Policies aggregates', {payments, sum_insured, policies, amount});
+	
 	return {
 		payments,
 		sum_insured,
