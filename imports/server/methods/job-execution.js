@@ -35,6 +35,7 @@ const executeJob = ({_id}) => {
 		ImportJobs.update({_id}, {$set: {status: 'Success', message: '', last_run: Date.now()}});
 
 		return result;
+		
 	} catch (err) {
 		error(`Error in ${action}, Error: ${e.message}`, {stack: e.stack});
 		ImportJobs.update({_id}, {$set: {status: 'Error', message: e.message, last_run: Date.now()}});
