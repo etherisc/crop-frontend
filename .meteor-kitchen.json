@@ -2,7 +2,7 @@
 	"output_files": [
 		{
 			"path": "client/views/router.js",
-			"checksum": "091cc99d14cf28bd6a9c58934bdb41859aa813d2"
+			"checksum": "15a779bd39f57e8c04f7e9d72a2791ea89c57da5"
 		},
 		{
 			"path": "server/controllers/router.js",
@@ -38,7 +38,7 @@
 		},
 		{
 			"path": "client/views/layout/layout.html",
-			"checksum": "7f7418e7fdeeecadc4fa8e340840cc0807d80b5c"
+			"checksum": "c703c1c56c71ebd44a45d555e3983f909d659955"
 		},
 		{
 			"path": "client/views/layout/layout.js",
@@ -129,8 +129,20 @@
 			"checksum": "de6b5d18d4e1968f2c735ff68b4fd7d0dbb321b0"
 		},
 		{
+			"path": "client/views/dashboard/dashboard.html",
+			"checksum": "50c18713290709046c833ed4992499d24f72c495"
+		},
+		{
+			"path": "client/views/dashboard/dashboard.js",
+			"checksum": "59da2376c03542d71abdd35d1a6e4e08bfb865a6"
+		},
+		{
+			"path": "client/views/dashboard/dashboard_controller.js",
+			"checksum": "4c9a14beb18b394661948aa27870081001392424"
+		},
+		{
 			"path": "client/views/admin/admin.html",
-			"checksum": "688cdfccadf7ec965ca2cd1a7f11a417475b7f09"
+			"checksum": "f4dd0968aaecea4bdc486fb55270e651215c0fe1"
 		},
 		{
 			"path": "client/views/admin/admin.js",
@@ -1341,6 +1353,14 @@
 			"checksum": "56e09ae4e997201875b47316576beb1e3d2d63b2"
 		},
 		{
+			"path": "client/components/chart/chart.html",
+			"checksum": "4bacbebe0f28ec56fa6857a5b9ed4842e7d4e38a"
+		},
+		{
+			"path": "client/components/chart/chart.js",
+			"checksum": "5d5adadcbf436a7933ee8be3e1d8e96c112d59e3"
+		},
+		{
 			"path": "settings.json",
 			"checksum": "26761ca46cca5ce08f47665f51e023fd685901f9"
 		}
@@ -1353,6 +1373,7 @@
 		"both/routes/",
 		"client/",
 		"client/components/",
+		"client/components/chart/",
 		"client/components/confirmation_dialog/",
 		"client/components/input_dialog/",
 		"client/lib/",
@@ -1395,6 +1416,7 @@
 		"client/views/codes_page/update/",
 		"client/views/contract_review_page/",
 		"client/views/contract_review_page/contract_review_detail/",
+		"client/views/dashboard/",
 		"client/views/forgot_password/",
 		"client/views/group_policies/",
 		"client/views/group_policies/details/",
@@ -1471,6 +1493,7 @@
 			"copleykj:livestamp",
 			"less",
 			"reactive-dict",
+			"perak:c3",
 			"mizzao:bootboxjs",
 			"perak:markdown",
 			"rajit:bootstrap3-datepicker"

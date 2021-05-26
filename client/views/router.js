@@ -16,6 +16,7 @@ Router.publicRoutes = [
 
 Router.privateRoutes = [
 	"home_private",
+	"dashboard",
 	"admin",
 	"admin.users",
 	"admin.users.details",
@@ -138,6 +139,7 @@ Router.map(function () {
 	this.route("/forgot_password", {name: "forgot_password", title: "", controller: "ForgotPasswordController"});
 	this.route("/reset_password/:resetPasswordToken", {name: "reset_password", title: "", controller: "ResetPasswordController"});
 	this.route("/home_private", {name: "home_private", title: "Welcome {{userFullName}}!", controller: "HomePrivateController"});
+	this.route("/dashboard", {name: "dashboard", title: "", controller: "DashboardController"});
 	this.route("/admin", {name: "admin", title: "", controller: "AdminController"});
 	this.route("/admin/users", {name: "admin.users", title: "", controller: "AdminUsersController"});
 	this.route("/admin/users/details/:userId", {name: "admin.users.details", title: "", controller: "AdminUsersDetailsController"});
