@@ -3,27 +3,27 @@
 import { getMinioObject } from '/imports/server/methods/minio.js';
 
 const readGroupPoliciesFile = (bucket, filename, filename_2, prefix) => {
-	
+
 	const gp_content = getMinioObject(bucket, filename);
 
 	const gp_json = JSON.parse(gp_content);
-	
+
 	const ip_content = getMinioObject(bucket, filename_2);
-	
+
 	const ip_json = JSON.parse(ip_content);
-	
+
 	GroupPolicies.remove({});
 	CropStages.remove({});
 	IPolicies.remove({});
-	
-	
+
+
 	gp_json.forEach(item => {
-		
+
 		const idParts = item.id.split('.');
 		const season = `${idParts[1]}-${idParts[2]}`;
 		const value_chain = `${idParts[3]}-${idParts[4]}`;
 		const location = idParts[5];
-		
+
 		const result = GroupPolicies.upsert(
 			{ 
 				'gp_id': item.id 
@@ -54,9 +54,9 @@ const readGroupPoliciesFile = (bucket, filename, filename_2, prefix) => {
 				}
 			}
 		);
-				
+
 		if (result.insertedId) {
-			
+
 			item.crop_stages.forEach(stage => {
 
 				CropStages.upsert(
@@ -88,12 +88,45 @@ const readGroupPoliciesFile = (bucket, filename, filename_2, prefix) => {
 			});
 		}		
 	});
-	
-	
+
+
 	ip_json.forEach(item => {
-		
+
+		if (!(item.voucher_no && item.phone_no && item.crop && item.activation && item.activation.timestamp)) return;
+
 		const gp = GroupPolicies.findOne({gp_id: item.group_policy_id});
+		let upsertData = {
+			gp_mongo_id: gp ? gp._id : null,
+			voucher_no: item.voucher_no,
+			phone_no: item.phone_no,
+			crop: item.crop,
+			activation_window: item.activation_window,
+			location: item.location,
+			date_begin: new Date(item.date_begin),
+			date_end: new Date(item.date_end),
+			activation_timestamp: new Date(item.activation.timestamp),
+			group_policy_id: item.group_policy_id,
+			premium: item.premium,
+			sum_insured: item.sum_insured
+		};
 		
+		if (item.payments && item.payments[0]) {
+			upsertData = Object.assign(upsertData, {
+				paym_mpesa_no: item.payments[0].mpesa_no,
+				paym_timestamp: new Date(item.payments[0].timestamp),
+				paym_amount: item.payments[0].amount
+			});
+		};
+
+		if (item.payout) {
+			upsertData = Object.assign(upsertData, {
+				payout_timestamp: new Date(item.payout.timestamp),
+				payout_amount_total: item.payout.amount_total,
+				payout_amount_deductible: item.payout.amount_deductible,
+				payout_amount: item.payout.amount
+			});
+		}
+
 		IPolicies.upsert(
 			{
 				voucher_no: item.voucher_no,
@@ -102,31 +135,12 @@ const readGroupPoliciesFile = (bucket, filename, filename_2, prefix) => {
 				activation_timestamp: new Date(item.activation.timestamp)
 			},
 			{
-				$set: {
-					gp_mongo_id: gp ? gp._id : null,
-					voucher_no: item.voucher_no,
-					phone_no: item.phone_no,
-					crop: item.crop,
-					activation_window: item.activation_window,
-					location: item.location,
-					date_begin: new Date(item.date_begin),
-					date_end: new Date(item.date_end),
-					activation_timestamp: new Date(item.activation.timestamp),
-					group_policy_id: item.group_policy_id,
-					premium: item.premium,
-					sum_insured: item.sum_insured,
-					paym_mpesa_no: item.payments[0].mpesa_no,
-					paym_timestamp: new Date(item.payments[0].timestamp),
-					paym_amount: item.payments[0].amount,
-					payout_timestamp: new Date(item.payout.timestamp),
-					payout_amount_total: item.payout.amount_total,
-					payout_amount_deductible: item.payout.amount_deductible,
-					payout_amount: item.payout.amount
-				}
+				$set: upsertData
 			}
 		);
+
 		if (gp) {
-			
+
 			GroupPolicies.update(
 				{
 					_id: gp._id
@@ -143,22 +157,22 @@ const readGroupPoliciesFile = (bucket, filename, filename_2, prefix) => {
 				}
 			);
 		}
-		
+
 	});
-	
-	
+
+
 }
 
 
 const gp_aggregates = function (filter) {
-	
+
 	const selected = GroupPolicies.find(filter).fetch();
-	
+
 	let payments = 0.0;
 	let sum_insured = 0.0;
 	let policies = 0;
 	let amount = 0.0;
-	
+
 	selected.forEach(item => {
 		policies = policies + item.acc_policies;
 		payments = payments + item.acc_payments;
@@ -167,18 +181,18 @@ const gp_aggregates = function (filter) {
 	});
 
 	info('Calculate Group Policies aggregates', {payments, sum_insured, policies, amount});
-	
+
 	return {
 		payments,
 		sum_insured,
 		policies,
 		amount
 	};
-	
+
 }
 
 const clear_selected = function () {
-	
+
 	GroupPolicies.update({}, {$set: {select_for_payout: false}}, {multi: true});
 }
 
