@@ -130,7 +130,7 @@
 		},
 		{
 			"path": "client/views/admin/admin.html",
-			"checksum": "b2d049d97f77e18c99e80a6e01d72e2620947577"
+			"checksum": "5432b83b91eb88cdcf20b2f0e6ab348b9a1eab1e"
 		},
 		{
 			"path": "client/views/admin/admin.js",
@@ -194,7 +194,7 @@
 		},
 		{
 			"path": "client/views/admin/import_jobs/import_jobs.js",
-			"checksum": "ce0e7c494773bf8bda48cf66e2b0ea0b9c37a7c1"
+			"checksum": "eead2d30cf2dd11a10234d8d81b8b79229edc278"
 		},
 		{
 			"path": "client/views/admin/import_jobs/import_jobs_controller.js",

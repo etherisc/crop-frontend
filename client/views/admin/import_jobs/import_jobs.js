@@ -251,7 +251,7 @@ e.preventDefault();
 
 toast_info(`Import Job started. Please be patient, processing can take some time!`);
 
-Meteor.call("executeImportJob", t.data, function (err, result) {
+Meteor.call("executeJob", t.data, function (err, result) {
 	if (err) {
 		toast_error(`${err} : ${err.error}`);
 	} else {
