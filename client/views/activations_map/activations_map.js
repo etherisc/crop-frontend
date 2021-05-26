@@ -7,7 +7,7 @@ Template.ActivationsMap.onDestroyed(function() {
 });
 
 Template.ActivationsMap.onRendered(function() {
-	Meteor.subscribe('count_list');
+	Meteor.subscribe('record_count_list');
 	Meteor.defer(function() {
 		globalOnRendered();
 		$("input[autofocus]").focus();
