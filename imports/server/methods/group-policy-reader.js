@@ -3,7 +3,6 @@
 import { getMinioObject } from '/imports/server/methods/minio.js';
 
 const readGroupPoliciesFile = (bucket, filename, filename_2, prefix) => {
-	return;
 	
 	const gp_content = getMinioObject(bucket, filename);
 
