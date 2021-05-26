@@ -8,6 +8,8 @@ const executeJob = ({_id}) => {
 
 	const { bucket, filename, filename_2, prefix, action } = ImportJobs.findOne({_id});
 
+	info(`Job execution: ${action} on ${bucket}`, {bucket, filename, filename_2, prefix, action});
+	
 	let result;
 	try {
 		switch (action) {
@@ -29,7 +31,7 @@ const executeJob = ({_id}) => {
 				error(msg);
 				throw new Meteor.Error(msg);
 		}
-
+		info(`Job execution: ${action} on ${bucket} successful.`);
 		ImportJobs.update({_id}, {$set: {status: 'Success', message: '', last_run: Date.now()}});
 
 		return result;
