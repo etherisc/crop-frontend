@@ -37,9 +37,9 @@ const executeJob = ({_id}) => {
 		return result;
 		
 	} catch (err) {
-		error(`Error in ${action}, Error: ${e.message}`, {stack: e.stack});
-		ImportJobs.update({_id}, {$set: {status: 'Error', message: e.message, last_run: Date.now()}});
-		throw new Meteor.Error('Error', e.message, e.stack);
+		error(`Error in ${action}, Error: ${err.message}`, {stack: err.stack});
+		ImportJobs.update({_id}, {$set: {status: 'Error', message: err.message, last_run: Date.now()}});
+		throw new Meteor.Error('Error', err.message, err.stack);
 	}
 };
 
