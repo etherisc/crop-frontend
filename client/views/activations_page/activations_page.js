@@ -360,3 +360,29 @@ Template.ActivationsPageViewTableItems.helpers({
 		return Activations.userCanRemove(Meteor.userId(), this) ? "" : "hidden";
 	}
 });
+
+Template.ActivationsPageViewCustomActions.created = function() {
+
+};
+
+Template.ActivationsPageViewCustomActions.destroyed = function() {
+
+};
+
+Template.ActivationsPageViewCustomActions.rendered = function() {
+
+};
+
+Template.ActivationsPageViewCustomActions.helpers({
+
+});
+
+Template.ActivationsPageViewCustomActions.events({
+	"click #btn-export": function (e,t) {
+		e.preventDefault();
+		const filter = t.data.activation_list_paged.matcher._selector;
+
+		Meteor.call('activations_export', filter);
+	}
+
+});
