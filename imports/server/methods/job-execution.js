@@ -26,6 +26,10 @@ const executeJob = ({_id}) => {
 				result = readGroupPoliciesFile(bucket, filename, filename_2, prefix);
 				break; 
 
+			case 'runCalculations': 
+				result = 46;
+				break; 
+
 			default: 
 				const msg = `executeImportJob: Action ${action} not implemented`;
 				error(msg);
