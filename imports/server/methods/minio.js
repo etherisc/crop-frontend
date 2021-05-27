@@ -25,4 +25,13 @@ const getMinioObject = Meteor.wrapAsync((bucket, filename, cb) => {
 
 });
 
+
+const putMinioObject = Meteor.wrapAsync((object, filename, cb) => {
+	
+	cb(null, 'Success');
+	
+});
+
+
+
 module.exports = { getMinioObject };

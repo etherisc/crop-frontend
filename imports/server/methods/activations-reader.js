@@ -1,6 +1,6 @@
 /* Activations Reader */
 
-import { getMinioObject } from '/imports/server/methods/minio.js';
+import { getMinioObject, putMinioObject } from '/imports/server/methods/minio.js';
 
 
 const readActivationsFile = (bucket, filename, prefix) => {
@@ -131,6 +131,14 @@ const activation_aggregates = function (filter) {
 		activations,
 		amount
 	};
+
+}
+
+const activation_export = function (filter) {
+
+	const selected = Activations.find(filter).fetch();
+
+	info('Export Activations', {count: selected.length});
 
 }
 

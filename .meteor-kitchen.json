@@ -142,7 +142,7 @@
 		},
 		{
 			"path": "client/views/admin/admin.html",
-			"checksum": "aee0ebf5b1c58583f18bc8bbc4974cc0764bff37"
+			"checksum": "ade4d70051eb39ec3f7ad85a2b24ce3d685536a3"
 		},
 		{
 			"path": "client/views/admin/admin.js",
@@ -430,7 +430,7 @@
 		},
 		{
 			"path": "client/views/activations_page/activations_page.html",
-			"checksum": "909e749344c03db9557192537ebd03802833f274"
+			"checksum": "11508c7ad93ead2b46aa3fea86668b15f91b1694"
 		},
 		{
 			"path": "client/views/activations_page/activations_page.js",
@@ -1106,7 +1106,7 @@
 		},
 		{
 			"path": "server/methods/methods.js",
-			"checksum": "4ee9369f54b6b0a3a8604a39060f2ebec9dfd8a7"
+			"checksum": "a9795438c1c3f0abbbd1da2c5177988eecb2be1a"
 		},
 		{
 			"path": "imports/server/methods/group-policy-reader.js",
@@ -1130,7 +1130,7 @@
 		},
 		{
 			"path": "imports/server/methods/activations-reader.js",
-			"checksum": "2ef791bc885ae2414797b23ce6ad02973993d6e2"
+			"checksum": "fad05876dfa7b791658accf74746d726578a6757"
 		},
 		{
 			"path": "server/lib/server_globals.js",
@@ -1158,7 +1158,7 @@
 		},
 		{
 			"path": "imports/server/methods/minio.js",
-			"checksum": "a8da73fe0a0eae99c832b070e984811fc95992ed"
+			"checksum": "51c462e417aca44e7891ae65e18f6a2a2b43c4ec"
 		},
 		{
 			"path": "imports/server/methods/job-execution.js",
