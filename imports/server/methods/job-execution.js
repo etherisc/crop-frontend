@@ -24,6 +24,7 @@ const executeJob = ({_id}) => {
 
 			case 'readGroupPolicies': 
 				result = readGroupPoliciesFile(bucket, filename, filename_2, prefix);
+				result = 'Group Policies read';
 				break; 
 
 			case 'runCalculations': 
