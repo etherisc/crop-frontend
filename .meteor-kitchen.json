@@ -2,7 +2,7 @@
 	"output_files": [
 		{
 			"path": "client/views/router.js",
-			"checksum": "15a779bd39f57e8c04f7e9d72a2791ea89c57da5"
+			"checksum": "769cad323545c3e071e32ce58ec48f7147a8aaaf"
 		},
 		{
 			"path": "server/controllers/router.js",
@@ -142,7 +142,7 @@
 		},
 		{
 			"path": "client/views/admin/admin.html",
-			"checksum": "71c5435cdc22360403a900eeb26860afc42b8bd9"
+			"checksum": "002be7fa4f0fa1813f34702dda4f9624c9817233"
 		},
 		{
 			"path": "client/views/admin/admin.js",
@@ -430,7 +430,7 @@
 		},
 		{
 			"path": "client/views/activations_page/activations_page.html",
-			"checksum": "81ad7fd0833ad6f9d78828c1c0701d28e2dcfcd3"
+			"checksum": "a8cc69ea4f948478d1afae3a6e9f00474f4cee63"
 		},
 		{
 			"path": "client/views/activations_page/activations_page.js",

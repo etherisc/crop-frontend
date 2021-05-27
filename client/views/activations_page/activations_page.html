@@ -2,6 +2,9 @@
 	<div class="page-container container" id="content">
 		<div class="row" id="title_row">
 			<div class="col-md-12">
+				<h2 id="page_title" class="pull-left">
+					Activations
+				</h2>
 			</div>
 		</div>
 		{{> ActivationsPageActivationsAggregates}}{{> ActivationsPageView}}
@@ -37,9 +40,6 @@
 
 <template name="ActivationsPageView">
 	<div id="activations-page-view" class="">
-		<h2 id="component-title">
-			Activations
-		</h2>
 		<form id="dataview-controls" class="form-inline">
 			<div id="dataview-controls-insert" class="form-group {{insertButtonClass}}">
 				<button type="submit" id="dataview-insert-button" class="btn btn-success">
