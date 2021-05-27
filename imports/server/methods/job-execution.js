@@ -27,7 +27,7 @@ const executeJob = ({_id}) => {
 				break; 
 
 			case 'runCalculations': 
-				result = 46;
+				result = '46 Activations calculated';
 				break; 
 
 			default: 
