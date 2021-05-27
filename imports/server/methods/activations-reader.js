@@ -122,7 +122,7 @@ const activation_aggregates = function (filter) {
 	
 	selected.forEach(item => {
 		activations += + 1;
-		amount += item.amount_premium;
+		amount += Number(item.amount_premium);
 	});
 
 	info('Calculate Activation aggregates', {activations, amount});
