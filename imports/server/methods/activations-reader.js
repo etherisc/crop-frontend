@@ -113,7 +113,29 @@ const countActivations = () => {
 
 }; 
 
-module.exports = { countActivations, readActivationsFile };
+const activation_aggregates = function (filter) {
+
+	const selected = Activations.find(filter).fetch();
+
+	let amount = 0.0;
+	let activations = 0;
+	
+	selected.forEach(item => {
+		activations += + 1;
+		amount += item.amount_premium;
+	});
+
+	info('Calculate Activation aggregates', {activations, amount});
+
+	return {
+		activations,
+		amount
+	};
+
+}
+
+
+module.exports = { countActivations, readActivationsFile, activation_aggregates };
 
 
 

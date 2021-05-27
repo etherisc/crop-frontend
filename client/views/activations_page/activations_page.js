@@ -22,6 +22,42 @@ Template.ActivationsPage.helpers({
 	
 });
 
+Template.ActivationsPageActivationsAggregates.created = function() {
+
+};
+
+Template.ActivationsPageActivationsAggregates.destroyed = function() {
+
+};
+
+Template.ActivationsPageActivationsAggregates.rendered = function() {
+	
+	const filter = this.data.activation_list_paged.matcher._selector;
+
+	const aggregate = Meteor.call("activation_aggregates", filter, (err, res) => {
+
+		const fmt = (number) => Intl.NumberFormat('us-US', {style: 'currency', currency: 'KES' }).format(number);
+		
+		if (res) {
+			Session.set('activation_aggregates', {
+				amount: fmt(res.amount),
+				activations: res.activations
+			});
+		}
+		
+	});
+};
+
+Template.ActivationsPageActivationsAggregates.helpers({
+	"aggregates": () => {
+		return Session.get('activation_aggregates');
+	}
+});
+
+Template.ActivationsPageActivationsAggregates.events({
+
+});
+
 
 var ActivationsPageViewExport = function(fileType) {
 	var extraParams = {

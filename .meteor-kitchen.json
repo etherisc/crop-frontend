@@ -142,7 +142,7 @@
 		},
 		{
 			"path": "client/views/admin/admin.html",
-			"checksum": "71df15468e9f71a0d527c95ae7cdff3477a74188"
+			"checksum": "771e4ba636af1dcb117c733a7701d32fb1fc8e38"
 		},
 		{
 			"path": "client/views/admin/admin.js",
@@ -430,11 +430,11 @@
 		},
 		{
 			"path": "client/views/activations_page/activations_page.html",
-			"checksum": "3e8f6b32485954d12dda8c842e8d1aa1f4ba5058"
+			"checksum": "81ad7fd0833ad6f9d78828c1c0701d28e2dcfcd3"
 		},
 		{
 			"path": "client/views/activations_page/activations_page.js",
-			"checksum": "2b7a3d44d5f5cbc57bd8381d113add9711aff46e"
+			"checksum": "5de4ed320bbbcafe8c314a3359d3a65b9a879273"
 		},
 		{
 			"path": "client/views/activations_page/activations_page_controller.js",
@@ -1106,7 +1106,7 @@
 		},
 		{
 			"path": "server/methods/methods.js",
-			"checksum": "07a4b68c2fc191e8e16ae726ae09b8c69be4d86f"
+			"checksum": "4ee9369f54b6b0a3a8604a39060f2ebec9dfd8a7"
 		},
 		{
 			"path": "imports/server/methods/group-policy-reader.js",
@@ -1130,7 +1130,7 @@
 		},
 		{
 			"path": "imports/server/methods/activations-reader.js",
-			"checksum": "3e68ace725a1763de026bef938e589bddb456b36"
+			"checksum": "c52526a4150f1bdb5425aa1bbddfa0200e05e9e4"
 		},
 		{
 			"path": "server/lib/server_globals.js",
