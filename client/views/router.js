@@ -164,10 +164,10 @@ Router.map(function () {
 	this.route("/payments_page/insert", {name: "payments_page.insert", title: "", controller: "PaymentsPageInsertController"});
 	this.route("/payments_page/update/:paymentId", {name: "payments_page.update", title: "", controller: "PaymentsPageUpdateController"});
 	this.route("/payments_page/details/:paymentId", {name: "payments_page.details", title: "", controller: "PaymentsPageDetailsController"});
-	this.route("/activations_page", {name: "activations_page", title: "", controller: "ActivationsPageController"});
-	this.route("/activations_page/insert", {name: "activations_page.insert", title: "", controller: "ActivationsPageInsertController"});
-	this.route("/activations_page/update/:activationId", {name: "activations_page.update", title: "", controller: "ActivationsPageUpdateController"});
-	this.route("/activations_page/details/:activationId", {name: "activations_page.details", title: "", controller: "ActivationsPageDetailsController"});
+	this.route("/activations_page", {name: "activations_page", title: "Activations", controller: "ActivationsPageController"});
+	this.route("/activations_page/insert", {name: "activations_page.insert", title: "Activations", controller: "ActivationsPageInsertController"});
+	this.route("/activations_page/update/:activationId", {name: "activations_page.update", title: "Activations", controller: "ActivationsPageUpdateController"});
+	this.route("/activations_page/details/:activationId", {name: "activations_page.details", title: "Activations", controller: "ActivationsPageDetailsController"});
 	this.route("/activations_map", {name: "activations_map", title: "", controller: "ActivationsMapController"});
 	this.route("/blockchain", {name: "blockchain", title: "Connect to Wallet", controller: "BlockchainController"});
 	this.route("/partners", {name: "partners", title: "", controller: "PartnersController"});
