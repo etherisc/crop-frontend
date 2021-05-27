@@ -24,11 +24,11 @@ const executeJob = ({_id}) => {
 
 			case 'readGroupPolicies': 
 				result = readGroupPoliciesFile(bucket, filename, filename_2, prefix);
-				result = 'Group Policies read';
+				result = '2 Group Policies read';
 				break; 
 
 			case 'runCalculations': 
-				result = '46 Activations calculated';
+				result = '789 Activations calculated';
 				break; 
 
 			default: 
