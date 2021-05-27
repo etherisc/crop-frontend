@@ -96,6 +96,7 @@
 		{{/if}}
 		{{/if}}
 	</div>
+	{{> ActivationsPageViewCustomActions}}
 </template>
 
 <template name="ActivationsPageViewTable">
@@ -181,5 +182,11 @@
 			</span>
 		</td>
 	</tr>
+</template>
+
+<template name="ActivationsPageViewCustomActions">
+	<button class="btn btn-warning" id="btn-export">
+		Export for Contract Review
+	</button>
 </template>
 
