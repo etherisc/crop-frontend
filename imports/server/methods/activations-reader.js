@@ -143,7 +143,7 @@ const activation_export = function (filter) {
 }
 
 
-module.exports = { countActivations, readActivationsFile, activation_aggregates };
+module.exports = { countActivations, readActivationsFile, activation_aggregates, activation_export };
 
 
 
