@@ -75,6 +75,9 @@
 	<table id="dataview-table" class="table table-striped table-hover">
 		<thead id="dataview-table-header">
 			<tr id="dataview-table-header-row">
+				<th class="th-sortable" data-sort="prefix">
+					Prefix
+				</th>
 				<th class="th-sortable" data-sort="county">
 					County
 				</th>
@@ -86,12 +89,6 @@
 				</th>
 				<th class="th-sortable" data-sort="pixel">
 					Pixel
-				</th>
-				<th class="th-sortable" data-sort="latitude">
-					Latitude
-				</th>
-				<th class="th-sortable" data-sort="longitude">
-					Longitude
 				</th>
 				<th>
 					&nbsp;
@@ -110,6 +107,9 @@
 <template name="LocationsViewTableItems">
 	<tr id="dataview-table-items-row">
 		<td>
+			{{prefix}}
+		</td>
+		<td>
 			{{county}}
 		</td>
 		<td>
@@ -120,12 +120,6 @@
 		</td>
 		<td>
 			{{pixel}}
-		</td>
-		<td>
-			{{latitude}}
-		</td>
-		<td>
-			{{longitude}}
 		</td>
 		<td class="td-icon">
 			<span id="edit-button" class="fa fa-pencil {{editButtonClass}}" title="Edit">
