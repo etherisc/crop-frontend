@@ -35,7 +35,7 @@ const readLocationsFile = (bucket, filename, prefix) => {
 			const longitude = Longitude;
 			
 			const result = Locations.upsert(
-				{ order_number },
+				{ prefix, county_ward },
 				{ 
 					$set: {
 						county,
