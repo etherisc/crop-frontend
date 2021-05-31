@@ -51,8 +51,6 @@ const readLocationsFile = (bucket, filename, prefix) => {
 				}
 			);
 
-			incrementCount(pixel);
-
 		});
 
 		info('readLocations successful', {
