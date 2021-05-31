@@ -22,7 +22,7 @@ this.LocationsController = RouteController.extend({
 			sortBy: Session.get("LocationListPagedSortBy") || "",
 			sortAscending: Session.get("LocationListPagedSortAscending"),
 			pageNo: Session.get("LocationListPagedPageNo") || 0,
-			pageSize: Session.get("LocationListPagedPageSize") || 0
+			pageSize: Session.get("LocationListPagedPageSize") || 25
 		};
 
 
