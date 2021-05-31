@@ -33,11 +33,13 @@ const readLocationsFile = (bucket, filename, prefix) => {
 			const pixel = NewPixel;
 			const latitude = Latitude;
 			const longitude = Longitude;
+			const source = `${bucket}/${filename}`;
 			
 			const result = Locations.upsert(
 				{ prefix, county_ward },
 				{ 
 					$set: {
+						source,
 						county,
 						ward,
 						county_ward,
