@@ -1,0 +1,102 @@
+<template name="LocationsDetails">
+	<div class="page-container container" id="content">
+		<div class="row" id="title_row">
+			<div class="col-md-12">
+			</div>
+		</div>
+		{{> LocationsDetailsForm}}
+	</div>
+</template>
+
+<template name="LocationsDetailsForm">
+	<div id="locations-details-form" class="">
+		<h2 id="component-title">
+			<a href="#" id="form-back-button" class="btn btn-default" title="back">
+				<span class="fa fa-chevron-left">
+				</span>
+			</a>
+			Location Details
+		</h2>
+		<form role="form">
+			{{#if errorMessage}}
+			<div class="alert alert-warning">
+				{{errorMessage}}
+			</div>
+			{{/if}}
+
+			{{#if infoMessage}}
+			<div class="alert alert-success">
+				{{infoMessage}}
+			</div>
+			{{/if}}
+			<div class="form-group  field-county">
+				<label for="county">
+					County
+				</label>
+				<div class="input-div">
+					<p class="form-control-static  control-field-county">
+						{{location.county}}
+					</p>
+				</div>
+			</div>
+			<div class="form-group  field-ward">
+				<label for="ward">
+					Ward
+				</label>
+				<div class="input-div">
+					<p class="form-control-static  control-field-ward">
+						{{location.ward}}
+					</p>
+				</div>
+			</div>
+			<div class="form-group  field-source">
+				<label for="source">
+					Source
+				</label>
+				<div class="input-div">
+					<p class="form-control-static  control-field-source">
+						{{location.source}}
+					</p>
+				</div>
+			</div>
+			<div class="form-group  field-pixel">
+				<label for="pixel">
+					Pixel
+				</label>
+				<div class="input-div">
+					<p class="form-control-static  control-field-pixel">
+						{{location.pixel}}
+					</p>
+				</div>
+			</div>
+			<div class="form-group  field-latitude">
+				<label for="latitude">
+					Latitude
+				</label>
+				<div class="input-div">
+					<p class="form-control-static  control-field-latitude">
+						{{location.latitude}}
+					</p>
+				</div>
+			</div>
+			<div class="form-group  field-longitude">
+				<label for="longitude">
+					Longitude
+				</label>
+				<div class="input-div">
+					<p class="form-control-static  control-field-longitude">
+						{{location.longitude}}
+					</p>
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="submit-div">
+					<a href="#" id="form-close-button" class="btn btn-primary">
+						OK
+					</a>
+				</div>
+			</div>
+		</form>
+	</div>
+</template>
+

@@ -70,7 +70,11 @@ Router.privateRoutes = [
 	"payouts_demo.update",
 	"payouts_demo.details",
 	"group_policies",
-	"group_policies.details"
+	"group_policies.details",
+	"locations",
+	"locations.insert",
+	"locations.update",
+	"locations.details"
 ];
 
 Router.freeRoutes = [
@@ -194,4 +198,8 @@ Router.map(function () {
 	this.route("/payouts_demo/details/:payout2Id", {name: "payouts_demo.details", title: "", controller: "PayoutsDemoDetailsController"});
 	this.route("/group_policies", {name: "group_policies", title: "Group Policies", controller: "GroupPoliciesController"});
 	this.route("/group_policies/details/:groupPolicyId", {name: "group_policies.details", title: "Group Policies", controller: "GroupPoliciesDetailsController"});
+	this.route("/locations", {name: "locations", title: "", controller: "LocationsController"});
+	this.route("/locations/insert", {name: "locations.insert", title: "", controller: "LocationsInsertController"});
+	this.route("/locations/update/:locationId", {name: "locations.update", title: "", controller: "LocationsUpdateController"});
+	this.route("/locations/details/:locationId", {name: "locations.details", title: "", controller: "LocationsDetailsController"});
 });
