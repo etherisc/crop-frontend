@@ -1,5 +1,6 @@
 
 import { readActivationsFile, countActivations } from '/imports/server/methods/activations-reader.js';
+import { readLocationsFile } from '/imports/server/methods/locations-reader.js';
 import { readGroupPoliciesFile, gp_aggregates, clear_selected } from '/imports/server/methods/group-policy-reader.js';
 
 
@@ -25,6 +26,10 @@ const executeJob = ({_id}) => {
 			case 'readGroupPolicies': 
 				result = readGroupPoliciesFile(bucket, filename, filename_2, prefix);
 				result = '2 Group Policies read';
+				break; 
+
+			case 'readLocations': 
+				result = readLocationsFile(bucket, filename, prefix);
 				break; 
 
 			case 'runCalculations': 
