@@ -49,13 +49,13 @@ const executeJob = ({_id}) => {
 				throw new Meteor.Error(msg);
 		}
 		info(`Job execution: ${action} on ${params} successful.`);
-		ImportJobs.update({_id}, {$set: {status: 'Success', message: '', last_run: Date.now()}});
+		Jobs.update({_id}, {$set: {status: 'Success', message: '', last_run: Date.now()}});
 
 		return result;
 		
 	} catch (err) {
 		error(`Error in ${action}, Error: ${err.message}`, {stack: err.stack});
-		ImportJobs.update({_id}, {$set: {status: 'Error', message: err.message, last_run: Date.now()}});
+		Jobs.update({_id}, {$set: {status: 'Error', message: err.message, last_run: Date.now()}});
 		throw new Meteor.Error('Error', err.message, err.stack);
 	}
 };
