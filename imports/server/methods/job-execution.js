@@ -23,7 +23,7 @@ const executeJob = ({_id}) => {
 				break;
 
 			case 'countActivations': 
-				result = countActivations();
+				result = countActivations(params);
 				break; 
 
 			case 'readGroupPolicies': 
@@ -48,7 +48,7 @@ const executeJob = ({_id}) => {
 				error(msg);
 				throw new Meteor.Error(msg);
 		}
-		info(`Job execution: ${action} on ${bucket} successful.`);
+		info(`Job execution: ${action} on ${params} successful.`);
 		ImportJobs.update({_id}, {$set: {status: 'Success', message: '', last_run: Date.now()}});
 
 		return result;
