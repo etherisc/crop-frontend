@@ -23,7 +23,7 @@ const activations_export = Meteor.wrapAsync(function (bucket, filename, filter, 
 		cb(null, count);
 	});	
 	
-}
+});
 
 
 module.exports = { activations_export };
