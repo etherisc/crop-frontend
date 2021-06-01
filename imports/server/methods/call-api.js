@@ -12,22 +12,22 @@ const callApi = Meteor.wrapAsync(function ({method = 'get', url, args = {}}, cb)
 	.then(function (response) {
 		cb(null, response);
 	})
-	.catch(function (error) {
+	.catch(function (err) {
 		let message = '';
-		if (error.response) {
+		if (err.response) {
 			// The request was made and the server responded with a status code
 			// that falls out of the range of 2xx
-			message = `callApi received status ${error.response.status}`;
-		} else if (error.request) {
+			message = `callApi received status ${err.response.status}`;
+		} else if (err.request) {
 			// The request was made but no response was received
 			// `error.request` is an instance of XMLHttpRequest in the browser and an instance of
 			// http.ClientRequest in node.js
 			message = `callApi: no response`;
 		} else {
 			// Something happened in setting up the request that triggered an Error
-			message = `callApi: Invalid request (${error.message})`;
+			message = `callApi: Invalid request (${err.message})`;
 		}
-		error(message, error.toJSON());
+		error(message, err.toJSON());
 		cb(message, null);
 	});	
 
