@@ -1,11 +1,16 @@
 
-import axios from 'axios';
+const fetch = require('node-fetch');
 
 const callApi = Meteor.wrapAsync(function ({method = 'get', url, args = {}}, cb) {
 	
 	info('callApi', {method, url, args});
 	
-	axios.post(url, args)
+	
+	fetch(url, {
+    	method,
+    	body: JSON.stringify(args),
+    	headers: { 'Content-Type': 'application/json' }
+	})
 	.then(function (response) {
 		info('callApi', response);
 		cb(null, response);
