@@ -1,6 +1,6 @@
 
 import { readActivationsFile, countActivations } from '/imports/server/methods/activations-reader.js';
-import { activations_export } from '/imports/server/methods/activations-export.js';
+import { activationsExport } from '/imports/server/methods/activations-export.js';
 import { readLocationsFile } from '/imports/server/methods/locations-reader.js';
 import { readGroupPoliciesFile, gp_aggregates, clear_selected } from '/imports/server/methods/group-policy-reader.js';
 
@@ -40,7 +40,7 @@ const executeJob = ({_id}) => {
 				break; 
 
 			case 'exportActivations': 
-				result = activations_export(params);
+				result = activationsExport(params);
 				break; 
 
 			default: 
