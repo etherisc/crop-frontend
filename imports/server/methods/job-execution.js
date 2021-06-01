@@ -8,7 +8,7 @@ import { readGroupPoliciesFile, gp_aggregates, clear_selected } from '/imports/s
 
 const executeJob = ({_id}) => {
 
-	const { parameters, action } = ImportJobs.findOne({_id});
+	const { parameters, action } = Jobs.findOne({_id});
 	const params = JSON.parse(parameters);
 	
 	info(`Job execution: ${action} on ${params}`, {params, action});
