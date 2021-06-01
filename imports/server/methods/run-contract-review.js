@@ -46,8 +46,8 @@ const runContractReview = ({api_url, minio_host, bucket, accesskey, secretkey, f
 		});
 		info('runContractReview calculations', response);
 
-	} catch (error) {
-		error('runContractReview Error', {message: error.message, stack: error.stack})
+	} catch (err) {
+		error('runContractReview Error', {message: err.message, stack: err.stack})
 
 	}
 
