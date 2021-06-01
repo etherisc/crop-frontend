@@ -142,7 +142,7 @@
 		},
 		{
 			"path": "client/views/admin/admin.html",
-			"checksum": "a85659b5d600b764126e53b672fd1ed150fd5d17"
+			"checksum": "a39d01e0895a3f2af462658d7b4d5107d5e6149d"
 		},
 		{
 			"path": "client/views/admin/admin.js",
@@ -202,7 +202,7 @@
 		},
 		{
 			"path": "client/views/admin/jobs/jobs.html",
-			"checksum": "9ed646370d8be2e4f9182bcf481e8cee0c095e1e"
+			"checksum": "16b7d61358722ffff5677c5449e0b7220ef45583"
 		},
 		{
 			"path": "client/views/admin/jobs/jobs.js",
@@ -226,7 +226,7 @@
 		},
 		{
 			"path": "client/views/admin/jobs/update/update.html",
-			"checksum": "c6e2dd9ecd7c34f7ac812a68709ed60b3454374a"
+			"checksum": "5ab06f9b998d19302216d04033c7607d3058de16"
 		},
 		{
 			"path": "client/views/admin/jobs/update/update.js",
@@ -238,7 +238,7 @@
 		},
 		{
 			"path": "client/views/admin/jobs/details/details.html",
-			"checksum": "50cf4af7a5cf536e451cd01b369ff17ce15ac322"
+			"checksum": "80392405b5dab7312d79cbd07d6fe4104a9842e4"
 		},
 		{
 			"path": "client/views/admin/jobs/details/details.js",
