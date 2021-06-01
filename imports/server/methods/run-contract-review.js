@@ -2,7 +2,7 @@ import { callApi } from '/imports/server/methods/call-api.js';
 
 
 
-const runContractReview = ({api_url, minio_host, bucket, accesskey, secretkey, folder, site_table_file, id}) => {
+const runContractReview = ({api_url, minio_host, bucket_name, accesskey, secretkey, folder, site_table_file, id}) => {
 
 	const bucketsUrl = `${api_url}/buckets`;
 	const seasonsUrl = `${api_url}/seasons`;
@@ -20,7 +20,7 @@ const runContractReview = ({api_url, minio_host, bucket, accesskey, secretkey, f
 				accesskey, 
 				secretkey, 
 				host: minio_host, 
-				name: bucket
+				name: bucket_name
 			}
 		});
 		info('runContractReview buckets', response);
@@ -29,7 +29,7 @@ const runContractReview = ({api_url, minio_host, bucket, accesskey, secretkey, f
 			method: POST, 
 			url: seasonsUrl, 
 			args: {
-				bucket_name: bucket,
+				bucket_name: bucket_name,
 				folder_name: folder,
 				id,
 				site_table_file
