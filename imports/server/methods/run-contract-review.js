@@ -17,8 +17,8 @@ const runContractReview = ({api_url, minio_host, bucket_name, accesskey, secretk
 			method: POST, 
 			url: bucketsUrl, 
 			args: {
-				accesskey, 
-				secretkey, 
+				accesskey: accesskey, 
+				secretkey: secretkey, 
 				host: minio_host, 
 				name: bucket_name
 			}
