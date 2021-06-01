@@ -142,7 +142,7 @@
 		},
 		{
 			"path": "client/views/admin/admin.html",
-			"checksum": "383a40206df12d2fba5784b0391b663f84ee7691"
+			"checksum": "14df5299a75b1e3391e814336b0da0c9fbb351e6"
 		},
 		{
 			"path": "client/views/admin/admin.js",
@@ -1170,7 +1170,7 @@
 		},
 		{
 			"path": "server/methods/methods.js",
-			"checksum": "c1c913d9f75c87a8f683792fe7b918e4115f2854"
+			"checksum": "4ee9369f54b6b0a3a8604a39060f2ebec9dfd8a7"
 		},
 		{
 			"path": "imports/server/methods/group-policy-reader.js",
@@ -1226,7 +1226,7 @@
 		},
 		{
 			"path": "imports/server/methods/job-execution.js",
-			"checksum": "c58ee00318169572085319a592b9b93abeeb3a2d"
+			"checksum": "d8fa98e72e3fd377c79d541498402b88025e30e5"
 		},
 		{
 			"path": "imports/server/methods/locations-reader.js",
@@ -1234,11 +1234,19 @@
 		},
 		{
 			"path": "imports/server/methods/activations-export.js",
-			"checksum": "e7c9a9fc9d53bb592b033613facbc571cb33dfb4"
+			"checksum": "13aea755453853e58477956042fd5abf99c152a5"
 		},
 		{
 			"path": "client/styles/custom.css",
 			"checksum": "c8651775128e6e10116338aff8205926ee33a294"
+		},
+		{
+			"path": "imports/server/methods/run-contract-review.js",
+			"checksum": "c486eb0d43b655bed802147121c8add57bb3dc24"
+		},
+		{
+			"path": "imports/server/methods/call-api.js",
+			"checksum": "ff8df157436fc29a090dd029fcea91640381f8a2"
 		},
 		{
 			"path": "lib/string_utils.js",
