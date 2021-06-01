@@ -38,7 +38,7 @@
 		},
 		{
 			"path": "client/views/layout/layout.html",
-			"checksum": "282814c8f6489b1833e07f49694daf49e91e6961"
+			"checksum": "940aa5ddc33427508bcc354feeca6d0a22a428d3"
 		},
 		{
 			"path": "client/views/layout/layout.js",
@@ -142,7 +142,7 @@
 		},
 		{
 			"path": "client/views/admin/admin.html",
-			"checksum": "0eed71c3eb04cd7c5e6b557edf231d20c3d4a672"
+			"checksum": "1d1c41ad4313808fe961d760bbf36e1de39b51bd"
 		},
 		{
 			"path": "client/views/admin/admin.js",

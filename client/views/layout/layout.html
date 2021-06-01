@@ -167,7 +167,7 @@
 				</span>
 			</a>
 		</li>
-		<li id="menu-item-dropdown" class="dropdown ">
+		<li id="menu-item-dropdown" class="dropdown hidden">
 			<a href="#" class="dropdown-toggle" data-toggle="dropdown">
 				<span class="item-title">
 					Contracts
@@ -194,13 +194,6 @@
 					<a href="{{pathFor 'group_policies'}}">
 						<span class="item-title">
 							Group Policies
-						</span>
-					</a>
-				</li>
-				<li class="">
-					<a href="#">
-						<span class="item-title">
-							Individual Policies
 						</span>
 					</a>
 				</li>
@@ -257,19 +250,19 @@
 						</span>
 					</a>
 				</li>
+				<li class="{{menuItemClass 'locations'}}">
+					<a href="{{pathFor 'locations'}}">
+						<span class="item-title">
+							Locations
+						</span>
+					</a>
+				</li>
 				<li class="">
 					<a href="https://openapi-staging.etherisc.com/q/openapi/ui/#/">
 						<span class="fa fa-external-link">
 						</span>
 						<span class="item-title">
 							&nbsp;API
-						</span>
-					</a>
-				</li>
-				<li class="{{menuItemClass 'locations'}}">
-					<a href="{{pathFor 'locations'}}">
-						<span class="item-title">
-							Locations
 						</span>
 					</a>
 				</li>
