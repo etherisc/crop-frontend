@@ -26,7 +26,7 @@ Template.AdminJobs.helpers({
 var AdminJobsViewExport = function(fileType) {
 	var extraParams = {
 		searchText: Session.get("JobListPagedSearchString") || "",
-		searchFields: Session.get("JobListPagedSearchFields") || ["action", "parameters", "prefix", "status", "message", "last_run"],
+		searchFields: Session.get("JobListPagedSearchFields") || ["action", "parameters", "status", "message", "last_run"],
 		sortBy: Session.get("JobListPagedSortBy") || "",
 		sortAscending: Session.get("JobListPagedSortAscending") || true
 	};

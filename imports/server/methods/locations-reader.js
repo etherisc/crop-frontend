@@ -1,7 +1,7 @@
 import { getMinioObject, putMinioObject } from '/imports/server/methods/minio.js';
 
 
-const readLocationsFile = (bucket, params, prefix) => {
+const readLocationsFile = (params, prefix) => {
 
 	try {
 
