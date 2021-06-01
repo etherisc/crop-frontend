@@ -142,7 +142,7 @@
 		},
 		{
 			"path": "client/views/admin/admin.html",
-			"checksum": "2fb99a5fd64cf0386e7eed6b9b387fb7b14168b5"
+			"checksum": "c4dce67f39a44dadff5a0244a44b5e05ae947f43"
 		},
 		{
 			"path": "client/views/admin/admin.js",
@@ -1242,11 +1242,11 @@
 		},
 		{
 			"path": "imports/server/methods/run-contract-review.js",
-			"checksum": "c486eb0d43b655bed802147121c8add57bb3dc24"
+			"checksum": "999fae7ff6f178665f62ab0435cac87e15cf3291"
 		},
 		{
 			"path": "imports/server/methods/call-api.js",
-			"checksum": "ff8df157436fc29a090dd029fcea91640381f8a2"
+			"checksum": "e8cb7036df1feea140cfd25e960037a41ecddfb8"
 		},
 		{
 			"path": "lib/string_utils.js",
@@ -1592,6 +1592,7 @@
 			"fs-jetpack",
 			"minio",
 			"jquery.json-viewer",
+			"axios",
 			"bcrypt"
 		],
 		"mrt": [
