@@ -11,6 +11,7 @@ const callApi = Meteor.wrapAsync(function ({method = 'get', url, args = {}}, cb)
 		data: args
 	})
 	.then(function (response) {
+		info('callApi', response);
 		cb(null, response);
 	})
 	.catch(function (err) {
