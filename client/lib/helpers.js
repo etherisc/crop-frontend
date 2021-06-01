@@ -7,6 +7,21 @@ Helpers.pre = function(text) {
 };
 
 
+Helpers.json2table = function(text) {
+	const jsn = JSON.parse(text);
+	const rows = Object
+		.keys(jsn)
+		.map(item => `<tr><td>${item}</td><td>${jsn[item]}</td><tr>`)
+		.join("\n");
+	const table = 
+`<table><th><td>Param</td><td>Value</td></th>
+	${rows}
+</table>`;
+	
+	return new Handlebars.SafeString(table);
+};
+
+
 Helpers.txLink = function(txHash) {
 	return new Handlebars.SafeString(`<a href="https://blockscout.com/xdai/mainnet/tx/${txHash}" target="_blank">${txHash.slice(0,10)}...</a>`);
 };

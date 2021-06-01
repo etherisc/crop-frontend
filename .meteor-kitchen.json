@@ -142,7 +142,7 @@
 		},
 		{
 			"path": "client/views/admin/admin.html",
-			"checksum": "3108cb7bc07fc00f4a868af6c6c5d4372d14d6d4"
+			"checksum": "f099cf154fc7cf970a067d46b84da51354c38854"
 		},
 		{
 			"path": "client/views/admin/admin.js",
@@ -202,7 +202,7 @@
 		},
 		{
 			"path": "client/views/admin/jobs/jobs.html",
-			"checksum": "16b7d61358722ffff5677c5449e0b7220ef45583"
+			"checksum": "b86b564ffa34ad10e6d87a91def6e86634077f50"
 		},
 		{
 			"path": "client/views/admin/jobs/jobs.js",
@@ -214,7 +214,7 @@
 		},
 		{
 			"path": "client/views/admin/jobs/insert/insert.html",
-			"checksum": "66f26f6b3092c191f5c79789dda7b3acfdd16ae1"
+			"checksum": "41ab6cd92668acced3faa6e3a331376a19c0428d"
 		},
 		{
 			"path": "client/views/admin/jobs/insert/insert.js",
@@ -226,7 +226,7 @@
 		},
 		{
 			"path": "client/views/admin/jobs/update/update.html",
-			"checksum": "0c50256001017108b42bd4b62ce6bac52b15bc07"
+			"checksum": "4b13cf8885e8d5367b14bd377e858f932329d275"
 		},
 		{
 			"path": "client/views/admin/jobs/update/update.js",
@@ -1178,7 +1178,7 @@
 		},
 		{
 			"path": "client/lib/helpers.js",
-			"checksum": "ddd25f1a97067497d8cacddb7a0da190040416b7"
+			"checksum": "cfd2580807e8da4a45ffbea67cb23c09b4928595"
 		},
 		{
 			"path": "client/styles/googlemaps.css",
@@ -1238,7 +1238,7 @@
 		},
 		{
 			"path": "client/styles/custom.css",
-			"checksum": "5c55ffc1114c276a87c9ea675d8dbe8c73b71c86"
+			"checksum": "f17a37e2ed71af5ab545f88bce7198b1994e060e"
 		},
 		{
 			"path": "lib/string_utils.js",
