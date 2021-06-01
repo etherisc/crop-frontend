@@ -36,6 +36,10 @@ const executeJob = ({_id}) => {
 				result = '789 Activations calculated';
 				break; 
 
+			case 'exportActivations': 
+				result = activations_export(bucket, filename, filename_2, prefix);
+				break; 
+
 			default: 
 				const msg = `executeImportJob: Action ${action} not implemented`;
 				error(msg);

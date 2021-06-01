@@ -142,7 +142,7 @@
 		},
 		{
 			"path": "client/views/admin/admin.html",
-			"checksum": "df90cbf9ec1f09083650b4007ad320bd7f8dcbc4"
+			"checksum": "ee7ceec31cbc7d49c94cda8e854f8dde1216ccb3"
 		},
 		{
 			"path": "client/views/admin/admin.js",
@@ -214,7 +214,7 @@
 		},
 		{
 			"path": "client/views/admin/import_jobs/insert/insert.html",
-			"checksum": "6e39989f7bb7a938e57d5b94c111051ad68ae605"
+			"checksum": "5f227b4972e1adb5756866a655f75d6cba9e0418"
 		},
 		{
 			"path": "client/views/admin/import_jobs/insert/insert.js",
@@ -226,7 +226,7 @@
 		},
 		{
 			"path": "client/views/admin/import_jobs/update/update.html",
-			"checksum": "df44576d91d62d45194dd049aba1b1b62025f77a"
+			"checksum": "6e034b6f6a4ec6d1f814814af0a787c0808ab78f"
 		},
 		{
 			"path": "client/views/admin/import_jobs/update/update.js",
@@ -1194,7 +1194,7 @@
 		},
 		{
 			"path": "imports/server/methods/activations-reader.js",
-			"checksum": "e7d782a9525a9db77389e3a648e37b51889a9b00"
+			"checksum": "63ff2ed6fb1341dbd8df3275ea3d2440ce226c67"
 		},
 		{
 			"path": "server/lib/server_globals.js",
@@ -1222,15 +1222,19 @@
 		},
 		{
 			"path": "imports/server/methods/minio.js",
-			"checksum": "51c462e417aca44e7891ae65e18f6a2a2b43c4ec"
+			"checksum": "63f2fee548a47e06968279ef3ae0842d8275da2a"
 		},
 		{
 			"path": "imports/server/methods/job-execution.js",
-			"checksum": "c940558d59d3940b1625383b881bfbecf1c2f2ca"
+			"checksum": "c7d45f04939cf23c42f4102b41a5c3f223a519e8"
 		},
 		{
 			"path": "imports/server/methods/locations-reader.js",
 			"checksum": "ec496072869c7525229c9dd6c0244d17cd9732eb"
+		},
+		{
+			"path": "imports/server/methods/activations-export.js",
+			"checksum": "1e75a18eeed2f5feb1f84fc11843a6bf9e4084d0"
 		},
 		{
 			"path": "lib/string_utils.js",

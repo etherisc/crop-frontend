@@ -134,16 +134,8 @@ const activation_aggregates = function (filter) {
 
 }
 
-const activation_export = function (filter) {
 
-	const selected = Activations.find(filter).fetch();
-
-	info('Export Activations', {count: selected.length});
-
-}
-
-
-module.exports = { countActivations, readActivationsFile, activation_aggregates, activation_export };
+module.exports = { countActivations, readActivationsFile, activation_aggregates };
 
 
 
