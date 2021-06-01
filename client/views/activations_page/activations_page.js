@@ -382,7 +382,15 @@ Template.ActivationsPageViewCustomActions.events({
 		e.preventDefault();
 		const filter = t.data.activation_list_paged.matcher._selector;
 
-		Meteor.call('activations_export', filter);
+		Meteor.call('activations_export', filter, function(err, res) {
+			
+			if(err) {
+				toast_error(err.message);
+			} else {
+				toast_info(res);
+			}
+			
+		});
 		toast_info('Contract Review started');
 	}
 

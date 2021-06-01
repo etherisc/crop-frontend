@@ -1,7 +1,8 @@
 
 import logger from '/imports/server/methods/logger.js';
 import { gp_aggregates, clear_selected } from '/imports/server/methods/group-policy-reader.js';
-import { activation_aggregates, activation_export } from '/imports/server/methods/activations-reader.js';
+import { activation_aggregates } from '/imports/server/methods/activations-reader.js';
+import { activations_export } from '/imports/server/methods/activations-export.js';
 import { executeJob } from '/imports/server/methods/job-execution.js';
 
 const executePayouts = () => {
@@ -24,7 +25,7 @@ Meteor.methods({
 	"select": selectPayouts,
 	gp_aggregates,
 	activation_aggregates,
-	activation_export,
+	activations_export,
 	clear_selected,
 	executeJob
 });
