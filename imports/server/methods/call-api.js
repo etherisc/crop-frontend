@@ -18,8 +18,6 @@ const callApi = Meteor.wrapAsync(function ({method = 'get', url, args = {}}, cb)
 			// The request was made and the server responded with a status code
 			// that falls out of the range of 2xx
 			message = `callApi received status ${error.response.status}`;
-			error(, error.toJson());
-			cb(, null);
 		} else if (error.request) {
 			// The request was made but no response was received
 			// `error.request` is an instance of XMLHttpRequest in the browser and an instance of
