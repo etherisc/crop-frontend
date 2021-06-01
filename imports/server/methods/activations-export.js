@@ -3,9 +3,10 @@
 import { getMinioObject, putMinioObject } from '/imports/server/methods/minio.js';
 
 
-const activations_export = Meteor.wrapAsync(function ({bucket, filename, filter}, cb) {
+const activations_export = Meteor.wrapAsync(function ({bucket, folder, filename, filter}, cb) {
 
 	const selected = Activations.find(filter).fetch();
+	const path = `${folder}/${filename}`;
 	
 	const activations_export = [];
 	
@@ -15,7 +16,7 @@ const activations_export = Meteor.wrapAsync(function ({bucket, filename, filter}
 	const count = activations_export.length;
 	
 	
-	minioClient.putObject(bucket, filename, content, function(error, etag) {
+	minioClient.putObject(bucket, path, content, function(error, etag) {
 		if(error) {
 			error(`Error: ${error.message}`, {
 				message: error.message, 
@@ -23,7 +24,7 @@ const activations_export = Meteor.wrapAsync(function ({bucket, filename, filter}
 			});
 		  	cb(error, null); 
 		}
-		cb(null, count);
+		cb(null, `${count} activations exported to ${bucket}/${path}`);
 	});	
 	
 });
