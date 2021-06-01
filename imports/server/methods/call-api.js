@@ -5,8 +5,7 @@ const callApi = Meteor.wrapAsync(function ({method = 'get', url, args = {}}, cb)
 	
 	info('callApi', {method, url, args});
 	
-	axios({
-		method,
+	axios.post({
 		url,
 		data: args
 	})
