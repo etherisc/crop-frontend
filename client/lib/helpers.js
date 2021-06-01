@@ -14,8 +14,13 @@ Helpers.json2table = function(text) {
 		.map(item => `<tr><td>${item}</td><td>${jsn[item]}</td><tr>`)
 		.join("\n");
 	const table = 
-`<table><th><td>Param</td><td>Value</td></th>
-	${rows}
+`<table>
+	<thead>
+		<tr><th>Param</th><th>Value</th></tr>
+	</thead>
+	<tbody>
+		${rows}
+	</tbody> 
 </table>`;
 	
 	return new Handlebars.SafeString(table);
