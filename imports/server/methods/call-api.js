@@ -2,7 +2,8 @@
 const axios = require('axios');
 
 const callApi = Meteor.wrapAsync(function ({method = 'get', url, args = {}}, cb) {
-
+	
+	info('callApi', {method, url, args});
 	
 	axios({
 		method,
