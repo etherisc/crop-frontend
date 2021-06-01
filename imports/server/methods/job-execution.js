@@ -44,7 +44,7 @@ const executeJob = ({_id}) => {
 				break; 
 
 			default: 
-				const msg = `executeImportJob: Action ${action} not implemented`;
+				const msg = `executeJob: Action ${action} not implemented`;
 				error(msg);
 				throw new Meteor.Error(msg);
 		}

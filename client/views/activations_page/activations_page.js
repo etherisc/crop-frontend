@@ -378,6 +378,7 @@ Template.ActivationsPageViewCustomActions.helpers({
 });
 
 Template.ActivationsPageViewCustomActions.events({
+/*
 	"click #btn-export": function (e,t) {
 		e.preventDefault();
 		const filter = t.data.activation_list_paged.matcher._selector;
@@ -393,5 +394,5 @@ Template.ActivationsPageViewCustomActions.events({
 		});
 		toast_info('Contract Review started');
 	}
-
+*/
 });
