@@ -28,7 +28,7 @@ const callApi = Meteor.wrapAsync(function ({method = 'get', url, args = {}}, cb)
 			// Something happened in setting up the request that triggered an Error
 			message = `callApi: Invalid request (${err.message})`;
 		}
-		error(message, err.toJSON());
+		error(message, {message: err.message, stack: err.stack});
 		cb(message, null);
 	});	
 
