@@ -142,7 +142,7 @@
 		},
 		{
 			"path": "client/views/admin/admin.html",
-			"checksum": "959c909d01af26319cf87b0b3b43c43e336cde56"
+			"checksum": "bf7714dc0a8602ee6656f78c331bbe455bfd4743"
 		},
 		{
 			"path": "client/views/admin/admin.js",
@@ -1246,7 +1246,7 @@
 		},
 		{
 			"path": "imports/server/methods/call-api.js",
-			"checksum": "d7c3f25452cc9c57edaa193ea052a194673ef2b4"
+			"checksum": "d17026def47cb16875ef0f654ad593f66bd4b1c6"
 		},
 		{
 			"path": "lib/string_utils.js",
