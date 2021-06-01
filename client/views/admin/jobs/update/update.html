@@ -1,0 +1,77 @@
+<template name="AdminJobsUpdate">
+	<div class="page-container container" id="content">
+		<div class="row" id="title_row">
+			<div class="col-md-12">
+			</div>
+		</div>
+		{{> AdminJobsUpdateForm}}
+	</div>
+</template>
+
+<template name="AdminJobsUpdateForm">
+	<div id="admin-jobs-update-form" class="">
+		<h2 id="component-title">
+			Edit Job
+		</h2>
+		<form role="form" class="form-horizontal">
+			{{#if errorMessage}}
+			<div class="alert alert-warning">
+				{{errorMessage}}
+			</div>
+			{{/if}}
+
+			{{#if infoMessage}}
+			<div class="alert alert-success">
+				{{infoMessage}}
+			</div>
+			{{/if}}
+			<div class="form-group  field-action">
+				<label for="action" class="col-sm-3 control-label">
+					Action
+				</label>
+				<div class="input-div col-sm-9">
+					<input type="text" name="action" value="{{job.action}}" class="form-control " autofocus="autofocus" data-type="string">
+					<span id="help-text" class="help-block">
+					</span>
+					<span id="error-text" class="help-block">
+					</span>
+				</div>
+			</div>
+			<div class="form-group  field-parameters">
+				<label for="parameters" class="col-sm-3 control-label">
+					Parameters
+				</label>
+				<div class="input-div col-sm-9">
+					<textarea class="form-control " name="parameters">{{job.parameters}}</textarea>
+					<span id="help-text" class="help-block">
+					</span>
+					<span id="error-text" class="help-block">
+					</span>
+				</div>
+			</div>
+			<div class="form-group  field-prefix">
+				<label for="prefix" class="col-sm-3 control-label">
+					Prefix
+				</label>
+				<div class="input-div col-sm-9">
+					<input type="text" name="prefix" value="{{job.prefix}}" class="form-control " data-type="string">
+					<span id="help-text" class="help-block">
+					</span>
+					<span id="error-text" class="help-block">
+					</span>
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="submit-div col-sm-9 col-sm-offset-3">
+					<a href="#" id="form-cancel-button" class="btn btn-default">
+						Cancel
+					</a>
+					<button id="form-submit-button" class="btn btn-success" type="submit">
+						Save
+					</button>
+				</div>
+			</div>
+		</form>
+	</div>
+</template>
+

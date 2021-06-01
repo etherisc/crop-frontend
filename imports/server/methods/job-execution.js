@@ -8,16 +8,18 @@ import { readGroupPoliciesFile, gp_aggregates, clear_selected } from '/imports/s
 
 const executeJob = ({_id}) => {
 
-	const { bucket, filename, filename_2, prefix, action } = ImportJobs.findOne({_id});
-
-	info(`Job execution: ${action} on ${bucket}`, {bucket, filename, filename_2, prefix, action});
+	const { bucket, parameters, prefix, action } = ImportJobs.findOne({_id});
+	const params = JSON.parse(parameters);
+	
+	info(`Job execution: ${action} on ${bucket}`, {bucket, params, prefix, action});
 	
 	let result;
+	
 	try {
 		switch (action) {
 
 			case 'readActivations': 
-				result = readActivationsFile(bucket, filename, prefix);
+				result = readActivationsFile(bucket, params, prefix);
 				break;
 
 			case 'countActivations': 
@@ -25,12 +27,12 @@ const executeJob = ({_id}) => {
 				break; 
 
 			case 'readGroupPolicies': 
-				result = readGroupPoliciesFile(bucket, filename, filename_2, prefix);
+				result = readGroupPoliciesFile(bucket, params, prefix);
 				result = '2 Group Policies read';
 				break; 
 
 			case 'readLocations': 
-				result = readLocationsFile(bucket, filename, prefix);
+				result = readLocationsFile(bucket, params, prefix);
 				break; 
 
 			case 'runCalculations': 
@@ -38,7 +40,7 @@ const executeJob = ({_id}) => {
 				break; 
 
 			case 'exportActivations': 
-				result = activations_export(bucket, filename, filename_2, prefix);
+				result = activations_export(bucket, params, prefix);
 				break; 
 
 			default: 
