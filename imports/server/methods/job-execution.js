@@ -4,7 +4,7 @@ import { activationsExport } from '/imports/server/methods/activations-export.js
 import { readLocationsFile } from '/imports/server/methods/locations-reader.js';
 import { readGroupPoliciesFile, gp_aggregates, clear_selected } from '/imports/server/methods/group-policy-reader.js';
 import { callApi } from '/imports/server/methods/call-api.js';
-import { runContractReview } from '/imports/server/methods/runContractReview.js';
+import { runContractReview } from '/imports/server/methods/run-contract-review.js';
 
 
 
