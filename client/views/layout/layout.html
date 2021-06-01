@@ -167,7 +167,7 @@
 				</span>
 			</a>
 		</li>
-		<li id="menu-item-dropdown" class="dropdown hidden">
+		<li id="menu-item-dropdown" class="dropdown ">
 			<a href="#" class="dropdown-toggle" data-toggle="dropdown">
 				<span class="item-title">
 					Contracts
@@ -176,14 +176,14 @@
 				</b>
 			</a>
 			<ul id="menu-items" class="dropdown-menu">
-				<li class="{{menuItemClass 'policies_page'}}">
+				<li class="hidden {{menuItemClass 'policies_page'}}">
 					<a href="{{pathFor 'policies_page'}}">
 						<span class="item-title">
 							Policies
 						</span>
 					</a>
 				</li>
-				<li class="{{menuItemClass 'payouts'}}">
+				<li class="hidden {{menuItemClass 'payouts'}}">
 					<a href="{{pathFor 'payouts'}}">
 						<span class="item-title">
 							Payouts
@@ -197,7 +197,7 @@
 						</span>
 					</a>
 				</li>
-				<li class="{{menuItemClass 'audit_page'}}">
+				<li class="hidden {{menuItemClass 'audit_page'}}">
 					<a href="{{pathFor 'audit_page'}}">
 						<span class="item-title">
 							Audit Trail
