@@ -3,3 +3,8 @@
 	height: 250px;
 }
 	
+	
+.custom-param-table td, .custom-param-table th {
+	padding-left: 6px;
+	padding-right: 6px;
+}

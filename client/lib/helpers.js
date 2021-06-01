@@ -13,8 +13,8 @@ Helpers.json2table = function(text) {
 		.keys(jsn)
 		.map(item => `<tr><td>${item}</td><td>${jsn[item]}</td><tr>`)
 		.join("\n");
-	const table = 
-`<table>
+	const table = rows === '' ? '' : 
+`<table class="custom-param-table">
 	<thead>
 		<tr><th>Param</th><th>Value</th></tr>
 	</thead>
