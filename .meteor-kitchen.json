@@ -2,7 +2,7 @@
 	"output_files": [
 		{
 			"path": "client/views/router.js",
-			"checksum": "bf5b4de21732b2505fc6415dc0aa90c7c043fe8e"
+			"checksum": "7a73c94cd95d9ffd2ef205c72a13bb4f87d6b712"
 		},
 		{
 			"path": "server/controllers/router.js",
@@ -142,7 +142,7 @@
 		},
 		{
 			"path": "client/views/admin/admin.html",
-			"checksum": "a21c26776e4617940417b08142f08858060efef2"
+			"checksum": "e20e049e502dbbc0655707a62c21a2c42d0b1b62"
 		},
 		{
 			"path": "client/views/admin/admin.js",
@@ -201,52 +201,52 @@
 			"checksum": "39da99351d90fc0ecd60aefc186c01459c89cf65"
 		},
 		{
-			"path": "client/views/admin/import_jobs/import_jobs.html",
-			"checksum": "41d2c8e92758da5705a8dca04d1769f4a4eeabd1"
+			"path": "client/views/admin/jobs/jobs.html",
+			"checksum": "d4ee4f9e56f599a7d43d26bf9dd8e90796da3acb"
 		},
 		{
-			"path": "client/views/admin/import_jobs/import_jobs.js",
-			"checksum": "eead2d30cf2dd11a10234d8d81b8b79229edc278"
+			"path": "client/views/admin/jobs/jobs.js",
+			"checksum": "56f7300195762c13da858d07d84ff9f6d27799c0"
 		},
 		{
-			"path": "client/views/admin/import_jobs/import_jobs_controller.js",
-			"checksum": "b0dde75fd98537ced2eb449a4f32899400bc3edb"
+			"path": "client/views/admin/jobs/jobs_controller.js",
+			"checksum": "7210b8ed3a96ed2ad3080f2f602bac1066bf0999"
 		},
 		{
-			"path": "client/views/admin/import_jobs/insert/insert.html",
-			"checksum": "5f227b4972e1adb5756866a655f75d6cba9e0418"
+			"path": "client/views/admin/jobs/insert/insert.html",
+			"checksum": "4bc9ac847e39241cd427258fd106ae32cff98e34"
 		},
 		{
-			"path": "client/views/admin/import_jobs/insert/insert.js",
-			"checksum": "b2f3eeb4256e0d402c6683ce633afb0e92284eb9"
+			"path": "client/views/admin/jobs/insert/insert.js",
+			"checksum": "e43927906d28931016fa784224baa071b9db1954"
 		},
 		{
-			"path": "client/views/admin/import_jobs/insert/insert_controller.js",
-			"checksum": "58b73be3ed24845032c98d0d554374b9b465df2b"
+			"path": "client/views/admin/jobs/insert/insert_controller.js",
+			"checksum": "395e49429e6ae156a9fd2e0ad1578333b0faff4e"
 		},
 		{
-			"path": "client/views/admin/import_jobs/update/update.html",
-			"checksum": "6e034b6f6a4ec6d1f814814af0a787c0808ab78f"
+			"path": "client/views/admin/jobs/update/update.html",
+			"checksum": "3f9088824af8707a2e24da01b20cfb938e87c1f5"
 		},
 		{
-			"path": "client/views/admin/import_jobs/update/update.js",
-			"checksum": "8d6a22a6165e3eea89277f53b91c78eef196c0b7"
+			"path": "client/views/admin/jobs/update/update.js",
+			"checksum": "c8225b06aa3d86ce7d37daa59bfe0f1b60d47e63"
 		},
 		{
-			"path": "client/views/admin/import_jobs/update/update_controller.js",
-			"checksum": "1777e1eebc9942f11daa2204792a5b9e6b9d62c9"
+			"path": "client/views/admin/jobs/update/update_controller.js",
+			"checksum": "1fc53b830ee453daca497ca5095fd6ff5b6c3480"
 		},
 		{
-			"path": "client/views/admin/import_jobs/details/details.html",
-			"checksum": "3202557c9008a2933251ba7b2eb6f5a12e702a5f"
+			"path": "client/views/admin/jobs/details/details.html",
+			"checksum": "8449a7bd83d2768704953d39c989a2fe08f0de57"
 		},
 		{
-			"path": "client/views/admin/import_jobs/details/details.js",
-			"checksum": "72d107d36ea45b2eb65d6c4ca4593d0e4f9587c6"
+			"path": "client/views/admin/jobs/details/details.js",
+			"checksum": "a85ea3909e79b83905bc604846e6e426d70f370f"
 		},
 		{
-			"path": "client/views/admin/import_jobs/details/details_controller.js",
-			"checksum": "a9b45ec78526a9b207efa02919e153c7d64740eb"
+			"path": "client/views/admin/jobs/details/details_controller.js",
+			"checksum": "fe59f9d0102a40b5b5949ae3bfeb60661e24847b"
 		},
 		{
 			"path": "client/views/admin/logs_browser/logs_browser.html",
@@ -981,20 +981,20 @@
 			"checksum": "4393d7342cc9f6b6b18da12c159d98cd2920f506"
 		},
 		{
-			"path": "both/collections/import_jobs.js",
-			"checksum": "d27d641e550e9aef7d4470329218f1c93d8d4810"
+			"path": "both/collections/jobs.js",
+			"checksum": "96006a3800293d37d63699a957fe672fd0889c35"
 		},
 		{
-			"path": "server/methods/import_jobs.js",
-			"checksum": "71c80acb97085dcaa56fad0c8985b043136d720c"
+			"path": "server/methods/jobs.js",
+			"checksum": "f1470b5eed844949058f986ca0c89316f2f387a8"
 		},
 		{
-			"path": "server/collections/import_jobs.js",
-			"checksum": "966f262224039946f2881b7bdd0ca5588daa109b"
+			"path": "server/collections/jobs.js",
+			"checksum": "fd131156088436491c41dd8a587bebd40bafe354"
 		},
 		{
-			"path": "server/publish/import_jobs.js",
-			"checksum": "181516796176a8fbc43b781afe0948c02416903e"
+			"path": "server/publish/jobs.js",
+			"checksum": "49acdc16d3e6efe985e1b86cf1ba58aff380edf9"
 		},
 		{
 			"path": "both/collections/locations.js",
@@ -1194,7 +1194,7 @@
 		},
 		{
 			"path": "imports/server/methods/activations-reader.js",
-			"checksum": "63ff2ed6fb1341dbd8df3275ea3d2440ce226c67"
+			"checksum": "77857a3b617553eaa30d2701f6020427c97fa7b1"
 		},
 		{
 			"path": "server/lib/server_globals.js",
@@ -1226,15 +1226,15 @@
 		},
 		{
 			"path": "imports/server/methods/job-execution.js",
-			"checksum": "73dbcd8270b667a5dbcb3bebea613a9a18a1c079"
+			"checksum": "4ee6701729b2ec329aae6aa2e29a03e0a18ce4bf"
 		},
 		{
 			"path": "imports/server/methods/locations-reader.js",
-			"checksum": "ec496072869c7525229c9dd6c0244d17cd9732eb"
+			"checksum": "84d83988a41531954fefa5c8753e1ff602e8cb9b"
 		},
 		{
 			"path": "imports/server/methods/activations-export.js",
-			"checksum": "614e0b3f0807e4a527f47696ab236332d1b65f71"
+			"checksum": "6f612ac540ab65d90f4056a60a5d8d022fa0446f"
 		},
 		{
 			"path": "lib/string_utils.js",
@@ -1468,10 +1468,10 @@
 		"client/views/activations_page/update/",
 		"client/views/admin/",
 		"client/views/admin/details_modal/",
-		"client/views/admin/import_jobs/",
-		"client/views/admin/import_jobs/details/",
-		"client/views/admin/import_jobs/insert/",
-		"client/views/admin/import_jobs/update/",
+		"client/views/admin/jobs/",
+		"client/views/admin/jobs/details/",
+		"client/views/admin/jobs/insert/",
+		"client/views/admin/jobs/update/",
 		"client/views/admin/logs_browser/",
 		"client/views/admin/logs_server/",
 		"client/views/admin/users/",

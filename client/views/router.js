@@ -22,10 +22,10 @@ Router.privateRoutes = [
 	"admin.users.details",
 	"admin.users.insert",
 	"admin.users.edit",
-	"admin.import_jobs",
-	"admin.import_jobs.insert",
-	"admin.import_jobs.update",
-	"admin.import_jobs.details",
+	"admin.jobs",
+	"admin.jobs.insert",
+	"admin.jobs.update",
+	"admin.jobs.details",
 	"admin.logs_browser",
 	"admin.logs_server",
 	"admin.details_modal",
@@ -87,10 +87,10 @@ Router.roleMap = [
 	{ route: "admin.users.details",	roles: ["admin"] },
 	{ route: "admin.users.insert",	roles: ["admin"] },
 	{ route: "admin.users.edit",	roles: ["admin"] },
-	{ route: "admin.import_jobs",	roles: ["admin"] },
-	{ route: "admin.import_jobs.insert",	roles: ["admin"] },
-	{ route: "admin.import_jobs.update",	roles: ["admin"] },
-	{ route: "admin.import_jobs.details",	roles: ["admin"] },
+	{ route: "admin.jobs",	roles: ["admin"] },
+	{ route: "admin.jobs.insert",	roles: ["admin"] },
+	{ route: "admin.jobs.update",	roles: ["admin"] },
+	{ route: "admin.jobs.details",	roles: ["admin"] },
 	{ route: "admin.logs_browser",	roles: ["admin"] },
 	{ route: "admin.logs_server",	roles: ["admin"] },
 	{ route: "admin.details_modal",	roles: ["admin"] },
@@ -149,10 +149,10 @@ Router.map(function () {
 	this.route("/admin/users/details/:userId", {name: "admin.users.details", title: "", controller: "AdminUsersDetailsController"});
 	this.route("/admin/users/insert", {name: "admin.users.insert", title: "", controller: "AdminUsersInsertController"});
 	this.route("/admin/users/edit/:userId", {name: "admin.users.edit", title: "", controller: "AdminUsersEditController"});
-	this.route("/admin/import_jobs", {name: "admin.import_jobs", title: "", controller: "AdminImportJobsController"});
-	this.route("/admin/import_jobs/insert", {name: "admin.import_jobs.insert", title: "", controller: "AdminImportJobsInsertController"});
-	this.route("/admin/import_jobs/update/:importJobId", {name: "admin.import_jobs.update", title: "", controller: "AdminImportJobsUpdateController"});
-	this.route("/admin/import_jobs/details/:importJobId", {name: "admin.import_jobs.details", title: "", controller: "AdminImportJobsDetailsController"});
+	this.route("/admin/jobs", {name: "admin.jobs", title: "", controller: "AdminJobsController"});
+	this.route("/admin/jobs/insert", {name: "admin.jobs.insert", title: "", controller: "AdminJobsInsertController"});
+	this.route("/admin/jobs/update/:jobId", {name: "admin.jobs.update", title: "", controller: "AdminJobsUpdateController"});
+	this.route("/admin/jobs/details/:jobId", {name: "admin.jobs.details", title: "", controller: "AdminJobsDetailsController"});
 	this.route("/admin/logs_browser", {name: "admin.logs_browser", title: "", controller: "AdminLogsBrowserController"});
 	this.route("/admin/logs_server", {name: "admin.logs_server", title: "", controller: "AdminLogsServerController"});
 	this.route("/admin/details_modal", {name: "admin.details_modal", title: "", controller: "AdminDetailsModalController"});

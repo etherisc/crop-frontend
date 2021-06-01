@@ -1,10 +1,11 @@
 import { getMinioObject, putMinioObject } from '/imports/server/methods/minio.js';
 
 
-const readLocationsFile = (bucket, filename, prefix) => {
+const readLocationsFile = (bucket, params, prefix) => {
 
 	try {
 
+		const filename = params.filename;
 		const act_content = getMinioObject(bucket, filename);
 
 		const act_json = JSON.parse(act_content);

@@ -4,9 +4,9 @@ import { getMinioObject, putMinioObject } from '/imports/server/methods/minio.js
 
 
 const bucket = 'acre';
-const filename = 'Farmers Schedule.json';
+const filename = '2021-01/sitetables/2021-05-24/Farmers Schedule.json';
 
-const activations_export = Meteor.wrapAsync(function (filter, cb) {
+const activations_export = Meteor.wrapAsync(function (bucket, params, cb) {
 
 	const selected = Activations.find(filter).fetch();
 	
