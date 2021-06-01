@@ -1,4 +1,5 @@
 .textarea-parameters textarea {
 	resize: vertical;
+	height: 250px;
 }
 	
