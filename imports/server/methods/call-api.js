@@ -1,7 +1,7 @@
 
 const axios = require('axios');
 
-const callApiPost = Meteor.wrapAsync(function ({method = 'get', url, args = {}}, cb) {
+const callApi = Meteor.wrapAsync(function ({method = 'get', url, args = {}}, cb) {
 
 	
 	axios({
@@ -36,5 +36,5 @@ const callApiPost = Meteor.wrapAsync(function ({method = 'get', url, args = {}},
 });
 
 
-module.exports = { callApiPost
+module.exports = { callApi }
 				  

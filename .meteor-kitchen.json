@@ -142,7 +142,7 @@
 		},
 		{
 			"path": "client/views/admin/admin.html",
-			"checksum": "c4dce67f39a44dadff5a0244a44b5e05ae947f43"
+			"checksum": "a8fe9f1594953ee75150dbbff46f2fa6dbe7e05f"
 		},
 		{
 			"path": "client/views/admin/admin.js",
@@ -1226,7 +1226,7 @@
 		},
 		{
 			"path": "imports/server/methods/job-execution.js",
-			"checksum": "d8fa98e72e3fd377c79d541498402b88025e30e5"
+			"checksum": "ed68496dbbcccb545bcdac21027e6909a267c587"
 		},
 		{
 			"path": "imports/server/methods/locations-reader.js",
@@ -1242,11 +1242,11 @@
 		},
 		{
 			"path": "imports/server/methods/run-contract-review.js",
-			"checksum": "999fae7ff6f178665f62ab0435cac87e15cf3291"
+			"checksum": "90f5b54817a320f236e998056242ffb19d0dc545"
 		},
 		{
 			"path": "imports/server/methods/call-api.js",
-			"checksum": "e8cb7036df1feea140cfd25e960037a41ecddfb8"
+			"checksum": "91f364487b21f62c7d836bb0774fb2068457ca11"
 		},
 		{
 			"path": "lib/string_utils.js",
