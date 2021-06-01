@@ -11,7 +11,7 @@ const executeJob = ({_id}) => {
 	const { parameters, action } = Jobs.findOne({_id});
 	const params = JSON.parse(parameters);
 	
-	info(`Job execution: ${action} on ${params}`, {params, action});
+	info(`Job execution: ${action}`, {params, action});
 	
 	let result;
 	
@@ -48,13 +48,13 @@ const executeJob = ({_id}) => {
 				error(msg);
 				throw new Meteor.Error(msg);
 		}
-		info(`Job execution: ${action} on ${params} successful.`);
+		info(`Job execution: ${action} successful.`, {params, action});
 		Jobs.update({_id}, {$set: {status: 'Success', message: '', last_run: Date.now()}});
 
 		return result;
 		
 	} catch (err) {
-		error(`Error in ${action}, Error: ${err.message}`, {stack: err.stack});
+		error(`Error in ${action}, Error: ${err.message}`, {params, stack: err.stack});
 		Jobs.update({_id}, {$set: {status: 'Error', message: err.message, last_run: Date.now()}});
 		throw new Meteor.Error('Error', err.message, err.stack);
 	}
