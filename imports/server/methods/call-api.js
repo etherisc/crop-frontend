@@ -1,5 +1,5 @@
 
-import * as axios from 'axios';
+import axios from 'axios';
 
 const callApi = Meteor.wrapAsync(function ({method = 'get', url, args = {}}, cb) {
 	
