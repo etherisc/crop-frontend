@@ -142,7 +142,7 @@
 		},
 		{
 			"path": "client/views/admin/admin.html",
-			"checksum": "e20e049e502dbbc0655707a62c21a2c42d0b1b62"
+			"checksum": "93fc1c060c3c9bd79e879d84e5648aa78be66b77"
 		},
 		{
 			"path": "client/views/admin/admin.js",
@@ -202,19 +202,19 @@
 		},
 		{
 			"path": "client/views/admin/jobs/jobs.html",
-			"checksum": "d4ee4f9e56f599a7d43d26bf9dd8e90796da3acb"
+			"checksum": "bc5de2eba76f97756237d06d2594a9e31cb35d29"
 		},
 		{
 			"path": "client/views/admin/jobs/jobs.js",
-			"checksum": "56f7300195762c13da858d07d84ff9f6d27799c0"
+			"checksum": "07a73efc76f04b37b79e058abdd11b3299390b5e"
 		},
 		{
 			"path": "client/views/admin/jobs/jobs_controller.js",
-			"checksum": "7210b8ed3a96ed2ad3080f2f602bac1066bf0999"
+			"checksum": "edef8f4437f73eb2337536b1e74218cecdaaec98"
 		},
 		{
 			"path": "client/views/admin/jobs/insert/insert.html",
-			"checksum": "4bc9ac847e39241cd427258fd106ae32cff98e34"
+			"checksum": "40d6bf3c7429d0961dc8f9cb2cdf76e3714c5311"
 		},
 		{
 			"path": "client/views/admin/jobs/insert/insert.js",
@@ -226,7 +226,7 @@
 		},
 		{
 			"path": "client/views/admin/jobs/update/update.html",
-			"checksum": "3f9088824af8707a2e24da01b20cfb938e87c1f5"
+			"checksum": "c6e2dd9ecd7c34f7ac812a68709ed60b3454374a"
 		},
 		{
 			"path": "client/views/admin/jobs/update/update.js",
@@ -238,7 +238,7 @@
 		},
 		{
 			"path": "client/views/admin/jobs/details/details.html",
-			"checksum": "8449a7bd83d2768704953d39c989a2fe08f0de57"
+			"checksum": "50cf4af7a5cf536e451cd01b369ff17ce15ac322"
 		},
 		{
 			"path": "client/views/admin/jobs/details/details.js",
@@ -1226,15 +1226,15 @@
 		},
 		{
 			"path": "imports/server/methods/job-execution.js",
-			"checksum": "4ee6701729b2ec329aae6aa2e29a03e0a18ce4bf"
+			"checksum": "de1aff673d802ebb7ff52f4c5282b871d4964a26"
 		},
 		{
 			"path": "imports/server/methods/locations-reader.js",
-			"checksum": "84d83988a41531954fefa5c8753e1ff602e8cb9b"
+			"checksum": "9741c1eeec190d56dd44144d9a6d1586cd12c8c2"
 		},
 		{
 			"path": "imports/server/methods/activations-export.js",
-			"checksum": "6f612ac540ab65d90f4056a60a5d8d022fa0446f"
+			"checksum": "de634370ee7f63c37b9b1865a26cdfac73d842ba"
 		},
 		{
 			"path": "lib/string_utils.js",

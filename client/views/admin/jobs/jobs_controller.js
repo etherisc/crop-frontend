@@ -19,7 +19,7 @@ this.AdminJobsController = RouteController.extend({
 	isReady: function() {
 		this.jobListPagedExtraParams = {
 			searchText: Session.get("JobListPagedSearchString") || "",
-			searchFields: Session.get("JobListPagedSearchFields") || ["action", "parameters", "prefix", "status", "message", "last_run"],
+			searchFields: Session.get("JobListPagedSearchFields") || ["action", "parameters", "status", "message", "last_run"],
 			sortBy: Session.get("JobListPagedSortBy") || "",
 			sortAscending: Session.get("JobListPagedSortAscending"),
 			pageNo: Session.get("JobListPagedPageNo") || 0,
