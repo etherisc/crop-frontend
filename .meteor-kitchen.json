@@ -142,7 +142,7 @@
 		},
 		{
 			"path": "client/views/admin/admin.html",
-			"checksum": "d6283cffece845d4bc3a3dbb7e6376a774d83439"
+			"checksum": "9cf1ea8f47a3925ecebe34ac89fc49a1e65da8c2"
 		},
 		{
 			"path": "client/views/admin/admin.js",
@@ -1246,7 +1246,7 @@
 		},
 		{
 			"path": "imports/server/methods/call-api.js",
-			"checksum": "a3f4845c7b50bd5ecdbe91b06b45aab5c465867e"
+			"checksum": "60bfb439bd3d1b3355df505cbd1f76e2f43cb2d1"
 		},
 		{
 			"path": "lib/string_utils.js",
@@ -1592,7 +1592,7 @@
 			"fs-jetpack",
 			"minio",
 			"jquery.json-viewer",
-			"node-fetch",
+			"axios",
 			"bcrypt"
 		],
 		"mrt": [
