@@ -142,7 +142,7 @@
 		},
 		{
 			"path": "client/views/admin/admin.html",
-			"checksum": "5c8ee6a9169051150b6c8d6891ebc67a81734bf0"
+			"checksum": "d18e33bcefa8d7ba7867e4d2c1f14b7e76c3dba2"
 		},
 		{
 			"path": "client/views/admin/admin.js",
@@ -1242,11 +1242,11 @@
 		},
 		{
 			"path": "imports/server/methods/run-contract-review.js",
-			"checksum": "08aca28f458d68ee11a25dc780583f70db816df4"
+			"checksum": "c60c0f3a899e3c3998bdd64ee04e4c613396f562"
 		},
 		{
 			"path": "imports/server/methods/call-api.js",
-			"checksum": "d17026def47cb16875ef0f654ad593f66bd4b1c6"
+			"checksum": "f83110c12b6366af388aa4fe71eaf668263766fd"
 		},
 		{
 			"path": "lib/string_utils.js",

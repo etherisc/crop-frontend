@@ -31,8 +31,8 @@ const runContractReview = ({api_url, minio_host, bucket_name, accesskey, secretk
 			args: {
 				bucket_name: bucket_name,
 				folder_name: folder,
-				id,
-				site_table_file
+				id: id,
+				site_table_file: site_table_file
 			}
 		});
 		info('runContractReview seasons', response);
