@@ -1,20 +1,19 @@
 
-const fetch = require('node-fetch');
+const fetch = require('axios');
 
 const callApi = Meteor.wrapAsync(function ({method = 'get', url, args = {}}, cb) {
 	
-	info('callApi', {method, url, args});
+	info('callApi request', {method, url, args});
 	
-	
-	fetch(url, {
+	axios({
     	method,
-    	body: JSON.stringify(args),
-    	headers: { 'Content-Type': 'application/json' }
+		url,
+    	data: args
 	})
 	.then(function (response) {
-		info('callApi', response.status);
-		cb(null, response.status);
+		info('callApi response', {status: response.status});
 		console.log(response);
+		cb(null, {status: response.status});
 	})
 	.catch(function (err) {
 		let message = '';
