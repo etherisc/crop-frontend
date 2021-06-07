@@ -101,10 +101,14 @@ const augmentLocations = () => {
 	const candidates = (cty, wrd) => {
 
 		let result = [];
+		let countyUnique = false;
 		let cwNorm = normalizeCountyWard(cty, wrd);
-		
+		let foundOne = false;
+
 		locs.forEach(loc => {
+			if (foundOne) return;
 			const dist = levDistance(cwNorm, loc.cwNorm);
+			countyUnique = levDistance(cty, loc.county) === 0;
 			const res = {
 				dist, 
 				cwNorm: loc.cwNorm,
@@ -114,18 +118,19 @@ const augmentLocations = () => {
 				county: loc.county,
 				ward: loc.ward
 			};
+
 			if (dist === 0) {
-				info(`Unique Candidate found for ${cwNorm}`, res);
-				return([res]);
-			}
-			if (dist < levenstheinCutoff) {
+				result = [res];
+				foundOne = true;
+			} else if (dist < levenstheinCutoff) {
 				result.push(res);
 			}
+
 		});
 
 		info(`Candidates for ${cwNorm}: ${result.length}`, result);
 
-		return result;
+		return { countyUnique, result };
 
 	};
 
@@ -136,41 +141,46 @@ const augmentLocations = () => {
 		if (!item.county || !item.ward || normalizeCountyWard(item.county, item.ward) === '#') {
 			noLocation += 1;
 		} else {
-			const cand = candidates(item.county, item.ward); 
+			const {result, countyUnique } = candidates(item.county, item.ward); 
 			if (cand.length === 1) {
-				const {pixel, longitude, latitude, county, ward} = cand[0];
+				const {pixel, longitude, latitude, county, ward} = result[0];
 				const augmented = 'loc';
 				Activations.update({_id: item._id}, { $set: {	pixel, latitude, longitude, county, ward, augmented }});
-				info(`Activations updated based on county/ward: ${pixel}`);
-				return;
+				info(`Activation updated based on county/ward: ${pixel}`);
 			} else {
 				notUnique += 1;
+				if (countyUnique) {
+					const augmented = `Candidates: ${result.join('; ')}`; 
+					Activations.update({_id: item._id}, { $set: { augmented }});
+					info(`Activation updated, candidates found`, result);			
+				}
+
 			}
 		}
-		
+
 		// Now try to find other activations with same phone number:
-		
+
 		const phoneCand = Activations.find({mobile_num: item.mobile_num});
 		let stop = false;
 		phoneCand.forEach(phoneItem => {
-			
+
 			if (stop) {
 				info('still running...');
 				return false;
 			}
-			
+
 			if (phoneItem.pixel !== ZERO) {
 				const { pixel, latitude, longitude, county, ward } = phoneItem;
 				augmented = 'phone';
 				Activations.update({_id: item._id}, { $set: {	pixel, latitude, longitude, county, ward, augmented }});
-				info(`Activations updated based on other record with same mobile_num: ${item.mobile_num} => ${pixel}`);
+				info(`Activation updated based on other record with same mobile_num: ${item.mobile_num} => ${pixel}`);
 				phoneFound += 1;
 				stop = true;
 				return false;
 			}
-			
+
 		});
-		
+
 
 	});
 
