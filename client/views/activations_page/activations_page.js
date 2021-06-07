@@ -62,7 +62,7 @@ Template.ActivationsPageActivationsAggregates.events({
 var ActivationsPageViewExport = function(fileType) {
 	var extraParams = {
 		searchText: Session.get("ActivationListPagedSearchString") || "",
-		searchFields: Session.get("ActivationListPagedSearchFields") || ["mobile_num", "call_time", "latitude", "longitude", "order_number", "activation_code", "value_chain", "amount_premium", "pixel"],
+		searchFields: Session.get("ActivationListPagedSearchFields") || ["mobile_num", "call_time", "latitude", "longitude", "order_number", "activation_code", "value_chain", "amount_premium", "pixel", "county", "ward"],
 		sortBy: Session.get("ActivationListPagedSortBy") || "",
 		sortAscending: Session.get("ActivationListPagedSortAscending") || true
 	};
