@@ -492,7 +492,7 @@ var PoliciesPagePartnerPoliciesDetailsPolicyActivationsViewExport = function(fil
 		sortAscending: Session.get("FilteredActivationsListPagedSortAscending") || true
 	};
 
-	var exportFields = [];
+	var exportFields = ["mobile_num", "call_time", "latitude", "longitude", "order_number", "activation_code", "value_chain", "amount_premium", "pixel", "county", "ward"];
 
 	
 

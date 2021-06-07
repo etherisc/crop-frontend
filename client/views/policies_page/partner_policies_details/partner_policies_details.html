@@ -263,6 +263,36 @@
 					</span>
 				</div>
 			</div>
+			<div id="dataview-controls-export" class="form-group">
+				{{#if isNotEmpty}}
+				<div class="btn-group">
+					<button type="button" class="btn btn-default" id="dataview-export-default">
+						Export
+					</button>
+					<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+						<span class="caret">
+						</span>
+					</button>
+					<ul class="dropdown-menu" role="menu">
+						<li>
+							<a href="#" id="dataview-export-csv">
+								Export to CSV
+							</a>
+						</li>
+						<li>
+							<a href="#" id="dataview-export-tsv">
+								Export to TSV
+							</a>
+						</li>
+						<li>
+							<a href="#" id="dataview-export-json">
+								Export to JSON
+							</a>
+						</li>
+					</ul>
+				</div>
+				{{/if}}
+			</div>
 		</form>
 		{{#if isNotEmpty}}
 		<div id="dataview-data">
