@@ -109,6 +109,7 @@ const augmentLocations = () => {
 					county: loc.county,
 					ward: loc.ward
 				});
+			}
 		});
 			
 		info(`Candidates for ${cwNorm}: ${result.length}`, result);
