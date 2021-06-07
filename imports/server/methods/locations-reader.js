@@ -142,7 +142,7 @@ const augmentLocations = () => {
 			noLocation += 1;
 		} else {
 			const {result, countyUnique } = candidates(item.county, item.ward); 
-			if (cand.length === 1) {
+			if (result.length === 1) {
 				const {pixel, longitude, latitude, county, ward} = result[0];
 				const augmented = 'loc';
 				Activations.update({_id: item._id}, { $set: {	pixel, latitude, longitude, county, ward, augmented }});
