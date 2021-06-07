@@ -133,7 +133,7 @@ const augmentLocations = () => {
 
 		});
 
-		if (res.length > 0) {
+		if (result.length > 0) {
 			info(`Candidates for ${cwNorm}: ${result.length}, CountyUnique: ${countyUnique}`, {result, countyUnique});
 		}
 
