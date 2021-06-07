@@ -142,7 +142,7 @@
 		},
 		{
 			"path": "client/views/admin/admin.html",
-			"checksum": "9915d0e20c91ef35b106c6e2359cc6b7eb125429"
+			"checksum": "0034cc712cfc1070599bbdf6789bf1daa77a3616"
 		},
 		{
 			"path": "client/views/admin/admin.js",
@@ -1226,11 +1226,11 @@
 		},
 		{
 			"path": "imports/server/methods/job-execution.js",
-			"checksum": "38670cde934ad861ea8acdb56f39182d6027f753"
+			"checksum": "ab132af58aab93f888b6f46495749c6f3e6f0119"
 		},
 		{
 			"path": "imports/server/methods/locations-reader.js",
-			"checksum": "2debcc289077f26ec77764aba697f5a0b61eefcd"
+			"checksum": "dfdb85bcf58f69efd5a259b7f41ca04c3fe714a6"
 		},
 		{
 			"path": "imports/server/methods/activations-export.js",
@@ -1242,7 +1242,7 @@
 		},
 		{
 			"path": "imports/server/methods/run-contract-review.js",
-			"checksum": "46d3a9e71f8495a1415a219c3b4e3c617d3fa468"
+			"checksum": "f833da092480b4bfea70794dcab3f04a67a4a1f4"
 		},
 		{
 			"path": "imports/server/methods/call-api.js",
@@ -1593,6 +1593,7 @@
 			"minio",
 			"jquery.json-viewer",
 			"axios",
+			"fast-levenshtein",
 			"bcrypt"
 		],
 		"mrt": [

@@ -45,12 +45,15 @@ const runContractReview = ({api_url, minio_host, bucket_name, accesskey, secretk
 			}
 		});
 		info('runContractReview calculations', response);
+		
+		return(`Calculation ID: ${response.data}`);
 
 	} catch (err) {
 		error('runContractReview Error', {message: err.message, stack: err.stack})
 
 	}
 
+	
 };
 
 module.exports = { runContractReview };
