@@ -134,7 +134,7 @@ const augmentLocations = () => {
 		});
 
 		if (result.length > 0) {
-			info(`Candidates for ${cwNorm}: ${result.length}, CountyUnique: ${countyUnique}`, {result, countyUnique});
+			info(`Candidates for ${cNorm}/${wNorm}: ${result.length}, CountyUnique: ${countyUnique}`, {result, countyUnique});
 		}
 
 		return { countyUnique, result };
