@@ -1,6 +1,6 @@
 import { getMinioObject, putMinioObject } from '/imports/server/methods/minio.js';
 
-const { get: levDistance } = require('fast-levensthein');
+const { get: levDistance } = require('fast-levenshtein');
 
 
 const readLocationsFile = ({bucket, filename}, prefix) => {
