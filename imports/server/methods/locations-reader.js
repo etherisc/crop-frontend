@@ -1,5 +1,7 @@
 import { getMinioObject, putMinioObject } from '/imports/server/methods/minio.js';
 
+const { get: levDistance } = require('fast-levensthein');
+
 
 const readLocationsFile = ({bucket, filename}, prefix) => {
 
@@ -67,5 +69,68 @@ const readLocationsFile = ({bucket, filename}, prefix) => {
 	}
 };
 
-module.exports = { readLocationsFile };
+
+const normalizeCountyWard = (county, ward) => {
+	
+	return (
+		`${county}#${ward}`
+		.toUpperCase()				// Convert to upper case
+		.replace(/[^\w#]/g, ' ')	// Replace non-word (except for '#') by space
+		.replace(/\s+/g, ' ')		// Reduce multiple whitespace by single space
+		);
+	
+}
+
+
+const augmentLocations = () => {
+	
+	const ZERO = 'Pixel401201';
+	const levenstheinCutoff = 4; // give it a try
+	
+	const locs = Locations
+		.find({})
+		.fetch()
+		.map({pixel, county, ward, latitude, longitude} => 
+			 {pixel, cwNorm: normalizeCountyWard(county, ward), county, ward, latitude, longitude});
+	
+	const candidates = (cty, wrd) => {
+		
+		const cwNorm = normalizeCountyWard(cty, wrd);
+		let result = [];
+		locs.forEach(loc => {
+			const dist = levDistance(cwNorm, loc.cwNorm);
+			if (dist < levenstheinCutoff) {
+				result.push({
+					cwNorm: loc.cwNorm,
+					pixel: loc.pixel
+					latitude: loc.latitude,
+					longitude: loc.longitude, 
+					county: loc.county,
+					ward: loc.ward
+				});
+		});
+			
+		info(`Candidates for ${cwNorm}: ${result.length}`, result);
+		
+		return result;
+		
+	};
+	
+	
+	const activations = Activations.find({pixel: ZERO});
+	
+	activations.forEach(item => {
+		const cand = candidates(item.county, item.ward); 
+		if (cand.length === 1) {
+			const {pixel, longitude, latitude, county, ward} = cand[0];
+			Activations.update({_id: item._id}, { $set: {	pixel, latitude, longitude, county, ward }});
+			info(`Activations updated ${pixel}`);		
+	});
+			
+	
+	
+};
+
+
+module.exports = { readLocationsFile, augmentLocations };
 
