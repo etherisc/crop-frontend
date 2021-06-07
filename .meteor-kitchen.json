@@ -38,7 +38,7 @@
 		},
 		{
 			"path": "client/views/layout/layout.html",
-			"checksum": "60cf08b512739442dab70d2d936dd938a30f659b"
+			"checksum": "05f71bf311e1251e708be97057f70bf82afe246e"
 		},
 		{
 			"path": "client/views/layout/layout.js",
@@ -142,7 +142,7 @@
 		},
 		{
 			"path": "client/views/admin/admin.html",
-			"checksum": "6e450d71d91254110a6b84378adcbc371fd83577"
+			"checksum": "de29bf9237de6edb7d621530ccb78c40c57f6957"
 		},
 		{
 			"path": "client/views/admin/admin.js",
@@ -538,7 +538,7 @@
 		},
 		{
 			"path": "client/views/partners/details/details.html",
-			"checksum": "9a0dc57414f17627bfe7da0f3f04734336baec0f"
+			"checksum": "1fd2a3180baf527cb7195a1eb9004c165b85e191"
 		},
 		{
 			"path": "client/views/partners/details/details.js",
@@ -1194,7 +1194,7 @@
 		},
 		{
 			"path": "imports/server/methods/activations-reader.js",
-			"checksum": "77857a3b617553eaa30d2701f6020427c97fa7b1"
+			"checksum": "4a957f8e1bbc4d4ceff7996326f8e842d20a2d24"
 		},
 		{
 			"path": "server/lib/server_globals.js",
@@ -1226,11 +1226,11 @@
 		},
 		{
 			"path": "imports/server/methods/job-execution.js",
-			"checksum": "ab132af58aab93f888b6f46495749c6f3e6f0119"
+			"checksum": "61063b5f3c672caac4c4a21c1837805afbb181a1"
 		},
 		{
 			"path": "imports/server/methods/locations-reader.js",
-			"checksum": "3c553df62746a9225379240df6cd4d0ad23765e3"
+			"checksum": "cffe2d6b64f73bad2cd90a9348fcd4385af0ef3b"
 		},
 		{
 			"path": "imports/server/methods/activations-export.js",

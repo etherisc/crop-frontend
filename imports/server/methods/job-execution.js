@@ -1,5 +1,5 @@
 
-import { readActivationsFile, countActivations } from '/imports/server/methods/activations-reader.js';
+import { readActivationsFile, countActivations, createPartners } from '/imports/server/methods/activations-reader.js';
 import { activationsExport } from '/imports/server/methods/activations-export.js';
 import { readLocationsFile, augmentLocations } from '/imports/server/methods/locations-reader.js';
 import { readGroupPoliciesFile, gp_aggregates, clear_selected } from '/imports/server/methods/group-policy-reader.js';
@@ -30,15 +30,10 @@ const executeJob = ({_id}) => {
 
 			case 'readGroupPolicies': 
 				result = readGroupPoliciesFile(params);
-				result = '2 Group Policies read';
 				break; 
 
 			case 'readLocations': 
 				result = readLocationsFile(params);
-				break; 
-
-			case 'runCalculations': 
-				result = '789 Activations calculated';
 				break; 
 
 			case 'exportActivations': 
@@ -55,6 +50,10 @@ const executeJob = ({_id}) => {
 
 			case 'augmentLocations': 
 				result = augmentLocations();
+				break; 
+
+			case 'createPartners': 
+				result = createPartners();
 				break; 
 
 			default: 

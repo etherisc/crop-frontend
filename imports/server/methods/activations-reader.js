@@ -136,8 +136,19 @@ const activation_aggregates = function (filter) {
 
 }
 
+const createPartners = () => {
+	
+	Activations
+	.find({})
+	.forEach(({mpesa_num, mpesa_name}) => {
+		
+		Partners.upsert({mpesa_num}, {$set: {mpesa_name}}); 
+		
+	});
+	
+};
 
-module.exports = { countActivations, readActivationsFile, activation_aggregates };
+module.exports = { countActivations, readActivationsFile, activation_aggregates, createPartners };
 
 
 
