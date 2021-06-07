@@ -23,7 +23,7 @@ this.AdminLogsServerController = RouteController.extend({
 			sortBy: Session.get("LoglinesServerPagedSortBy") || "",
 			sortAscending: Session.get("LoglinesServerPagedSortAscending"),
 			pageNo: Session.get("LoglinesServerPagedPageNo") || 0,
-			pageSize: Session.get("LoglinesServerPagedPageSize") || 0
+			pageSize: Session.get("LoglinesServerPagedPageSize") || 25
 		};
 
 

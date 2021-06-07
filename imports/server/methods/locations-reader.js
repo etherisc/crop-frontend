@@ -87,6 +87,9 @@ const augmentLocations = () => {
 	const ZERO = 'Pixel401201';
 	const levenstheinCutoff = 3; // give it a try
 	
+	let noLocation = 0;
+	let notUnique = 0;
+	
 	const locs = Locations
 		.find({})
 		.fetch()
@@ -124,14 +127,20 @@ const augmentLocations = () => {
 	
 	activations.forEach(item => {
 		const cand = candidates(item.county, item.ward); 
+		if (!item.county || !item.ward || normalizeCountyWard(item.county, item.ward) === '#') {
+			noLocation += 1;
+		}
 		if (cand.length === 1) {
 			const {pixel, longitude, latitude, county, ward} = cand[0];
 			Activations.update({_id: item._id}, { $set: {	pixel, latitude, longitude, county, ward }});
 			info(`Activations updated ${pixel}`);		
+		} else {
+			notUnique += 1;
 		}
+			
 	});
 			
-	
+	return (`Activations without Location: ${noLocation}; not unique: ${notUnique}`);
 	
 };
 
