@@ -142,7 +142,7 @@ const createPartners = () => {
 	.find({})
 	.forEach(({mpesa_num, mpesa_name}) => {
 		
-		Partners.upsert({mpesa_num}, {$set: {mpesa_name}}); 
+		Partners.upsert({mpesa_num}, {$set: {mpesa_name, mpesa_num}}); 
 		
 	});
 	
