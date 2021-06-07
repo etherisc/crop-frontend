@@ -157,7 +157,7 @@ const augmentLocations = () => {
 			} else {
 				notUnique += 1;
 				if (countyUnique) {
-					const augmented = `Candidates: ${result.map(item => (`${item.county}:${item.ward}`)).join('; ')}`; 
+					const augmented = `Candidates: ${result.map(item => item.cDist === 0 ? item.ward : `${item.county}:${item.ward}`).join('; ')}`; 
 					Activations.update({_id: item._id}, { $set: { augmented }});
 					info(`Activation updated, candidates found`, result);			
 				}
