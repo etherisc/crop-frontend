@@ -70,12 +70,12 @@ const readLocationsFile = ({bucket, filename}, prefix) => {
 };
 
 
-const normalizeCountyWard = (county, ward) => {
+const normalize = (text) => {
 
 	return (
-		`${county}#${ward}`
+		text.
 		.toUpperCase()				// Convert to upper case
-		.replace(/[^\w#]/g, ' ')	// Replace non-word (except for '#') by space
+		.replace(/\W/g, ' ')	    // Replace non-word (except for '#') by space
 		.replace(/\s+/g, ' ')		// Reduce multiple whitespace by single space
 	);
 
@@ -85,7 +85,8 @@ const normalizeCountyWard = (county, ward) => {
 const augmentLocations = () => {
 
 	const ZERO = 'Pixel401201';
-	const levenshteinCutoff = 3; // give it a try
+	const levenshteinCutoffCounty = 3; // give it a try
+	const levenshteinCutoffWard = 4; // give it a try
 
 	let noLocation = 0;
 	let notUnique = 0;
@@ -95,23 +96,27 @@ const augmentLocations = () => {
 	.find({})
 	.fetch()
 	.map(({pixel, county, ward, latitude, longitude}) => {
-		return ({pixel, cwNorm: normalizeCountyWard(county, ward), county, ward, latitude, longitude});
+		return ({pixel, cNorm: normalize(county), wNorm: normalize(ward), county, ward, latitude, longitude});
 	});
 
 	const candidates = (cty, wrd) => {
 
 		let result = [];
 		let countyUnique = false;
-		let cwNorm = normalizeCountyWard(cty, wrd);
+		let cNorm = normalize(cty);
+		let wNorm = normalize(wrd);
 		let foundOne = false;
 		
 		locs.forEach(loc => {
 			if (foundOne) return;
-			const dist = levDistance(cwNorm, loc.cwNorm);
-			countyUnique = countyUnique || levDistance(normalizeCountyWard(cty, ''), normalizeCountyWard(loc.county, '')) === 0;
+			const cDist = levDistance(cNorm, loc.cNorm);
+			const wDist = levDistance(wNorm, loc.wNorm);
+			countyUnique = countyUnique || cDist === 0;
 			const res = {
-				dist, 
-				cwNorm: loc.cwNorm,
+				cDist,
+				wDist,
+				cNorm: loc.cNorm,
+				wNorm: loc.wNorm,
 				pixel: loc.pixel,
 				latitude: loc.latitude,
 				longitude: loc.longitude, 
@@ -119,16 +124,18 @@ const augmentLocations = () => {
 				ward: loc.ward
 			};
 
-			if (dist === 0) {
+			if (cDist === 0 && wDist === 0) {
 				result = [res];
 				foundOne = true;
-			} else if (dist < levenshteinCutoff) {
+			} else if (cDist < levenshteinCutoffCounty && wDist < levenshteinCutoffWard) {
 				result.push(res);
 			}
 
 		});
 
-		info(`Candidates for ${cwNorm}: ${result.length}, CountyUnique: ${countyUnique}`, {result, countyUnique});
+		if (res.length > 0) {
+			info(`Candidates for ${cwNorm}: ${result.length}, CountyUnique: ${countyUnique}`, {result, countyUnique});
+		}
 
 		return { countyUnique, result };
 
@@ -138,7 +145,7 @@ const augmentLocations = () => {
 	const activations = Activations.find({pixel: ZERO});
 
 	activations.forEach(item => {
-		if (!item.county || !item.ward || normalizeCountyWard(item.county, item.ward) === '#') {
+		if (!item.county || !item.ward || normalize(`${item.county}${item.ward}`) === '') {
 			noLocation += 1;
 		} else {
 			const {result, countyUnique } = candidates(item.county, item.ward); 
@@ -150,7 +157,7 @@ const augmentLocations = () => {
 			} else {
 				notUnique += 1;
 				if (countyUnique) {
-					const augmented = `Candidates: ${result.map(item => item.ward).join('; ')}`; 
+					const augmented = `Candidates: ${result.map(item => (`${item.county}:${item.ward}`)).join('; ')}`; 
 					Activations.update({_id: item._id}, { $set: { augmented }});
 					info(`Activation updated, candidates found`, result);			
 				}
@@ -161,13 +168,10 @@ const augmentLocations = () => {
 		// Now try to find other activations with same phone number:
 
 		const phoneCand = Activations.find({mobile_num: item.mobile_num});
-		let stop = false;
+		let found = false;
 		phoneCand.forEach(phoneItem => {
 
-			if (stop) {
-				info('still running...');
-				return false;
-			}
+			if (found) return;
 
 			if (phoneItem.pixel !== ZERO) {
 				const { pixel, latitude, longitude, county, ward } = phoneItem;
@@ -175,8 +179,7 @@ const augmentLocations = () => {
 				Activations.update({_id: item._id}, { $set: {	pixel, latitude, longitude, county, ward, augmented }});
 				info(`Activation updated based on other record with same mobile_num: ${item.mobile_num} => ${pixel}`);
 				phoneFound += 1;
-				stop = true;
-				return false;
+				found = true;
 			}
 
 		});
