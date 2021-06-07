@@ -487,12 +487,12 @@ Template.PoliciesPagePartnerPoliciesDetailsPolicyPaymentsViewTableItems.helpers(
 var PoliciesPagePartnerPoliciesDetailsPolicyActivationsViewExport = function(fileType) {
 	var extraParams = {
 		searchText: Session.get("FilteredActivationsListPagedSearchString") || "",
-		searchFields: Session.get("FilteredActivationsListPagedSearchFields") || ["mobile_num", "call_time", "latitude", "longitude", "order_number", "activation_code", "value_chain", "amount_premium", "pixel", "county", "ward"],
+		searchFields: Session.get("FilteredActivationsListPagedSearchFields") || ["mobile_num", "call_time", "latitude", "longitude", "order_number", "activation_code", "value_chain", "amount_premium", "pixel", "county", "ward", "augmented"],
 		sortBy: Session.get("FilteredActivationsListPagedSortBy") || "",
 		sortAscending: Session.get("FilteredActivationsListPagedSortAscending") || true
 	};
 
-	var exportFields = ["mobile_num", "call_time", "latitude", "longitude", "order_number", "activation_code", "value_chain", "amount_premium", "pixel", "county", "ward"];
+	var exportFields = ["mobile_num", "call_time", "latitude", "longitude", "order_number", "activation_code", "value_chain", "amount_premium", "pixel", "county", "ward", "augmented"];
 
 	
 
