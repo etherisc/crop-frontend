@@ -104,11 +104,16 @@ const augmentLocations = () => {
 		let countyUnique = false;
 		let cwNorm = normalizeCountyWard(cty, wrd);
 		let foundOne = false;
-
+		
 		locs.forEach(loc => {
 			if (foundOne) return;
 			const dist = levDistance(cwNorm, loc.cwNorm);
-			countyUnique = levDistance(normalizeCountyWard(cty, ''), normalizeCountyWard(loc.county, ''));
+			const c1 = normalizeCountyWard(cty, '');
+			const c2 = normalizeCountyWard(loc.county, '');
+			countyUnique = levDistance(c1, c2);
+			if (dist < levenshteinCutoff) {
+				info('check', c1, c2, countyUnique);
+			}
 			const res = {
 				dist, 
 				cwNorm: loc.cwNorm,
