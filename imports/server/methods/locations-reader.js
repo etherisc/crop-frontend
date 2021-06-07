@@ -156,6 +156,7 @@ const augmentLocations = () => {
 				Activations.update({_id: item._id}, { $set: {	pixel, latitude, longitude, county, ward, augmented }});
 				info(`Activations updated based on other record with same mobile_num: ${item.mobile_num} => ${pixel}`);
 				phoneFound += 1;
+			}
 		});
 		
 
