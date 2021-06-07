@@ -142,7 +142,7 @@
 		},
 		{
 			"path": "client/views/admin/admin.html",
-			"checksum": "858a3d6af737429171b835e2eadcffa988d2500f"
+			"checksum": "1f1b12971219a48c9698369e49931f66bb8f6065"
 		},
 		{
 			"path": "client/views/admin/admin.js",
@@ -1230,7 +1230,7 @@
 		},
 		{
 			"path": "imports/server/methods/locations-reader.js",
-			"checksum": "bf624590d498f0655bf33a846238746ee4a34bdb"
+			"checksum": "852f6dcbdd1fc929aa10225003b0482be3471a53"
 		},
 		{
 			"path": "imports/server/methods/activations-export.js",
