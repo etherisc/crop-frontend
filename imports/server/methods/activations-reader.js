@@ -142,7 +142,9 @@ const createPartners = () => {
 	.find({})
 	.forEach(({mobile_num, mpesa_name}) => {
 		
-		if (mobile_num && mpesa_name) {
+		if (!mpesa_name || mpesa_name === '') mpesa_name = 'n/a';
+		
+		if (mobile_num) {
 			Partners.upsert({mobile_num}, {$set: {mpesa_name, mobile_num}}); 
 		}
 		
