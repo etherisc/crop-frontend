@@ -108,7 +108,7 @@ const augmentLocations = () => {
 		locs.forEach(loc => {
 			if (foundOne) return;
 			const dist = levDistance(cwNorm, loc.cwNorm);
-			countyUnique = levDistance(normalizeCountyWard(cty, ''), normalizeCountyWard(loc.county, '')) === 0;
+			countyUnique = levDistance(normalizeCountyWard(cty, ''), normalizeCountyWard(loc.county, ''));
 			const res = {
 				dist, 
 				cwNorm: loc.cwNorm,
