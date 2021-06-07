@@ -86,7 +86,7 @@ const augmentLocations = () => {
 
 	const ZERO = 'Pixel401201';
 	const levenshteinCutoffCounty = 3; // give it a try
-	const levenshteinCutoffWard = 4; // give it a try
+	const levenshteinCutoffWard = 6; // give it a try
 
 	let noLocation = 0;
 	let notUnique = 0;
@@ -156,10 +156,13 @@ const augmentLocations = () => {
 				info(`Activation updated based on county/ward: ${pixel}`);
 			} else {
 				notUnique += 1;
-				if (countyUnique) {
+				if (countyUnique && result.length > 0) {
 					const augmented = `Candidates: ${result.map(item => item.cDist === 0 ? item.ward : `${item.county}:${item.ward}`).join('; ')}`; 
 					Activations.update({_id: item._id}, { $set: { augmented }});
 					info(`Activation updated, candidates found`, result);			
+				} else {
+					const augmented = 'County ok'
+					Activations.update({_id: item._id}, { $set: { augmented }});
 				}
 
 			}
