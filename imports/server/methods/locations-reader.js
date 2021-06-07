@@ -85,7 +85,7 @@ const normalizeCountyWard = (county, ward) => {
 const augmentLocations = () => {
 
 	const ZERO = 'Pixel401201';
-	const levenstheinCutoff = 3; // give it a try
+	const levenshteinCutoff = 3; // give it a try
 
 	let noLocation = 0;
 	let notUnique = 0;
@@ -127,7 +127,7 @@ const augmentLocations = () => {
 			if (dist === 0) {
 				result = [res];
 				foundOne = true;
-			} else if (dist < levenstheinCutoff) {
+			} else if (dist < levenshteinCutoff) {
 				result.push(res);
 			}
 
