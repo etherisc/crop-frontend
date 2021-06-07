@@ -140,9 +140,11 @@ const createPartners = () => {
 	
 	Activations
 	.find({})
-	.forEach(({mpesa_num, mpesa_name}) => {
+	.forEach(({mobile_num, mpesa_name}) => {
 		
-		Partners.upsert({mobile_num}, {$set: {mpesa_name, mobile_num}}); 
+		if (mobile_num && mpesa_name) {
+			Partners.upsert({mobile_num}, {$set: {mpesa_name, mobile_num}}); 
+		}
 		
 	});
 	
