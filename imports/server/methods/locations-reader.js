@@ -112,7 +112,7 @@ const augmentLocations = () => {
 			const c2 = normalizeCountyWard(loc.county, '');
 			countyUnique = levDistance(c1, c2);
 			if (dist < levenshteinCutoff) {
-				info('check', c1, c2, countyUnique);
+				info('check', {c1, c2, countyUnique});
 			}
 			const res = {
 				dist, 
