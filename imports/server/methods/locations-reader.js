@@ -90,8 +90,9 @@ const augmentLocations = () => {
 	const locs = Locations
 		.find({})
 		.fetch()
-		.map(({pixel, county, ward, latitude, longitude}) => 
-			 {pixel, cwNorm: normalizeCountyWard(county, ward), county, ward, latitude, longitude});
+		.map(({pixel, county, ward, latitude, longitude}) => {
+			return ({pixel, cwNorm: normalizeCountyWard(county, ward), county, ward, latitude, longitude});
+		});
 	
 	const candidates = (cty, wrd) => {
 		
