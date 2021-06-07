@@ -109,7 +109,7 @@ const augmentLocations = () => {
 			if (foundOne) return;
 			const dist = levDistance(cwNorm, loc.cwNorm);
 			countyUnique = levDistance(normalizeCountyWard(cty,''), normalizeCountyWard(loc.county, '')) === 0;
-			info('check', {countyUnique, cty: normalizeCountyWard(cty,''), locCty: normalizeCountyWard(loc.county, '')};
+			info('check', {countyUnique, cty: normalizeCountyWard(cty,''), locCty: normalizeCountyWard(loc.county, '')});
 			const res = {
 				dist, 
 				cwNorm: loc.cwNorm,
