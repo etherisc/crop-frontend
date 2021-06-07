@@ -127,6 +127,7 @@ const augmentLocations = () => {
 			const {pixel, longitude, latitude, county, ward} = cand[0];
 			Activations.update({_id: item._id}, { $set: {	pixel, latitude, longitude, county, ward }});
 			info(`Activations updated ${pixel}`);		
+		}
 	});
 			
 	
