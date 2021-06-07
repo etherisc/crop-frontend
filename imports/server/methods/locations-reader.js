@@ -103,8 +103,7 @@ const augmentLocations = () => {
 		let result = [];
 		locs.forEach(loc => {
 			const dist = levDistance(cwNorm, loc.cwNorm);
-			if (dist < levenstheinCutoff) {
-				result.push({
+			const res = {
 					dist, 
 					cwNorm: loc.cwNorm,
 					pixel: loc.pixel,
@@ -112,7 +111,13 @@ const augmentLocations = () => {
 					longitude: loc.longitude, 
 					county: loc.county,
 					ward: loc.ward
-				});
+				};
+			if (dist === 0) {
+				info(`Unique Candidate found for ${cwNorm}`, res);
+				return([res]);
+			}
+			if (dist < levenstheinCutoff) {
+				result.push(res);
 			}
 		});
 			
