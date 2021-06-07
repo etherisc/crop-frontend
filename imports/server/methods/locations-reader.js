@@ -85,7 +85,7 @@ const normalizeCountyWard = (county, ward) => {
 const augmentLocations = () => {
 	
 	const ZERO = 'Pixel401201';
-	const levenstheinCutoff = 4; // give it a try
+	const levenstheinCutoff = 3; // give it a try
 	
 	const locs = Locations
 		.find({})
@@ -102,6 +102,7 @@ const augmentLocations = () => {
 			const dist = levDistance(cwNorm, loc.cwNorm);
 			if (dist < levenstheinCutoff) {
 				result.push({
+					dist, 
 					cwNorm: loc.cwNorm,
 					pixel: loc.pixel,
 					latitude: loc.latitude,
