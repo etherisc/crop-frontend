@@ -103,7 +103,7 @@ const augmentLocations = () => {
 			if (dist < levenstheinCutoff) {
 				result.push({
 					cwNorm: loc.cwNorm,
-					pixel: loc.pixel
+					pixel: loc.pixel,
 					latitude: loc.latitude,
 					longitude: loc.longitude, 
 					county: loc.county,
