@@ -73,7 +73,7 @@ const readLocationsFile = ({bucket, filename}, prefix) => {
 const normalize = (text) => {
 
 	return (
-		text.
+		text
 		.toUpperCase()				// Convert to upper case
 		.replace(/\W/g, ' ')	    // Replace non-word (except for '#') by space
 		.replace(/\s+/g, ' ')		// Reduce multiple whitespace by single space
