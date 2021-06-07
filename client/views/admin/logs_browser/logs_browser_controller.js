@@ -23,7 +23,7 @@ this.AdminLogsBrowserController = RouteController.extend({
 			sortBy: Session.get("LoglinesBrowserPagedSortBy") || "",
 			sortAscending: Session.get("LoglinesBrowserPagedSortAscending"),
 			pageNo: Session.get("LoglinesBrowserPagedPageNo") || 0,
-			pageSize: Session.get("LoglinesBrowserPagedPageSize") || 0
+			pageSize: Session.get("LoglinesBrowserPagedPageSize") || 25
 		};
 
 
