@@ -142,7 +142,7 @@
 		},
 		{
 			"path": "client/views/admin/admin.html",
-			"checksum": "f8a10de96de2db532bc742b2c2a90eff83e9ff93"
+			"checksum": "00456841d20e9a5b4b736d7912561cf416951989"
 		},
 		{
 			"path": "client/views/admin/admin.js",
@@ -1194,7 +1194,7 @@
 		},
 		{
 			"path": "imports/server/methods/activations-reader.js",
-			"checksum": "54e695bba4eb4078ff7e149152a0cbda2deca29a"
+			"checksum": "6ebc72dcef8575871003f40bae3073c7937ca87c"
 		},
 		{
 			"path": "server/lib/server_globals.js",
