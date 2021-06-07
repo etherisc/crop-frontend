@@ -101,6 +101,8 @@ const augmentLocations = () => {
 	const candidates = (cty, wrd) => {
 
 		let result = [];
+		let cwNorm = normalizeCountyWard(cty, wrd);
+		
 		locs.forEach(loc => {
 			const dist = levDistance(cwNorm, loc.cwNorm);
 			const res = {
