@@ -67,7 +67,7 @@ var ActivationsPageViewExport = function(fileType) {
 		sortAscending: Session.get("ActivationListPagedSortAscending") || true
 	};
 
-	var exportFields = [];
+	var exportFields = ["mobile_num", "call_time", "latitude", "longitude", "order_number", "activation_code", "value_chain", "amount_premium", "pixel", "county", "ward"];
 
 	
 
