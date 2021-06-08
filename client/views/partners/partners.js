@@ -51,7 +51,7 @@ var PartnersViewExport = function(fileType) {
 		sortAscending: Session.get("PartnerListPagedSortAscending") || true
 	};
 
-	var exportFields = [];
+	var exportFields = ["id", "mpesa_name", "mobile_num"];
 
 	
 
