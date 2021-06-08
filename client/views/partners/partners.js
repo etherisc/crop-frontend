@@ -46,12 +46,12 @@ Template.PartnersHeader.events({
 var PartnersViewExport = function(fileType) {
 	var extraParams = {
 		searchText: Session.get("PartnerListPagedSearchString") || "",
-		searchFields: Session.get("PartnerListPagedSearchFields") || ["id", "mpesa_name", "mobile_num", "is_signed", "tx_hash"],
+		searchFields: Session.get("PartnerListPagedSearchFields") || ["_id", "mpesa_name", "mobile_num", "is_signed", "tx_hash"],
 		sortBy: Session.get("PartnerListPagedSortBy") || "",
 		sortAscending: Session.get("PartnerListPagedSortAscending") || true
 	};
 
-	var exportFields = ["id", "mpesa_name", "mobile_num"];
+	var exportFields = ["_id", "mpesa_name", "mobile_num"];
 
 	
 
