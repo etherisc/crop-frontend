@@ -87,7 +87,13 @@ const bongaFetchDeliveryReport = ({_id, unique_id}) => {
 };
 
 const bongaSMS = ({mobile_num, message}) => {
-	const _id = Sms.insert({mobile_num, message, status: 0, status_message: 'sending...'});
+	const _id = Sms.insert({
+		timestamp: Date.now(), 
+		mobile_num, 
+		message, 
+		status: 0, 
+		status_message: 'sending...'
+	});
 	try {
 		const {status, statusText, headers, data} = bongaApi({
 			method: 'post', 
