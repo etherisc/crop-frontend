@@ -10,6 +10,7 @@
     "bcrypt": "^5.0.1",
     "ethers": "^5.2.0",
     "fast-levenshtein": "^3.0.0",
+    "form-data": "^4.0.0",
     "fs-jetpack": "^4.1.0",
     "jquery.json-viewer": "^1.4.0",
     "meteor-node-stubs": "^1.0.1",
