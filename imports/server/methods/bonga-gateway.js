@@ -86,7 +86,7 @@ const bongaApi = Meteor.wrapAsync(function ({method='get', url = 'send-sms-v1', 
 const bongaFetchDeliveryReport = ({_id, unique_id}) => {
 	return bongaApi({
 		method: 'get',
-		url: 'fetch-delivery',
+		url: '/fetch-delivery',
 		unique_id
 	});
 };
@@ -102,7 +102,7 @@ const bongaSMS = ({mobile_num, message}) => {
 	try {
 		const {status, statusText, headers, data} = bongaApi({
 			method: 'post', 
-			url: 'send-sms-v1', 
+			url: '/send-sms-v1', 
 			args: {
 				MSISDN: mobile_num, 
 				txtMessage: message, 
@@ -144,7 +144,7 @@ const bongaSMS = ({mobile_num, message}) => {
 const bongaSendMoney = ({mobile, message, amount}) => {
 	const response = bongaApi({
 		method: 'post', 
-		url: 'b2c-send-money', 
+		url: '/b2c-send-money', 
 		args: {
 			mobile: mobile_num, 
 			message, 
