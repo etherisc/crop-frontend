@@ -121,7 +121,7 @@ const bongaSMS = ({mobile_num, message}) => {
 		} else if (status === 666) {
 			Sms.upsert({_id}, {$set: { status, status_message: data.status_message }});
 		} else {
-			Sms.upsert({_id}, {$set: { status: 999, 'Unknown Gateway Error' }});
+			Sms.upsert({_id}, {$set: { status: 999, status_message: 'Unknown Gateway Error' }});
 		};
 	} catch (error) {
 		Sms.upsert({_id}, {$set: { status: 999, status_message: 'Unknown Gateway Error'}});
