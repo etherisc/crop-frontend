@@ -18,7 +18,7 @@ this.ActivationsPageController = RouteController.extend({
 	isReady: function() {
 		this.activationListPagedExtraParams = {
 			searchText: Session.get("ActivationListPagedSearchString") || "",
-			searchFields: Session.get("ActivationListPagedSearchFields") || ["mobile_num", "call_time", "latitude", "longitude", "order_number", "activation_code", "value_chain", "amount_premium", "pixel", "county", "ward", "augmented"],
+			searchFields: Session.get("ActivationListPagedSearchFields") || ["prefix", "mobile_num", "call_time", "latitude", "longitude", "order_number", "activation_code", "value_chain", "amount_premium", "pixel", "county", "ward", "augmented", "amount_subsidy", "planting_date"],
 			sortBy: Session.get("ActivationListPagedSortBy") || "",
 			sortAscending: Session.get("ActivationListPagedSortAscending"),
 			pageNo: Session.get("ActivationListPagedPageNo") || 0,

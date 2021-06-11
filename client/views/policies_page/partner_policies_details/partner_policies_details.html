@@ -336,6 +336,9 @@
 	<table id="dataview-table" class="table table-striped">
 		<thead id="dataview-table-header">
 			<tr id="dataview-table-header-row">
+				<th class="th-sortable" data-sort="prefix">
+					Prefix
+				</th>
 				<th class="th-sortable" data-sort="mobile_num">
 					Mobile Num
 				</th>
@@ -369,6 +372,12 @@
 				<th class="th-sortable" data-sort="augmented">
 					Augmented
 				</th>
+				<th class="th-sortable" data-sort="amount_subsidy">
+					Amount Subsidy
+				</th>
+				<th class="th-sortable" data-sort="planting_date">
+					Planting Date
+				</th>
 			</tr>
 		</thead>
 		<tbody id="dataview-table-items">
@@ -379,6 +388,9 @@
 
 <template name="PoliciesPagePartnerPoliciesDetailsPolicyActivationsViewTableItems">
 	<tr id="dataview-table-items-row">
+		<td>
+			{{prefix}}
+		</td>
 		<td>
 			{{mobile_num}}
 		</td>
@@ -411,6 +423,12 @@
 		</td>
 		<td>
 			{{augmented}}
+		</td>
+		<td>
+			{{amount_subsidy}}
+		</td>
+		<td>
+			{{planting_date}}
 		</td>
 	</tr>
 </template>

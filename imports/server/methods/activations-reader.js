@@ -20,7 +20,7 @@ const readActivationsFile = (bucket, params, prefix) => {
 
 			counter += 1;
 
-			let { 
+			let {
 				mobile_no,
 				serial_number,
 				order_number,
@@ -37,7 +37,8 @@ const readActivationsFile = (bucket, params, prefix) => {
 				latitude,
 				mpesa_ref,
 				mpesa_name,
-				date_activated
+				date_activated,
+				amount_subsidy
 			} = item; 
 
 			order_number = serial_number ? serial_number : (order_number ? order_number : null);
@@ -56,6 +57,7 @@ const readActivationsFile = (bucket, params, prefix) => {
 						activation_code: voucher_code,
 						value_chain,
 						amount_premium,
+						amount_subsidy,
 						region,
 						county,
 						ward,
