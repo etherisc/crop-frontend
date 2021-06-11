@@ -122,9 +122,9 @@ const bongaSMS = ({mobile_num, message}) => {
 				}});
 			} else {
 				error(`Error fetching Delivery Report, unique_id=${data.unique_id}`, {
-					response2.status, 
-					response2.statusText, 
-					response2.data
+					status: response2.status, 
+					statusText: response2.statusText, 
+					data: response2.data
 				});
 			}
 			// even if we cannot fetch Deliver Report, we consider the SMS as delivered
