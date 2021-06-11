@@ -138,8 +138,7 @@ const bongaSendMoney = ({mobile, message, amount}) => {
 			message, 
 			amount, 
 			smsServiceID: serviceID
-		}
-	});
+		}});
 });
 
 
