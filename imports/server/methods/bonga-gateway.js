@@ -139,7 +139,7 @@ const bongaSendMoney = ({mobile, message, amount}) => {
 			amount, 
 			smsServiceID: serviceID
 		}});
-});
+};
 
 
 module.exports = { bonga, bongaSMS, bongaSendMoney };
