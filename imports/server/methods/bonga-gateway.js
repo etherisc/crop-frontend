@@ -83,7 +83,9 @@ const bongaFetchDeliveryReport = ({_id, unique_id}) => {
 	return bongaApi({
 		method: 'get',
 		url: '/fetch-delivery',
-		unique_id
+		{
+			unique_id
+		}
 	});
 };
 
