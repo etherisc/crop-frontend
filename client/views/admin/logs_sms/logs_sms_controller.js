@@ -47,7 +47,7 @@ this.AdminLogsSmsController = RouteController.extend({
 
 		var data = {
 			params: this.params || {},
-			logline_sms_list_paged: Sms.find(databaseUtils.extendFilter({}, this.loglineSmsListPagedExtraParams), databaseUtils.extendOptions({}, this.loglineSmsListPagedExtraParams)),
+			logline_sms_list_paged: Sms.find(databaseUtils.extendFilter({}, this.loglineSmsListPagedExtraParams), databaseUtils.extendOptions({sort:{timestamp:-1}}, this.loglineSmsListPagedExtraParams)),
 			logline_sms_list_paged_count: Counts.get("logline_sms_list_paged_count")
 		};
 		
