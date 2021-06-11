@@ -63,13 +63,7 @@ const bongaApi = Meteor.wrapAsync(function ({method='get', url = 'send-sms-v1', 
 		if (err.response) {
 			// The request was made and the server responded with a status code
 			// that falls out of the range of 2xx
-			if (err.response.status === 666) { // we handle this as valid response
-				const { status, statusText, headers, data } = response;
-				info('bongaApi response', {status, statusText, headers, data});
-				cb(null, {status, statusText, headers, data});
-			} else {
-				message = `bongaApi received status ${err.response.status}`;
-			}
+			message = `bongaApi received status ${err.response.status}`;
 		} else if (err.request) {
 			// The request was made but no response was received
 			// `error.request` is an instance of XMLHttpRequest in the browser and an instance of
@@ -111,16 +105,16 @@ const bongaSMS = ({mobile_num, message}) => {
 				serviceID
 			}
 		});
-		if (status === 222) {
+		if (data.status === 222) {
 			Sms.upsert({_id}, {$set: {
-				status, 
+				status: data.status, 
 				status_message: data.status_message, 
 				unique_id: data.unique_id, 
 				timestamp: Date.now(), 
 				credits: data.credits
 			}});
 			const {status, statusText, headers, data} = bongaFetchDeliveryReport({_id, unique_id: data.unique_id});
-			if (status === 222) {
+			if (data.status === 222) {
 				Sms.upsert({_id}, {$set: {
 					delivery_status_desc: data.delivery_status_desc,
 					date_received: data.date_received
@@ -131,8 +125,8 @@ const bongaSMS = ({mobile_num, message}) => {
 			// even if we cannot fetch Deliver Report, we consider the SMS as delivered
 			return 'SMS successfully sent';
 
-		} else if (status === 666) {
-			Sms.upsert({_id}, {$set: { status, status_message: data.status_message }});
+		} else if (data.status === 666) {
+			Sms.upsert({_id}, {$set: { status: data.status, status_message: data.status_message }});
 		} else {
 			Sms.upsert({_id}, {$set: { status: 998, status_message: 'Unknown Gateway Error' }});
 		};
