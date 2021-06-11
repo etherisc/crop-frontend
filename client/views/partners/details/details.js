@@ -228,6 +228,7 @@ Template.PartnersDetailsSendSms.events({
 				
 
 				/* on submit */
+console.log(this);
 console.log(values);
 			}
 		);

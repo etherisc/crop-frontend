@@ -142,7 +142,7 @@
 		},
 		{
 			"path": "client/views/admin/admin.html",
-			"checksum": "415427b7ea0ab1e996bbec2c146a23f8374e94a6"
+			"checksum": "4c8a5c12a108ecd38193b5d453f7252ced97f438"
 		},
 		{
 			"path": "client/views/admin/admin.js",
@@ -542,7 +542,7 @@
 		},
 		{
 			"path": "client/views/partners/details/details.js",
-			"checksum": "4628d3d48d9bff56785a9bf8c5d9f18b6f668d8f"
+			"checksum": "4c2601043e92bbc0ebb63f0c141807750a8d72f0"
 		},
 		{
 			"path": "client/views/partners/details/details_controller.js",
