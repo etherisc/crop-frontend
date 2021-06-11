@@ -16,6 +16,10 @@ const bongaApi = Meteor.wrapAsync(function ({method='get', endpoint = 'send-sms-
 	
 	if (method === 'get') {
 		
+		args.apiClientID = apiClientID;
+		args.key = key;
+		args.secret = secret;
+		
 		config = {
 			method,
 			endpoint,
@@ -26,7 +30,7 @@ const bongaApi = Meteor.wrapAsync(function ({method='get', endpoint = 'send-sms-
 	} else if (method === 'post') {
 		
 		data = new FormData();
-		data.append('apiClientID', apiClientId);
+		data.append('apiClientID', apiClientID);
 		data.append('key', key);
 		data.append('secret', secret);
 
