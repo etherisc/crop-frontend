@@ -1,9 +1,10 @@
 this.AdminLogsSmsController = RouteController.extend({
-	template: "AdminLogsSms",
+	template: "Admin",
 	
 
 	yieldTemplates: {
-		/*YIELD_TEMPLATES*/
+		'AdminLogsSms': { to: 'AdminSubcontent'}
+		
 	},
 
 	onBeforeAction: function() {
@@ -11,7 +12,7 @@ this.AdminLogsSmsController = RouteController.extend({
 	},
 
 	action: function() {
-		if(this.isReady()) { this.render(); } else { this.render("loading"); }
+		if(this.isReady()) { this.render(); } else { this.render("Admin"); this.render("loading", { to: "AdminSubcontent" });}
 		/*ACTION_FUNCTION*/
 	},
 
