@@ -229,7 +229,12 @@ Template.PartnersDetailsSendSms.events({
 
 				/* on submit */
 console.log(t.data.partner.mobile_num);
-toast_info(`Sending SMS to ${t.data.partner.mobile_num}`);
+toast_confirm(`Sending SMS to ${t.data.partner.mobile_num}`)
+.then((result) => {
+	if (result) {
+		console.log('Sending...');
+	};
+};
 			}
 		);
 
