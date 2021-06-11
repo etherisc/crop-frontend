@@ -68,14 +68,14 @@
 	<table id="dataview-table" class="table table-striped table-hover">
 		<thead id="dataview-table-header">
 			<tr id="dataview-table-header-row">
+				<th class="th-sortable" data-sort="timestamp">
+					Timestamp
+				</th>
 				<th class="th-sortable" data-sort="mobile_num">
 					Mobile Num
 				</th>
 				<th class="th-sortable" data-sort="message">
 					Message
-				</th>
-				<th class="th-sortable" data-sort="timestamp">
-					Timestamp
 				</th>
 				<th class="th-sortable" data-sort="status">
 					Status
@@ -97,13 +97,13 @@
 <template name="AdminLogsSmsViewTableItems">
 	<tr id="dataview-table-items-row">
 		<td>
+			{{formatDate timestamp 'DD/MM/YYYY hh:mm:ss'}}
+		</td>
+		<td>
 			{{mobile_num}}
 		</td>
 		<td>
 			{{message}}
-		</td>
-		<td>
-			{{formatDate timestamp 'DD/MM/YYYY hh:mm:ss'}}
 		</td>
 		<td>
 			{{status}}

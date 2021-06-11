@@ -3,7 +3,7 @@ Meteor.publish("logline_sms_list", function() {
 });
 
 Meteor.publish("logline_sms", function(loglineSmsId) {
-	return Sms.find({_id:loglineSmsId}, {});
+	return Sms.find({_id:loglineSmsId}, {sort:{timestamp:-1}});
 });
 
 Meteor.publish("logline_sms_list_paged", function(extraOptions) {

@@ -142,7 +142,7 @@
 		},
 		{
 			"path": "client/views/admin/admin.html",
-			"checksum": "89bad81b69a6f3a9d9ea26b9bfa1385a136e9c26"
+			"checksum": "e7c2816883729c83388a99b213e2bf23b9be0987"
 		},
 		{
 			"path": "client/views/admin/admin.js",
@@ -286,19 +286,19 @@
 		},
 		{
 			"path": "client/views/admin/logs_sms/logs_sms.html",
-			"checksum": "fe15d864e95e2dcd20d628dd5509057cd7b158de"
+			"checksum": "bfd03d666b9afff284f2627810bd266ed1c0bb75"
 		},
 		{
 			"path": "client/views/admin/logs_sms/logs_sms.js",
-			"checksum": "1f78befe065b0b63db9b9a2f23ccb9cd92e31b0e"
+			"checksum": "cb03a3dccf3ab16a6f58018a2e82d399537ba344"
 		},
 		{
 			"path": "client/views/admin/logs_sms/logs_sms_controller.js",
-			"checksum": "3382a984bbaa28e30aee07c243fbd986340b835f"
+			"checksum": "e17552ea4763db5a25ecb3484edcf58bb1a5351b"
 		},
 		{
 			"path": "client/views/admin/logs_sms/details/details.html",
-			"checksum": "9eba452aad589e1a7f0bb2d46a98f5c7be688166"
+			"checksum": "593060793ea0c5fac91ea9525d2274ccc1c371e8"
 		},
 		{
 			"path": "client/views/admin/logs_sms/details/details.js",
@@ -306,7 +306,7 @@
 		},
 		{
 			"path": "client/views/admin/logs_sms/details/details_controller.js",
-			"checksum": "fd24b4d08b1472b10f84deb056cf43deba98a96a"
+			"checksum": "671276b5dddbb2fba7e9df2fff81be690f2474b4"
 		},
 		{
 			"path": "client/views/user_settings/user_settings.html",
@@ -1182,7 +1182,7 @@
 		},
 		{
 			"path": "server/publish/sms.js",
-			"checksum": "bd35387d4b06c0528ce6426fac27ba7340a341e4"
+			"checksum": "323d5fe434bd0bded640b9ead3c7ef0d6825bbf4"
 		},
 		{
 			"path": "client/styles/user_styles.less",
