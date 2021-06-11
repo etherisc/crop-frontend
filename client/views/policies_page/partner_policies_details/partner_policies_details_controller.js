@@ -26,7 +26,7 @@ this.PoliciesPagePartnerPoliciesDetailsController = RouteController.extend({
 		};
 		this.filteredActivationsListPagedExtraParams = {
 			searchText: Session.get("FilteredActivationsListPagedSearchString") || "",
-			searchFields: Session.get("FilteredActivationsListPagedSearchFields") || ["mobile_num", "call_time", "latitude", "longitude", "order_number", "activation_code", "value_chain", "amount_premium", "pixel", "county", "ward", "augmented"],
+			searchFields: Session.get("FilteredActivationsListPagedSearchFields") || ["prefix", "mobile_num", "call_time", "latitude", "longitude", "order_number", "activation_code", "value_chain", "amount_premium", "pixel", "county", "ward", "augmented", "amount_subsidy", "planting_date"],
 			sortBy: Session.get("FilteredActivationsListPagedSortBy") || "",
 			sortAscending: Session.get("FilteredActivationsListPagedSortAscending"),
 			pageNo: Session.get("FilteredActivationsListPagedPageNo") || 0,
