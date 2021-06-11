@@ -106,7 +106,7 @@ const bongaSMS = ({mobile_num, message}) => {
 				timestamp: Date.now(), 
 				credits: data.credits
 			}});
-			const {status, statusText, headers, data} = bongaFetchDeliveryReport({_id, data.unique_id});
+			const {status, statusText, headers, data} = bongaFetchDeliveryReport({_id, unique_id: data.unique_id});
 			if (status === 222) {
 				Sms.upsert({_id}, {$set: {
 					delivery_status_desc: data.delivery_status_desc,
