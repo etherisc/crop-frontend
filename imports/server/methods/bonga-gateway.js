@@ -96,7 +96,7 @@ const bongaSMS = ({mobile_num, message}) => {
 		status_message: 'sending...'
 	});
 	try {
-		const {status, statusText, headers, data} = bongaApi({
+		const response = bongaApi({
 			method: 'post', 
 			url: '/send-sms-v1', 
 			args: {
@@ -105,28 +105,33 @@ const bongaSMS = ({mobile_num, message}) => {
 				serviceID
 			}
 		});
-		if (data.status === 222) {
+		
+		if (response.data.status === 222) {
 			Sms.upsert({_id}, {$set: {
-				status: data.status, 
-				status_message: data.status_message, 
-				unique_id: data.unique_id, 
+				status: response.data.status, 
+				status_message: response.data.status_message, 
+				unique_id: response.data.unique_id, 
 				timestamp: Date.now(), 
-				credits: data.credits
+				credits: response.data.credits
 			}});
-			const {status, statusText, headers, data} = bongaFetchDeliveryReport({_id, unique_id: data.unique_id});
-			if (data.status === 222) {
+			const response2 = bongaFetchDeliveryReport({_id, unique_id: response.data.unique_id});
+			if (response2.data.status === 222) {
 				Sms.upsert({_id}, {$set: {
-					delivery_status_desc: data.delivery_status_desc,
-					date_received: data.date_received
+					delivery_status_desc: response2.data.delivery_status_desc,
+					date_received: response2.data.date_received
 				}});
 			} else {
-				error(`Error fetching Delivery Report, unique_id=${data.unique_id}`, {status, statusText, headers, data});
+				error(`Error fetching Delivery Report, unique_id=${data.unique_id}`, {
+					response2.status, 
+					response2.statusText, 
+					response2.data
+				});
 			}
 			// even if we cannot fetch Deliver Report, we consider the SMS as delivered
 			return 'SMS successfully sent';
 
-		} else if (data.status === 666) {
-			Sms.upsert({_id}, {$set: { status: data.status, status_message: data.status_message }});
+		} else if (response.data.status === 666) {
+			Sms.upsert({_id}, {$set: { status: response.data.status, status_message: response.data.status_message }});
 		} else {
 			Sms.upsert({_id}, {$set: { status: 998, status_message: 'Unknown Gateway Error' }});
 		};
