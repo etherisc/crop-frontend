@@ -37,13 +37,15 @@ const bongaApi = Meteor.wrapAsync(function ({method='get', url = 'send-sms-v1', 
 		Object.keys(args).forEach(item => {
 			data.append(item, args[item]);
 		});
-		
+		console.log(data);
 		config = {
 			method,
 			url,
 			baseURL,
 			data,
-			headers: { "Content-Type": "multipart/form-data" }
+			headers: {
+				...data.getHeaders()
+			}
 		};
 			
 	} else {
@@ -52,7 +54,6 @@ const bongaApi = Meteor.wrapAsync(function ({method='get', url = 'send-sms-v1', 
 	
 	axios(config)
 	.then(function (response) {
-		console.log(response);
 		const { status, statusText, headers, data } = response;
 		info('bongaApi response', {status, statusText, headers, data});
 		cb(null, {status, statusText, headers, data});
