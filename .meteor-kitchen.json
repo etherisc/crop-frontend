@@ -142,7 +142,7 @@
 		},
 		{
 			"path": "client/views/admin/admin.html",
-			"checksum": "dfe4b188beee21ea4029362fa2ad3ec8e1ecb167"
+			"checksum": "765802f2c64ec8366412eccddc8b284eb5b9006d"
 		},
 		{
 			"path": "client/views/admin/admin.js",
@@ -538,15 +538,15 @@
 		},
 		{
 			"path": "client/views/partners/details/details.html",
-			"checksum": "449ffb81d8fe0f9656d7bbcf84b9a5fe63e40576"
+			"checksum": "8596143be6f7697e6ed0c50a7fad04bac32b4e73"
 		},
 		{
 			"path": "client/views/partners/details/details.js",
-			"checksum": "0aca2f9c2a06d7f7d68656242798feebf863e8f7"
+			"checksum": "e99902ce36abb769950ceade970468099846f4de"
 		},
 		{
 			"path": "client/views/partners/details/details_controller.js",
-			"checksum": "f9dc47ee6290e2f5b7a3d938ff2687acf6df57e4"
+			"checksum": "7b679ce5b3208f83741f685c5b9d3d0f68191b18"
 		},
 		{
 			"path": "client/views/arc2_data_page/arc2_data_page.html",
@@ -1106,7 +1106,7 @@
 		},
 		{
 			"path": "server/publish/policies.js",
-			"checksum": "75106dc8d16600cf05f935c9533b363eb9d6077d"
+			"checksum": "c25465ac0948f3d5c802e0dc38f4e05324f443b2"
 		},
 		{
 			"path": "both/collections/policy_stages.js",
@@ -1145,6 +1145,22 @@
 			"checksum": "16d198ea716570d6a64af8fe4fe08697d13e4205"
 		},
 		{
+			"path": "both/collections/sms.js",
+			"checksum": "93050990a59ba2810b1f28ee9c7272777f03ac7c"
+		},
+		{
+			"path": "server/methods/sms.js",
+			"checksum": "d609d5dd8abb3c452389c8f608745045219a20d5"
+		},
+		{
+			"path": "server/collections/sms.js",
+			"checksum": "2fdd6a3eb817d44edc0b6cc2c4ed3d8c78efe966"
+		},
+		{
+			"path": "server/publish/sms.js",
+			"checksum": "da39a3ee5e6b4b0d3255bfef95601890afd80709"
+		},
+		{
 			"path": "client/styles/user_styles.less",
 			"checksum": "f08a3edc8a6d5d39aa62d62dfcfbe8ab3b608673"
 		},
@@ -1170,7 +1186,7 @@
 		},
 		{
 			"path": "server/methods/methods.js",
-			"checksum": "4ee9369f54b6b0a3a8604a39060f2ebec9dfd8a7"
+			"checksum": "7af83075f0689933f56a51ceb57ede6a42b90342"
 		},
 		{
 			"path": "imports/server/methods/group-policy-reader.js",
@@ -1250,7 +1266,7 @@
 		},
 		{
 			"path": "imports/server/methods/bonga-gateway.js",
-			"checksum": "18b86941cac45aab14459fc4c8836c45fea7a112"
+			"checksum": "cacc8afbee2fe02deaf59a29f3f9f08cc20a3a8b"
 		},
 		{
 			"path": "lib/string_utils.js",
