@@ -10,7 +10,7 @@ const serviceID = '4849';
 
 const bongaApi = Meteor.wrapAsync(function ({method='get', url = 'send-sms-v1', args = {}}, cb) {
 	
-	info('bonga request', {endpoint, args});
+	info('bonga request', {url, args});
 	
 	let config;
 	
