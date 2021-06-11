@@ -17,7 +17,7 @@
 			</a>
 			Logline Sms Details
 		</h2>
-		<form role="form">
+		<form role="form" class="form-horizontal">
 			{{#if errorMessage}}
 			<div class="alert alert-warning">
 				{{errorMessage}}
@@ -30,97 +30,97 @@
 			</div>
 			{{/if}}
 			<div class="form-group  field-mobile_num">
-				<label for="mobile_num">
+				<label for="mobile_num" class="col-sm-3 control-label">
 					Mobile Num
 				</label>
-				<div class="input-div">
+				<div class="input-div col-sm-9">
 					<p class="form-control-static  control-field-mobile_num">
 						{{logline_sms.mobile_num}}
 					</p>
 				</div>
 			</div>
 			<div class="form-group  field-message">
-				<label for="message">
+				<label for="message" class="col-sm-3 control-label">
 					Message
 				</label>
-				<div class="input-div">
+				<div class="input-div col-sm-9">
 					<p class="form-control-static  control-field-message">
 						{{logline_sms.message}}
 					</p>
 				</div>
 			</div>
 			<div class="form-group  field-timestamp">
-				<label for="timestamp">
+				<label for="timestamp" class="col-sm-3 control-label">
 					Timestamp
 				</label>
-				<div class="input-div">
+				<div class="input-div col-sm-9">
 					<p class="form-control-static  control-field-timestamp">
 						{{formatDate logline_sms.timestamp 'DD/MM/YYYY hh:mm:ss'}}
 					</p>
 				</div>
 			</div>
 			<div class="form-group  field-status">
-				<label for="status">
+				<label for="status" class="col-sm-3 control-label">
 					Status
 				</label>
-				<div class="input-div">
+				<div class="input-div col-sm-9">
 					<p class="form-control-static  control-field-status">
 						{{logline_sms.status}}
 					</p>
 				</div>
 			</div>
 			<div class="form-group  field-status_message">
-				<label for="status_message">
+				<label for="status_message" class="col-sm-3 control-label">
 					Status Message
 				</label>
-				<div class="input-div">
+				<div class="input-div col-sm-9">
 					<p class="form-control-static  control-field-status_message">
 						{{logline_sms.status_message}}
 					</p>
 				</div>
 			</div>
 			<div class="form-group  field-unique_id">
-				<label for="unique_id">
+				<label for="unique_id" class="col-sm-3 control-label">
 					Unique Id
 				</label>
-				<div class="input-div">
+				<div class="input-div col-sm-9">
 					<p class="form-control-static  control-field-unique_id">
 						{{logline_sms.unique_id}}
 					</p>
 				</div>
 			</div>
 			<div class="form-group  field-credits">
-				<label for="credits">
+				<label for="credits" class="col-sm-3 control-label">
 					Credits
 				</label>
-				<div class="input-div">
+				<div class="input-div col-sm-9">
 					<p class="form-control-static  control-field-credits">
 						{{logline_sms.credits}}
 					</p>
 				</div>
 			</div>
 			<div class="form-group  field-delivery_status_desc">
-				<label for="delivery_status_desc">
+				<label for="delivery_status_desc" class="col-sm-3 control-label">
 					Delivery Status Desc
 				</label>
-				<div class="input-div">
+				<div class="input-div col-sm-9">
 					<p class="form-control-static  control-field-delivery_status_desc">
 						{{logline_sms.delivery_status_desc}}
 					</p>
 				</div>
 			</div>
 			<div class="form-group  field-date_received">
-				<label for="date_received">
+				<label for="date_received" class="col-sm-3 control-label">
 					Date Received
 				</label>
-				<div class="input-div">
+				<div class="input-div col-sm-9">
 					<p class="form-control-static  control-field-date_received">
 						{{logline_sms.date_received}}
 					</p>
 				</div>
 			</div>
 			<div class="form-group">
-				<div class="submit-div">
+				<div class="submit-div col-sm-9 col-sm-offset-3">
 					<a href="#" id="form-close-button" class="btn btn-primary">
 						OK
 					</a>
