@@ -22,7 +22,7 @@ const bongaApi = Meteor.wrapAsync(function ({method='get', endpoint = 'send-sms-
 			params: args
 		};
 		
-	} else if method === 'post' {
+	} else if (method === 'post') {
 		
 		data = new FormData();
 		data.append('apiClientID', apiClientId);
