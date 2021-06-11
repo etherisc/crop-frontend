@@ -142,5 +142,5 @@ const bongaSendMoney = ({mobile, message, amount}) => {
 };
 
 
-module.exports = { bonga, bongaSMS, bongaSendMoney };
+module.exports = { bongaApi, bongaSMS, bongaSendMoney };
 				  
