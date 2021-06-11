@@ -228,11 +228,20 @@ Template.PartnersDetailsSendSms.events({
 				
 
 				/* on submit */
-console.log(t.data.partner.mobile_num);
+const message = values.message;
+const mobile_num = t.data.partner.mobile_num;
+
 toast_confirm(`Sending SMS to ${t.data.partner.mobile_num}`)
 .then((result) => {
 	if (result) {
-		console.log('Sending...');
+		Meteor.call('bongaSMS', { message, mobile_num}, function (err, res) {
+			
+			if (err) {
+				toast_error(err.message);
+			} else {
+				toast_success(res);
+			}
+		});
 	};
 });
 			}
