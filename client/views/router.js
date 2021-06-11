@@ -177,7 +177,7 @@ Router.map(function () {
 	this.route("/partners", {name: "partners", title: "", controller: "PartnersController"});
 	this.route("/partners/insert", {name: "partners.insert", title: "", controller: "PartnersInsertController"});
 	this.route("/partners/update/:partnerId", {name: "partners.update", title: "", controller: "PartnersUpdateController"});
-	this.route("/partners/details/:partnerId/:mobile_num", {name: "partners.details", title: "", controller: "PartnersDetailsController"});
+	this.route("/partners/details/:partnerId", {name: "partners.details", title: "", controller: "PartnersDetailsController"});
 	this.route("/arc2_data_page", {name: "arc2_data_page", title: "", controller: "Arc2DataPageController"});
 	this.route("/arc2_data_page/details/:arc2rowId", {name: "arc2_data_page.details", title: "", controller: "Arc2DataPageDetailsController"});
 	this.route("/policies_page", {name: "policies_page", title: "", controller: "PoliciesPageController"});
