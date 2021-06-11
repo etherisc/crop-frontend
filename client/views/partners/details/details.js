@@ -234,7 +234,7 @@ toast_confirm(`Sending SMS to ${t.data.partner.mobile_num}`)
 	if (result) {
 		console.log('Sending...');
 	};
-};
+});
 			}
 		);
 
