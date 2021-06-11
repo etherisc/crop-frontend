@@ -37,7 +37,6 @@ const bongaApi = Meteor.wrapAsync(function ({method='get', url = 'send-sms-v1', 
 		Object.keys(args).forEach(item => {
 			data.append(item, args[item]);
 		});
-		console.log(data);
 		config = {
 			method,
 			url,
@@ -83,7 +82,7 @@ const bongaFetchDeliveryReport = ({_id, unique_id}) => {
 	return bongaApi({
 		method: 'get',
 		url: '/fetch-delivery',
-		{
+		args: {
 			unique_id
 		}
 	});
