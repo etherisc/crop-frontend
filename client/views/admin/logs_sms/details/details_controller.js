@@ -37,7 +37,7 @@ this.AdminLogsSmsDetailsController = RouteController.extend({
 
 		var data = {
 			params: this.params || {},
-			logline_sms: Sms.findOne({_id:this.params.loglineSmsId}, {})
+			logline_sms: Sms.findOne({_id:this.params.loglineSmsId}, {sort:{timestamp:-1}})
 		};
 		
 
