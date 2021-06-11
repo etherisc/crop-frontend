@@ -52,6 +52,7 @@ const bongaApi = Meteor.wrapAsync(function ({method='get', url = 'send-sms-v1', 
 	
 	axios(config)
 	.then(function (response) {
+		console.log(response);
 		const { status, statusText, headers, data } = response;
 		info('bongaApi response', {status, statusText, headers, data});
 		cb(null, {status, statusText, headers, data});
