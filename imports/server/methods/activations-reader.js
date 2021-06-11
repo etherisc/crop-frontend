@@ -3,7 +3,7 @@
 import { getMinioObject, putMinioObject } from '/imports/server/methods/minio.js';
 
 
-const readActivationsFile = (bucket, params, prefix) => {
+const readActivationsFile = ({bucket, filename, prefix}) => {
 
 	try {
 
