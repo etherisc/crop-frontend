@@ -61,9 +61,13 @@ const executeJob = ({_id}) => {
 				error(msg);
 				throw new Meteor.Error(msg);
 		}
-		info(`Job execution: ${action} successful.`, {params, action});
-		Jobs.update({_id}, {$set: {status: 'Success', message: '', last_run: Date.now()}});
+		
+		const message = `Job execution: ${action} successful.`;
+		info(message, {params, action});
+		Jobs.update({_id}, {$set: {status: 'Success', message, last_run: Date.now()}});
 
+		if (!result) result = message;
+		
 		return result;
 		
 	} catch (err) {
