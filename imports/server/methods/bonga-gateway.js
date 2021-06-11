@@ -2,13 +2,13 @@ const axios = require('axios');
 const FormData = require('form-data');
 
 
-const baseUrl = 'https://app.bongasms.co.ke/api/';
+const baseURL = 'https://app.bongasms.co.ke/api/';
 const apiClientID = '338';
 const key = 'm3fFvqHakNppHOw';
 const secret = 'yjokfBb6IQvAmVkiRAvpp9050gaZMD';
 const serviceID = '4849';
 
-const bongaApi = Meteor.wrapAsync(function ({method='get', endpoint = 'send-sms-v1', args = {}}, cb) {
+const bongaApi = Meteor.wrapAsync(function ({method='get', url = 'send-sms-v1', args = {}}, cb) {
 	
 	info('bonga request', {endpoint, args});
 	
@@ -22,8 +22,8 @@ const bongaApi = Meteor.wrapAsync(function ({method='get', endpoint = 'send-sms-
 		
 		config = {
 			method,
-			endpoint,
 			url,
+			baseURL,
 			params: args
 		};
 		
@@ -40,8 +40,8 @@ const bongaApi = Meteor.wrapAsync(function ({method='get', endpoint = 'send-sms-
 		
 		config = {
 			method,
-			endpoint,
 			url,
+			baseURL,
 			data,
 			headers: { "Content-Type": "multipart/form-data" }
 		};
@@ -86,7 +86,7 @@ const bongaApi = Meteor.wrapAsync(function ({method='get', endpoint = 'send-sms-
 const bongaFetchDeliveryReport = ({_id, unique_id}) => {
 	return bongaApi({
 		method: 'get',
-		endpoint: 'fetch-delivery',
+		url: 'fetch-delivery',
 		unique_id
 	});
 };
@@ -102,7 +102,7 @@ const bongaSMS = ({mobile_num, message}) => {
 	try {
 		const {status, statusText, headers, data} = bongaApi({
 			method: 'post', 
-			endpoint: 'send-sms-v1', 
+			url: 'send-sms-v1', 
 			args: {
 				MSISDN: mobile_num, 
 				txtMessage: message, 
@@ -144,7 +144,7 @@ const bongaSMS = ({mobile_num, message}) => {
 const bongaSendMoney = ({mobile, message, amount}) => {
 	const response = bongaApi({
 		method: 'post', 
-		endpoint: 'b2c-send-money', 
+		url: 'b2c-send-money', 
 		args: {
 			mobile: mobile_num, 
 			message, 
