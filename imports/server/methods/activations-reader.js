@@ -7,8 +7,6 @@ const readActivationsFile = ({bucket, filename, prefix}) => {
 
 	try {
 
-		const filename = params.filename;
-		
 		const act_content = getMinioObject(bucket, filename);
 
 		const act_json = JSON.parse(act_content);
