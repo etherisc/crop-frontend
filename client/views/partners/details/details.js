@@ -228,9 +228,8 @@ Template.PartnersDetailsSendSms.events({
 				
 
 				/* on submit */
-console.log(this);
-console.log(values);
-console.log(e, t)
+console.log(t.data.partner.mobile_num);
+toast_info(`Sending SMS to ${t.data.partner.mobile_num}`);
 			}
 		);
 
