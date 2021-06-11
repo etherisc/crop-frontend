@@ -1,0 +1,132 @@
+<template name="AdminLogsSmsDetails">
+	<div class="page-container container" id="content">
+		<div class="row" id="title_row">
+			<div class="col-md-12">
+			</div>
+		</div>
+		{{> AdminLogsSmsDetailsForm}}
+	</div>
+</template>
+
+<template name="AdminLogsSmsDetailsForm">
+	<div id="admin-logs-sms-details-form" class="">
+		<h2 id="component-title">
+			<a href="#" id="form-back-button" class="btn btn-default" title="back">
+				<span class="fa fa-chevron-left">
+				</span>
+			</a>
+			Logline Sms Details
+		</h2>
+		<form role="form">
+			{{#if errorMessage}}
+			<div class="alert alert-warning">
+				{{errorMessage}}
+			</div>
+			{{/if}}
+
+			{{#if infoMessage}}
+			<div class="alert alert-success">
+				{{infoMessage}}
+			</div>
+			{{/if}}
+			<div class="form-group  field-mobile_num">
+				<label for="mobile_num">
+					Mobile Num
+				</label>
+				<div class="input-div">
+					<p class="form-control-static  control-field-mobile_num">
+						{{logline_sms.mobile_num}}
+					</p>
+				</div>
+			</div>
+			<div class="form-group  field-message">
+				<label for="message">
+					Message
+				</label>
+				<div class="input-div">
+					<p class="form-control-static  control-field-message">
+						{{logline_sms.message}}
+					</p>
+				</div>
+			</div>
+			<div class="form-group  field-timestamp">
+				<label for="timestamp">
+					Timestamp
+				</label>
+				<div class="input-div">
+					<p class="form-control-static  control-field-timestamp">
+						{{formatDate logline_sms.timestamp 'DD/MM/YYYY hh:mm:ss'}}
+					</p>
+				</div>
+			</div>
+			<div class="form-group  field-status">
+				<label for="status">
+					Status
+				</label>
+				<div class="input-div">
+					<p class="form-control-static  control-field-status">
+						{{logline_sms.status}}
+					</p>
+				</div>
+			</div>
+			<div class="form-group  field-status_message">
+				<label for="status_message">
+					Status Message
+				</label>
+				<div class="input-div">
+					<p class="form-control-static  control-field-status_message">
+						{{logline_sms.status_message}}
+					</p>
+				</div>
+			</div>
+			<div class="form-group  field-unique_id">
+				<label for="unique_id">
+					Unique Id
+				</label>
+				<div class="input-div">
+					<p class="form-control-static  control-field-unique_id">
+						{{logline_sms.unique_id}}
+					</p>
+				</div>
+			</div>
+			<div class="form-group  field-credits">
+				<label for="credits">
+					Credits
+				</label>
+				<div class="input-div">
+					<p class="form-control-static  control-field-credits">
+						{{logline_sms.credits}}
+					</p>
+				</div>
+			</div>
+			<div class="form-group  field-delivery_status_desc">
+				<label for="delivery_status_desc">
+					Delivery Status Desc
+				</label>
+				<div class="input-div">
+					<p class="form-control-static  control-field-delivery_status_desc">
+						{{logline_sms.delivery_status_desc}}
+					</p>
+				</div>
+			</div>
+			<div class="form-group  field-date_received">
+				<label for="date_received">
+					Date Received
+				</label>
+				<div class="input-div">
+					<p class="form-control-static  control-field-date_received">
+						{{logline_sms.date_received}}
+					</p>
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="submit-div">
+					<a href="#" id="form-close-button" class="btn btn-primary">
+						OK
+					</a>
+				</div>
+			</div>
+		</form>
+	</div>
+</template>
+

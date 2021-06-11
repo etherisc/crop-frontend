@@ -2,7 +2,7 @@
 	"output_files": [
 		{
 			"path": "client/views/router.js",
-			"checksum": "dc39e5d9e9c9a33639e3ba4afb99b588cefa33f3"
+			"checksum": "5d2327c20f3cc0ebdf4fc5095ba946fce2d6d82a"
 		},
 		{
 			"path": "server/controllers/router.js",
@@ -142,7 +142,7 @@
 		},
 		{
 			"path": "client/views/admin/admin.html",
-			"checksum": "1b387cc034e5a080c5d99af867bb83cb597e7402"
+			"checksum": "bd319a31e6577e47bfc1d8af319b65c29ee5b0c8"
 		},
 		{
 			"path": "client/views/admin/admin.js",
@@ -283,6 +283,30 @@
 		{
 			"path": "client/views/admin/details_modal/details_modal_controller.js",
 			"checksum": "bd87781363c86d059e0ac0be74535bc116de347d"
+		},
+		{
+			"path": "client/views/admin/logs_sms/logs_sms.html",
+			"checksum": "fe15d864e95e2dcd20d628dd5509057cd7b158de"
+		},
+		{
+			"path": "client/views/admin/logs_sms/logs_sms.js",
+			"checksum": "1f78befe065b0b63db9b9a2f23ccb9cd92e31b0e"
+		},
+		{
+			"path": "client/views/admin/logs_sms/logs_sms_controller.js",
+			"checksum": "7a0958dd07287676b5c840bab8d66002561d44d4"
+		},
+		{
+			"path": "client/views/admin/logs_sms/details/details.html",
+			"checksum": "81732aa33e40d8246e1b2e3f176b5bedcf34c954"
+		},
+		{
+			"path": "client/views/admin/logs_sms/details/details.js",
+			"checksum": "7042a5e8dfc021ebfc009325b81e3c9725464e16"
+		},
+		{
+			"path": "client/views/admin/logs_sms/details/details_controller.js",
+			"checksum": "a6e6a5a1bbce91f3f2dea03fb55b64ba29bc35ab"
 		},
 		{
 			"path": "client/views/user_settings/user_settings.html",
@@ -1158,7 +1182,7 @@
 		},
 		{
 			"path": "server/publish/sms.js",
-			"checksum": "da39a3ee5e6b4b0d3255bfef95601890afd80709"
+			"checksum": "bd35387d4b06c0528ce6426fac27ba7340a341e4"
 		},
 		{
 			"path": "client/styles/user_styles.less",
@@ -1506,6 +1530,8 @@
 		"client/views/admin/jobs/update/",
 		"client/views/admin/logs_browser/",
 		"client/views/admin/logs_server/",
+		"client/views/admin/logs_sms/",
+		"client/views/admin/logs_sms/details/",
 		"client/views/admin/users/",
 		"client/views/admin/users/details/",
 		"client/views/admin/users/edit/",

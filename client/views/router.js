@@ -29,6 +29,8 @@ Router.privateRoutes = [
 	"admin.logs_browser",
 	"admin.logs_server",
 	"admin.details_modal",
+	"admin.logs_sms",
+	"admin.logs_sms.details",
 	"user_settings",
 	"user_settings.profile",
 	"user_settings.change_pass",
@@ -94,6 +96,8 @@ Router.roleMap = [
 	{ route: "admin.logs_browser",	roles: ["admin"] },
 	{ route: "admin.logs_server",	roles: ["admin"] },
 	{ route: "admin.details_modal",	roles: ["admin"] },
+	{ route: "admin.logs_sms",	roles: ["admin"] },
+	{ route: "admin.logs_sms.details",	roles: ["admin"] },
 	{ route: "user_settings",	roles: ["user","admin"] },
 	{ route: "user_settings.profile",	roles: ["user","admin"] },
 	{ route: "user_settings.change_pass",	roles: ["user","admin"] }
@@ -156,6 +160,8 @@ Router.map(function () {
 	this.route("/admin/logs_browser", {name: "admin.logs_browser", title: "", controller: "AdminLogsBrowserController"});
 	this.route("/admin/logs_server", {name: "admin.logs_server", title: "", controller: "AdminLogsServerController"});
 	this.route("/admin/details_modal", {name: "admin.details_modal", title: "", controller: "AdminDetailsModalController"});
+	this.route("/admin/logs_sms", {name: "admin.logs_sms", title: "", controller: "AdminLogsSmsController"});
+	this.route("/admin/logs_sms/details/:loglineSmsId", {name: "admin.logs_sms.details", title: "", controller: "AdminLogsSmsDetailsController"});
 	this.route("/user_settings", {name: "user_settings", title: "", controller: "UserSettingsController"});
 	this.route("/user_settings/profile", {name: "user_settings.profile", title: "", controller: "UserSettingsProfileController"});
 	this.route("/user_settings/change_pass", {name: "user_settings.change_pass", title: "", controller: "UserSettingsChangePassController"});
