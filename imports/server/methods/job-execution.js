@@ -14,7 +14,7 @@ const jobs = {
 	augmentLocations,
 	readGroupPoliciesFile,
 	callApi,
-	runConractReview
+	runContractReview
 };
 
 
