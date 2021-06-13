@@ -85,7 +85,8 @@ const readActivationsFile = ({bucket, filename, prefix, subsidy=false}) => {
 				);
 				incrementCount(pixel);
 			};
-
+			
+			this.unblock();
 
 		});
 
