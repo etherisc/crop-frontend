@@ -37,8 +37,5 @@ const callApi = Meteor.wrapAsync(function ({method = 'get', url, args = {}}, cb)
 
 });
 
-registerJob('callApi', callApi)
-
-
 module.exports = { callApi }
 				  

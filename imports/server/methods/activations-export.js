@@ -3,7 +3,7 @@
 import { getMinioObject, putMinioObject } from '/imports/server/methods/minio.js';
 
 
-const activationsExport = Meteor.wrapAsync(function ({bucket, folder, filename, filter}, cb) {
+const exportActivations = Meteor.wrapAsync(function ({bucket, folder, filename, filter}, cb) {
 
 	const selected = Activations.find(filter).fetch();
 	const path = `${folder}/${filename}`;
