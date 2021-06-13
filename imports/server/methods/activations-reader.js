@@ -3,7 +3,7 @@
 import { getMinioObject, putMinioObject } from '/imports/server/methods/minio.js';
 
 
-const readActivationsFile = ({bucket, filename, prefix, subsidy=false}) => {
+const readActivationsFile = ({bucket, filename, prefix, subsidy=false}, unblock) => {
 
 	try {
 
@@ -86,7 +86,7 @@ const readActivationsFile = ({bucket, filename, prefix, subsidy=false}) => {
 				incrementCount(pixel);
 			};
 			
-			this.unblock();
+			unblock();
 
 		});
 
