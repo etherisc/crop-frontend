@@ -1,6 +1,7 @@
 
 const axios = require('axios');
 
+
 const callApi = Meteor.wrapAsync(function ({method = 'get', url, args = {}}, cb) {
 	
 	info('callApi request', {method, url, args});
@@ -35,6 +36,8 @@ const callApi = Meteor.wrapAsync(function ({method = 'get', url, args = {}}, cb)
 	});	
 
 });
+
+registerJob('callApi', callApi)
 
 
 module.exports = { callApi }

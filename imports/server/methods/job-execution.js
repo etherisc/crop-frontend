@@ -1,4 +1,3 @@
-
 import { readActivationsFile, countActivations, createPartners } from '/imports/server/methods/activations-reader.js';
 import { activationsExport } from '/imports/server/methods/activations-export.js';
 import { readLocationsFile, augmentLocations } from '/imports/server/methods/locations-reader.js';
@@ -6,64 +5,34 @@ import { readGroupPoliciesFile, gp_aggregates, clear_selected } from '/imports/s
 import { callApi } from '/imports/server/methods/call-api.js';
 import { runContractReview } from '/imports/server/methods/run-contract-review.js';
 
+const jobs = {
+	readActivationsFile,
+	countActivations,
+	createPartners,
+	activationsExport,
+	readLocationsFile,
+	augmentLocations,
+	readGroupPoliciesFile,
+	callApi,
+	runConractReview
+};
 
 
 const executeJob = ({_id}) => {
 
-	const { parameters, action } = Jobs.findOne({_id});
+	const { action, parameters } = Jobs.findOne({_id});
 	const params = JSON.parse(parameters);
 	
-	info(`Job execution: ${action}`, {params, action});
+	info(`Job execution: ${action}`, {action, params});
 	
 	let result;
 	
 	try {
-		switch (action) {
-
-			case 'readActivations': 
-				result = readActivationsFile(params);
-				break;
-
-			case 'countActivations': 
-				result = countActivations(params);
-				break; 
-
-			case 'readGroupPolicies': 
-				result = readGroupPoliciesFile(params);
-				break; 
-
-			case 'readLocations': 
-				result = readLocationsFile(params);
-				break; 
-
-			case 'exportActivations': 
-				result = activationsExport(params);
-				break; 
-
-			case 'callApi': 
-				result = callApi(params);
-				break; 
-
-			case 'runContractReview': 
-				result = runContractReview(params);
-				break; 
-
-			case 'augmentLocations': 
-				result = augmentLocations();
-				break; 
-
-			case 'createPartners': 
-				result = createPartners();
-				break; 
-
-			default: 
-				const msg = `executeJob: Action ${action} not implemented`;
-				error(msg);
-				throw new Meteor.Error(msg);
-		}
+		
+		const result = jobs[action](params);
 		
 		const message = `Job execution: ${action} successful.`;
-		info(message, {params, action});
+		info(message, {action, params});
 		Jobs.update({_id}, {$set: {status: 'Success', message, last_run: Date.now()}});
 
 		if (!result) result = message;
@@ -79,3 +48,4 @@ const executeJob = ({_id}) => {
 
 
 module.exports = { executeJob };
+

@@ -3,7 +3,20 @@ import { getMinioObject, putMinioObject } from '/imports/server/methods/minio.js
 const { get: levDistance } = require('fast-levenshtein');
 
 
-const readLocationsFile = ({bucket, filename}, prefix) => {
+
+const normalize = (text) => {
+
+	return (
+		text
+		.toUpperCase()				// Convert to upper case
+		.replace(/\W/g, ' ')	    // Replace non-word (except for '#') by space
+		.replace(/\s+/g, ' ')		// Reduce multiple whitespace by single space
+	);
+
+}
+
+
+const readLocationsFile = ({bucket, filename, prefix}) => {
 
 	try {
 
@@ -29,9 +42,9 @@ const readLocationsFile = ({bucket, filename}, prefix) => {
 				WARD
 			} = item; 
 
-			const county = COUNTY_NAM;
-			const ward = WARD;
-			const county_ward = County_ward;
+			const county = normalize(COUNTY_NAM);
+			const ward = normalize(WARD);
+			const county_ward = normalize(County_ward);
 			const pixel = NewPixel;
 			const latitude = Latitude;
 			const longitude = Longitude;
@@ -68,18 +81,6 @@ const readLocationsFile = ({bucket, filename}, prefix) => {
 		throw new Meteor.Error('Error', e.message, e.stack);
 	}
 };
-
-
-const normalize = (text) => {
-
-	return (
-		text
-		.toUpperCase()				// Convert to upper case
-		.replace(/\W/g, ' ')	    // Replace non-word (except for '#') by space
-		.replace(/\s+/g, ' ')		// Reduce multiple whitespace by single space
-	);
-
-}
 
 
 const augmentLocations = () => {
