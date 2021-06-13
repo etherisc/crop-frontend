@@ -29,7 +29,7 @@ const executeJob = ({_id}) => {
 	
 	try {
 		
-		const result = jobs[action](params);
+		const result = jobs[action](params, this.unblock);
 		
 		const message = `Job execution: ${action} successful.`;
 		info(message, {action, params});
