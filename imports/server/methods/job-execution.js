@@ -1,5 +1,5 @@
 import { readActivationsFile, countActivations, createPartners } from '/imports/server/methods/activations-reader.js';
-import { activationsExport } from '/imports/server/methods/activations-export.js';
+import { exportActivations } from '/imports/server/methods/activations-export.js';
 import { readLocationsFile, augmentLocations } from '/imports/server/methods/locations-reader.js';
 import { readGroupPoliciesFile, gp_aggregates, clear_selected } from '/imports/server/methods/group-policy-reader.js';
 import { callApi } from '/imports/server/methods/call-api.js';
@@ -9,7 +9,7 @@ const jobs = {
 	readActivationsFile,
 	countActivations,
 	createPartners,
-	activationsExport,
+	exportActivations,
 	readLocationsFile,
 	augmentLocations,
 	readGroupPoliciesFile,

@@ -142,7 +142,7 @@
 		},
 		{
 			"path": "client/views/admin/admin.html",
-			"checksum": "d23e2f8c1db9c96bd97c125f20f584f986612867"
+			"checksum": "5542f827203de9e29b83bd14ade06773a99100b4"
 		},
 		{
 			"path": "client/views/admin/admin.js",
@@ -1266,7 +1266,7 @@
 		},
 		{
 			"path": "imports/server/methods/job-execution.js",
-			"checksum": "b6a94749fd3018b87e7a9aa20abc11149b6c627c"
+			"checksum": "4ba053c232e425d968d529d05b6a2488e6d23fba"
 		},
 		{
 			"path": "imports/server/methods/locations-reader.js",
@@ -1274,7 +1274,7 @@
 		},
 		{
 			"path": "imports/server/methods/activations-export.js",
-			"checksum": "13aea755453853e58477956042fd5abf99c152a5"
+			"checksum": "89767020eb210b18d09d0625d6e9ca50f4e9ad09"
 		},
 		{
 			"path": "client/styles/custom.css",
@@ -1286,7 +1286,7 @@
 		},
 		{
 			"path": "imports/server/methods/call-api.js",
-			"checksum": "2a3116a30032b991748f6dc1bd15835b6197b8b7"
+			"checksum": "06f4af77d8df6f5b437a75c3fedf92fdf1f9c446"
 		},
 		{
 			"path": "imports/server/methods/bonga-gateway.js",
