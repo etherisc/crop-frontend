@@ -3,7 +3,7 @@
 import { getMinioObject, putMinioObject } from '/imports/server/methods/minio.js';
 
 
-const readActivationsFile = ({bucket, filename, prefix}) => {
+const readActivationsFile = ({bucket, filename, prefix, subsidy=false}) => {
 
 	try {
 
@@ -43,38 +43,53 @@ const readActivationsFile = ({bucket, filename, prefix}) => {
 			const amount_premium = premium_amount ? premium_amount : (denomination ? denomination : null);
 			const pixel = latLng2PixelStr({lat: Number(latitude), lng: Number(longitude)});
 
-			const result = Activations.upsert(
-				{ order_number },
-				{ 
-					$set: {
-						mobile_num: mobile_no,
-						call_time: date_activated,
-						latitude: Number(latitude),
-						longitude: Number(longitude),
-						order_number,
-						activation_code: voucher_code,
-						value_chain,
-						amount_premium,
-						amount_subsidy,
-						region,
-						county,
-						ward,
-						district,
-						village,
-						pixel,
-						mpesa_ref,
-						mpesa_name,
-						prefix					
-					}
+			if (subsidy) {
+				activation = Activations.findOne({mobile_no, value_chain});
+				if (activation) {
+					// Update existing activation
+					Activations.update(
+						{_id: activation._id}, {$set: {
+							amount_subsidy,
+							amount_premium: amount_premium + amount_subsidy,
+							date_activated,
+						}});
+				} else {
+					// Insert new Activation
 				}
-			);
 
-			incrementCount(pixel);
+			} else {
+				const result = Activations.upsert(
+					{ order_number },
+					{ 
+						$set: {
+							mobile_num: mobile_no,
+							call_time: date_activated,
+							latitude: Number(latitude),
+							longitude: Number(longitude),
+							order_number,
+							activation_code: voucher_code,
+							value_chain,
+							amount_premium,
+							amount_subsidy,
+							region,
+							county,
+							ward,
+							district,
+							village,
+							pixel,
+							mpesa_ref,
+							mpesa_name,
+							prefix					
+						}
+					}
+				);
+				incrementCount(pixel);
+			};
+
 
 		});
 
 		info('readActivations successful', {
-			act_content: act_content.slice(0,80),
 			counter
 		});
 
@@ -86,9 +101,9 @@ const readActivationsFile = ({bucket, filename, prefix}) => {
 };
 
 const incrementCount = (pixel) => {
-	
+
 	const count = RecordCounts.findOne({pixel});
-	
+
 	if (count) {
 		RecordCounts.update({pixel}, {$set: {count: count.count + 1}});
 	} else {
@@ -107,7 +122,7 @@ const countActivations = () => {
 		incrementCount(newPixel);
 
 	});
-	
+
 	info('countActivations successful');
 
 	return `Activations counter updated.`;
@@ -121,7 +136,7 @@ const activation_aggregates = function (filter) {
 
 	let amount = 0.0;
 	let activations = 0;
-	
+
 	selected.forEach(item => {
 		activations += + 1;
 		amount += Number(item.amount_premium);
@@ -137,19 +152,19 @@ const activation_aggregates = function (filter) {
 }
 
 const createPartners = () => {
-	
+
 	Activations
 	.find({})
 	.forEach(({mobile_num, mpesa_name}) => {
-		
+
 		if (!mpesa_name || mpesa_name === '') mpesa_name = 'n/a';
-		
+
 		if (mobile_num) {
 			Partners.upsert({mobile_num}, {$set: {mpesa_name, mobile_num}}); 
 		}
-		
+
 	});
-	
+
 };
 
 module.exports = { countActivations, readActivationsFile, activation_aggregates, createPartners };

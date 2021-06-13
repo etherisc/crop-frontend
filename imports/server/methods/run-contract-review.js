@@ -1,7 +1,6 @@
 import { callApi } from '/imports/server/methods/call-api.js';
 
 
-
 const runContractReview = ({api_url, minio_host, bucket_name, accesskey, secretkey, folder, site_table_file, id}) => {
 
 	const bucketsUrl = `${api_url}/buckets`;

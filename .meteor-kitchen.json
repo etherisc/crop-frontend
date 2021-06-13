@@ -142,7 +142,7 @@
 		},
 		{
 			"path": "client/views/admin/admin.html",
-			"checksum": "5bc7ecdf8d8d2d25b2e110e13a4e9d6965c2e7ed"
+			"checksum": "d23e2f8c1db9c96bd97c125f20f584f986612867"
 		},
 		{
 			"path": "client/views/admin/admin.js",
@@ -1234,7 +1234,7 @@
 		},
 		{
 			"path": "imports/server/methods/activations-reader.js",
-			"checksum": "f6197f0157d73d7addef9c5bb57fb48052ed3b57"
+			"checksum": "060c877391116289662050b2a3c8f3701e97f293"
 		},
 		{
 			"path": "server/lib/server_globals.js",
@@ -1266,11 +1266,11 @@
 		},
 		{
 			"path": "imports/server/methods/job-execution.js",
-			"checksum": "acf3f7d73909eaec412a30161b59b653b9a67875"
+			"checksum": "b6a94749fd3018b87e7a9aa20abc11149b6c627c"
 		},
 		{
 			"path": "imports/server/methods/locations-reader.js",
-			"checksum": "cffe2d6b64f73bad2cd90a9348fcd4385af0ef3b"
+			"checksum": "a92618592545203f2eab4aef38b94404cd00f1b2"
 		},
 		{
 			"path": "imports/server/methods/activations-export.js",
@@ -1282,11 +1282,11 @@
 		},
 		{
 			"path": "imports/server/methods/run-contract-review.js",
-			"checksum": "f833da092480b4bfea70794dcab3f04a67a4a1f4"
+			"checksum": "1f2ef6a699d495ceb1ea6d82be2e213732f825b1"
 		},
 		{
 			"path": "imports/server/methods/call-api.js",
-			"checksum": "2779cb560b7ada4c1eafba13daac35040e83d9e9"
+			"checksum": "2a3116a30032b991748f6dc1bd15835b6197b8b7"
 		},
 		{
 			"path": "imports/server/methods/bonga-gateway.js",
