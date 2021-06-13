@@ -30,6 +30,6 @@ const exportActivations = Meteor.wrapAsync(function ({bucket, folder, filename, 
 });
 
 
-module.exports = { activationsExport };
+module.exports = { exportActivations };
 
 
