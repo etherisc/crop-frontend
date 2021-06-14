@@ -2,7 +2,7 @@
 	"output_files": [
 		{
 			"path": "client/views/router.js",
-			"checksum": "5d2327c20f3cc0ebdf4fc5095ba946fce2d6d82a"
+			"checksum": "070d1511957a767638d5a3dbfec1f1f82835417c"
 		},
 		{
 			"path": "server/controllers/router.js",
@@ -142,7 +142,7 @@
 		},
 		{
 			"path": "client/views/admin/admin.html",
-			"checksum": "c0faedf18377dd58724e4850e70144aaf3288cc5"
+			"checksum": "80bc2cd1efa46ddf1a42e92972b60b9ea0970558"
 		},
 		{
 			"path": "client/views/admin/admin.js",
@@ -286,7 +286,7 @@
 		},
 		{
 			"path": "client/views/admin/logs_sms/logs_sms.html",
-			"checksum": "afa2a838fdcb823869321ea303332056d14286f3"
+			"checksum": "36e588b03363a30c21e87b4376b35a53e71084f3"
 		},
 		{
 			"path": "client/views/admin/logs_sms/logs_sms.js",
@@ -298,7 +298,7 @@
 		},
 		{
 			"path": "client/views/admin/logs_sms/details/details.html",
-			"checksum": "593060793ea0c5fac91ea9525d2274ccc1c371e8"
+			"checksum": "18f7ebeb686720768a988c5757c7777919757190"
 		},
 		{
 			"path": "client/views/admin/logs_sms/details/details.js",
@@ -307,6 +307,54 @@
 		{
 			"path": "client/views/admin/logs_sms/details/details_controller.js",
 			"checksum": "671276b5dddbb2fba7e9df2fff81be690f2474b4"
+		},
+		{
+			"path": "client/views/admin/notifications/notifications.html",
+			"checksum": "1a0eebb56db0cb814bfe3226cf0d3f2aa9238b1b"
+		},
+		{
+			"path": "client/views/admin/notifications/notifications.js",
+			"checksum": "0b570894276db6f738c6e623fb274c6d64ff376e"
+		},
+		{
+			"path": "client/views/admin/notifications/notifications_controller.js",
+			"checksum": "271934082f36d1be466cc7e20aed227943b9e444"
+		},
+		{
+			"path": "client/views/admin/notifications/insert/insert.html",
+			"checksum": "bad54fca0f06e47de487432dd50534518b924ce7"
+		},
+		{
+			"path": "client/views/admin/notifications/insert/insert.js",
+			"checksum": "9c7e8a0cf7b4f2427fbdb89a1ba27e9467aaee86"
+		},
+		{
+			"path": "client/views/admin/notifications/insert/insert_controller.js",
+			"checksum": "a7cb941fadcafadb22a26230e5055a0acaf61676"
+		},
+		{
+			"path": "client/views/admin/notifications/update/update.html",
+			"checksum": "5d0ae201043c334c1098e7746e6cfe9a02c28731"
+		},
+		{
+			"path": "client/views/admin/notifications/update/update.js",
+			"checksum": "1891c9761bf7443287c285ffbd683a463da9dcac"
+		},
+		{
+			"path": "client/views/admin/notifications/update/update_controller.js",
+			"checksum": "a7e4b77dfc1346e4db539a59816f7aa7f58fd4dd"
+		},
+		{
+			"path": "client/views/admin/notifications/details/details.html",
+			"checksum": "4689133daf66c4a7aa1e93e6173ace27896d225f"
+		},
+		{
+			"path": "client/views/admin/notifications/details/details.js",
+			"checksum": "bbf999fa2f74487340ae406438986885e43489fc"
+		},
+		{
+			"path": "client/views/admin/notifications/details/details_controller.js",
+			"checksum": "3a8050836928d59069dc86fd64ca9bbca8e5f56e"
 		},
 		{
 			"path": "client/views/user_settings/user_settings.html",
@@ -1165,10 +1213,6 @@
 			"checksum": "44af434e17eee25a2dc86b9f5417c8aa3529c947"
 		},
 		{
-			"path": "server/publish/users.js",
-			"checksum": "16d198ea716570d6a64af8fe4fe08697d13e4205"
-		},
-		{
 			"path": "both/collections/sms.js",
 			"checksum": "93050990a59ba2810b1f28ee9c7272777f03ac7c"
 		},
@@ -1183,6 +1227,26 @@
 		{
 			"path": "server/publish/sms.js",
 			"checksum": "13bee0639ae1f4e280d196d9fd6403d5db258e3a"
+		},
+		{
+			"path": "server/publish/users.js",
+			"checksum": "16d198ea716570d6a64af8fe4fe08697d13e4205"
+		},
+		{
+			"path": "both/collections/notifications.js",
+			"checksum": "0bdf81f2fcb6b6bafc3f961e22109e5fee7e75f1"
+		},
+		{
+			"path": "server/methods/notifications.js",
+			"checksum": "e0b32393b5f0e9a7d79abc74822e902bb690e707"
+		},
+		{
+			"path": "server/collections/notifications.js",
+			"checksum": "03acf35b57a2d4e6c22368a18829f503ec1d88df"
+		},
+		{
+			"path": "server/publish/notifications.js",
+			"checksum": "5d2ecd1e268df4a170e4a88e6f3568924ffe6a8b"
 		},
 		{
 			"path": "client/styles/user_styles.less",
@@ -1234,7 +1298,7 @@
 		},
 		{
 			"path": "imports/server/methods/activations-reader.js",
-			"checksum": "d4a9095450023e4dd35ddb98daa427c44ae94c0e"
+			"checksum": "48f57b1bf0226f5f58166f247fdce44c5645c458"
 		},
 		{
 			"path": "server/lib/server_globals.js",
@@ -1266,7 +1330,7 @@
 		},
 		{
 			"path": "imports/server/methods/job-execution.js",
-			"checksum": "44cff40a7d04fc221d97a6cf1af9f271e7782d35"
+			"checksum": "b57f6631361db00ab1589178b2e539c33f094c62"
 		},
 		{
 			"path": "imports/server/methods/locations-reader.js",
@@ -1532,6 +1596,10 @@
 		"client/views/admin/logs_server/",
 		"client/views/admin/logs_sms/",
 		"client/views/admin/logs_sms/details/",
+		"client/views/admin/notifications/",
+		"client/views/admin/notifications/details/",
+		"client/views/admin/notifications/insert/",
+		"client/views/admin/notifications/update/",
 		"client/views/admin/users/",
 		"client/views/admin/users/details/",
 		"client/views/admin/users/edit/",
