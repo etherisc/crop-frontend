@@ -17,7 +17,7 @@
 			</a>
 			Notification Details
 		</h2>
-		<form role="form">
+		<form role="form" class="form-horizontal">
 			{{#if errorMessage}}
 			<div class="alert alert-warning">
 				{{errorMessage}}
@@ -30,107 +30,107 @@
 			</div>
 			{{/if}}
 			<div class="form-group  field-title">
-				<label for="title">
+				<label for="title" class="col-sm-3 control-label">
 					Title
 				</label>
-				<div class="input-div">
+				<div class="input-div col-sm-9">
 					<p class="form-control-static  control-field-title">
 						{{notification.title}}
 					</p>
 				</div>
 			</div>
 			<div class="form-group  field-text">
-				<label for="text">
+				<label for="text" class="col-sm-3 control-label">
 					Text
 				</label>
-				<div class="input-div">
+				<div class="input-div col-sm-9">
 					<p class="form-control-static  control-field-text">
 						{{notification.text}}
 					</p>
 				</div>
 			</div>
 			<div class="form-group  field-filter">
-				<label for="filter">
+				<label for="filter" class="col-sm-3 control-label">
 					Filter
 				</label>
-				<div class="input-div">
+				<div class="input-div col-sm-9">
 					<p class="form-control-static  control-field-filter">
 						{{notification.filter}}
 					</p>
 				</div>
 			</div>
 			<div class="form-group  field-recurring">
-				<label for="recurring">
+				<label for="recurring" class="col-sm-3 control-label">
 					Recurring
 				</label>
-				<div class="input-div">
+				<div class="input-div col-sm-9">
 					<p class="form-control-static  control-field-recurring">
 						{{notification.recurring}}
 					</p>
 				</div>
 			</div>
 			<div class="form-group  field-start_date">
-				<label for="start_date">
+				<label for="start_date" class="col-sm-3 control-label">
 					Start Date
 				</label>
-				<div class="input-div">
+				<div class="input-div col-sm-9">
 					<p class="form-control-static  control-field-start_date">
 						{{notification.start_date}}
 					</p>
 				</div>
 			</div>
 			<div class="form-group  field-end_date">
-				<label for="end_date">
+				<label for="end_date" class="col-sm-3 control-label">
 					End Date
 				</label>
-				<div class="input-div">
+				<div class="input-div col-sm-9">
 					<p class="form-control-static  control-field-end_date">
 						{{notification.end_date}}
 					</p>
 				</div>
 			</div>
 			<div class="form-group  field-time">
-				<label for="time">
+				<label for="time" class="col-sm-3 control-label">
 					Time
 				</label>
-				<div class="input-div">
+				<div class="input-div col-sm-9">
 					<p class="form-control-static  control-field-time">
 						{{secondsToTime notification.time 'HH:mm:ss'}}
 					</p>
 				</div>
 			</div>
 			<div class="form-group  field-last_run">
-				<label for="last_run">
+				<label for="last_run" class="col-sm-3 control-label">
 					Last Run
 				</label>
-				<div class="input-div">
+				<div class="input-div col-sm-9">
 					<p class="form-control-static  control-field-last_run">
 						{{formatDate notification.last_run 'DD/MM/YYYY HH:mm:ss'}}
 					</p>
 				</div>
 			</div>
 			<div class="form-group  field-status">
-				<label for="status">
+				<label for="status" class="col-sm-3 control-label">
 					Status
 				</label>
-				<div class="input-div">
+				<div class="input-div col-sm-9">
 					<p class="form-control-static  control-field-status">
 						{{notification.status}}
 					</p>
 				</div>
 			</div>
 			<div class="form-group  field-message">
-				<label for="message">
+				<label for="message" class="col-sm-3 control-label">
 					Message
 				</label>
-				<div class="input-div">
+				<div class="input-div col-sm-9">
 					<p class="form-control-static  control-field-message">
 						{{notification.message}}
 					</p>
 				</div>
 			</div>
 			<div class="form-group">
-				<div class="submit-div">
+				<div class="submit-div col-sm-9 col-sm-offset-3">
 					<a href="#" id="form-close-button" class="btn btn-primary">
 						OK
 					</a>

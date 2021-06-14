@@ -13,7 +13,7 @@
 		<h2 id="component-title">
 			Edit Notification
 		</h2>
-		<form role="form">
+		<form role="form" class="form-horizontal">
 			{{#if errorMessage}}
 			<div class="alert alert-warning">
 				{{errorMessage}}
@@ -26,10 +26,10 @@
 			</div>
 			{{/if}}
 			<div class="form-group  field-title">
-				<label for="title">
+				<label for="title" class="col-sm-3 control-label">
 					Title
 				</label>
-				<div class="input-div">
+				<div class="input-div col-sm-9">
 					<input type="text" name="title" value="{{notification.title}}" class="form-control " autofocus="autofocus" data-type="string">
 					<span id="help-text" class="help-block">
 					</span>
@@ -38,10 +38,10 @@
 				</div>
 			</div>
 			<div class="form-group  field-text">
-				<label for="text">
+				<label for="text" class="col-sm-3 control-label">
 					Text
 				</label>
-				<div class="input-div">
+				<div class="input-div col-sm-9">
 					<input type="text" name="text" value="{{notification.text}}" class="form-control " data-type="string">
 					<span id="help-text" class="help-block">
 					</span>
@@ -50,10 +50,10 @@
 				</div>
 			</div>
 			<div class="form-group  field-filter">
-				<label for="filter">
+				<label for="filter" class="col-sm-3 control-label">
 					Filter
 				</label>
-				<div class="input-div">
+				<div class="input-div col-sm-9">
 					<input type="text" name="filter" value="{{notification.filter}}" class="form-control " data-type="string">
 					<span id="help-text" class="help-block">
 					</span>
@@ -62,10 +62,10 @@
 				</div>
 			</div>
 			<div class="form-group  field-recurring">
-				<label for="recurring">
+				<label for="recurring" class="col-sm-3 control-label">
 					Recurring
 				</label>
-				<div class="input-div">
+				<div class="input-div col-sm-9">
 					<input type="text" name="recurring" value="{{notification.recurring}}" class="form-control " data-type="string">
 					<span id="help-text" class="help-block">
 					</span>
@@ -74,10 +74,10 @@
 				</div>
 			</div>
 			<div class="form-group  field-start_date">
-				<label for="start_date">
+				<label for="start_date" class="col-sm-3 control-label">
 					Start Date
 				</label>
-				<div class="input-div">
+				<div class="input-div col-sm-9">
 					<input type="text" name="start_date" value="{{notification.start_date}}" class="form-control " data-type="string" data-format="DD/MM/YYYY">
 					<span id="help-text" class="help-block">
 					</span>
@@ -86,10 +86,10 @@
 				</div>
 			</div>
 			<div class="form-group  field-end_date">
-				<label for="end_date">
+				<label for="end_date" class="col-sm-3 control-label">
 					End Date
 				</label>
-				<div class="input-div">
+				<div class="input-div col-sm-9">
 					<input type="text" name="end_date" value="{{notification.end_date}}" class="form-control " data-type="string" data-format="DD/MM/YYYY">
 					<span id="help-text" class="help-block">
 					</span>
@@ -98,10 +98,10 @@
 				</div>
 			</div>
 			<div class="form-group  field-time">
-				<label for="time">
+				<label for="time" class="col-sm-3 control-label">
 					Time
 				</label>
-				<div class="input-div">
+				<div class="input-div col-sm-9">
 					<input type="text" name="time" value="{{secondsToTime notification.time 'HH:mm:ss'}}" class="form-control " data-type="time" data-format="HH:mm:ss">
 					<span id="help-text" class="help-block">
 					</span>
@@ -110,10 +110,10 @@
 				</div>
 			</div>
 			<div class="form-group  field-last_run">
-				<label for="last_run">
+				<label for="last_run" class="col-sm-3 control-label">
 					Last Run
 				</label>
-				<div class="input-div">
+				<div class="input-div col-sm-9">
 					<input type="text" name="last_run" value="{{formatDate notification.last_run 'DD/MM/YYYY HH:mm:ss'}}" class="form-control " data-type="date" data-format="DD/MM/YYYY HH:mm:ss">
 					<span id="help-text" class="help-block">
 					</span>
@@ -122,10 +122,10 @@
 				</div>
 			</div>
 			<div class="form-group  field-status">
-				<label for="status">
+				<label for="status" class="col-sm-3 control-label">
 					Status
 				</label>
-				<div class="input-div">
+				<div class="input-div col-sm-9">
 					<input type="text" name="status" value="{{notification.status}}" class="form-control " data-type="string">
 					<span id="help-text" class="help-block">
 					</span>
@@ -134,10 +134,10 @@
 				</div>
 			</div>
 			<div class="form-group  field-message">
-				<label for="message">
+				<label for="message" class="col-sm-3 control-label">
 					Message
 				</label>
-				<div class="input-div">
+				<div class="input-div col-sm-9">
 					<input type="text" name="message" value="{{notification.message}}" class="form-control " data-type="string">
 					<span id="help-text" class="help-block">
 					</span>
@@ -146,7 +146,7 @@
 				</div>
 			</div>
 			<div class="form-group">
-				<div class="submit-div">
+				<div class="submit-div col-sm-9 col-sm-offset-3">
 					<a href="#" id="form-cancel-button" class="btn btn-default">
 						Cancel
 					</a>
