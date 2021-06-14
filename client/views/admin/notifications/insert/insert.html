@@ -1,0 +1,161 @@
+<template name="AdminNotificationsInsert">
+	<div class="page-container container" id="content">
+		<div class="row" id="title_row">
+			<div class="col-md-12">
+			</div>
+		</div>
+		{{> AdminNotificationsInsertForm}}
+	</div>
+</template>
+
+<template name="AdminNotificationsInsertForm">
+	<div id="admin-notifications-insert-form" class="">
+		<h2 id="component-title">
+			New Notification
+		</h2>
+		<form role="form">
+			{{#if errorMessage}}
+			<div class="alert alert-warning">
+				{{errorMessage}}
+			</div>
+			{{/if}}
+
+			{{#if infoMessage}}
+			<div class="alert alert-success">
+				{{infoMessage}}
+			</div>
+			{{/if}}
+			<div class="form-group  field-title">
+				<label for="title">
+					Title
+				</label>
+				<div class="input-div">
+					<input type="text" name="title" value="" class="form-control " autofocus="autofocus" data-type="string">
+					<span id="help-text" class="help-block">
+					</span>
+					<span id="error-text" class="help-block">
+					</span>
+				</div>
+			</div>
+			<div class="form-group  field-text">
+				<label for="text">
+					Text
+				</label>
+				<div class="input-div">
+					<input type="text" name="text" value="" class="form-control " data-type="string">
+					<span id="help-text" class="help-block">
+					</span>
+					<span id="error-text" class="help-block">
+					</span>
+				</div>
+			</div>
+			<div class="form-group  field-filter">
+				<label for="filter">
+					Filter
+				</label>
+				<div class="input-div">
+					<input type="text" name="filter" value="" class="form-control " data-type="string">
+					<span id="help-text" class="help-block">
+					</span>
+					<span id="error-text" class="help-block">
+					</span>
+				</div>
+			</div>
+			<div class="form-group  field-recurring">
+				<label for="recurring">
+					Recurring
+				</label>
+				<div class="input-div">
+					<input type="text" name="recurring" value="" class="form-control " data-type="string">
+					<span id="help-text" class="help-block">
+					</span>
+					<span id="error-text" class="help-block">
+					</span>
+				</div>
+			</div>
+			<div class="form-group  field-start_date">
+				<label for="start_date">
+					Start Date
+				</label>
+				<div class="input-div">
+					<input type="text" name="start_date" value="" class="form-control " data-type="string" data-format="DD/MM/YYYY">
+					<span id="help-text" class="help-block">
+					</span>
+					<span id="error-text" class="help-block">
+					</span>
+				</div>
+			</div>
+			<div class="form-group  field-end_date">
+				<label for="end_date">
+					End Date
+				</label>
+				<div class="input-div">
+					<input type="text" name="end_date" value="" class="form-control " data-type="string" data-format="DD/MM/YYYY">
+					<span id="help-text" class="help-block">
+					</span>
+					<span id="error-text" class="help-block">
+					</span>
+				</div>
+			</div>
+			<div class="form-group  field-time">
+				<label for="time">
+					Time
+				</label>
+				<div class="input-div">
+					<input type="text" name="time" value="" class="form-control " data-type="time" data-format="HH:mm:ss">
+					<span id="help-text" class="help-block">
+					</span>
+					<span id="error-text" class="help-block">
+					</span>
+				</div>
+			</div>
+			<div class="form-group  field-last_run">
+				<label for="last_run">
+					Last Run
+				</label>
+				<div class="input-div">
+					<input type="text" name="last_run" value="" class="form-control " data-type="date" data-format="DD/MM/YYYY HH:mm:ss">
+					<span id="help-text" class="help-block">
+					</span>
+					<span id="error-text" class="help-block">
+					</span>
+				</div>
+			</div>
+			<div class="form-group  field-status">
+				<label for="status">
+					Status
+				</label>
+				<div class="input-div">
+					<input type="text" name="status" value="" class="form-control " data-type="string">
+					<span id="help-text" class="help-block">
+					</span>
+					<span id="error-text" class="help-block">
+					</span>
+				</div>
+			</div>
+			<div class="form-group  field-message">
+				<label for="message">
+					Message
+				</label>
+				<div class="input-div">
+					<input type="text" name="message" value="" class="form-control " data-type="string">
+					<span id="help-text" class="help-block">
+					</span>
+					<span id="error-text" class="help-block">
+					</span>
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="submit-div">
+					<a href="#" id="form-cancel-button" class="btn btn-default">
+						Cancel
+					</a>
+					<button id="form-submit-button" class="btn btn-success" type="submit">
+						Save
+					</button>
+				</div>
+			</div>
+		</form>
+	</div>
+</template>
+

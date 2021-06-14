@@ -3,7 +3,7 @@
 import { getMinioObject, putMinioObject } from '/imports/server/methods/minio.js';
 
 
-const readActivationsFile = ({bucket, filename, prefix, subsidy=false}, unblock) => {
+const readActivationsFile = ({bucket, filename, prefix, subsidy=false}) => {
 
 	try {
 
@@ -55,6 +55,11 @@ const readActivationsFile = ({bucket, filename, prefix, subsidy=false}, unblock)
 						}});
 				} else {
 					// Insert new Activation
+					order_number = `Subsidy-${subsidy-counter}`;
+					Activations.insert({
+						
+						
+					});
 				}
 
 			} else {
@@ -86,7 +91,7 @@ const readActivationsFile = ({bucket, filename, prefix, subsidy=false}, unblock)
 				incrementCount(pixel);
 			};
 			
-			unblock();
+			M
 
 		});
 

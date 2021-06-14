@@ -1,0 +1,142 @@
+<template name="AdminNotificationsDetails">
+	<div class="page-container container" id="content">
+		<div class="row" id="title_row">
+			<div class="col-md-12">
+			</div>
+		</div>
+		{{> AdminNotificationsDetailsForm}}
+	</div>
+</template>
+
+<template name="AdminNotificationsDetailsForm">
+	<div id="admin-notifications-details-form" class="">
+		<h2 id="component-title">
+			<a href="#" id="form-back-button" class="btn btn-default" title="back">
+				<span class="fa fa-chevron-left">
+				</span>
+			</a>
+			Notification Details
+		</h2>
+		<form role="form">
+			{{#if errorMessage}}
+			<div class="alert alert-warning">
+				{{errorMessage}}
+			</div>
+			{{/if}}
+
+			{{#if infoMessage}}
+			<div class="alert alert-success">
+				{{infoMessage}}
+			</div>
+			{{/if}}
+			<div class="form-group  field-title">
+				<label for="title">
+					Title
+				</label>
+				<div class="input-div">
+					<p class="form-control-static  control-field-title">
+						{{notification.title}}
+					</p>
+				</div>
+			</div>
+			<div class="form-group  field-text">
+				<label for="text">
+					Text
+				</label>
+				<div class="input-div">
+					<p class="form-control-static  control-field-text">
+						{{notification.text}}
+					</p>
+				</div>
+			</div>
+			<div class="form-group  field-filter">
+				<label for="filter">
+					Filter
+				</label>
+				<div class="input-div">
+					<p class="form-control-static  control-field-filter">
+						{{notification.filter}}
+					</p>
+				</div>
+			</div>
+			<div class="form-group  field-recurring">
+				<label for="recurring">
+					Recurring
+				</label>
+				<div class="input-div">
+					<p class="form-control-static  control-field-recurring">
+						{{notification.recurring}}
+					</p>
+				</div>
+			</div>
+			<div class="form-group  field-start_date">
+				<label for="start_date">
+					Start Date
+				</label>
+				<div class="input-div">
+					<p class="form-control-static  control-field-start_date">
+						{{notification.start_date}}
+					</p>
+				</div>
+			</div>
+			<div class="form-group  field-end_date">
+				<label for="end_date">
+					End Date
+				</label>
+				<div class="input-div">
+					<p class="form-control-static  control-field-end_date">
+						{{notification.end_date}}
+					</p>
+				</div>
+			</div>
+			<div class="form-group  field-time">
+				<label for="time">
+					Time
+				</label>
+				<div class="input-div">
+					<p class="form-control-static  control-field-time">
+						{{secondsToTime notification.time 'HH:mm:ss'}}
+					</p>
+				</div>
+			</div>
+			<div class="form-group  field-last_run">
+				<label for="last_run">
+					Last Run
+				</label>
+				<div class="input-div">
+					<p class="form-control-static  control-field-last_run">
+						{{formatDate notification.last_run 'DD/MM/YYYY HH:mm:ss'}}
+					</p>
+				</div>
+			</div>
+			<div class="form-group  field-status">
+				<label for="status">
+					Status
+				</label>
+				<div class="input-div">
+					<p class="form-control-static  control-field-status">
+						{{notification.status}}
+					</p>
+				</div>
+			</div>
+			<div class="form-group  field-message">
+				<label for="message">
+					Message
+				</label>
+				<div class="input-div">
+					<p class="form-control-static  control-field-message">
+						{{notification.message}}
+					</p>
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="submit-div">
+					<a href="#" id="form-close-button" class="btn btn-primary">
+						OK
+					</a>
+				</div>
+			</div>
+		</form>
+	</div>
+</template>
+

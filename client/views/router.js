@@ -31,6 +31,10 @@ Router.privateRoutes = [
 	"admin.details_modal",
 	"admin.logs_sms",
 	"admin.logs_sms.details",
+	"admin.notifications",
+	"admin.notifications.insert",
+	"admin.notifications.update",
+	"admin.notifications.details",
 	"user_settings",
 	"user_settings.profile",
 	"user_settings.change_pass",
@@ -98,6 +102,10 @@ Router.roleMap = [
 	{ route: "admin.details_modal",	roles: ["admin"] },
 	{ route: "admin.logs_sms",	roles: ["admin"] },
 	{ route: "admin.logs_sms.details",	roles: ["admin"] },
+	{ route: "admin.notifications",	roles: ["admin"] },
+	{ route: "admin.notifications.insert",	roles: ["admin"] },
+	{ route: "admin.notifications.update",	roles: ["admin"] },
+	{ route: "admin.notifications.details",	roles: ["admin"] },
 	{ route: "user_settings",	roles: ["user","admin"] },
 	{ route: "user_settings.profile",	roles: ["user","admin"] },
 	{ route: "user_settings.change_pass",	roles: ["user","admin"] }
@@ -162,6 +170,10 @@ Router.map(function () {
 	this.route("/admin/details_modal", {name: "admin.details_modal", title: "", controller: "AdminDetailsModalController"});
 	this.route("/admin/logs_sms", {name: "admin.logs_sms", title: "", controller: "AdminLogsSmsController"});
 	this.route("/admin/logs_sms/details/:loglineSmsId", {name: "admin.logs_sms.details", title: "", controller: "AdminLogsSmsDetailsController"});
+	this.route("/admin/notifications", {name: "admin.notifications", title: "", controller: "AdminNotificationsController"});
+	this.route("/admin/notifications/insert", {name: "admin.notifications.insert", title: "", controller: "AdminNotificationsInsertController"});
+	this.route("/admin/notifications/update/:notificationId", {name: "admin.notifications.update", title: "", controller: "AdminNotificationsUpdateController"});
+	this.route("/admin/notifications/details/:notificationId", {name: "admin.notifications.details", title: "", controller: "AdminNotificationsDetailsController"});
 	this.route("/user_settings", {name: "user_settings", title: "", controller: "UserSettingsController"});
 	this.route("/user_settings/profile", {name: "user_settings.profile", title: "", controller: "UserSettingsProfileController"});
 	this.route("/user_settings/change_pass", {name: "user_settings.change_pass", title: "", controller: "UserSettingsChangePassController"});
