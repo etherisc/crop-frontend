@@ -66,7 +66,12 @@
 					Recurring
 				</label>
 				<div class="input-div col-sm-9">
-					<input type="text" name="recurring" value="{{notification.recurring}}" class="form-control " data-type="string">
+					<select class="form-control " name="recurring" data-type="string">
+						<option value="0" {{optionIsSelected notification.recurring "0"}}>							manual</option>
+						<option value="1" {{optionIsSelected notification.recurring "1"}}>							daily</option>
+						<option value="2" {{optionIsSelected notification.recurring "2"}}>							weekly</option>
+						<option value="3" {{optionIsSelected notification.recurring "3"}}>							monthly</option>
+					</select>
 					<span id="help-text" class="help-block">
 					</span>
 					<span id="error-text" class="help-block">
