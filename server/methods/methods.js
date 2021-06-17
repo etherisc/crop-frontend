@@ -4,6 +4,7 @@ import { gp_aggregates, clear_selected } from '/imports/server/methods/group-pol
 import { activation_aggregates } from '/imports/server/methods/activations-reader.js';
 import { executeJob } from '/imports/server/methods/job-execution.js';
 import { bongaSMS } from '/imports/server/methods/bonga-gateway.js';
+import { createPayoutSchedule, changeStatusPayoutSchedule } from '/imports/server/methods/payout-schedule.js';
 
 const executePayouts = () => {
 	Payouts.update({execute: true}, {$set: {execute: false, executed: true}}, {multi: true});
@@ -27,5 +28,7 @@ Meteor.methods({
 	activation_aggregates,
 	clear_selected,
 	executeJob,
-	bongaSMS
+	bongaSMS,
+	createPayoutSchedule,
+	changeStatusPayoutSchedule
 });

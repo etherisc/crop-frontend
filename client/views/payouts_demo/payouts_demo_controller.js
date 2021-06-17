@@ -46,7 +46,7 @@ this.PayoutsDemoController = RouteController.extend({
 
 		var data = {
 			params: this.params || {},
-			payout_2_list_paged: Payouts2.find(databaseUtils.extendFilter({}, this.payout2ListPagedExtraParams), databaseUtils.extendOptions({}, this.payout2ListPagedExtraParams)),
+			payout_2_list_paged: XPayouts2.find(databaseUtils.extendFilter({}, this.payout2ListPagedExtraParams), databaseUtils.extendOptions({}, this.payout2ListPagedExtraParams)),
 			payout_2_list_paged_count: Counts.get("payout_2_list_paged_count")
 		};
 		

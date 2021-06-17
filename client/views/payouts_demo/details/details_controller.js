@@ -36,7 +36,7 @@ this.PayoutsDemoDetailsController = RouteController.extend({
 
 		var data = {
 			params: this.params || {},
-			payout_2: Payouts2.findOne({_id:this.params.payout2Id}, {})
+			payout_2: XPayouts2.findOne({_id:this.params.payout2Id}, {})
 		};
 		
 

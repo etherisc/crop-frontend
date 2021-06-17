@@ -180,7 +180,7 @@ Template.ContractReviewPageContractReviewView.events({
 Template.ContractReviewPageContractReviewView.helpers({
 
 	"insertButtonClass": function() {
-		return ContractReview.userCanInsert(Meteor.userId(), {}) ? "" : "hidden";
+		return XContractReview.userCanInsert(Meteor.userId(), {}) ? "" : "hidden";
 	},
 
 	"isEmpty": function() {
@@ -289,7 +289,7 @@ Template.ContractReviewPageContractReviewViewTableItems.events({
 		var values = {};
 		values[fieldName] = !this[fieldName];
 
-		Meteor.call("contractReviewUpdate", this._id, values, function(err, res) {
+		Meteor.call("xContractReviewUpdate", this._id, values, function(err, res) {
 			if(err) {
 				alert(err.message);
 			}
@@ -310,7 +310,7 @@ Template.ContractReviewPageContractReviewViewTableItems.events({
 					label: "Yes",
 					className: "btn-success",
 					callback: function() {
-						Meteor.call("contractReviewRemove", me._id, function(err, res) {
+						Meteor.call("xContractReviewRemove", me._id, function(err, res) {
 							if(err) {
 								alert(err.message);
 							}
@@ -337,10 +337,10 @@ Template.ContractReviewPageContractReviewViewTableItems.helpers({
 
 	"checked": function(value) { return value ? "checked" : "" }, 
 	"editButtonClass": function() {
-		return ContractReview.userCanUpdate(Meteor.userId(), this) ? "" : "hidden";
+		return XContractReview.userCanUpdate(Meteor.userId(), this) ? "" : "hidden";
 	},
 
 	"deleteButtonClass": function() {
-		return ContractReview.userCanRemove(Meteor.userId(), this) ? "" : "hidden";
+		return XContractReview.userCanRemove(Meteor.userId(), this) ? "" : "hidden";
 	}
 });

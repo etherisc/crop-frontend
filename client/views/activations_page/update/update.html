@@ -126,7 +126,7 @@
 					Amount Premium
 				</label>
 				<div class="input-div col-sm-9">
-					<input type="text" name="amount_premium" value="{{activation.amount_premium}}" class="form-control " required="required" data-type="integer">
+					<input type="text" name="amount_premium" value="{{currency activation.amount_premium activation}}" class="form-control " required="required" data-type="float">
 					<span id="help-text" class="help-block">
 					</span>
 					<span id="error-text" class="help-block">
@@ -186,7 +186,7 @@
 					Amount Subsidy
 				</label>
 				<div class="input-div col-sm-9">
-					<input type="text" name="amount_subsidy" value="{{activation.amount_subsidy}}" class="form-control " data-type="string">
+					<input type="text" name="amount_subsidy" value="{{currency activation.amount_subsidy activation}}" class="form-control " data-type="float">
 					<span id="help-text" class="help-block">
 					</span>
 					<span id="error-text" class="help-block">

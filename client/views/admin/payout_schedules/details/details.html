@@ -1,0 +1,249 @@
+<template name="AdminPayoutSchedulesDetails">
+	<div class="page-container container" id="content">
+		<div class="row" id="title_row">
+			<div class="col-md-12">
+			</div>
+		</div>
+		{{> AdminPayoutSchedulesDetailsForm}}{{> AdminPayoutSchedulesDetailsPayoutScheduleEntries}}
+	</div>
+</template>
+
+<template name="AdminPayoutSchedulesDetailsForm">
+	<div id="admin-payout-schedules-details-form" class="">
+		<h2 id="component-title">
+			<a href="#" id="form-back-button" class="btn btn-default" title="back">
+				<span class="fa fa-chevron-left">
+				</span>
+			</a>
+			Payout Schedule Details
+		</h2>
+		<form role="form" class="form-horizontal">
+			{{#if errorMessage}}
+			<div class="alert alert-warning">
+				{{errorMessage}}
+			</div>
+			{{/if}}
+
+			{{#if infoMessage}}
+			<div class="alert alert-success">
+				{{infoMessage}}
+			</div>
+			{{/if}}
+			<div class="form-group  field-title">
+				<label for="title" class="col-sm-3 control-label">
+					Title
+				</label>
+				<div class="input-div col-sm-9">
+					<p class="form-control-static  control-field-title">
+						{{payout_schedule.title}}
+					</p>
+				</div>
+			</div>
+			<div class="form-group  field-filter">
+				<label for="filter" class="col-sm-3 control-label">
+					Filter
+				</label>
+				<div class="input-div col-sm-9">
+					<p class="form-control-static  control-field-filter">
+						{{payout_schedule.filter}}
+					</p>
+				</div>
+			</div>
+			<div class="form-group  field-status">
+				<label for="status" class="col-sm-3 control-label">
+					Status
+				</label>
+				<div class="input-div col-sm-9">
+					<p class="form-control-static  control-field-status">
+						{{payout_schedule_status2Str payout_schedule.status payout_schedule}}
+					</p>
+				</div>
+			</div>
+			<div class="form-group  field-num_policies">
+				<label for="num_policies" class="col-sm-3 control-label">
+					Num Policies
+				</label>
+				<div class="input-div col-sm-9">
+					<p class="form-control-static  control-field-num_policies">
+						{{payout_schedule.num_policies}}
+					</p>
+				</div>
+			</div>
+			<div class="form-group  field-sum_premium">
+				<label for="sum_premium" class="col-sm-3 control-label">
+					Sum Premium
+				</label>
+				<div class="input-div col-sm-9">
+					<p class="form-control-static  control-field-sum_premium">
+						{{currency payout_schedule.sum_premium payout_schedule}}
+					</p>
+				</div>
+			</div>
+			<div class="form-group  field-sum_insured">
+				<label for="sum_insured" class="col-sm-3 control-label">
+					Sum Insured
+				</label>
+				<div class="input-div col-sm-9">
+					<p class="form-control-static  control-field-sum_insured">
+						{{currency payout_schedule.sum_insured payout_schedule}}
+					</p>
+				</div>
+			</div>
+			<div class="form-group  field-sum_payout">
+				<label for="sum_payout" class="col-sm-3 control-label">
+					Sum Payout
+				</label>
+				<div class="input-div col-sm-9">
+					<p class="form-control-static  control-field-sum_payout">
+						{{currency payout_schedule.sum_payout payout_schedule}}
+					</p>
+				</div>
+			</div>
+			<div class="form-group  field-created-at">
+				<label for="createdAt" class="col-sm-3 control-label">
+					Created
+				</label>
+				<div class="input-div col-sm-9">
+					<p class="form-control-static  control-field-created-at">
+						{{formatDate payout_schedule.createdAt 'DD/MM/YYYY HH:mm:ss'}}
+					</p>
+				</div>
+			</div>
+			<div class="form-group  field-modified-at">
+				<label for="modifiedAt" class="col-sm-3 control-label">
+					Updated
+				</label>
+				<div class="input-div col-sm-9">
+					<p class="form-control-static  control-field-modified-at">
+						{{formatDate payout_schedule.modifiedAt 'DD/MM/YYYY HH:mm:ss'}}
+					</p>
+				</div>
+			</div>
+			<div class="form-group  field-audit_trail">
+				<label for="audit_trail" class="col-sm-3 control-label">
+					Audit Trail
+				</label>
+				<div class="input-div col-sm-9">
+					<p class="form-control-static  control-field-audit_trail">
+						{{safeStr payout_schedule.audit_trail payout_schedule}}
+					</p>
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="submit-div col-sm-9 col-sm-offset-3">
+				</div>
+			</div>
+		</form>
+	</div>
+</template>
+
+<template name="AdminPayoutSchedulesDetailsPayoutScheduleEntries">
+	<div id="admin-payout-schedules-details-payout-schedule-entries" class="">
+		<h2 id="component-title">
+			Payout Entries
+		</h2>
+		<form id="dataview-controls" class="form-inline">
+			<div id="dataview-controls-search">
+				<div id="dataview-controls-search-group" class="input-group">
+					<input type="text" class="form-control" id="dataview-search-input" placeholder="Search" name="search" value="{{searchString}}" autofocus="autofocus">
+					<span class="input-group-btn">
+						<button type="button" id="dataview-search-button" class="btn btn-primary">
+							<span class="fa fa-search">
+							</span>
+						</button>
+					</span>
+				</div>
+			</div>
+		</form>
+		{{#if isNotEmpty}}
+		<div id="dataview-data">
+			{{#if viewAsTable}} {{> AdminPayoutSchedulesDetailsPayoutScheduleEntriesTable}} {{/if}}
+		</div>
+		<nav aria-label="...">
+			<ul class="pager">
+				{{#if gotPrevPage}}
+				<li>
+					<a href="#" class="prev-page-link">
+						Previous page
+					</a>
+					&nbsp;
+				</li>
+				{{/if}}
+					{{#if gotNextPage}}
+				<li>
+					&nbsp;
+					<a href="#" class="next-page-link">
+						Next page
+					</a>
+				</li>
+				{{/if}}
+			</ul>
+		</nav>
+		{{else}}
+			{{#if isNotFound}}
+		<div class="alert alert-warning">
+			"{{searchString}}" not found.
+		</div>
+		{{else}}
+		<div class="alert alert-info">
+			Empty.
+		</div>
+		{{/if}}
+		{{/if}}
+	</div>
+</template>
+
+<template name="AdminPayoutSchedulesDetailsPayoutScheduleEntriesTable">
+	<table id="dataview-table" class="table table-striped table-hover">
+		<thead id="dataview-table-header">
+			<tr id="dataview-table-header-row">
+				<th class="th-sortable" data-sort="phone_no">
+					Phone No
+				</th>
+				<th class="th-sortable" data-sort="crop">
+					Crop
+				</th>
+				<th class="th-sortable" data-sort="premium">
+					Premium
+				</th>
+				<th class="th-sortable" data-sort="sum_insured">
+					Sum Insured
+				</th>
+				<th class="th-sortable" data-sort="payout_amount">
+					Payout Amount
+				</th>
+				<th>
+					&nbsp;
+				</th>
+			</tr>
+		</thead>
+		<tbody id="dataview-table-items">
+			{{#each payout_schedule_entries_list_paged}} {{> AdminPayoutSchedulesDetailsPayoutScheduleEntriesTableItems}} {{/each}}
+		</tbody>
+	</table>
+</template>
+
+<template name="AdminPayoutSchedulesDetailsPayoutScheduleEntriesTableItems">
+	<tr id="dataview-table-items-row">
+		<td>
+			{{phone_no}}
+		</td>
+		<td>
+			{{crop}}
+		</td>
+		<td>
+			{{currency premium this}}
+		</td>
+		<td>
+			{{currency sum_insured this}}
+		</td>
+		<td>
+			{{currency payout_amount this}}
+		</td>
+		<td class="td-icon">
+			<span id="edit-button" class="fa fa-pencil {{editButtonClass}}" title="Edit">
+			</span>
+		</td>
+	</tr>
+</template>
+

@@ -451,7 +451,7 @@ Template.GroupPoliciesDetailsGpCropStagesTableItems.helpers({
 var GroupPoliciesDetailsGpIndividualPoliciesExport = function(fileType) {
 	var extraParams = {
 		searchText: Session.get("GpIndividualPoliciesPagedSearchString") || "",
-		searchFields: Session.get("GpIndividualPoliciesPagedSearchFields") || ["voucher_no", "phone_no", "crop", "activation_window", "location", "date_begin", "date_end", "activation_timestamp", "group_policy_id", "gp_mongo_id", "premium", "sum_insured", "paym_mpesa_no", "paym_timestamp", "paym_amount", "payout_timestamp", "payout_amount_total", "payout_amount_deductible", "payout_amount"],
+		searchFields: Session.get("GpIndividualPoliciesPagedSearchFields") || ["voucher_no", "phone_no", "crop", "activation_window", "location", "date_begin", "date_end", "activation_timestamp", "group_policy_id", "gp_mongo_id", "premium", "sum_insured", "paym_mpesa_no", "paym_timestamp", "paym_amount", "payout_timestamp", "payout_amount_total", "payout_amount_deductible", "payout_amount", "payout_schedule_id", "payout_override_comment"],
 		sortBy: Session.get("GpIndividualPoliciesPagedSortBy") || "",
 		sortAscending: Session.get("GpIndividualPoliciesPagedSortAscending") || true
 	};

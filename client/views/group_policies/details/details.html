@@ -363,7 +363,7 @@
 			{{blocks_loss}}
 		</td>
 		<td>
-			{{round2 payout this}}
+			{{currency payout this}}
 		</td>
 	</tr>
 </template>
@@ -461,6 +461,9 @@
 				<th class="th-sortable" data-sort="payout_amount">
 					Payout Amount
 				</th>
+				<th class="th-sortable" data-sort="payout_schedule_id">
+					Payout Schedule Id
+				</th>
 			</tr>
 		</thead>
 		<tbody id="dataview-table-items">
@@ -503,6 +506,9 @@
 		</td>
 		<td>
 			{{currency payout_amount this}}
+		</td>
+		<td>
+			{{payout_schedule_id}}
 		</td>
 	</tr>
 </template>

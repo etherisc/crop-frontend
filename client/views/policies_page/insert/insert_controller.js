@@ -36,7 +36,7 @@ this.PoliciesPageInsertController = RouteController.extend({
 
 		var data = {
 			params: this.params || {},
-			policies_null: Policies.findOne({_id:null}, {})
+			policies_null: XPolicies.findOne({_id:null}, {})
 		};
 		
 

@@ -36,7 +36,7 @@ this.CodesPageInsertController = RouteController.extend({
 
 		var data = {
 			params: this.params || {},
-			codes_null: Codes.findOne({_id:null}, {})
+			codes_null: XCodes.findOne({_id:null}, {})
 		};
 		
 

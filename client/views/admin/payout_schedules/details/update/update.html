@@ -1,0 +1,182 @@
+<template name="AdminPayoutSchedulesDetailsUpdate">
+	<div class="page-container container" id="content">
+		<div class="row" id="title_row">
+			<div class="col-md-12">
+			</div>
+		</div>
+		{{> AdminPayoutSchedulesDetailsUpdateForm}}
+	</div>
+</template>
+
+<template name="AdminPayoutSchedulesDetailsUpdateForm">
+	<div id="admin-payout-schedules-details-update-form" class="">
+		<form role="form" class="form-horizontal">
+			{{#if errorMessage}}
+			<div class="alert alert-warning">
+				{{errorMessage}}
+			</div>
+			{{/if}}
+
+			{{#if infoMessage}}
+			<div class="alert alert-success">
+				{{infoMessage}}
+			</div>
+			{{/if}}
+			<div class="form-group  field-voucher_no">
+				<label for="voucher_no" class="col-sm-3 control-label">
+					Voucher No
+				</label>
+				<div class="input-div col-sm-9">
+					<p class="form-control-static  control-field-voucher_no">
+						{{i_policy1.voucher_no}}
+					</p>
+				</div>
+			</div>
+			<div class="form-group  field-phone_no">
+				<label for="phone_no" class="col-sm-3 control-label">
+					Phone No
+				</label>
+				<div class="input-div col-sm-9">
+					<p class="form-control-static  control-field-phone_no">
+						{{i_policy1.phone_no}}
+					</p>
+				</div>
+			</div>
+			<div class="form-group  field-crop">
+				<label for="crop" class="col-sm-3 control-label">
+					Crop
+				</label>
+				<div class="input-div col-sm-9">
+					<p class="form-control-static  control-field-crop">
+						{{i_policy1.crop}}
+					</p>
+				</div>
+			</div>
+			<div class="form-group  field-activation_window">
+				<label for="activation_window" class="col-sm-3 control-label">
+					Activation W.
+				</label>
+				<div class="input-div col-sm-9">
+					<p class="form-control-static  control-field-activation_window">
+						{{i_policy1.activation_window}}
+					</p>
+				</div>
+			</div>
+			<div class="form-group  field-date_begin">
+				<label for="date_begin" class="col-sm-3 control-label">
+					Date Begin
+				</label>
+				<div class="input-div col-sm-9">
+					<p class="form-control-static  control-field-date_begin">
+						{{formatDate i_policy1.date_begin 'MMM-DD'}}
+					</p>
+				</div>
+			</div>
+			<div class="form-group  field-date_end">
+				<label for="date_end" class="col-sm-3 control-label">
+					Date End
+				</label>
+				<div class="input-div col-sm-9">
+					<p class="form-control-static  control-field-date_end">
+						{{formatDate i_policy1.date_end 'MMM-DD'}}
+					</p>
+				</div>
+			</div>
+			<div class="form-group  field-activation_timestamp">
+				<label for="activation_timestamp" class="col-sm-3 control-label">
+					Activation
+				</label>
+				<div class="input-div col-sm-9">
+					<p class="form-control-static  control-field-activation_timestamp">
+						{{formatDate i_policy1.activation_timestamp 'MMM-DD'}}
+					</p>
+				</div>
+			</div>
+			<div class="form-group  field-premium">
+				<label for="premium" class="col-sm-3 control-label">
+					Premium
+				</label>
+				<div class="input-div col-sm-9">
+					<p class="form-control-static  control-field-premium">
+						{{currency i_policy1.premium i_policy1}}
+					</p>
+				</div>
+			</div>
+			<div class="form-group  field-sum_insured">
+				<label for="sum_insured" class="col-sm-3 control-label">
+					Sum Insured
+				</label>
+				<div class="input-div col-sm-9">
+					<p class="form-control-static  control-field-sum_insured">
+						{{currency i_policy1.sum_insured i_policy1}}
+					</p>
+				</div>
+			</div>
+			<div class="form-group  field-payout_timestamp">
+				<label for="payout_timestamp" class="col-sm-3 control-label">
+					Payout Timestamp
+				</label>
+				<div class="input-div col-sm-9">
+					<p class="form-control-static  control-field-payout_timestamp">
+						{{formatDate i_policy1.payout_timestamp 'MMM-DD'}}
+					</p>
+				</div>
+			</div>
+			<div class="form-group  field-payout_amount_total">
+				<label for="payout_amount_total" class="col-sm-3 control-label">
+					Payout Amount Total
+				</label>
+				<div class="input-div col-sm-9">
+					<p class="form-control-static  control-field-payout_amount_total">
+						{{currency i_policy1.payout_amount_total i_policy1}}
+					</p>
+				</div>
+			</div>
+			<div class="form-group  field-payout_amount_deductible">
+				<label for="payout_amount_deductible" class="col-sm-3 control-label">
+					Payout Amount Deductible
+				</label>
+				<div class="input-div col-sm-9">
+					<p class="form-control-static  control-field-payout_amount_deductible">
+						{{currency i_policy1.payout_amount_deductible i_policy1}}
+					</p>
+				</div>
+			</div>
+			<div class="form-group  field-payout_amount">
+				<label for="payout_amount" class="col-sm-3 control-label">
+					Payout Amount
+				</label>
+				<div class="input-div col-sm-9">
+					<input type="text" name="payout_amount" value="{{round2 i_policy1.payout_amount i_policy1}}" class="form-control " autofocus="autofocus" data-type="float">
+					<span id="help-text" class="help-block">
+					</span>
+					<span id="error-text" class="help-block">
+					</span>
+				</div>
+			</div>
+			<div class="form-group  field-payout_override_comment">
+				<label for="payout_override_comment" class="col-sm-3 control-label">
+					Payout Override Comment
+				</label>
+				<div class="input-div col-sm-9">
+					<input type="text" name="payout_override_comment" value="{{i_policy1.payout_override_comment}}" class="form-control " data-type="string">
+					<span id="help-text" class="help-block">
+					</span>
+					<span id="error-text" class="help-block">
+					</span>
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="submit-div col-sm-9 col-sm-offset-3">
+					<a href="#" id="form-cancel-button" class="btn btn-default">
+						Cancel
+					</a>
+					<button id="form-submit-button" class="btn btn-success" type="submit">
+						Save
+					</button>
+				</div>
+			</div>
+		</form>
+	</div>
+</template>
+

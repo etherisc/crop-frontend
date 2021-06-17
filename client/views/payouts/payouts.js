@@ -180,7 +180,7 @@ Template.PayoutsView.events({
 Template.PayoutsView.helpers({
 
 	"insertButtonClass": function() {
-		return Payouts.userCanInsert(Meteor.userId(), {}) ? "" : "hidden";
+		return XPayouts.userCanInsert(Meteor.userId(), {}) ? "" : "hidden";
 	},
 
 	"isEmpty": function() {
@@ -289,7 +289,7 @@ Template.PayoutsViewTableItems.events({
 		var values = {};
 		values[fieldName] = !this[fieldName];
 
-		Meteor.call("payoutsUpdate", this._id, values, function(err, res) {
+		Meteor.call("xPayoutsUpdate", this._id, values, function(err, res) {
 			if(err) {
 				alert(err.message);
 			}
@@ -310,7 +310,7 @@ Template.PayoutsViewTableItems.events({
 					label: "Yes",
 					className: "btn-success",
 					callback: function() {
-						Meteor.call("payoutsRemove", me._id, function(err, res) {
+						Meteor.call("xPayoutsRemove", me._id, function(err, res) {
 							if(err) {
 								alert(err.message);
 							}
@@ -337,11 +337,11 @@ Template.PayoutsViewTableItems.helpers({
 
 	"checked": function(value) { return value ? "checked" : "" }, 
 	"editButtonClass": function() {
-		return Payouts.userCanUpdate(Meteor.userId(), this) ? "" : "hidden";
+		return XPayouts.userCanUpdate(Meteor.userId(), this) ? "" : "hidden";
 	},
 
 	"deleteButtonClass": function() {
-		return Payouts.userCanRemove(Meteor.userId(), this) ? "" : "hidden";
+		return XPayouts.userCanRemove(Meteor.userId(), this) ? "" : "hidden";
 	}
 });
 

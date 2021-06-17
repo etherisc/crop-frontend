@@ -46,7 +46,7 @@ this.CodesPageController = RouteController.extend({
 
 		var data = {
 			params: this.params || {},
-			code_list_paged: Codes.find(databaseUtils.extendFilter({}, this.codeListPagedExtraParams), databaseUtils.extendOptions({}, this.codeListPagedExtraParams)),
+			code_list_paged: XCodes.find(databaseUtils.extendFilter({}, this.codeListPagedExtraParams), databaseUtils.extendOptions({}, this.codeListPagedExtraParams)),
 			code_list_paged_count: Counts.get("code_list_paged_count")
 		};
 		

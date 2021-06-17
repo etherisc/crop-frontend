@@ -180,7 +180,7 @@ Template.Arc2DataPageView.events({
 Template.Arc2DataPageView.helpers({
 
 	"insertButtonClass": function() {
-		return Arc2Data.userCanInsert(Meteor.userId(), {}) ? "" : "hidden";
+		return XArc2Data.userCanInsert(Meteor.userId(), {}) ? "" : "hidden";
 	},
 
 	"isEmpty": function() {
@@ -296,7 +296,7 @@ Template.Arc2DataPageViewTableItems.events({
 		var values = {};
 		values[fieldName] = !this[fieldName];
 
-		Meteor.call("arc2DataUpdate", this._id, values, function(err, res) {
+		Meteor.call("xArc2DataUpdate", this._id, values, function(err, res) {
 			if(err) {
 				alert(err.message);
 			}
@@ -317,7 +317,7 @@ Template.Arc2DataPageViewTableItems.events({
 					label: "Yes",
 					className: "btn-success",
 					callback: function() {
-						Meteor.call("arc2DataRemove", me._id, function(err, res) {
+						Meteor.call("xArc2DataRemove", me._id, function(err, res) {
 							if(err) {
 								alert(err.message);
 							}
@@ -344,10 +344,10 @@ Template.Arc2DataPageViewTableItems.helpers({
 
 	"checked": function(value) { return value ? "checked" : "" }, 
 	"editButtonClass": function() {
-		return Arc2Data.userCanUpdate(Meteor.userId(), this) ? "" : "hidden";
+		return XArc2Data.userCanUpdate(Meteor.userId(), this) ? "" : "hidden";
 	},
 
 	"deleteButtonClass": function() {
-		return Arc2Data.userCanRemove(Meteor.userId(), this) ? "" : "hidden";
+		return XArc2Data.userCanRemove(Meteor.userId(), this) ? "" : "hidden";
 	}
 });
