@@ -46,7 +46,7 @@ this.Arc2DataPageController = RouteController.extend({
 
 		var data = {
 			params: this.params || {},
-			arc2row_list_paged: Arc2Data.find(databaseUtils.extendFilter({}, this.arc2rowListPagedExtraParams), databaseUtils.extendOptions({}, this.arc2rowListPagedExtraParams)),
+			arc2row_list_paged: XArc2Data.find(databaseUtils.extendFilter({}, this.arc2rowListPagedExtraParams), databaseUtils.extendOptions({}, this.arc2rowListPagedExtraParams)),
 			arc2row_list_paged_count: Counts.get("arc2row_list_paged_count")
 		};
 		

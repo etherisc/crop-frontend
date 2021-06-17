@@ -46,7 +46,7 @@ this.AuditPageController = RouteController.extend({
 
 		var data = {
 			params: this.params || {},
-			audit_trail_list_paged: AuditTrail.find(databaseUtils.extendFilter({}, this.auditTrailListPagedExtraParams), databaseUtils.extendOptions({}, this.auditTrailListPagedExtraParams)),
+			audit_trail_list_paged: XAuditTrail.find(databaseUtils.extendFilter({}, this.auditTrailListPagedExtraParams), databaseUtils.extendOptions({}, this.auditTrailListPagedExtraParams)),
 			audit_trail_list_paged_count: Counts.get("audit_trail_list_paged_count")
 		};
 		

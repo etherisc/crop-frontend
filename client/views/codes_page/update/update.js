@@ -107,7 +107,7 @@ Template.CodesPageUpdateForm.events({
 			function(values) {
 				
 
-				Meteor.call("codesUpdate", t.data.code._id, values, function(e, r) { if(e) errorAction(e); else submitAction(r); });
+				Meteor.call("xCodesUpdate", t.data.code._id, values, function(e, r) { if(e) errorAction(e); else submitAction(r); });
 			}
 		);
 

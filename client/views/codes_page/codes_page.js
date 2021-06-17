@@ -180,7 +180,7 @@ Template.CodesPageView.events({
 Template.CodesPageView.helpers({
 
 	"insertButtonClass": function() {
-		return Codes.userCanInsert(Meteor.userId(), {}) ? "" : "hidden";
+		return XCodes.userCanInsert(Meteor.userId(), {}) ? "" : "hidden";
 	},
 
 	"isEmpty": function() {
@@ -289,7 +289,7 @@ Template.CodesPageViewTableItems.events({
 		var values = {};
 		values[fieldName] = !this[fieldName];
 
-		Meteor.call("codesUpdate", this._id, values, function(err, res) {
+		Meteor.call("xCodesUpdate", this._id, values, function(err, res) {
 			if(err) {
 				alert(err.message);
 			}
@@ -310,7 +310,7 @@ Template.CodesPageViewTableItems.events({
 					label: "Yes",
 					className: "btn-success",
 					callback: function() {
-						Meteor.call("codesRemove", me._id, function(err, res) {
+						Meteor.call("xCodesRemove", me._id, function(err, res) {
 							if(err) {
 								alert(err.message);
 							}
@@ -337,11 +337,11 @@ Template.CodesPageViewTableItems.helpers({
 
 	"checked": function(value) { return value ? "checked" : "" }, 
 	"editButtonClass": function() {
-		return Codes.userCanUpdate(Meteor.userId(), this) ? "" : "hidden";
+		return XCodes.userCanUpdate(Meteor.userId(), this) ? "" : "hidden";
 	},
 
 	"deleteButtonClass": function() {
-		return Codes.userCanRemove(Meteor.userId(), this) ? "" : "hidden";
+		return XCodes.userCanRemove(Meteor.userId(), this) ? "" : "hidden";
 	}
 });
 

@@ -107,7 +107,7 @@ Template.CodesPageInsertForm.events({
 			function(values) {
 				
 
-				Meteor.call("codesInsert", values, function(e, r) { if(e) errorAction(e); else submitAction(r); });
+				Meteor.call("xCodesInsert", values, function(e, r) { if(e) errorAction(e); else submitAction(r); });
 			}
 		);
 

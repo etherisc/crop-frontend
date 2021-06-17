@@ -36,7 +36,7 @@ this.Arc2DataPageDetailsController = RouteController.extend({
 
 		var data = {
 			params: this.params || {},
-			arc2row: Arc2Data.findOne({_id:this.params.arc2rowId}, {})
+			arc2row: XArc2Data.findOne({_id:this.params.arc2rowId}, {})
 		};
 		
 

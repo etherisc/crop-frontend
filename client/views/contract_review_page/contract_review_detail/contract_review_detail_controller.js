@@ -36,7 +36,7 @@ this.ContractReviewPageContractReviewDetailController = RouteController.extend({
 
 		var data = {
 			params: this.params || {},
-			contract_review_detail: ContractReview.findOne({_id:this.params.contractReviewId}, {})
+			contract_review_detail: XContractReview.findOne({_id:this.params.contractReviewId}, {})
 		};
 		
 

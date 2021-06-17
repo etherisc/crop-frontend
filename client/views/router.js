@@ -35,6 +35,12 @@ Router.privateRoutes = [
 	"admin.notifications.insert",
 	"admin.notifications.update",
 	"admin.notifications.details",
+	"admin.payout_schedules",
+	"admin.payout_schedules.insert",
+	"admin.payout_schedules.update",
+	"admin.payout_schedules.details",
+	"admin.payout_schedules.details.details",
+	"admin.payout_schedules.details.update",
 	"user_settings",
 	"user_settings.profile",
 	"user_settings.change_pass",
@@ -106,6 +112,12 @@ Router.roleMap = [
 	{ route: "admin.notifications.insert",	roles: ["admin"] },
 	{ route: "admin.notifications.update",	roles: ["admin"] },
 	{ route: "admin.notifications.details",	roles: ["admin"] },
+	{ route: "admin.payout_schedules",	roles: ["admin"] },
+	{ route: "admin.payout_schedules.insert",	roles: ["admin"] },
+	{ route: "admin.payout_schedules.update",	roles: ["admin"] },
+	{ route: "admin.payout_schedules.details",	roles: ["admin"] },
+	{ route: "admin.payout_schedules.details.details",	roles: ["admin"] },
+	{ route: "admin.payout_schedules.details.update",	roles: ["admin"] },
 	{ route: "user_settings",	roles: ["user","admin"] },
 	{ route: "user_settings.profile",	roles: ["user","admin"] },
 	{ route: "user_settings.change_pass",	roles: ["user","admin"] }
@@ -174,6 +186,12 @@ Router.map(function () {
 	this.route("/admin/notifications/insert", {name: "admin.notifications.insert", title: "", controller: "AdminNotificationsInsertController"});
 	this.route("/admin/notifications/update/:notificationId", {name: "admin.notifications.update", title: "", controller: "AdminNotificationsUpdateController"});
 	this.route("/admin/notifications/details/:notificationId", {name: "admin.notifications.details", title: "", controller: "AdminNotificationsDetailsController"});
+	this.route("/admin/payout_schedules", {name: "admin.payout_schedules", title: "", controller: "AdminPayoutSchedulesController"});
+	this.route("/admin/payout_schedules/insert", {name: "admin.payout_schedules.insert", title: "", controller: "AdminPayoutSchedulesInsertController"});
+	this.route("/admin/payout_schedules/update/:payoutScheduleId", {name: "admin.payout_schedules.update", title: "", controller: "AdminPayoutSchedulesUpdateController"});
+	this.route("/admin/payout_schedules/details/:payoutScheduleId", {name: "admin.payout_schedules.details", title: "", controller: "AdminPayoutSchedulesDetailsController"});
+	this.route("/admin/payout_schedules/details/:payoutScheduleId/details/:iPolicyId", {name: "admin.payout_schedules.details.details", title: "", controller: "AdminPayoutSchedulesDetailsDetailsController"});
+	this.route("/admin/payout_schedules/details/:payoutScheduleId/update/:iPolicyId", {name: "admin.payout_schedules.details.update", title: "", controller: "AdminPayoutSchedulesDetailsUpdateController"});
 	this.route("/user_settings", {name: "user_settings", title: "", controller: "UserSettingsController"});
 	this.route("/user_settings/profile", {name: "user_settings.profile", title: "", controller: "UserSettingsProfileController"});
 	this.route("/user_settings/change_pass", {name: "user_settings.change_pass", title: "", controller: "UserSettingsChangePassController"});

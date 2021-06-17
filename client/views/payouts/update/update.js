@@ -107,7 +107,7 @@ Template.PayoutsUpdateForm.events({
 			function(values) {
 				
 
-				Meteor.call("payoutsUpdate", t.data.payout._id, values, function(e, r) { if(e) errorAction(e); else submitAction(r); });
+				Meteor.call("xPayoutsUpdate", t.data.payout._id, values, function(e, r) { if(e) errorAction(e); else submitAction(r); });
 			}
 		);
 

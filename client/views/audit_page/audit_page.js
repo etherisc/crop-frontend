@@ -180,7 +180,7 @@ Template.AuditPageAuditTrailView.events({
 Template.AuditPageAuditTrailView.helpers({
 
 	"insertButtonClass": function() {
-		return AuditTrail.userCanInsert(Meteor.userId(), {}) ? "" : "hidden";
+		return XAuditTrail.userCanInsert(Meteor.userId(), {}) ? "" : "hidden";
 	},
 
 	"isEmpty": function() {
@@ -289,7 +289,7 @@ Template.AuditPageAuditTrailViewTableItems.events({
 		var values = {};
 		values[fieldName] = !this[fieldName];
 
-		Meteor.call("auditTrailUpdate", this._id, values, function(err, res) {
+		Meteor.call("xAuditTrailUpdate", this._id, values, function(err, res) {
 			if(err) {
 				alert(err.message);
 			}
@@ -310,7 +310,7 @@ Template.AuditPageAuditTrailViewTableItems.events({
 					label: "Yes",
 					className: "btn-success",
 					callback: function() {
-						Meteor.call("auditTrailRemove", me._id, function(err, res) {
+						Meteor.call("xAuditTrailRemove", me._id, function(err, res) {
 							if(err) {
 								alert(err.message);
 							}
@@ -337,10 +337,10 @@ Template.AuditPageAuditTrailViewTableItems.helpers({
 
 	"checked": function(value) { return value ? "checked" : "" }, 
 	"editButtonClass": function() {
-		return AuditTrail.userCanUpdate(Meteor.userId(), this) ? "" : "hidden";
+		return XAuditTrail.userCanUpdate(Meteor.userId(), this) ? "" : "hidden";
 	},
 
 	"deleteButtonClass": function() {
-		return AuditTrail.userCanRemove(Meteor.userId(), this) ? "" : "hidden";
+		return XAuditTrail.userCanRemove(Meteor.userId(), this) ? "" : "hidden";
 	}
 });

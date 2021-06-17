@@ -107,7 +107,7 @@ Template.PoliciesPageInsertForm.events({
 			function(values) {
 				
 
-				Meteor.call("policiesInsert", values, function(e, r) { if(e) errorAction(e); else submitAction(r); });
+				Meteor.call("xPoliciesInsert", values, function(e, r) { if(e) errorAction(e); else submitAction(r); });
 			}
 		);
 

@@ -46,7 +46,7 @@ this.ContractReviewPageController = RouteController.extend({
 
 		var data = {
 			params: this.params || {},
-			contract_review_list_paged: ContractReview.find(databaseUtils.extendFilter({}, this.contractReviewListPagedExtraParams), databaseUtils.extendOptions({}, this.contractReviewListPagedExtraParams)),
+			contract_review_list_paged: XContractReview.find(databaseUtils.extendFilter({}, this.contractReviewListPagedExtraParams), databaseUtils.extendOptions({}, this.contractReviewListPagedExtraParams)),
 			contract_review_list_paged_count: Counts.get("contract_review_list_paged_count")
 		};
 		

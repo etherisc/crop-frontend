@@ -90,7 +90,7 @@
 					Amount Paid
 				</label>
 				<div class="input-div col-sm-9">
-					<input type="text" name="amount_paid" value="{{payment.amount_paid}}" class="form-control " required="required" data-type="integer">
+					<input type="text" name="amount_paid" value="{{currency payment.amount_paid payment}}" class="form-control " required="required" data-type="float">
 					<span id="help-text" class="help-block">
 					</span>
 					<span id="error-text" class="help-block">

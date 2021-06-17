@@ -1,0 +1,212 @@
+<template name="AdminPayoutSchedules">
+	<div class="page-container container" id="content">
+		<div class="row" id="title_row">
+			<div class="col-md-12">
+			</div>
+		</div>
+		{{> AdminPayoutSchedulesView}}
+	</div>
+</template>
+
+<template name="AdminPayoutSchedulesView">
+	<div id="admin-payout-schedules-view" class="">
+		<h2 id="component-title">
+			Payout Schedules
+		</h2>
+		<form id="dataview-controls" class="form-inline">
+			<div id="dataview-controls-insert" class="form-group {{insertButtonClass}}">
+				<button type="submit" id="dataview-insert-button" class="btn btn-success">
+					<span class="fa fa-plus">
+					</span>
+					Add new
+				</button>
+			</div>
+			<div id="dataview-controls-search">
+				<div id="dataview-controls-search-group" class="input-group">
+					<input type="text" class="form-control" id="dataview-search-input" placeholder="Search" name="search" value="{{searchString}}" autofocus="autofocus">
+					<span class="input-group-btn">
+						<button type="button" id="dataview-search-button" class="btn btn-primary">
+							<span class="fa fa-search">
+							</span>
+						</button>
+					</span>
+				</div>
+			</div>
+		</form>
+		{{#if isNotEmpty}}
+		<div id="dataview-data">
+			{{#if viewAsTable}} {{> AdminPayoutSchedulesViewTable}} {{/if}}
+		</div>
+		<nav aria-label="...">
+			<ul class="pager">
+				{{#if gotPrevPage}}
+				<li>
+					<a href="#" class="prev-page-link">
+						Previous page
+					</a>
+					&nbsp;
+				</li>
+				{{/if}}
+					{{#if gotNextPage}}
+				<li>
+					&nbsp;
+					<a href="#" class="next-page-link">
+						Next page
+					</a>
+				</li>
+				{{/if}}
+			</ul>
+		</nav>
+		{{else}}
+			{{#if isNotFound}}
+		<div class="alert alert-warning">
+			"{{searchString}}" not found.
+		</div>
+		{{else}}
+		<div class="alert alert-info">
+			Empty.
+		</div>
+		{{/if}}
+		{{/if}}
+	</div>
+</template>
+
+<template name="AdminPayoutSchedulesViewTable">
+	<table id="dataview-table" class="table table-striped table-hover">
+		<thead id="dataview-table-header">
+			<tr id="dataview-table-header-row">
+				<th class="th-sortable" data-sort="title">
+					Title
+				</th>
+				<th class="th-sortable" data-sort="status">
+					Status
+				</th>
+				<th class="th-sortable" data-sort="num_policies">
+					Num Policies
+				</th>
+				<th class="th-sortable" data-sort="sum_premium">
+					Sum Premium
+				</th>
+				<th class="th-sortable" data-sort="sum_insured">
+					Sum Insured
+				</th>
+				<th class="th-sortable" data-sort="sum_payout">
+					Sum Payout
+				</th>
+				<th class="th-sortable" data-sort="createdAt">
+					Created
+				</th>
+				<th class="th-sortable" data-sort="modifiedAt">
+					Updated
+				</th>
+				<th>
+					&nbsp;
+				</th>
+				<th>
+					&nbsp;
+				</th>
+				<th>
+					&nbsp;
+				</th>
+				<th>
+					&nbsp;
+				</th>
+				<th>
+					&nbsp;
+				</th>
+				<th>
+					&nbsp;
+				</th>
+				<th>
+					&nbsp;
+				</th>
+				<th>
+					&nbsp;
+				</th>
+			</tr>
+		</thead>
+		<tbody id="dataview-table-items">
+			{{#each payout_schedule_list_paged}} {{> AdminPayoutSchedulesViewTableItems}} {{/each}}
+		</tbody>
+	</table>
+</template>
+
+<template name="AdminPayoutSchedulesViewTableItems">
+	<tr id="dataview-table-items-row">
+		<td>
+			{{title}}
+		</td>
+		<td>
+			{{payout_schedule_status2Str status this}}
+		</td>
+		<td>
+			{{num_policies}}
+		</td>
+		<td>
+			{{currency sum_premium this}}
+		</td>
+		<td>
+			{{currency sum_insured this}}
+		</td>
+		<td>
+			{{currency sum_payout this}}
+		</td>
+		<td>
+			{{formatDate createdAt 'DD/MM/YYYY HH:mm:ss'}}
+		</td>
+		<td>
+			{{formatDate modifiedAt 'DD/MM/YYYY HH:mm:ss'}}
+		</td>
+		<td class="td-icon">
+			<span id="edit-button" class="fa fa-pencil {{editButtonClass}}" title="Edit">
+			</span>
+		</td>
+		<td class="td-icon">
+			<span id="delete-button" class="fa fa-trash-o {{deleteButtonClass}}" title="Delete">
+			</span>
+		</td>
+		<td class="td-button">
+			{{#if isEnabledCreate}}
+			<button type="button" id="action-button" data-action="create" class="btn btn-primary btn-xs">
+				Create Payout Schedule
+			</button>
+			{{/if}}
+		</td>
+		<td class="td-button">
+			{{#if isEnabledApproveActuary}}
+			<button type="button" id="action-button" data-action="approve_actuary" class="btn btn-primary btn-xs">
+				Approve by Actuary
+			</button>
+			{{/if}}
+		</td>
+		<td class="td-button">
+			{{#if isEnabledApproveProjectManager}}
+			<button type="button" id="action-button" data-action="approve_project_manager" class="btn btn-primary btn-xs">
+				Approve by Project Manager
+			</button>
+			{{/if}}
+		</td>
+		<td class="td-button">
+			{{#if isEnabledSendInsurance}}
+			<button type="button" id="action-button" data-action="send_insurance" class="btn btn-primary btn-xs">
+				Send to Insurance Company
+			</button>
+			{{/if}}
+		</td>
+		<td class="td-button">
+			{{#if isEnabledApprovalInsurance}}
+			<button type="button" id="action-button" data-action="approval_insurance" class="btn btn-primary btn-xs">
+				Approval by Insurance Company
+			</button>
+			{{/if}}
+		</td>
+		<td class="td-button">
+			{{#if isEnabledConfirmPayout}}
+			<button type="button" id="action-button" data-action="confirm_payout" class="btn btn-primary btn-xs">
+				Confirm payout
+			</button>
+			{{/if}}
+		</td>
+	</tr>
+</template>
+

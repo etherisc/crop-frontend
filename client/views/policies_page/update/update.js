@@ -107,7 +107,7 @@ Template.PoliciesPageUpdateForm.events({
 			function(values) {
 				
 
-				Meteor.call("policiesUpdate", t.data.policy._id, values, function(e, r) { if(e) errorAction(e); else submitAction(r); });
+				Meteor.call("xPoliciesUpdate", t.data.policy._id, values, function(e, r) { if(e) errorAction(e); else submitAction(r); });
 			}
 		);
 

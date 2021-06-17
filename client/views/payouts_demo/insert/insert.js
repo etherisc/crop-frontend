@@ -107,7 +107,7 @@ Template.PayoutsDemoInsertForm.events({
 			function(values) {
 				
 
-				Meteor.call("payouts2Insert", values, function(e, r) { if(e) errorAction(e); else submitAction(r); });
+				Meteor.call("xPayouts2Insert", values, function(e, r) { if(e) errorAction(e); else submitAction(r); });
 			}
 		);
 

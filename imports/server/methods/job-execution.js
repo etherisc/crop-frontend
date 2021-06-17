@@ -35,7 +35,7 @@ const executeJob = ({_id}) => {
 		info(message, {action, params});
 		Jobs.update({_id}, {$set: {status: 'Success', message, last_run: Date.now()}});
 
-		if (!result) result = message;
+		if (!result) { result = message };
 		
 		return result;
 		

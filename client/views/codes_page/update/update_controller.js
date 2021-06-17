@@ -36,7 +36,7 @@ this.CodesPageUpdateController = RouteController.extend({
 
 		var data = {
 			params: this.params || {},
-			code: Codes.findOne({_id:this.params.codeId}, {})
+			code: XCodes.findOne({_id:this.params.codeId}, {})
 		};
 		
 
