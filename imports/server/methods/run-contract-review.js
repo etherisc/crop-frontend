@@ -9,6 +9,8 @@ const runContractReview = ({bucketName, accessKey, secretKey, folder, siteTableF
 	const mongoHost = 'localhost';
 	const mongoPort = 3101;
 	const mongoDb = 'meteor';
+	const mongoTimeout = 1000;
+	const minioTimeout = 1000;
 	
 	const tenant = 'acre';
 	const env = 'test';
@@ -31,13 +33,15 @@ const runContractReview = ({bucketName, accessKey, secretKey, folder, siteTableF
 					host: mongoHost,
 					port: mongoPort,
 					resource: mongoDb,
+					timeout: mongoTimeout
 				},
 				s3: {
 					access_id: accessKey, 
 					access_secret: secretKey, 
 					host: minioHost,
 					port: minioPort,
-					resource: bucketName
+					resource: bucketName,
+					timeout: minioTimeout
 				}
 			}
 		});
