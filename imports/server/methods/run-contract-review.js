@@ -3,16 +3,16 @@ import { callApi } from '/imports/server/methods/call-api.js';
 
 const runContractReview = ({bucketName, accessKey, secretKey, folder, siteTableFile, jobId, seasonId}) => {
 
-	const api_url = 'localhost:8181/api/v1';
+	const apiUrl = 'http://localhost:8181/api/v1';
 	const minioHost = 'localhost';
-	const minioPort = '9000';
+	const minioPort = 9000;
 	const mongoHost = 'localhost';
-	const mongoPort = '3101';
+	const mongoPort = 3101;
 	const mongoDb = 'meteor';
 	
 	const tenant = 'acre';
 	const env = 'test';
-	const getApiUrl = (endpoint) => `${api_url}/${endpoint}?tenant=${tenant}&env=${env}`;
+	const getApiUrl = (endpoint) => `${apiUrl}/${endpoint}?tenant=${tenant}&env=${env}`;
 
 	const configUrl = getApiUrl('config');
 	const seasonsUrl = getApiUrl('seasons');
@@ -68,7 +68,7 @@ const runContractReview = ({bucketName, accessKey, secretKey, folder, siteTableF
 
 	} catch (err) {
 		error('runContractReview Error', {message: err.message, stack: err.stack})
-
+		throw new Meteor.Error(err.message);
 	}
 
 
