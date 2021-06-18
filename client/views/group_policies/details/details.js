@@ -456,7 +456,7 @@ var GroupPoliciesDetailsGpIndividualPoliciesExport = function(fileType) {
 		sortAscending: Session.get("GpIndividualPoliciesPagedSortAscending") || true
 	};
 
-	var exportFields = [];
+	var exportFields = ["voucher_no", "phone_no", "crop", "activation_window", "location", "date_begin", "date_end", "activation_timestamp", "group_policy_id", "gp_mongo_id", "premium", "sum_insured", "paym_mpesa_no", "paym_timestamp", "paym_amount", "payout_timestamp", "payout_amount_total", "payout_amount_deductible", "payout_amount", "payout_schedule_id", "payout_override_comment"];
 
 	
 
