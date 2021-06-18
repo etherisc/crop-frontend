@@ -58,7 +58,7 @@ const runContractReview = ({bucketName, accessKey, secretKey, folder, siteTableF
 			method: POST, 
 			url: calculationsUrl, 
 			args: {
-				job_id: 'run-22';
+				job_id: 'run-22',
 				season_data_id: id
 			}
 		});
