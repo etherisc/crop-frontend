@@ -1,11 +1,22 @@
 import { callApi } from '/imports/server/methods/call-api.js';
 
 
-const runContractReview = ({api_url, minio_host, bucket_name, accesskey, secretkey, folder, site_table_file, id}) => {
+const runContractReview = ({bucketName, accessKey, secretKey, folder, siteTableFile, jobId, seasonId}) => {
 
-	const bucketsUrl = `${api_url}/buckets`;
-	const seasonsUrl = `${api_url}/seasons`;
-	const calculationsUrl = `${api_url}/calculations`;
+	const api_url = 'localhost:8181/api/v1';
+	const minioHost = 'localhost';
+	const minioPort = '9000';
+	const mongoHost = 'localhost';
+	const mongoPort = '3101';
+	const mongoDb = 'meteor';
+	
+	const tenant = 'acre';
+	const env = 'test';
+	const getApiUrl = (endpoint) => `${api_url}/${endpoint}?tenant=${tenant}&env=${env}`;
+
+	const configUrl = getApiUrl('config');
+	const seasonsUrl = getApiUrl('seasons');
+	const calculationsUrl = getApiUrl('calculations');
 	const POST = 'post';
 
 	try {
@@ -14,12 +25,20 @@ const runContractReview = ({api_url, minio_host, bucket_name, accesskey, secretk
 
 		response = callApi({
 			method: POST, 
-			url: bucketsUrl, 
+			url: configUrl, 
 			args: {
-				access_key: accesskey, 
-				secret_key: secretkey, 
-				host: minio_host, 
-				name: bucket_name
+				mongo: {
+					host: mongoHost,
+					port: mongoPort,
+					resource: mongoDb,
+				},
+				s3: {
+					access_id: accessKey, 
+					access_secret: secretKey, 
+					host: minioHost,
+					port: minioPort,
+					resource: bucketName
+				}
 			}
 		});
 		info('runContractReview buckets', response);
@@ -28,10 +47,9 @@ const runContractReview = ({api_url, minio_host, bucket_name, accesskey, secretk
 			method: POST, 
 			url: seasonsUrl, 
 			args: {
-				bucket_name: bucket_name,
 				folder_name: folder,
 				id: id,
-				site_table_file: site_table_file
+				site_table_file: siteTableFile
 			}
 		});
 		info('runContractReview seasons', response);
@@ -40,11 +58,12 @@ const runContractReview = ({api_url, minio_host, bucket_name, accesskey, secretk
 			method: POST, 
 			url: calculationsUrl, 
 			args: {
+				job_id: 'run-22';
 				season_data_id: id
 			}
 		});
 		info('runContractReview calculations', response);
-		
+
 		return(`Calculation ID: ${response.data}`);
 
 	} catch (err) {
@@ -52,7 +71,7 @@ const runContractReview = ({api_url, minio_host, bucket_name, accesskey, secretk
 
 	}
 
-	
+
 };
 
 module.exports = { runContractReview };
