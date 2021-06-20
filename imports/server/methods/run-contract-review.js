@@ -11,6 +11,10 @@ const runContractReview = ({bucketName, accessKey, secretKey, folder, siteTableF
 	const mongoDb = 'meteor';
 	const mongoTimeout = 1000;
 	const minioTimeout = 1000;
+	const arc2Resource = 'arc2';
+	const arc2Host = 'localhost';
+	const arc2Port = 5000;
+	const arc2Timeout = 5000;
 	
 	const tenant = 'acre';
 	const env = 'test';
@@ -42,6 +46,12 @@ const runContractReview = ({bucketName, accessKey, secretKey, folder, siteTableF
 					port: minioPort,
 					resource: bucketName,
 					timeout: minioTimeout
+				},
+				arc2: {
+					host: arc2Host,
+					port: arc2Port,
+					resource: arc2Resource,
+					timeout: arc2Timeout
 				}
 			}
 		});
