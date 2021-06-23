@@ -59,10 +59,6 @@ Router.privateRoutes = [
 	"partners.insert",
 	"partners.update",
 	"partners.details",
-	"payouts",
-	"payouts.insert",
-	"payouts.update",
-	"payouts.details",
 	"payouts_demo",
 	"payouts_demo.insert",
 	"payouts_demo.update",
@@ -196,10 +192,6 @@ Router.map(function () {
 	this.route("/partners/insert", {name: "partners.insert", title: "", controller: "PartnersInsertController"});
 	this.route("/partners/update/:partnerId", {name: "partners.update", title: "", controller: "PartnersUpdateController"});
 	this.route("/partners/details/:partnerId", {name: "partners.details", title: "", controller: "PartnersDetailsController"});
-	this.route("/payouts", {name: "payouts", title: "", controller: "PayoutsController"});
-	this.route("/payouts/insert", {name: "payouts.insert", title: "", controller: "PayoutsInsertController"});
-	this.route("/payouts/update/:payoutId", {name: "payouts.update", title: "", controller: "PayoutsUpdateController"});
-	this.route("/payouts/details/:payoutId", {name: "payouts.details", title: "", controller: "PayoutsDetailsController"});
 	this.route("/payouts_demo", {name: "payouts_demo", title: "", controller: "PayoutsDemoController"});
 	this.route("/payouts_demo/insert", {name: "payouts_demo.insert", title: "", controller: "PayoutsDemoInsertController"});
 	this.route("/payouts_demo/update/:payout2Id", {name: "payouts_demo.update", title: "", controller: "PayoutsDemoUpdateController"});
