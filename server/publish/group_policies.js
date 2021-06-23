@@ -3,7 +3,7 @@ Meteor.publish("group_policy_list", function() {
 });
 
 Meteor.publish("group_policy", function(groupPolicyId) {
-	return GroupPolicies.find({_id:groupPolicyId}, {});
+	return GroupPolicies.find({"_id._str":groupPolicyId}, {});
 });
 
 Meteor.publish("group_policy_list_paged", function(extraOptions) {

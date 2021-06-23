@@ -57,7 +57,7 @@ this.GroupPoliciesDetailsController = RouteController.extend({
 
 		var data = {
 			params: this.params || {},
-			group_policy: GroupPolicies.findOne({_id:this.params.groupPolicyId}, {}),
+			group_policy: GroupPolicies.findOne({"_id._str":this.params.groupPolicyId}, {}),
 			gp_crop_stages_list_paged: CropStages.find(databaseUtils.extendFilter({gp_mongo_id:this.params.groupPolicyId}, this.gpCropStagesListPagedExtraParams), databaseUtils.extendOptions({}, this.gpCropStagesListPagedExtraParams)),
 			gp_crop_stages_list_paged_count: Counts.get("gp_crop_stages_list_paged_count"),
 			gp_individual_policies_paged: IPolicies.find(databaseUtils.extendFilter({gp_mongo_id:this.params.groupPolicyId}, this.gpIndividualPoliciesPagedExtraParams), databaseUtils.extendOptions({}, this.gpIndividualPoliciesPagedExtraParams)),
