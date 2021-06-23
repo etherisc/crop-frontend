@@ -27,7 +27,7 @@ this.GroupPoliciesDetailsController = RouteController.extend({
 
 
 
-		var gpId = this.params.groupPolicyId;
+		var gpId = "";
 
 		var subs = [
 			Meteor.subscribe("group_policy", this.params.groupPolicyId),
@@ -43,7 +43,7 @@ this.GroupPoliciesDetailsController = RouteController.extend({
 	},
 
 	data: function() {
-		var gpId = this.params.groupPolicyId;
+		var gpId = "";
 
 		var data = {
 			params: this.params || {},
@@ -58,8 +58,16 @@ this.GroupPoliciesDetailsController = RouteController.extend({
 		if(this.isReady() && this.gpIndividualPoliciesPagedExtraParams.pageNo >= data.gp_individual_policies_paged_page_count) {
 			Session.set("GpIndividualPoliciesPagedPageNo", data.gp_individual_policies_paged_page_count > 0 ? data.gp_individual_policies_paged_page_count - 1 : 0);
 		}
-/** Custm **/
-
+data.gp_individual_policies_paged = Policies.find(
+	databaseUtils.extendFilter(
+		{group_policy_id:data.GroupPolicy.id}, 
+		this.gpIndividualPoliciesPagedExtraParams
+	), 
+	databaseUtils.extendOptions(
+		{}, 
+		this.gpIndividualPoliciesPagedExtraParams
+	)
+);
 
 
 		return data;
