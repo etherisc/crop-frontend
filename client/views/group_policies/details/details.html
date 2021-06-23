@@ -39,203 +39,83 @@
 					</p>
 				</div>
 			</div>
-			<div class="form-group  field-season">
-				<label for="season" class="col-sm-3 control-label">
-					Season
-				</label>
-				<div class="input-div col-sm-9">
-					<p class="form-control-static  control-field-season">
-						{{group_policy.season}}
-					</p>
-				</div>
-			</div>
-			<div class="form-group  field-value_chain">
-				<label for="value_chain" class="col-sm-3 control-label">
-					Value Chain
-				</label>
-				<div class="input-div col-sm-9">
-					<p class="form-control-static  control-field-value_chain">
-						{{group_policy.value_chain}}
-					</p>
-				</div>
-			</div>
 			<div class="form-group  field-location">
 				<label for="location" class="col-sm-3 control-label">
 					Location
 				</label>
 				<div class="input-div col-sm-9">
 					<p class="form-control-static  control-field-location">
-						{{group_policy.location}}
+						{{json2table group_policy.location group_policy}}
 					</p>
 				</div>
 			</div>
-			<div class="form-group  field-date_begin">
-				<label for="date_begin" class="col-sm-3 control-label">
+			<div class="form-group  field-sow_window">
+				<label for="sow_window" class="col-sm-3 control-label">
+					Sow Window
+				</label>
+				<div class="input-div col-sm-9">
+					<p class="form-control-static  control-field-sow_window">
+						{{group_policy.sow_window}}
+					</p>
+				</div>
+			</div>
+			<div class="form-group  field-sow_date">
+				<label for="sow_date" class="col-sm-3 control-label">
+					Sow Date
+				</label>
+				<div class="input-div col-sm-9">
+					<p class="form-control-static  control-field-sow_date">
+						{{formatDate group_policy.sow_date 'MMM-DD'}}
+					</p>
+				</div>
+			</div>
+			<div class="form-group  field-begin_date">
+				<label for="begin_date" class="col-sm-3 control-label">
 					Date Begin
 				</label>
 				<div class="input-div col-sm-9">
-					<p class="form-control-static  control-field-date_begin">
-						{{formatDate group_policy.date_begin 'MMM-DD'}}
+					<p class="form-control-static  control-field-begin_date">
+						{{formatDate group_policy.begin_date 'MMM-DD'}}
 					</p>
 				</div>
 			</div>
-			<div class="form-group  field-date_end">
-				<label for="date_end" class="col-sm-3 control-label">
+			<div class="form-group  field-end_date">
+				<label for="end_date" class="col-sm-3 control-label">
 					Date End
 				</label>
 				<div class="input-div col-sm-9">
-					<p class="form-control-static  control-field-date_end">
-						{{formatDate group_policy.date_end 'MMM-DD'}}
+					<p class="form-control-static  control-field-end_date">
+						{{formatDate group_policy.end_date 'MMM-DD'}}
 					</p>
 				</div>
 			</div>
-			<div class="form-group  field-payout_total">
-				<label for="payout_total" class="col-sm-3 control-label">
-					Payout Total
+			<div class="form-group  field-crop_stages">
+				<label for="crop_stages" class="col-sm-3 control-label">
+					Crop Stages
 				</label>
 				<div class="input-div col-sm-9">
-					<p class="form-control-static  control-field-payout_total">
-						{{round2 group_policy.payout_total group_policy}}
+					<p class="form-control-static  control-field-crop_stages">
+						{{round2 group_policy.crop_stages group_policy}}
 					</p>
 				</div>
 			</div>
-			<div class="form-group  field-hurdle">
-				<label for="hurdle" class="col-sm-3 control-label">
-					Hurdle
+			<div class="form-group  field-payout">
+				<label for="payout" class="col-sm-3 control-label">
+					Payout
 				</label>
 				<div class="input-div col-sm-9">
-					<p class="form-control-static  control-field-hurdle">
-						{{round2 group_policy.hurdle group_policy}}
+					<p class="form-control-static  control-field-payout">
+						{{json2table group_policy.payout group_policy}}
 					</p>
 				</div>
 			</div>
-			<div class="form-group  field-payout_actual">
-				<label for="payout_actual" class="col-sm-3 control-label">
-					Payout Actual
+			<div class="form-group  field-meta">
+				<label for="meta" class="col-sm-3 control-label">
+					Metadata
 				</label>
 				<div class="input-div col-sm-9">
-					<p class="form-control-static  control-field-payout_actual">
-						{{round2 group_policy.payout_actual group_policy}}
-					</p>
-				</div>
-			</div>
-			<div class="form-group  field-sw_date_begin">
-				<label for="sw_date_begin" class="col-sm-3 control-label">
-					SW Date Begin
-				</label>
-				<div class="input-div col-sm-9">
-					<p class="form-control-static  control-field-sw_date_begin">
-						{{formatDate group_policy.sw_date_begin 'MMM-DD'}}
-					</p>
-				</div>
-			</div>
-			<div class="form-group  field-sw_count">
-				<label for="sw_count" class="col-sm-3 control-label">
-					SW Count
-				</label>
-				<div class="input-div col-sm-9">
-					<p class="form-control-static  control-field-sw_count">
-						{{group_policy.sw_count}}
-					</p>
-				</div>
-			</div>
-			<div class="form-group  field-sw_length">
-				<label for="sw_length" class="col-sm-3 control-label">
-					SW Length
-				</label>
-				<div class="input-div col-sm-9">
-					<p class="form-control-static  control-field-sw_length">
-						{{group_policy.sw_length}}
-					</p>
-				</div>
-			</div>
-			<div class="form-group  field-sw_window">
-				<label for="sw_window" class="col-sm-3 control-label">
-					SW Window
-				</label>
-				<div class="input-div col-sm-9">
-					<p class="form-control-static  control-field-sw_window">
-						{{group_policy.sw_window}}
-					</p>
-				</div>
-			</div>
-			<div class="form-group  field-sw_date">
-				<label for="sw_date" class="col-sm-3 control-label">
-					SW Date
-				</label>
-				<div class="input-div col-sm-9">
-					<p class="form-control-static  control-field-sw_date">
-						{{formatDate group_policy.sw_date 'MM-DD'}}
-					</p>
-				</div>
-			</div>
-			<div class="form-group  field-acc_payments">
-				<label for="acc_payments" class="col-sm-3 control-label">
-					Acc Payments
-				</label>
-				<div class="input-div col-sm-9">
-					<p class="form-control-static  control-field-acc_payments">
-						{{currency group_policy.acc_payments group_policy}}
-					</p>
-				</div>
-			</div>
-			<div class="form-group  field-acc_sum_insured">
-				<label for="acc_sum_insured" class="col-sm-3 control-label">
-					Acc Sum Insured
-				</label>
-				<div class="input-div col-sm-9">
-					<p class="form-control-static  control-field-acc_sum_insured">
-						{{currency group_policy.acc_sum_insured group_policy}}
-					</p>
-				</div>
-			</div>
-			<div class="form-group  field-acc_amount_total">
-				<label for="acc_amount_total" class="col-sm-3 control-label">
-					Acc Amount Total
-				</label>
-				<div class="input-div col-sm-9">
-					<p class="form-control-static  control-field-acc_amount_total">
-						{{currency group_policy.acc_amount_total group_policy}}
-					</p>
-				</div>
-			</div>
-			<div class="form-group  field-acc_amount_deductible">
-				<label for="acc_amount_deductible" class="col-sm-3 control-label">
-					Acc Amount Deductible
-				</label>
-				<div class="input-div col-sm-9">
-					<p class="form-control-static  control-field-acc_amount_deductible">
-						{{currency group_policy.acc_amount_deductible group_policy}}
-					</p>
-				</div>
-			</div>
-			<div class="form-group  field-acc_amount">
-				<label for="acc_amount" class="col-sm-3 control-label">
-					Acc Amount
-				</label>
-				<div class="input-div col-sm-9">
-					<p class="form-control-static  control-field-acc_amount">
-						{{currency group_policy.acc_amount group_policy}}
-					</p>
-				</div>
-			</div>
-			<div class="form-group  field-acc_policies">
-				<label for="acc_policies" class="col-sm-3 control-label">
-					# Policies
-				</label>
-				<div class="input-div col-sm-9">
-					<p class="form-control-static  control-field-acc_policies">
-						{{group_policy.acc_policies}}
-					</p>
-				</div>
-			</div>
-			<div class="form-group  field-select_for_payout">
-				<label for="select_for_payout" class="col-sm-3 control-label">
-					Payout?
-				</label>
-				<div class="input-div col-sm-9">
-					<p class="form-control-static  control-field-select_for_payout">
-						{{booleanToYesNo group_policy.select_for_payout}}
+					<p class="form-control-static  control-field-meta">
+						{{json2table group_policy.meta group_policy}}
 					</p>
 				</div>
 			</div>

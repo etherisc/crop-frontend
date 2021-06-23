@@ -119,38 +119,14 @@
 				<th class="th-sortable" data-sort="id">
 					Group Policy Id
 				</th>
-				<th class="th-sortable" data-sort="season">
-					Season
-				</th>
-				<th class="th-sortable" data-sort="value_chain">
-					Value Chain
-				</th>
 				<th class="th-sortable" data-sort="location">
 					Location
 				</th>
-				<th class="th-sortable" data-sort="date_begin">
+				<th class="th-sortable" data-sort="begin_date">
 					Date Begin
 				</th>
-				<th class="th-sortable" data-sort="date_end">
+				<th class="th-sortable" data-sort="end_date">
 					Date End
-				</th>
-				<th class="th-sortable" data-sort="sw_date">
-					SW Date
-				</th>
-				<th class="th-sortable" data-sort="acc_payments">
-					Acc Payments
-				</th>
-				<th class="th-sortable" data-sort="acc_sum_insured">
-					Acc Sum Insured
-				</th>
-				<th class="th-sortable" data-sort="acc_amount">
-					Acc Amount
-				</th>
-				<th class="th-sortable" data-sort="acc_policies">
-					# Policies
-				</th>
-				<th class="th-sortable" data-sort="select_for_payout">
-					Payout?
 				</th>
 			</tr>
 		</thead>
@@ -166,37 +142,13 @@
 			{{id}}
 		</td>
 		<td>
-			{{season}}
+			{{json2table location this}}
 		</td>
 		<td>
-			{{value_chain}}
+			{{formatDate begin_date 'MMM-DD'}}
 		</td>
 		<td>
-			{{location}}
-		</td>
-		<td>
-			{{formatDate date_begin 'MMM-DD'}}
-		</td>
-		<td>
-			{{formatDate date_end 'MMM-DD'}}
-		</td>
-		<td>
-			{{formatDate sw_date 'MM-DD'}}
-		</td>
-		<td>
-			{{currency acc_payments this}}
-		</td>
-		<td>
-			{{currency acc_sum_insured this}}
-		</td>
-		<td>
-			{{currency acc_amount this}}
-		</td>
-		<td>
-			{{acc_policies}}
-		</td>
-		<td>
-			<input type="checkbox" class="inline-checkbox {{editButtonClass}}" data-field="select_for_payout" {{checked select_for_payout}}>
+			{{formatDate end_date 'MMM-DD'}}
 		</td>
 	</tr>
 </template>
