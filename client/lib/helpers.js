@@ -44,10 +44,14 @@ Helpers.round2 = function (number) {
 	return Math.round(number * 100) / 100;
 };
 
-Helpers.currency = function (number) {
+
+const currency = function (number) {
 	if (isNaN(number)) return '';
 	return Intl.NumberFormat('us-US', { style:'currency', currency: 'KES' }).format(number);
 };
+
+
+Helpers.currency = currency;
 
 const mapHeader = (key) => ({
 	"name": "Name",
@@ -64,7 +68,7 @@ const mapHeader = (key) => ({
 
 const mapVal = (key, val) => {
 	switch (key) {
-		case "payout": return Helpers.currency(val);
+		case "payout": return currency(val);
 			break;
 		default: return val;
 	}
