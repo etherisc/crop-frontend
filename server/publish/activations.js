@@ -31,20 +31,3 @@ Meteor.methods({
 	}
 });
 
-Meteor.publish("filtered_activations_list_paged", function(mobile_num, extraOptions) {
-	extraOptions.doSkip = true;
-	return Activations.find(databaseUtils.extendFilter({mobile_num:mobile_num}, extraOptions), databaseUtils.extendOptions({}, extraOptions));
-});
-
-Meteor.publish("filtered_activations_list_paged_count", function(mobile_num, extraOptions) {
-	Counts.publish(this, "filtered_activations_list_paged_count", Activations.find(databaseUtils.extendFilter({mobile_num:mobile_num}, extraOptions), { fields: { _id: 1 } }));
-});
-
-Meteor.methods({
-	"filteredActivationsListPagedExport": function(mobile_num, extraOptions, exportFields, fileType) {
-		extraOptions.noPaging = true;
-		var data = Activations.find(databaseUtils.extendFilter({mobile_num:mobile_num}, extraOptions), databaseUtils.extendOptions({}, extraOptions)).fetch();
-		return objectUtils.exportArrayOfObjects(data, exportFields, fileType);
-	}
-});
-
