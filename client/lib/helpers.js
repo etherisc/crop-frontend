@@ -50,7 +50,7 @@ const mapHeader = (key) => ({
 	"block_step": "Step",
 	"loss_blocks": "Loss Blocks",
 	"payout": "Payout",
-	"status": "Status
+	"status": "Status"
 })[key];
 
 const mapVal = (key, val) => {
