@@ -376,7 +376,7 @@ Template.GroupPoliciesDetailsGpIndividualPoliciesTableItems.events({
 		var itemId = item ? item._id : null;
 
 		
-		Router.go("group_policies.details.details", mergeObjects(Router.currentRouteParams(), {groupPolicyId: this._id, policyId: this.id}));
+		Router.go("group_policies.details.details", mergeObjects(Router.currentRouteParams(), {groupPolicyId: this._nid, policyId: this.id}));
 		return false;
 	},
 
