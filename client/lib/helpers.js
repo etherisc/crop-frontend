@@ -22,7 +22,10 @@ const mapHeader = (key) => {
 		"job_id": "Job Id",
 		"process_id": "Process Id",
 		"created_at": "Created",
-		"completed_at": "Completed"
+		"completed_at": "Completed",
+		"phone_no": "Mobile Num",
+		"voucher_no": "Voucher",
+		"timestamp": "Timestamp",
 
 	}; 
 	return dict[key] ? dict[key] : key;
@@ -35,9 +38,10 @@ const mapVal = (key, val) => {
 		case "total_amount":
 		case "deductible_amount": 
 		case "actual_amount":
-
 			return currency(val);
-			break;
+			
+		case "location":
+			return val.pixel;
 
 		default: return val;
 	}
