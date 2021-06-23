@@ -1,15 +1,15 @@
 var pageSession = new ReactiveDict();
 
 Template.GroupPoliciesDetails.onCreated(function() {
-	
+
 });
 
 Template.GroupPoliciesDetails.onDestroyed(function() {
-	
+
 });
 
 Template.GroupPoliciesDetails.onRendered(function() {
-	
+
 	Meteor.defer(function() {
 		globalOnRendered();
 		$("input[autofocus]").focus();
@@ -17,23 +17,23 @@ Template.GroupPoliciesDetails.onRendered(function() {
 });
 
 Template.GroupPoliciesDetails.events({
-	
+
 });
 
 Template.GroupPoliciesDetails.helpers({
-	
+
 });
 
 Template.GroupPoliciesDetailsForm.onCreated(function() {
-	
+
 });
 
 Template.GroupPoliciesDetailsForm.onDestroyed(function() {
-	
+
 });
 
 Template.GroupPoliciesDetailsForm.onRendered(function() {
-	
+
 
 	pageSession.set("groupPoliciesDetailsFormInfoMessage", "");
 	pageSession.set("groupPoliciesDetailsFormErrorMessage", "");
@@ -105,9 +105,9 @@ Template.GroupPoliciesDetailsForm.events({
 
 			},
 			function(values) {
-				
 
-				
+
+
 			}
 		);
 
@@ -116,7 +116,7 @@ Template.GroupPoliciesDetailsForm.events({
 	"click #form-cancel-button": function(e, t) {
 		e.preventDefault();
 
-		
+
 
 		/*CANCEL_REDIRECT*/
 	},
@@ -131,7 +131,7 @@ Template.GroupPoliciesDetailsForm.events({
 		Router.go("group_policies", mergeObjects(Router.currentRouteParams(), {}));
 	}
 
-	
+
 });
 
 Template.GroupPoliciesDetailsForm.helpers({
@@ -141,7 +141,7 @@ Template.GroupPoliciesDetailsForm.helpers({
 	"errorMessage": function() {
 		return pageSession.get("groupPoliciesDetailsFormErrorMessage");
 	}
-	
+
 });
 
 
@@ -155,7 +155,7 @@ var GroupPoliciesDetailsGpIndividualPoliciesExport = function(fileType) {
 
 	var exportFields = [];
 
-	
+
 
 	Meteor.call("gpIndividualPoliciesPagedExport", extraParams, exportFields, fileType, function(e, data) {
 		if(e) {
@@ -169,16 +169,16 @@ var GroupPoliciesDetailsGpIndividualPoliciesExport = function(fileType) {
 };
 
 Template.GroupPoliciesDetailsGpIndividualPolicies.onCreated(function() {
-	
+
 });
 
 Template.GroupPoliciesDetailsGpIndividualPolicies.onDestroyed(function() {
-	
+
 });
 
 Template.GroupPoliciesDetailsGpIndividualPolicies.onRendered(function() {
 	Session.set("GroupPoliciesDetailsGpIndividualPoliciesStyle", "table");
-	
+
 });
 
 Template.GroupPoliciesDetailsGpIndividualPolicies.events({
@@ -276,7 +276,7 @@ Template.GroupPoliciesDetailsGpIndividualPolicies.events({
 		}
 	}
 
-	
+
 });
 
 Template.GroupPoliciesDetailsGpIndividualPolicies.helpers({
@@ -316,20 +316,20 @@ Template.GroupPoliciesDetailsGpIndividualPolicies.helpers({
 		return Session.get("GroupPoliciesDetailsGpIndividualPoliciesStyle") == "gallery";
 	}
 
-	
+
 });
 
 
 Template.GroupPoliciesDetailsGpIndividualPoliciesTable.onCreated(function() {
-	
+
 });
 
 Template.GroupPoliciesDetailsGpIndividualPoliciesTable.onDestroyed(function() {
-	
+
 });
 
 Template.GroupPoliciesDetailsGpIndividualPoliciesTable.onRendered(function() {
-	
+
 });
 
 Template.GroupPoliciesDetailsGpIndividualPoliciesTable.events({
@@ -356,26 +356,26 @@ Template.GroupPoliciesDetailsGpIndividualPoliciesTable.helpers({
 
 
 Template.GroupPoliciesDetailsGpIndividualPoliciesTableItems.onCreated(function() {
-	
+
 });
 
 Template.GroupPoliciesDetailsGpIndividualPoliciesTableItems.onDestroyed(function() {
-	
+
 });
 
 Template.GroupPoliciesDetailsGpIndividualPoliciesTableItems.onRendered(function() {
-	
+
 });
 
 Template.GroupPoliciesDetailsGpIndividualPoliciesTableItems.events({
-	
+
 
 	"click td": function(e, t) {
 		e.preventDefault();
 		var item = this;
 		var itemId = item ? item._id : null;
 
-		
+		console.log(mergeObjects(Router.currentRouteParams(), {groupPolicyId: this._nid, policyId: this.id}));
 		Router.go("group_policies.details.details", mergeObjects(Router.currentRouteParams(), {groupPolicyId: this._nid, policyId: this.id}));
 		return false;
 	},
@@ -435,9 +435,9 @@ Template.GroupPoliciesDetailsGpIndividualPoliciesTableItems.events({
 });
 
 Template.GroupPoliciesDetailsGpIndividualPoliciesTableItems.helpers({
-	
 
-	"checked": function(value) { return value ? "checked" : "" }, 
+
+	"checked": function(value) { return value ? "checked" : "" },
 	"editButtonClass": function() {
 		return Policies.userCanUpdate(Meteor.userId(), this) ? "" : "hidden";
 	},
