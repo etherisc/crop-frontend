@@ -142,7 +142,7 @@
 		},
 		{
 			"path": "client/views/admin/admin.html",
-			"checksum": "f775efd7c7a5d7498f6021faa24c0e74384ace82"
+			"checksum": "d5b60080e8a531408bc834eefaeca63894e12fa2"
 		},
 		{
 			"path": "client/views/admin/admin.js",
@@ -914,7 +914,7 @@
 		},
 		{
 			"path": "client/views/group_policies/group_policies.js",
-			"checksum": "cc7223567b17b54e83c0a543a635116c8940fab7"
+			"checksum": "074db58548edbe90eadd232af83cb0538b4f50d0"
 		},
 		{
 			"path": "client/views/group_policies/group_policies_controller.js",
@@ -930,7 +930,7 @@
 		},
 		{
 			"path": "client/views/group_policies/details/details_controller.js",
-			"checksum": "763d7aab52b1ec6abee48bae7331e3c8bff92c18"
+			"checksum": "2aa7e1a491fe5dceebe5de640c9d0e5c6fa9376e"
 		},
 		{
 			"path": "client/views/locations/locations.html",
@@ -1042,7 +1042,7 @@
 		},
 		{
 			"path": "server/publish/group_policies.js",
-			"checksum": "e1274e58fbf6ad14bd39dd1a2f89313b27041064"
+			"checksum": "7711a84981c2c68850f50551c25a8648a81a8579"
 		},
 		{
 			"path": "both/collections/i_policies.js",
@@ -1366,7 +1366,7 @@
 		},
 		{
 			"path": "imports/server/methods/group-policy-reader.js",
-			"checksum": "c78ffe38a3a4e4dbc7290b8233c54debbad488f0"
+			"checksum": "88da55488838d483d10ca81fe6b279ad3bb00b1d"
 		},
 		{
 			"path": "client/lib/helpers.js",
@@ -1418,7 +1418,7 @@
 		},
 		{
 			"path": "imports/server/methods/job-execution.js",
-			"checksum": "2cba740e910096f5eb642f8b45171fcd1a27ff2a"
+			"checksum": "784c48b6a68b5c733a973db5ef9139d626767951"
 		},
 		{
 			"path": "imports/server/methods/locations-reader.js",
@@ -1807,6 +1807,7 @@
 			"axios",
 			"fast-levenshtein",
 			"form-data",
+			"uuid",
 			"bcrypt"
 		],
 		"mrt": [
