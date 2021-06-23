@@ -61,6 +61,7 @@ Router.privateRoutes = [
 	"partners.details",
 	"group_policies",
 	"group_policies.details",
+	"group_policies.details.details",
 	"locations",
 	"locations.insert",
 	"locations.update",
@@ -190,6 +191,7 @@ Router.map(function () {
 	this.route("/partners/details/:partnerId", {name: "partners.details", title: "", controller: "PartnersDetailsController"});
 	this.route("/group_policies", {name: "group_policies", title: "Group Policies", controller: "GroupPoliciesController"});
 	this.route("/group_policies/details/:groupPolicyId", {name: "group_policies.details", title: "Group Policies", controller: "GroupPoliciesDetailsController"});
+	this.route("/group_policies/details/:groupPolicyId/details/:groupPolicyId", {name: "group_policies.details.details", title: "Group Policies", controller: "GroupPoliciesDetailsDetailsController"});
 	this.route("/locations", {name: "locations", title: "", controller: "LocationsController"});
 	this.route("/locations/insert", {name: "locations.insert", title: "", controller: "LocationsInsertController"});
 	this.route("/locations/update/:locationId", {name: "locations.update", title: "", controller: "LocationsUpdateController"});
