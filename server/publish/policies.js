@@ -27,7 +27,3 @@ Meteor.methods({
 	}
 });
 
-Meteor.publish("policy_find_one", function(groupPolicyId) {
-	return Policies.find({id:groupPolicyId}, {});
-});
-
