@@ -1,11 +1,61 @@
 console.log('loading helpers.js');
 
+const mapHeader = (key) => ({
+	"name": "Name",
+	"weight": "Weight",
+	"begin_date": "Begin",
+	"end_date": "End",
+	"days": "Days",
+	"block_length": "Length",
+	"block_step": "Step",
+	"blocks": "#",
+	"loss_blocks": "Loss Blocks",
+	"payout": "Payout",
+	"status": "Status",
+	"latitude": "Lat",
+	"longitude": "Lng",
+	"total_amount": "Total",
+	"deductible_amount": "Deductible",
+	"actual_amount": "Actual",
+	"job_id": "Job Id",
+	"process_id": "Process Id",
+	"created_at": "Created",
+	"completed_at": "Completed"
+	
+})[key];
+
+const mapVal = (key, val) => {
+	switch (key) {
+			
+		case "payout": 
+		case "total_amount":
+		case "deductible_amount": 
+		case "actual_amount":
+			
+			return currency(val);
+			break;
+			
+		default: return val;
+	}
+};
+
+const currency = function (number) {
+	if (isNaN(number)) return '';
+	return Intl.NumberFormat('us-US', { style:'currency', currency: 'KES' }).format(number);
+};
+
+
+const round2 = function (number) {
+	return Math.round(number * 100) / 100;
+};
+
+
 Helpers = {};
 
 Helpers.pre = (text) => new Handlebars.SafeString(`<pre class="code">${text}</pre>`);
-
 Helpers.safeStr = (str) => new Handlebars.SafeString(str ? str : '');
-
+Helpers.round2 = round2;
+Helpers.currency = currency;
 
 Helpers.payout_schedule_status2Str = (status) => 
 [
@@ -24,7 +74,7 @@ Helpers.json2table = function(value) {
 	const jsn = typeof value === 'string' ? JSON.parse(value) : value;
 	const rows = Object
 	.keys(jsn)
-	.map(item => `<tr><td>${item}</td><td>${jsn[item]}</td><tr>`)
+	.map(item => `<tr><td>${mapHeader(item)}</td><td>${mapVal(item, jsn[item])}</td><tr>`)
 	.join("\n");
 	const table = rows === '' ? '' : 
 	`<table class="custom-param-table">
@@ -38,43 +88,6 @@ ${rows}
 
 	return new Handlebars.SafeString(table);
 };
-
-
-Helpers.round2 = function (number) {
-	return Math.round(number * 100) / 100;
-};
-
-
-const currency = function (number) {
-	if (isNaN(number)) return '';
-	return Intl.NumberFormat('us-US', { style:'currency', currency: 'KES' }).format(number);
-};
-
-
-Helpers.currency = currency;
-
-const mapHeader = (key) => ({
-	"name": "Name",
-	"weight": "Weight",
-	"begin_date": "Begin",
-	"end_date": "End",
-	"days": "Days",
-	"block_length": "Length",
-	"block_step": "Step",
-	"blocks": "#",
-	"loss_blocks": "Loss Blocks",
-	"payout": "Payout",
-	"status": "Status"
-})[key];
-
-const mapVal = (key, val) => {
-	switch (key) {
-		case "payout": return currency(val);
-			break;
-		default: return val;
-	}
-};
-
 
 Helpers.array2table = (arrVal) => {
 
