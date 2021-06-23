@@ -9,7 +9,7 @@ Template.GroupPoliciesDetails.onDestroyed(function() {
 });
 
 Template.GroupPoliciesDetails.onRendered(function() {
-	
+	Meteor.subscribe("gp_individual_policies");
 	Meteor.defer(function() {
 		globalOnRendered();
 		$("input[autofocus]").focus();
