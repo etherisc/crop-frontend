@@ -57,7 +57,7 @@ this.PoliciesPagePartnerPoliciesDetailsController = RouteController.extend({
 
 		var data = {
 			params: this.params || {},
-			policy: XPolicies.findOne({_id:this.params.policyId}, {}),
+			policy: Policies.findOne({_id:this.params.policyId}, {}),
 			filtered_payments_list_paged: Payments.find(databaseUtils.extendFilter({mobile_num:this.params.mobile_num}, this.filteredPaymentsListPagedExtraParams), databaseUtils.extendOptions({}, this.filteredPaymentsListPagedExtraParams)),
 			filtered_payments_list_paged_count: Counts.get("filtered_payments_list_paged_count"),
 			filtered_activations_list_paged: Activations.find(databaseUtils.extendFilter({mobile_num:this.params.mobile_num}, this.filteredActivationsListPagedExtraParams), databaseUtils.extendOptions({}, this.filteredActivationsListPagedExtraParams)),

@@ -46,7 +46,7 @@ this.PoliciesPageController = RouteController.extend({
 
 		var data = {
 			params: this.params || {},
-			policy_list_paged: XPolicies.find(databaseUtils.extendFilter({}, this.policyListPagedExtraParams), databaseUtils.extendOptions({}, this.policyListPagedExtraParams)),
+			policy_list_paged: Policies.find(databaseUtils.extendFilter({}, this.policyListPagedExtraParams), databaseUtils.extendOptions({}, this.policyListPagedExtraParams)),
 			policy_list_paged_count: Counts.get("policy_list_paged_count")
 		};
 		
