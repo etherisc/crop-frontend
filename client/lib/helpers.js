@@ -45,6 +45,8 @@ const mapVal = (key, val) => {
 			return val.name;
 			
 		case "timestamp":
+		case "created_at":
+		case "completed_at":
 			return moment(val).format('YYYY-MM-DD HH:mm:ss');
 
 		default: return val;
