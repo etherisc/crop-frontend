@@ -1,13 +1,13 @@
 Template.GroupPolicies.onCreated(function() {
-	
+
 });
 
 Template.GroupPolicies.onDestroyed(function() {
-	
+
 });
 
 Template.GroupPolicies.onRendered(function() {
-	
+
 	Meteor.defer(function() {
 		globalOnRendered();
 		$("input[autofocus]").focus();
@@ -15,11 +15,11 @@ Template.GroupPolicies.onRendered(function() {
 });
 
 Template.GroupPolicies.events({
-	
+
 });
 
 Template.GroupPolicies.helpers({
-	
+
 });
 
 Template.GroupPoliciesGpAggregates.created = function() {
@@ -37,7 +37,7 @@ Template.GroupPoliciesGpAggregates.rendered = function() {
 	const aggregate = Meteor.call("gp_aggregates", filter, (err, res) => {
 
 		const fmt = (number) => Intl.NumberFormat('us-US', {style: 'currency', currency: 'KES' }).format(number);
-		
+
 		if (res) {
 			Session.set('aggregates', {
 				amount: fmt(res.amount),
@@ -46,7 +46,7 @@ Template.GroupPoliciesGpAggregates.rendered = function() {
 				policies: res.policies
 			});
 		}
-		
+
 	});
 
 };
@@ -72,7 +72,7 @@ var GroupPoliciesViewExport = function(fileType) {
 
 	var exportFields = [];
 
-	
+
 
 	Meteor.call("groupPolicyListPagedExport", extraParams, exportFields, fileType, function(e, data) {
 		if(e) {
@@ -86,16 +86,16 @@ var GroupPoliciesViewExport = function(fileType) {
 };
 
 Template.GroupPoliciesView.onCreated(function() {
-	
+
 });
 
 Template.GroupPoliciesView.onDestroyed(function() {
-	
+
 });
 
 Template.GroupPoliciesView.onRendered(function() {
 	Session.set("GroupPoliciesViewStyle", "table");
-	
+
 });
 
 Template.GroupPoliciesView.events({
@@ -193,7 +193,7 @@ Template.GroupPoliciesView.events({
 		}
 	}
 
-	
+
 });
 
 Template.GroupPoliciesView.helpers({
@@ -233,20 +233,20 @@ Template.GroupPoliciesView.helpers({
 		return Session.get("GroupPoliciesViewStyle") == "gallery";
 	}
 
-	
+
 });
 
 
 Template.GroupPoliciesViewTable.onCreated(function() {
-	
+
 });
 
 Template.GroupPoliciesViewTable.onDestroyed(function() {
-	
+
 });
 
 Template.GroupPoliciesViewTable.onRendered(function() {
-	
+
 });
 
 Template.GroupPoliciesViewTable.events({
@@ -273,26 +273,26 @@ Template.GroupPoliciesViewTable.helpers({
 
 
 Template.GroupPoliciesViewTableItems.onCreated(function() {
-	
+
 });
 
 Template.GroupPoliciesViewTableItems.onDestroyed(function() {
-	
+
 });
 
 Template.GroupPoliciesViewTableItems.onRendered(function() {
-	
+
 });
 
 Template.GroupPoliciesViewTableItems.events({
-	
+
 
 	"click td": function(e, t) {
 		e.preventDefault();
 		var item = this;
 		var itemId = item ? item._id : null;
 
-		
+
 		Router.go("group_policies.details", mergeObjects(Router.currentRouteParams(), {groupPolicyId: this._id}));
 		return false;
 	},
@@ -352,9 +352,9 @@ Template.GroupPoliciesViewTableItems.events({
 });
 
 Template.GroupPoliciesViewTableItems.helpers({
-	
 
-	"checked": function(value) { return value ? "checked" : "" }, 
+
+	"checked": function(value) { return value ? "checked" : "" },
 	"editButtonClass": function() {
 		return GroupPolicies.userCanUpdate(Meteor.userId(), this) ? "" : "hidden";
 	},
