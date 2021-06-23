@@ -26,6 +26,8 @@ const mapHeader = (key) => {
 		"phone_no": "Mobile Num",
 		"voucher_no": "Voucher",
 		"timestamp": "Timestamp",
+		"transaction_no": "Transaction",
+		"amount": "Amount"
 
 	}; 
 	return dict[key] ? dict[key] : key;
@@ -48,6 +50,9 @@ const mapVal = (key, val) => {
 		case "created_at":
 		case "completed_at":
 			return moment(val).format('YYYY-MM-DD HH:mm:ss');
+			
+		case "transaction_no":
+			return null;
 
 		default: return val;
 	}
@@ -88,7 +93,7 @@ Helpers.json2table = function(value) {
 	const jsn = typeof value === 'string' ? JSON.parse(value) : value;
 	const rows = Object
 	.keys(jsn)
-	.map(item => `<tr><td>${mapHeader(item)}</td><td>${mapVal(item, jsn[item])}</td><tr>`)
+	.map(item => mapVal(item, jsn[item]) ? `<tr><td>${mapHeader(item)}</td><td>${mapVal(item, jsn[item])}</td><tr>` : '')
 	.join("\n");
 	const table = rows === '' ? '' : 
 	`<table class="custom-param-table">
@@ -111,7 +116,7 @@ Helpers.array2table = (arrVal) => {
 
 	const headers = Object.keys(arrVal[0]);
 	const header = `<thead><tr>${headers.map((key) => `<th>${mapHeader(key)}</th>`).join('')}</tr></thead>`;
-	const body = arrVal.map((row) => `<tr>${headers.map((key) => `<td>${mapVal(key, row[key])}</td>`).join('')}</tr>`).join('\n');
+	const body = arrVal.map((row) => `<tr>${headers.map((key) => mapVal(key, row[key]) ? `<td>${mapVal(key, row[key])}</td>` : '').join('')}</tr>`).join('\n');
 	return new Handlebars.SafeString(`<table class="custom-param-table">${header}${body}</table>`);
 
 };
