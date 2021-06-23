@@ -293,7 +293,7 @@ Template.GroupPoliciesViewTableItems.events({
 		var itemId = item ? item._id : null;
 
 		
-		Router.go("group_policies.details", mergeObjects(Router.currentRouteParams(), {groupPolicyId: this._id}));
+		Router.go("group_policies.details", mergeObjects(Router.currentRouteParams(), {groupPolicyId: this._id._str}));
 		return false;
 	},
 
