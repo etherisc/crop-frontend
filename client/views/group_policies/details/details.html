@@ -202,18 +202,6 @@
 				<th class="th-sortable" data-sort="sum_insured_amount">
 					Sum Insured Amount
 				</th>
-				<th class="th-sortable" data-sort="activation">
-					Activation
-				</th>
-				<th class="th-sortable" data-sort="payments">
-					Payments
-				</th>
-				<th class="th-sortable" data-sort="payout">
-					Payout
-				</th>
-				<th class="th-sortable" data-sort="meta">
-					Meta
-				</th>
 			</tr>
 		</thead>
 		<tbody id="dataview-table-items">
@@ -238,18 +226,6 @@
 		</td>
 		<td>
 			{{currency sum_insured_amount this}}
-		</td>
-		<td>
-			{{json2table activation this}}
-		</td>
-		<td>
-			{{array2table payments this}}
-		</td>
-		<td>
-			{{json2table payout this}}
-		</td>
-		<td>
-			{{json2table meta this}}
 		</td>
 	</tr>
 </template>
