@@ -78,14 +78,18 @@ Helpers.json2table = function(value) {
 	.join("\n");
 	const table = rows === '' ? '' : 
 	`<table class="custom-param-table">
-<thead>
-<tr><th>Param</th><th>Value</th></tr>
-</thead>
 <tbody>
 ${rows}
 </tbody> 
 </table>`;
 
+/*
+
+<thead>
+<tr><th>Param</th><th>Value</th></tr>
+</thead>
+
+*/
 	return new Handlebars.SafeString(table);
 };
 
