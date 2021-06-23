@@ -6,6 +6,10 @@ Meteor.publish("policy_list", function() {
 	return Policies.find({}, {});
 });
 
+Meteor.publish("policy", function(groupPolicyId) {
+	return Policies.find({id:groupPolicyId}, {});
+});
+
 Meteor.publish("gp_individual_policies_paged", function(extraOptions) {
 	extraOptions.doSkip = true;
 	return Policies.find(databaseUtils.extendFilter({}, extraOptions), databaseUtils.extendOptions({}, extraOptions));
@@ -21,5 +25,9 @@ Meteor.methods({
 		var data = Policies.find(databaseUtils.extendFilter({}, extraOptions), databaseUtils.extendOptions({}, extraOptions)).fetch();
 		return objectUtils.exportArrayOfObjects(data, exportFields, fileType);
 	}
+});
+
+Meteor.publish("policy_find_one", function(groupPolicyId) {
+	return Policies.find({id:groupPolicyId}, {});
 });
 

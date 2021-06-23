@@ -2,7 +2,7 @@
 	"output_files": [
 		{
 			"path": "client/views/router.js",
-			"checksum": "5ae5d329cd3aa8c347e7ba29562ba246f73d3d80"
+			"checksum": "00a565a2e9f116602c1eff15b43b6f7642aa99bf"
 		},
 		{
 			"path": "server/controllers/router.js",
@@ -142,7 +142,7 @@
 		},
 		{
 			"path": "client/views/admin/admin.html",
-			"checksum": "9fb1795e418cc483ed08899e1281db672bae8b9c"
+			"checksum": "03ba5c363202762d1c0ff9c6ac2f82eee4c4b443"
 		},
 		{
 			"path": "client/views/admin/admin.js",
@@ -658,15 +658,27 @@
 		},
 		{
 			"path": "client/views/group_policies/details/details.html",
-			"checksum": "91f71dc82edc96229c72542f961e2588cedee8bd"
+			"checksum": "4d1c3c038a50730a415d4509c13b5f8fa5ef191c"
 		},
 		{
 			"path": "client/views/group_policies/details/details.js",
-			"checksum": "f29052348c36a3b4d81538b526394b200140d79b"
+			"checksum": "e0cf9c395111b628b42e19bac05ff01e0dcedcbb"
 		},
 		{
 			"path": "client/views/group_policies/details/details_controller.js",
 			"checksum": "64bcbb670494394ee915be2f65bca9d6ad28c544"
+		},
+		{
+			"path": "client/views/group_policies/details/details/details.html",
+			"checksum": "f4a0b98032abf6859d981b0f3d3ac09d5cd6590e"
+		},
+		{
+			"path": "client/views/group_policies/details/details/details.js",
+			"checksum": "afb8dbadd56df246bd24a8894d3560d2f64fdcfa"
+		},
+		{
+			"path": "client/views/group_policies/details/details/details_controller.js",
+			"checksum": "01e85154264f2d494fd713b8fb1e1def1ca004bc"
 		},
 		{
 			"path": "client/views/locations/locations.html",
@@ -958,7 +970,7 @@
 		},
 		{
 			"path": "server/publish/policies.js",
-			"checksum": "b5cd16cced15492d9b585865d43b30801c695112"
+			"checksum": "155d4e88c2ba15f98139457be5a57a78c489b989"
 		},
 		{
 			"path": "client/styles/user_styles.less",
@@ -1331,6 +1343,7 @@
 		"client/views/forgot_password/",
 		"client/views/group_policies/",
 		"client/views/group_policies/details/",
+		"client/views/group_policies/details/details/",
 		"client/views/home_private/",
 		"client/views/home_public/",
 		"client/views/layout/",
