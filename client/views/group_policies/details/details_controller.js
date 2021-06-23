@@ -27,12 +27,12 @@ this.GroupPoliciesDetailsController = RouteController.extend({
 
 
 
-		var gpId = "";
+		
 
 		var subs = [
 			Meteor.subscribe("group_policy", this.params.groupPolicyId),
-			Meteor.subscribe("gp_individual_policies_paged", gpId, this.gpIndividualPoliciesPagedExtraParams),
-			Meteor.subscribe("gp_individual_policies_paged_count", gpId, this.gpIndividualPoliciesPagedExtraParams)
+			Meteor.subscribe("gp_individual_policies_paged", this.gpIndividualPoliciesPagedExtraParams),
+			Meteor.subscribe("gp_individual_policies_paged_count", this.gpIndividualPoliciesPagedExtraParams)
 		];
 		var ready = true;
 		_.each(subs, function(sub) {
@@ -43,12 +43,12 @@ this.GroupPoliciesDetailsController = RouteController.extend({
 	},
 
 	data: function() {
-		var gpId = "";
+		
 
 		var data = {
 			params: this.params || {},
 			group_policy: GroupPolicies.findOne({_nid:this.params.groupPolicyId}, {}),
-			gp_individual_policies_paged: Policies.find(databaseUtils.extendFilter({group_policy_id:gpId}, this.gpIndividualPoliciesPagedExtraParams), databaseUtils.extendOptions({}, this.gpIndividualPoliciesPagedExtraParams)),
+			gp_individual_policies_paged: Policies.find(databaseUtils.extendFilter({}, this.gpIndividualPoliciesPagedExtraParams), databaseUtils.extendOptions({}, this.gpIndividualPoliciesPagedExtraParams)),
 			gp_individual_policies_paged_count: Counts.get("gp_individual_policies_paged_count")
 		};
 
