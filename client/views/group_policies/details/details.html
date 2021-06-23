@@ -144,36 +144,6 @@
 					</span>
 				</div>
 			</div>
-			<div id="dataview-controls-export" class="form-group">
-				{{#if isNotEmpty}}
-				<div class="btn-group">
-					<button type="button" class="btn btn-default" id="dataview-export-default">
-						Export
-					</button>
-					<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-						<span class="caret">
-						</span>
-					</button>
-					<ul class="dropdown-menu" role="menu">
-						<li>
-							<a href="#" id="dataview-export-csv">
-								Export to CSV
-							</a>
-						</li>
-						<li>
-							<a href="#" id="dataview-export-tsv">
-								Export to TSV
-							</a>
-						</li>
-						<li>
-							<a href="#" id="dataview-export-json">
-								Export to JSON
-							</a>
-						</li>
-					</ul>
-				</div>
-				{{/if}}
-			</div>
 		</form>
 		{{#if isNotEmpty}}
 		<div id="dataview-data">
@@ -217,41 +187,29 @@
 	<table id="dataview-table" class="table table-striped">
 		<thead id="dataview-table-header">
 			<tr id="dataview-table-header-row">
-				<th class="th-sortable" data-sort="voucher_no">
-					Voucher No
+				<th class="th-sortable" data-sort="id">
+					Id
 				</th>
-				<th class="th-sortable" data-sort="phone_no">
-					Phone No
+				<th class="th-sortable" data-sort="siteTable_id">
+					Sitetable Id
 				</th>
-				<th class="th-sortable" data-sort="crop">
-					Crop
+				<th class="th-sortable" data-sort="policyStatus_code">
+					Policy Status Code
 				</th>
-				<th class="th-sortable" data-sort="activation_window">
-					Activation W.
+				<th class="th-sortable" data-sort="startDate">
+					Start Date
 				</th>
-				<th class="th-sortable" data-sort="date_begin">
-					Date Begin
+				<th class="th-sortable" data-sort="endDate">
+					End Date
 				</th>
-				<th class="th-sortable" data-sort="date_end">
-					Date End
+				<th class="th-sortable" data-sort="order_number">
+					Order Number
 				</th>
-				<th class="th-sortable" data-sort="activation_timestamp">
-					Activation
+				<th class="th-sortable" data-sort="mobile_num">
+					Mobile Phone
 				</th>
-				<th class="th-sortable" data-sort="premium">
-					Premium
-				</th>
-				<th class="th-sortable" data-sort="sum_insured">
-					Sum Insured
-				</th>
-				<th class="th-sortable" data-sort="paym_amount">
-					Paym Amount
-				</th>
-				<th class="th-sortable" data-sort="payout_amount">
-					Payout Amount
-				</th>
-				<th class="th-sortable" data-sort="payout_schedule_id">
-					Payout Schedule Id
+				<th class="th-sortable" data-sort="is_signed">
+					Is Signed
 				</th>
 			</tr>
 		</thead>
@@ -264,40 +222,28 @@
 <template name="GroupPoliciesDetailsGpIndividualPoliciesTableItems">
 	<tr id="dataview-table-items-row">
 		<td>
-			{{voucher_no}}
+			{{id}}
 		</td>
 		<td>
-			{{phone_no}}
+			{{siteTable_id}}
 		</td>
 		<td>
-			{{crop}}
+			{{policyStatus_code}}
 		</td>
 		<td>
-			{{activation_window}}
+			{{formatDate startDate ''}}
 		</td>
 		<td>
-			{{formatDate date_begin 'MMM-DD'}}
+			{{formatDate endDate ''}}
 		</td>
 		<td>
-			{{formatDate date_end 'MMM-DD'}}
+			{{order_number}}
 		</td>
 		<td>
-			{{formatDate activation_timestamp 'MMM-DD'}}
+			{{mobile_num}}
 		</td>
 		<td>
-			{{currency premium this}}
-		</td>
-		<td>
-			{{currency sum_insured this}}
-		</td>
-		<td>
-			{{currency paym_amount this}}
-		</td>
-		<td>
-			{{currency payout_amount this}}
-		</td>
-		<td>
-			{{payout_schedule_id}}
+			<input type="checkbox" class="inline-checkbox {{editButtonClass}}" data-field="is_signed" {{checked is_signed}}>
 		</td>
 	</tr>
 </template>
