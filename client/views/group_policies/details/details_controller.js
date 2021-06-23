@@ -60,7 +60,7 @@ this.GroupPoliciesDetailsController = RouteController.extend({
 		}
 data.gp_individual_policies_paged = Policies.find(
 	databaseUtils.extendFilter(
-		{group_policy_id:data.GroupPolicy.id}, 
+		{group_policy_id:data.group_policy.id}, 
 		this.gpIndividualPoliciesPagedExtraParams
 	), 
 	databaseUtils.extendOptions(
