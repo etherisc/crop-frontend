@@ -1,40 +1,44 @@
 console.log('loading helpers.js');
 
-const mapHeader = (key) => ({
-	"name": "Name",
-	"weight": "Weight",
-	"begin_date": "Begin",
-	"end_date": "End",
-	"days": "Days",
-	"block_length": "Length",
-	"block_step": "Step",
-	"blocks": "#",
-	"loss_blocks": "Loss Blocks",
-	"payout": "Payout",
-	"status": "Status",
-	"latitude": "Lat",
-	"longitude": "Lng",
-	"total_amount": "Total",
-	"deductible_amount": "Deductible",
-	"actual_amount": "Actual",
-	"job_id": "Job Id",
-	"process_id": "Process Id",
-	"created_at": "Created",
-	"completed_at": "Completed"
+const mapHeader = (key) => {
 	
-})[key];
+	const dict = {
+		"name": "Name",
+		"weight": "Weight",
+		"begin_date": "Begin",
+		"end_date": "End",
+		"days": "Days",
+		"block_length": "Length",
+		"block_step": "Step",
+		"blocks": "#",
+		"loss_blocks": "Loss Blocks",
+		"payout": "Payout",
+		"status": "Status",
+		"latitude": "Lat",
+		"longitude": "Lng",
+		"total_amount": "Total",
+		"deductible_amount": "Deductible",
+		"actual_amount": "Actual",
+		"job_id": "Job Id",
+		"process_id": "Process Id",
+		"created_at": "Created",
+		"completed_at": "Completed"
+
+	}; 
+	return dict[key] ? dict[key] : key;
+};
 
 const mapVal = (key, val) => {
 	switch (key) {
-			
+
 		case "payout": 
 		case "total_amount":
 		case "deductible_amount": 
 		case "actual_amount":
-			
+
 			return currency(val);
 			break;
-			
+
 		default: return val;
 	}
 };
@@ -83,7 +87,7 @@ ${rows}
 </tbody> 
 </table>`;
 
-/*
+	/*
 
 <thead>
 <tr><th>Param</th><th>Value</th></tr>
@@ -99,7 +103,7 @@ Helpers.array2table = (arrVal) => {
 	const header = `<thead><tr>${headers.map((key) => `<th>${mapHeader(key)}</th>`).join('')}</tr></thead>`;
 	const body = arrVal.map((row) => `<tr>${headers.map((key) => `<td>${mapVal(key, row[key])}</td>`).join('')}</tr>`).join('\n');
 	return new Handlebars.SafeString(`<table class="custom-param-table">${header}${body}</table>`);
-	
+
 };
 
 Helpers.txLink = function(txHash) {
