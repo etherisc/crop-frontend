@@ -19,8 +19,8 @@ Helpers.payout_schedule_status2Str = (status) =>
 ][status];
 
 
-Helpers.json2table = function(text) {
-	const jsn = JSON.parse(text);
+Helpers.json2table = function(value) {
+	const jsn = typeof value === 'string' ? JSON.parse(value) : value;
 	const rows = Object
 	.keys(jsn)
 	.map(item => `<tr><td>${item}</td><td>${jsn[item]}</td><tr>`)
