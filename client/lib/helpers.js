@@ -30,7 +30,7 @@ const mapHeader = (key) => {
 		"amount": "Amount"
 
 	}; 
-	return dict[key] ? dict[key] : key;
+	return dict[key] ? dict[key] : null;
 };
 
 const mapVal = (key, val) => {
@@ -93,7 +93,7 @@ Helpers.json2table = function(value) {
 	const jsn = typeof value === 'string' ? JSON.parse(value) : value;
 	const rows = Object
 	.keys(jsn)
-	.map(item => mapVal(item, jsn[item]) ? `<tr><td>${mapHeader(item)}</td><td>${mapVal(item, jsn[item])}</td><tr>` : '')
+	.map(item => mapHeader(item) ? `<tr><td>${mapHeader(item)}</td><td>${mapVal(item, jsn[item])}</td><tr>` : '')
 	.join("\n");
 	const table = rows === '' ? '' : 
 	`<table class="custom-param-table">
@@ -115,8 +115,8 @@ ${rows}
 Helpers.array2table = (arrVal) => {
 
 	const headers = Object.keys(arrVal[0]);
-	const header = `<thead><tr>${headers.map((key) => `<th>${mapHeader(key)}</th>`).join('')}</tr></thead>`;
-	const body = arrVal.map((row) => `<tr>${headers.map((key) => mapVal(key, row[key]) ? `<td>${mapVal(key, row[key])}</td>` : '').join('')}</tr>`).join('\n');
+	const header = `<thead><tr>${headers.map((key) => mapVal(key) ? `<th>${mapHeader(key)}</th>` : '').join('')}</tr></thead>`;
+	const body = arrVal.map((row) => `<tr>${headers.map((key) => mapHeader(key) ? `<td>${mapVal(key, row[key])}</td>` : '').join('')}</tr>`).join('\n');
 	return new Handlebars.SafeString(`<table class="custom-param-table">${header}${body}</table>`);
 
 };
