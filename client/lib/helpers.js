@@ -61,6 +61,7 @@ const mapHeader = (key) => ({
 	"days": "Days",
 	"block_length": "Length",
 	"block_step": "Step",
+	"blocks": "#",
 	"loss_blocks": "Loss Blocks",
 	"payout": "Payout",
 	"status": "Status"
