@@ -1,6 +1,7 @@
 /* Group Policy Reader */
 
 import { getMinioObject } from '/imports/server/methods/minio.js';
+import { v4 as uuidv4 } from 'uuid';
 
 const readGroupPoliciesFile = ({ bucket, folder, output, group_policies, policies }) => {
 	
@@ -167,6 +168,13 @@ const readGroupPoliciesFile = ({ bucket, folder, output, group_policies, policie
 }
 
 
+const gp_fix_id = function() {
+
+	GroupPolicies.update({}, {$set: {_nid: uuidv4()}}, {multi: true});
+	
+}
+
+
 const gp_aggregates = function (filter) {
 
 	const selected = GroupPolicies.find(filter).fetch();
@@ -200,7 +208,7 @@ const clear_selected = function () {
 }
 
 
-module.exports = { readGroupPoliciesFile, gp_aggregates, clear_selected };
+module.exports = { readGroupPoliciesFile, gp_aggregates, clear_selected, gp_fix_id };
 
 
 
