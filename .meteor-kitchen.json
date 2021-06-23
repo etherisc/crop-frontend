@@ -2,7 +2,7 @@
 	"output_files": [
 		{
 			"path": "client/views/router.js",
-			"checksum": "d5a9655472f3cf0b953540e00a1be92be5945d52"
+			"checksum": "b598a59149076dd4cbaadf7104fd7ec3b0883664"
 		},
 		{
 			"path": "server/controllers/router.js",
@@ -142,7 +142,7 @@
 		},
 		{
 			"path": "client/views/admin/admin.html",
-			"checksum": "976af4ad49c2568b2b08eec5e365d3aabcb51ae2"
+			"checksum": "d629cac54e4211306eb187ad195dd7cde8d6b457"
 		},
 		{
 			"path": "client/views/admin/admin.js",
