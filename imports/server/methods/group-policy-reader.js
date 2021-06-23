@@ -173,6 +173,10 @@ const gp_fix_id = function() {
 	GroupPolicies.find({}).forEach(({_id}) => {
 		GroupPolicies.update({_id}, {$set: {_nid: uuidv4()}});
 	});
+
+	Policies.find({}).forEach(({_id}) => {
+		Policies.update({_id}, {$set: {_nid: uuidv4()}});
+	});
 }
 
 
