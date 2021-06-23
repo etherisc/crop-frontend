@@ -1,9 +1,9 @@
 Template.ActivationsMap.onCreated(function() {
-
+	
 });
 
 Template.ActivationsMap.onDestroyed(function() {
-
+	
 });
 
 Template.ActivationsMap.onRendered(function() {
@@ -15,11 +15,11 @@ Template.ActivationsMap.onRendered(function() {
 });
 
 Template.ActivationsMap.events({
-
+	
 });
 
 Template.ActivationsMap.helpers({
-
+	
 });
 
 Template.ActivationsMapMap.created = function() {
@@ -28,7 +28,7 @@ Template.ActivationsMapMap.created = function() {
 
 		let timer;
 		let rectangles = [];
-
+		
 		const drawRectangles = () => {
 
 			if (timer) window.clearTimeout(timer);
@@ -50,11 +50,11 @@ Template.ActivationsMapMap.created = function() {
 				// console.log(xmin(), ymin(), xmax(), ymax());
 				// console.log(map.getCenter());
 				if (xmax() - xmin() > 13 || ymax() - ymin() > 9) {
-					console.log('too many', xmax()-xmin(), ymax()-ymin());
+					console.log('too many', xmax()-xmin(), ymax()-ymin()); 
 					return;
 				}
 
-				const xmi = Math.round(xmin() * 10);
+				const xmi = Math.round(xmin() * 10); 
 				const ymi = Math.round(ymin() * 10);
 				const xma = Math.round(xmax() * 10);
 				const yma = Math.round(ymax() * 10);
@@ -68,16 +68,16 @@ Template.ActivationsMapMap.created = function() {
 							const rectangle = new google.maps.Rectangle({
 								strokeColor: "#FFFFFF",
 								strokeOpacity: 0.5,
-								strokeWeight: 1,
-								fillColor: "#FF0000",
-								fillOpacity: op,
+								strokeWeight: 1, 
+								fillColor: "#FF0000", 
+								fillOpacity: op, 
 								map,
 								bounds: {
 									north: (lat/10) + 0.05,
 									south: (lat/10) - 0.05,
 									east: (lng/10) + 0.05,
 									west: (lng/10) - 0.05,
-								},
+								}, 
 							});
 
 							const latlng = new google.maps.LatLng(lat/10, lng/10);
@@ -88,7 +88,7 @@ Template.ActivationsMapMap.created = function() {
 						}
 					}
 				}
-			}, 1000);
+			}, 1000);				
 		};
 
 		map.addListener("bounds_changed", drawRectangles);
@@ -112,7 +112,7 @@ Template.ActivationsMapMap.helpers({
 			// Map initialization options
 			return {
 				center: new google.maps.LatLng(-0.67, 36.42),
-				zoom: 8
+				zoom: 8 
 			};
 		}
 	}
