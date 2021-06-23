@@ -128,7 +128,7 @@ Template.GroupPoliciesDetailsDetailsForm.events({
 	"click #form-back-button": function(e, t) {
 		e.preventDefault();
 
-		/*BACK_REDIRECT*/
+		Router.go("group_policies.details", mergeObjects(Router.currentRouteParams(), {groupPolicyId: this.params.groupPolicyId}));
 	}
 
 	

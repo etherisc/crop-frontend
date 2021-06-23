@@ -6,8 +6,8 @@ Meteor.publish("policy_list", function() {
 	return Policies.find({}, {});
 });
 
-Meteor.publish("policy", function(groupPolicyId) {
-	return Policies.find({id:groupPolicyId}, {});
+Meteor.publish("policy", function(policyId) {
+	return Policies.find({id:policyId}, {});
 });
 
 Meteor.publish("gp_individual_policies_paged", function(extraOptions) {
