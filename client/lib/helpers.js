@@ -45,10 +45,9 @@ Helpers.array2table = (arrVal) => {
 	const headers = Object.keys(arrVal[0]);
 	const header = `<thead><tr>${headers.map((key) => `<th>${key}</th>`).join('')}</tr></thead>`;
 	const body = arrVal.map((row) => `<tr>${headers.map((key) => {`<td>${row[key]}</td>`}).join('')}</tr>`).join('\n');
-	console.log(headers);
-	console.log(header);
+	console.log(arrVal);
 	console.log(body);
-	return Handlebars.SafeString(`<table class="custom-param-table">${header}${body}</table>`);
+	return new Handlebars.SafeString(`<table class="custom-param-table">${header}${body}</table>`);
 	
 }
 
