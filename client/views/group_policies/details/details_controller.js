@@ -58,6 +58,8 @@ this.GroupPoliciesDetailsController = RouteController.extend({
 		if(this.isReady() && this.gpIndividualPoliciesPagedExtraParams.pageNo >= data.gp_individual_policies_paged_page_count) {
 			Session.set("GpIndividualPoliciesPagedPageNo", data.gp_individual_policies_paged_page_count > 0 ? data.gp_individual_policies_paged_page_count - 1 : 0);
 		}
+/** Custm **/
+
 
 
 		return data;
