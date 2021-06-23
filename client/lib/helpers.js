@@ -40,17 +40,36 @@ ${rows}
 };
 
 
+const mapHeader = (key) => ({
+	"name": "Name",
+	"weight": "Weight",
+	"begin_date": "Begin",
+	"end_date": "End",
+	"days": "Days",
+	"block_length": "Length",
+	"block_step": "Step",
+	"loss_blocks": "Loss Blocks",
+	"payout": "Payout",
+	"status": "Status
+})[key];
+
+const mapVal = (key, val) => {
+	switch (key) {
+		case "payout": return Helpers.currency(val);
+			break;
+		default: return val;
+	}
+};
+
+
 Helpers.array2table = (arrVal) => {
 
 	const headers = Object.keys(arrVal[0]);
 	const header = `<thead><tr>${headers.map((key) => `<th>${key}</th>`).join('')}</tr></thead>`;
-	const body = arrVal.map((row) => `<tr>${headers.map((key) => `<td>${row[key]}</td>`).join('')}</tr>`).join('\n');
+	const body = arrVal.map((row) => `<tr>${headers.map((key) => `<td>${mapVal(key, row[key])}</td>`).join('')}</tr>`).join('\n');
 	return new Handlebars.SafeString(`<table class="custom-param-table">${header}${body}</table>`);
 	
-}
-
-
-
+};
 
 Helpers.txLink = function(txHash) {
 	return new Handlebars.SafeString(`<a href="https://blockscout.com/xdai/mainnet/tx/${txHash}" target="_blank">${txHash.slice(0,10)}...</a>`);
