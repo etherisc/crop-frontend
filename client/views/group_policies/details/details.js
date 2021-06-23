@@ -155,7 +155,7 @@ var GroupPoliciesDetailsGpIndividualPoliciesExport = function(fileType) {
 
 	var exportFields = [];
 
-	var gpId = this.group_policy_id;
+	var gpId = this.params.groupPolicyId;
 
 	Meteor.call("gpIndividualPoliciesPagedExport", gpId, extraParams, exportFields, fileType, function(e, data) {
 		if(e) {
