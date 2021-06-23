@@ -59,10 +59,6 @@ Router.privateRoutes = [
 	"partners.insert",
 	"partners.update",
 	"partners.details",
-	"payouts_demo",
-	"payouts_demo.insert",
-	"payouts_demo.update",
-	"payouts_demo.details",
 	"group_policies",
 	"group_policies.details",
 	"locations",
@@ -192,10 +188,6 @@ Router.map(function () {
 	this.route("/partners/insert", {name: "partners.insert", title: "", controller: "PartnersInsertController"});
 	this.route("/partners/update/:partnerId", {name: "partners.update", title: "", controller: "PartnersUpdateController"});
 	this.route("/partners/details/:partnerId", {name: "partners.details", title: "", controller: "PartnersDetailsController"});
-	this.route("/payouts_demo", {name: "payouts_demo", title: "", controller: "PayoutsDemoController"});
-	this.route("/payouts_demo/insert", {name: "payouts_demo.insert", title: "", controller: "PayoutsDemoInsertController"});
-	this.route("/payouts_demo/update/:payout2Id", {name: "payouts_demo.update", title: "", controller: "PayoutsDemoUpdateController"});
-	this.route("/payouts_demo/details/:payout2Id", {name: "payouts_demo.details", title: "", controller: "PayoutsDemoDetailsController"});
 	this.route("/group_policies", {name: "group_policies", title: "Group Policies", controller: "GroupPoliciesController"});
 	this.route("/group_policies/details/:groupPolicyId", {name: "group_policies.details", title: "Group Policies", controller: "GroupPoliciesDetailsController"});
 	this.route("/locations", {name: "locations", title: "", controller: "LocationsController"});
