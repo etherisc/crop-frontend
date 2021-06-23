@@ -47,7 +47,7 @@ this.GroupPoliciesDetailsController = RouteController.extend({
 
 		var data = {
 			params: this.params || {},
-			group_policy: GroupPolicies.findOne({_nid:this.params.groupPolicyId}, {}),
+			group_policy: GroupPolicies.findOne({_id:this.params.groupPolicyId}, {}),
 			gp_individual_policies_paged: Policies.find(databaseUtils.extendFilter({}, this.gpIndividualPoliciesPagedExtraParams), databaseUtils.extendOptions({}, this.gpIndividualPoliciesPagedExtraParams)),
 			gp_individual_policies_paged_count: Counts.get("gp_individual_policies_paged_count")
 		};

@@ -7,7 +7,7 @@ Meteor.publish("policy_list", function() {
 });
 
 Meteor.publish("policy", function(policyId) {
-	return Policies.find({_nid:policyId}, {});
+	return Policies.find({_id:policyId}, {});
 });
 
 Meteor.publish("gp_individual_policies_paged", function(extraOptions) {
