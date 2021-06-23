@@ -59,11 +59,6 @@ Router.privateRoutes = [
 	"partners.insert",
 	"partners.update",
 	"partners.details",
-	"policies_page",
-	"policies_page.insert",
-	"policies_page.update",
-	"policies_page.details",
-	"policies_page.partner_policies_details",
 	"contract_review_page",
 	"contract_review_page.contract_review_detail",
 	"payouts",
@@ -203,11 +198,6 @@ Router.map(function () {
 	this.route("/partners/insert", {name: "partners.insert", title: "", controller: "PartnersInsertController"});
 	this.route("/partners/update/:partnerId", {name: "partners.update", title: "", controller: "PartnersUpdateController"});
 	this.route("/partners/details/:partnerId", {name: "partners.details", title: "", controller: "PartnersDetailsController"});
-	this.route("/policies_page", {name: "policies_page", title: "", controller: "PoliciesPageController"});
-	this.route("/policies_page/insert", {name: "policies_page.insert", title: "", controller: "PoliciesPageInsertController"});
-	this.route("/policies_page/update/:policyId", {name: "policies_page.update", title: "", controller: "PoliciesPageUpdateController"});
-	this.route("/policies_page/details/:policyId", {name: "policies_page.details", title: "", controller: "PoliciesPageDetailsController"});
-	this.route("/policies_page/partner_policies_details/:policyId/:mobile_num/:partnerId", {name: "policies_page.partner_policies_details", title: "", controller: "PoliciesPagePartnerPoliciesDetailsController"});
 	this.route("/contract_review_page", {name: "contract_review_page", title: "", controller: "ContractReviewPageController"});
 	this.route("/contract_review_page/contract_review_detail/:contractReviewId", {name: "contract_review_page.contract_review_detail", title: "", controller: "ContractReviewPageContractReviewDetailController"});
 	this.route("/payouts", {name: "payouts", title: "", controller: "PayoutsController"});
