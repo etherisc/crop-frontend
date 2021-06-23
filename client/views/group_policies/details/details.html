@@ -133,6 +133,17 @@
 			Individual Policies
 		</h2>
 		<form id="dataview-controls" class="form-inline">
+			<div id="dataview-controls-search">
+				<div id="dataview-controls-search-group" class="input-group">
+					<input type="text" class="form-control" id="dataview-search-input" placeholder="Search" name="search" value="{{searchString}}" autofocus="autofocus">
+					<span class="input-group-btn">
+						<button type="button" id="dataview-search-button" class="btn btn-primary">
+							<span class="fa fa-search">
+							</span>
+						</button>
+					</span>
+				</div>
+			</div>
 		</form>
 		{{#if isNotEmpty}}
 		<div id="dataview-data">
@@ -176,6 +187,33 @@
 	<table id="dataview-table" class="table table-striped">
 		<thead id="dataview-table-header">
 			<tr id="dataview-table-header-row">
+				<th class="th-sortable" data-sort="id">
+					Id
+				</th>
+				<th class="th-sortable" data-sort="group_policy_id">
+					Group Policy Id
+				</th>
+				<th class="th-sortable" data-sort="phone_no">
+					Phone No
+				</th>
+				<th class="th-sortable" data-sort="premium_amount">
+					Premium Amount
+				</th>
+				<th class="th-sortable" data-sort="sum_insured_amount">
+					Sum Insured Amount
+				</th>
+				<th class="th-sortable" data-sort="activation">
+					Activation
+				</th>
+				<th class="th-sortable" data-sort="payments">
+					Payments
+				</th>
+				<th class="th-sortable" data-sort="payout">
+					Payout
+				</th>
+				<th class="th-sortable" data-sort="meta">
+					Meta
+				</th>
 			</tr>
 		</thead>
 		<tbody id="dataview-table-items">
@@ -186,6 +224,33 @@
 
 <template name="GroupPoliciesDetailsGpIndividualPoliciesTableItems">
 	<tr id="dataview-table-items-row">
+		<td>
+			{{id}}
+		</td>
+		<td>
+			{{group_policy_id}}
+		</td>
+		<td>
+			{{phone_no}}
+		</td>
+		<td>
+			{{currency premium_amount this}}
+		</td>
+		<td>
+			{{currency sum_insured_amount this}}
+		</td>
+		<td>
+			{{json2table activation this}}
+		</td>
+		<td>
+			{{array2table payments this}}
+		</td>
+		<td>
+			{{json2table payout this}}
+		</td>
+		<td>
+			{{json2table meta this}}
+		</td>
 	</tr>
 </template>
 
