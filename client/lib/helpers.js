@@ -43,6 +43,9 @@ const mapVal = (key, val) => {
 		case "location":
 			console.log(val);
 			return val.name;
+			
+		case "timestamp":
+			return moment(val).format('YYYY-MM-DD HH:mm:ss');
 
 		default: return val;
 	}
