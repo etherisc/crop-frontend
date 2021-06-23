@@ -142,7 +142,7 @@
 		},
 		{
 			"path": "client/views/admin/admin.html",
-			"checksum": "b38e91e77da64f06e73cb46757ba4042e44a1bad"
+			"checksum": "392f63dc55182207a99f23112d8cd1d974572ff3"
 		},
 		{
 			"path": "client/views/admin/admin.js",
@@ -990,7 +990,7 @@
 		},
 		{
 			"path": "imports/server/methods/group-policy-reader.js",
-			"checksum": "88da55488838d483d10ca81fe6b279ad3bb00b1d"
+			"checksum": "3849e3b8ceda7a42fc450b36b4822f8a805f59e0"
 		},
 		{
 			"path": "client/lib/helpers.js",

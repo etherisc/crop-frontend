@@ -170,8 +170,9 @@ const readGroupPoliciesFile = ({ bucket, folder, output, group_policies, policie
 
 const gp_fix_id = function() {
 
-	GroupPolicies.update({}, {$set: {_nid: uuidv4()}}, {multi: true});
-	
+	GroupPolicies.find({}).forEach(({_id}) => {
+		GroupPolicies.update({_id}, {$set: {_nid: uuidv4()}});
+	});
 }
 
 
