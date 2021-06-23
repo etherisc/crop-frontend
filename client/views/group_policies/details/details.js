@@ -148,12 +148,12 @@ Template.GroupPoliciesDetailsForm.helpers({
 var GroupPoliciesDetailsGpIndividualPoliciesExport = function(fileType) {
 	var extraParams = {
 		searchText: Session.get("GpIndividualPoliciesPagedSearchString") || "",
-		searchFields: Session.get("GpIndividualPoliciesPagedSearchFields") || ["id", "siteTable_id", "policyStatus_code", "startDate", "endDate", "order_number", "mobile_num", "is_signed", "tx_hash"],
+		searchFields: Session.get("GpIndividualPoliciesPagedSearchFields") || ["voucher_no", "phone_no", "crop", "activation_window", "location", "date_begin", "date_end", "activation_timestamp", "group_policy_id", "gp_mongo_id", "premium", "sum_insured", "paym_mpesa_no", "paym_timestamp", "paym_amount", "payout_timestamp", "payout_amount_total", "payout_amount_deductible", "payout_amount", "payout_schedule_id", "payout_override_comment"],
 		sortBy: Session.get("GpIndividualPoliciesPagedSortBy") || "",
 		sortAscending: Session.get("GpIndividualPoliciesPagedSortAscending") || true
 	};
 
-	var exportFields = [];
+	var exportFields = ["voucher_no", "phone_no", "crop", "activation_window", "location", "date_begin", "date_end", "activation_timestamp", "group_policy_id", "gp_mongo_id", "premium", "sum_insured", "paym_mpesa_no", "paym_timestamp", "paym_amount", "payout_timestamp", "payout_amount_total", "payout_amount_deductible", "payout_amount", "payout_schedule_id", "payout_override_comment"];
 
 	var gpId = this.group_policy_id;
 
@@ -282,7 +282,7 @@ Template.GroupPoliciesDetailsGpIndividualPolicies.events({
 Template.GroupPoliciesDetailsGpIndividualPolicies.helpers({
 
 	"insertButtonClass": function() {
-		return Policies.userCanInsert(Meteor.userId(), {}) ? "" : "hidden";
+		return IPolicies.userCanInsert(Meteor.userId(), {}) ? "" : "hidden";
 	},
 
 	"isEmpty": function() {
@@ -391,7 +391,7 @@ Template.GroupPoliciesDetailsGpIndividualPoliciesTableItems.events({
 		var values = {};
 		values[fieldName] = !this[fieldName];
 
-		Meteor.call("policiesUpdate", this._id, values, function(err, res) {
+		Meteor.call("iPoliciesUpdate", this._id, values, function(err, res) {
 			if(err) {
 				alert(err.message);
 			}
@@ -412,7 +412,7 @@ Template.GroupPoliciesDetailsGpIndividualPoliciesTableItems.events({
 					label: "Yes",
 					className: "btn-success",
 					callback: function() {
-						Meteor.call("policiesRemove", me._id, function(err, res) {
+						Meteor.call("iPoliciesRemove", me._id, function(err, res) {
 							if(err) {
 								alert(err.message);
 							}
@@ -439,10 +439,10 @@ Template.GroupPoliciesDetailsGpIndividualPoliciesTableItems.helpers({
 
 	"checked": function(value) { return value ? "checked" : "" }, 
 	"editButtonClass": function() {
-		return Policies.userCanUpdate(Meteor.userId(), this) ? "" : "hidden";
+		return IPolicies.userCanUpdate(Meteor.userId(), this) ? "" : "hidden";
 	},
 
 	"deleteButtonClass": function() {
-		return Policies.userCanRemove(Meteor.userId(), this) ? "" : "hidden";
+		return IPolicies.userCanRemove(Meteor.userId(), this) ? "" : "hidden";
 	}
 });
