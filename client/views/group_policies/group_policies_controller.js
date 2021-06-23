@@ -18,7 +18,7 @@ this.GroupPoliciesController = RouteController.extend({
 	isReady: function() {
 		this.groupPolicyListPagedExtraParams = {
 			searchText: Session.get("GroupPolicyListPagedSearchString") || "",
-			searchFields: Session.get("GroupPolicyListPagedSearchFields") || ["id", "season", "value_chain", "location", "date_begin", "date_end", "payout_total", "hurdle", "payout_actual", "sw_date_begin", "sw_count", "sw_length", "sw_window", "sw_date", "acc_payments", "acc_sum_insured", "acc_amount_total", "acc_amount_deductible", "acc_amount", "acc_policies", "select_for_payout"],
+			searchFields: Session.get("GroupPolicyListPagedSearchFields") || ["id", "location", "sow_window", "sow_date", "begin_date", "end_date", "crop_stages", "payout", "meta"],
 			sortBy: Session.get("GroupPolicyListPagedSortBy") || "",
 			sortAscending: Session.get("GroupPolicyListPagedSortAscending"),
 			pageNo: Session.get("GroupPolicyListPagedPageNo") || 0,
