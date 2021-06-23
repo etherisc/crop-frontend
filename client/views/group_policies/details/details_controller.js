@@ -18,7 +18,7 @@ this.GroupPoliciesDetailsController = RouteController.extend({
 	isReady: function() {
 		this.gpIndividualPoliciesPagedExtraParams = {
 			searchText: Session.get("GpIndividualPoliciesPagedSearchString") || "",
-			searchFields: Session.get("GpIndividualPoliciesPagedSearchFields") || ["id", "siteTable_id", "policyStatus_code", "startDate", "endDate", "order_number", "mobile_num", "is_signed", "tx_hash"],
+			searchFields: Session.get("GpIndividualPoliciesPagedSearchFields") || ["voucher_no", "phone_no", "crop", "activation_window", "location", "date_begin", "date_end", "activation_timestamp", "group_policy_id", "gp_mongo_id", "premium", "sum_insured", "paym_mpesa_no", "paym_timestamp", "paym_amount", "payout_timestamp", "payout_amount_total", "payout_amount_deductible", "payout_amount", "payout_schedule_id", "payout_override_comment"],
 			sortBy: Session.get("GpIndividualPoliciesPagedSortBy") || "",
 			sortAscending: Session.get("GpIndividualPoliciesPagedSortAscending"),
 			pageNo: Session.get("GpIndividualPoliciesPagedPageNo") || 0,
@@ -48,7 +48,7 @@ this.GroupPoliciesDetailsController = RouteController.extend({
 		var data = {
 			params: this.params || {},
 			group_policy: GroupPolicies.findOne({_nid:this.params.groupPolicyId}, {}),
-			gp_individual_policies_paged: Policies.find(databaseUtils.extendFilter({group_policy_id:gpId}, this.gpIndividualPoliciesPagedExtraParams), databaseUtils.extendOptions({}, this.gpIndividualPoliciesPagedExtraParams)),
+			gp_individual_policies_paged: IPolicies.find(databaseUtils.extendFilter({group_policy_id:gpId}, this.gpIndividualPoliciesPagedExtraParams), databaseUtils.extendOptions({}, this.gpIndividualPoliciesPagedExtraParams)),
 			gp_individual_policies_paged_count: Counts.get("gp_individual_policies_paged_count")
 		};
 		

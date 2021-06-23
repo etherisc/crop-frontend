@@ -142,7 +142,7 @@
 		},
 		{
 			"path": "client/views/admin/admin.html",
-			"checksum": "00b24d15ccca9757b8dbd79face7f6b0108810dc"
+			"checksum": "d8f1094cca2fd254987b03a40b5694d86af9772e"
 		},
 		{
 			"path": "client/views/admin/admin.js",
@@ -922,15 +922,15 @@
 		},
 		{
 			"path": "client/views/group_policies/details/details.html",
-			"checksum": "2eba635602bdb162aff5bacb9a0fa92e934ba564"
+			"checksum": "ba53a3b1a88b551030e8b516b41106db62dfaabd"
 		},
 		{
 			"path": "client/views/group_policies/details/details.js",
-			"checksum": "242a9f20f5b526c4bb404f278b4d2bd465cf4759"
+			"checksum": "5ab9f30833df09cd095229539f1fd2b85179250d"
 		},
 		{
 			"path": "client/views/group_policies/details/details_controller.js",
-			"checksum": "09aac499aca890c95421e024c0652b64b35450e6"
+			"checksum": "d00f35ace23d7d45a4254e5a0d12b8c0285c0854"
 		},
 		{
 			"path": "client/views/locations/locations.html",
@@ -1058,7 +1058,7 @@
 		},
 		{
 			"path": "server/publish/i_policies.js",
-			"checksum": "7f648335edf4e00f75bc7e235de4e99bdc3df007"
+			"checksum": "f3fa4cc393a81a3d1e1223a470558493829137d5"
 		},
 		{
 			"path": "both/collections/jobs.js",
@@ -1186,7 +1186,7 @@
 		},
 		{
 			"path": "server/publish/policies.js",
-			"checksum": "673f5473a4303db344fdb9c7e862328c834d5d1d"
+			"checksum": "c25465ac0948f3d5c802e0dc38f4e05324f443b2"
 		},
 		{
 			"path": "both/collections/record_counts.js",
