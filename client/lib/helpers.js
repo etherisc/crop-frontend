@@ -20,6 +20,7 @@ Helpers.payout_schedule_status2Str = (status) =>
 
 
 Helpers.json2table = function(value) {
+	if (!value) return '';
 	const jsn = typeof value === 'string' ? JSON.parse(value) : value;
 	const rows = Object
 	.keys(jsn)

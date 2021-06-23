@@ -142,7 +142,7 @@
 		},
 		{
 			"path": "client/views/admin/admin.html",
-			"checksum": "53d3d474e5f83964e2d153ddd2298062cd99ede7"
+			"checksum": "b5f234d699ef4e18d8e029ba86141fb02e33e9bb"
 		},
 		{
 			"path": "client/views/admin/admin.js",
@@ -922,7 +922,7 @@
 		},
 		{
 			"path": "client/views/group_policies/details/details.html",
-			"checksum": "f145246d17823664e37d5d07e6689adf8af72934"
+			"checksum": "676b6597bd4d50a85afd5c0c21c0c4b2b54df3f1"
 		},
 		{
 			"path": "client/views/group_policies/details/details.js",
@@ -1370,7 +1370,7 @@
 		},
 		{
 			"path": "client/lib/helpers.js",
-			"checksum": "ecddb650e04922e2a8a0759005dbda25c9671cae"
+			"checksum": "75ec14389f94c06dce2e4ea63e01b7c499226684"
 		},
 		{
 			"path": "client/styles/googlemaps.css",
