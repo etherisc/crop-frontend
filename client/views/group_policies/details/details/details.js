@@ -73,7 +73,7 @@ Template.GroupPoliciesDetailsDetailsForm.events({
 		var self = this;
 
 		function submitAction(result, msg) {
-			var groupPoliciesDetailsDetailsFormMode = "insert";
+			var groupPoliciesDetailsDetailsFormMode = "read_only";
 			if(!t.find("#form-cancel-button")) {
 				switch(groupPoliciesDetailsDetailsFormMode) {
 					case "insert": {
@@ -107,7 +107,7 @@ Template.GroupPoliciesDetailsDetailsForm.events({
 			function(values) {
 				
 
-				Meteor.call("policiesInsert", values, function(e, r) { if(e) errorAction(e); else submitAction(r); });
+				
 			}
 		);
 

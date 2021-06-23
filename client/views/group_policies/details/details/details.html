@@ -10,7 +10,7 @@
 
 <template name="GroupPoliciesDetailsDetailsForm">
 	<div id="group-policies-details-details-form" class="">
-		<form role="form">
+		<form role="form" class="form-horizontal">
 			{{#if errorMessage}}
 			<div class="alert alert-warning">
 				{{errorMessage}}
@@ -23,115 +23,97 @@
 			</div>
 			{{/if}}
 			<div class="form-group  field-id">
-				<label for="id">
+				<label for="id" class="col-sm-3 control-label">
 					Id
 				</label>
-				<div class="input-div">
-					<input type="text" name="id" value="" class="form-control " autofocus="autofocus" data-type="string">
-					<span id="help-text" class="help-block">
-					</span>
-					<span id="error-text" class="help-block">
-					</span>
+				<div class="input-div col-sm-9">
+					<p class="form-control-static  control-field-id">
+						{{policy.id}}
+					</p>
 				</div>
 			</div>
 			<div class="form-group  field-group_policy_id">
-				<label for="group_policy_id">
+				<label for="group_policy_id" class="col-sm-3 control-label">
 					Group Policy Id
 				</label>
-				<div class="input-div">
-					<input type="text" name="group_policy_id" value="" class="form-control " data-type="string">
-					<span id="help-text" class="help-block">
-					</span>
-					<span id="error-text" class="help-block">
-					</span>
+				<div class="input-div col-sm-9">
+					<p class="form-control-static  control-field-group_policy_id">
+						{{policy.group_policy_id}}
+					</p>
 				</div>
 			</div>
 			<div class="form-group  field-phone_no">
-				<label for="phone_no">
+				<label for="phone_no" class="col-sm-3 control-label">
 					Phone No
 				</label>
-				<div class="input-div">
-					<input type="text" name="phone_no" value="" class="form-control " data-type="string">
-					<span id="help-text" class="help-block">
-					</span>
-					<span id="error-text" class="help-block">
-					</span>
+				<div class="input-div col-sm-9">
+					<p class="form-control-static  control-field-phone_no">
+						{{policy.phone_no}}
+					</p>
 				</div>
 			</div>
 			<div class="form-group  field-premium_amount">
-				<label for="premium_amount">
+				<label for="premium_amount" class="col-sm-3 control-label">
 					Premium Amount
 				</label>
-				<div class="input-div">
-					<input type="text" name="premium_amount" value="" class="form-control " data-type="float">
-					<span id="help-text" class="help-block">
-					</span>
-					<span id="error-text" class="help-block">
-					</span>
+				<div class="input-div col-sm-9">
+					<p class="form-control-static  control-field-premium_amount">
+						{{currency policy.premium_amount policy}}
+					</p>
 				</div>
 			</div>
 			<div class="form-group  field-sum_insured_amount">
-				<label for="sum_insured_amount">
+				<label for="sum_insured_amount" class="col-sm-3 control-label">
 					Sum Insured Amount
 				</label>
-				<div class="input-div">
-					<input type="text" name="sum_insured_amount" value="" class="form-control " data-type="float">
-					<span id="help-text" class="help-block">
-					</span>
-					<span id="error-text" class="help-block">
-					</span>
+				<div class="input-div col-sm-9">
+					<p class="form-control-static  control-field-sum_insured_amount">
+						{{currency policy.sum_insured_amount policy}}
+					</p>
 				</div>
 			</div>
 			<div class="form-group  field-activation">
-				<label for="activation">
+				<label for="activation" class="col-sm-3 control-label">
 					Activation
 				</label>
-				<div class="input-div">
-					<input type="text" name="activation" value="" class="form-control " data-type="object">
-					<span id="help-text" class="help-block">
-					</span>
-					<span id="error-text" class="help-block">
-					</span>
+				<div class="input-div col-sm-9">
+					<p class="form-control-static  control-field-activation">
+						{{json2table policy.activation policy}}
+					</p>
 				</div>
 			</div>
 			<div class="form-group  field-payments">
-				<label for="payments">
+				<label for="payments" class="col-sm-3 control-label">
 					Payments
 				</label>
-				<div class="input-div">
-					<input type="text" name="payments" value="" class="form-control " data-type="array">
-					<span id="help-text" class="help-block">
-					</span>
-					<span id="error-text" class="help-block">
-					</span>
+				<div class="input-div col-sm-9">
+					<p class="form-control-static  control-field-payments">
+						{{array2table policy.payments policy}}
+					</p>
 				</div>
 			</div>
 			<div class="form-group  field-payout">
-				<label for="payout">
+				<label for="payout" class="col-sm-3 control-label">
 					Payout
 				</label>
-				<div class="input-div">
-					<input type="text" name="payout" value="" class="form-control " data-type="object">
-					<span id="help-text" class="help-block">
-					</span>
-					<span id="error-text" class="help-block">
-					</span>
+				<div class="input-div col-sm-9">
+					<p class="form-control-static  control-field-payout">
+						{{json2table policy.payout policy}}
+					</p>
 				</div>
 			</div>
 			<div class="form-group  field-meta">
-				<label for="meta">
+				<label for="meta" class="col-sm-3 control-label">
 					Meta
 				</label>
-				<div class="input-div">
-					<input type="text" name="meta" value="" class="form-control " data-type="object">
-					<span id="help-text" class="help-block">
-					</span>
-					<span id="error-text" class="help-block">
-					</span>
+				<div class="input-div col-sm-9">
+					<p class="form-control-static  control-field-meta">
+						{{json2table policy.meta policy}}
+					</p>
 				</div>
 			</div>
 			<div class="form-group">
-				<div class="submit-div">
+				<div class="submit-div col-sm-9 col-sm-offset-3">
 				</div>
 			</div>
 		</form>
