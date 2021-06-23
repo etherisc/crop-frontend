@@ -59,8 +59,6 @@ Router.privateRoutes = [
 	"partners.insert",
 	"partners.update",
 	"partners.details",
-	"contract_review_page",
-	"contract_review_page.contract_review_detail",
 	"payouts",
 	"payouts.insert",
 	"payouts.update",
@@ -198,8 +196,6 @@ Router.map(function () {
 	this.route("/partners/insert", {name: "partners.insert", title: "", controller: "PartnersInsertController"});
 	this.route("/partners/update/:partnerId", {name: "partners.update", title: "", controller: "PartnersUpdateController"});
 	this.route("/partners/details/:partnerId", {name: "partners.details", title: "", controller: "PartnersDetailsController"});
-	this.route("/contract_review_page", {name: "contract_review_page", title: "", controller: "ContractReviewPageController"});
-	this.route("/contract_review_page/contract_review_detail/:contractReviewId", {name: "contract_review_page.contract_review_detail", title: "", controller: "ContractReviewPageContractReviewDetailController"});
 	this.route("/payouts", {name: "payouts", title: "", controller: "PayoutsController"});
 	this.route("/payouts/insert", {name: "payouts.insert", title: "", controller: "PayoutsInsertController"});
 	this.route("/payouts/update/:payoutId", {name: "payouts.update", title: "", controller: "PayoutsUpdateController"});
