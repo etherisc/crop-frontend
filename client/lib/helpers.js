@@ -42,7 +42,7 @@ const mapVal = (key, val) => {
 			
 		case "location":
 			console.log(val);
-			return val.pixel;
+			return val.name;
 
 		default: return val;
 	}
