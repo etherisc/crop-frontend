@@ -16,17 +16,9 @@ this.GroupPoliciesDetailsController = RouteController.extend({
 	},
 
 	isReady: function() {
-		this.gpCropStagesListPagedExtraParams = {
-			searchText: Session.get("GpCropStagesListPagedSearchString") || "",
-			searchFields: Session.get("GpCropStagesListPagedSearchFields") || ["cs_id", "gp_mongo_id", "weight", "date_begin", "date_end", "trigger", "blocks_total", "blocks_loss", "payout"],
-			sortBy: Session.get("GpCropStagesListPagedSortBy") || "",
-			sortAscending: Session.get("GpCropStagesListPagedSortAscending"),
-			pageNo: Session.get("GpCropStagesListPagedPageNo") || 0,
-			pageSize: Session.get("GpCropStagesListPagedPageSize") || 0
-		};
 		this.gpIndividualPoliciesPagedExtraParams = {
 			searchText: Session.get("GpIndividualPoliciesPagedSearchString") || "",
-			searchFields: Session.get("GpIndividualPoliciesPagedSearchFields") || ["voucher_no", "phone_no", "crop", "activation_window", "location", "date_begin", "date_end", "activation_timestamp", "group_policy_id", "gp_mongo_id", "premium", "sum_insured", "paym_mpesa_no", "paym_timestamp", "paym_amount", "payout_timestamp", "payout_amount_total", "payout_amount_deductible", "payout_amount", "payout_schedule_id", "payout_override_comment"],
+			searchFields: Session.get("GpIndividualPoliciesPagedSearchFields") || ["id", "siteTable_id", "policyStatus_code", "startDate", "endDate", "order_number", "mobile_num", "is_signed", "tx_hash"],
 			sortBy: Session.get("GpIndividualPoliciesPagedSortBy") || "",
 			sortAscending: Session.get("GpIndividualPoliciesPagedSortAscending"),
 			pageNo: Session.get("GpIndividualPoliciesPagedPageNo") || 0,
@@ -35,14 +27,12 @@ this.GroupPoliciesDetailsController = RouteController.extend({
 
 
 
-
+		var gpId = this.group_policy_id;
 
 		var subs = [
 			Meteor.subscribe("group_policy", this.params.groupPolicyId),
-			Meteor.subscribe("gp_crop_stages_list_paged", this.params.groupPolicyId, this.gpCropStagesListPagedExtraParams),
-			Meteor.subscribe("gp_crop_stages_list_paged_count", this.params.groupPolicyId, this.gpCropStagesListPagedExtraParams),
-			Meteor.subscribe("gp_individual_policies_paged", this.params.groupPolicyId, this.gpIndividualPoliciesPagedExtraParams),
-			Meteor.subscribe("gp_individual_policies_paged_count", this.params.groupPolicyId, this.gpIndividualPoliciesPagedExtraParams)
+			Meteor.subscribe("gp_individual_policies_paged", gpId, this.gpIndividualPoliciesPagedExtraParams),
+			Meteor.subscribe("gp_individual_policies_paged_count", gpId, this.gpIndividualPoliciesPagedExtraParams)
 		];
 		var ready = true;
 		_.each(subs, function(sub) {
@@ -53,14 +43,12 @@ this.GroupPoliciesDetailsController = RouteController.extend({
 	},
 
 	data: function() {
-
+		var gpId = this.group_policy_id;
 
 		var data = {
 			params: this.params || {},
 			group_policy: GroupPolicies.findOne({_nid:this.params.groupPolicyId}, {}),
-			gp_crop_stages_list_paged: CropStages.find(databaseUtils.extendFilter({gp_mongo_id:this.params.groupPolicyId}, this.gpCropStagesListPagedExtraParams), databaseUtils.extendOptions({}, this.gpCropStagesListPagedExtraParams)),
-			gp_crop_stages_list_paged_count: Counts.get("gp_crop_stages_list_paged_count"),
-			gp_individual_policies_paged: IPolicies.find(databaseUtils.extendFilter({gp_mongo_id:this.params.groupPolicyId}, this.gpIndividualPoliciesPagedExtraParams), databaseUtils.extendOptions({}, this.gpIndividualPoliciesPagedExtraParams)),
+			gp_individual_policies_paged: Policies.find(databaseUtils.extendFilter({group_policy_id:gpId}, this.gpIndividualPoliciesPagedExtraParams), databaseUtils.extendOptions({}, this.gpIndividualPoliciesPagedExtraParams)),
 			gp_individual_policies_paged_count: Counts.get("gp_individual_policies_paged_count")
 		};
 
@@ -69,11 +57,6 @@ this.GroupPoliciesDetailsController = RouteController.extend({
 		data.gp_individual_policies_paged_page_count = this.gpIndividualPoliciesPagedExtraParams && this.gpIndividualPoliciesPagedExtraParams.pageSize ? Math.ceil(data.gp_individual_policies_paged_count / this.gpIndividualPoliciesPagedExtraParams.pageSize) : 1;
 		if(this.isReady() && this.gpIndividualPoliciesPagedExtraParams.pageNo >= data.gp_individual_policies_paged_page_count) {
 			Session.set("GpIndividualPoliciesPagedPageNo", data.gp_individual_policies_paged_page_count > 0 ? data.gp_individual_policies_paged_page_count - 1 : 0);
-		}
-
-		data.gp_crop_stages_list_paged_page_count = this.gpCropStagesListPagedExtraParams && this.gpCropStagesListPagedExtraParams.pageSize ? Math.ceil(data.gp_crop_stages_list_paged_count / this.gpCropStagesListPagedExtraParams.pageSize) : 1;
-		if(this.isReady() && this.gpCropStagesListPagedExtraParams.pageNo >= data.gp_crop_stages_list_paged_page_count) {
-			Session.set("GpCropStagesListPagedPageNo", data.gp_crop_stages_list_paged_page_count > 0 ? data.gp_crop_stages_list_paged_page_count - 1 : 0);
 		}
 
 

@@ -180,7 +180,7 @@ Template.PoliciesPageView.events({
 Template.PoliciesPageView.helpers({
 
 	"insertButtonClass": function() {
-		return XPolicies.userCanInsert(Meteor.userId(), {}) ? "" : "hidden";
+		return Policies.userCanInsert(Meteor.userId(), {}) ? "" : "hidden";
 	},
 
 	"isEmpty": function() {
@@ -303,7 +303,7 @@ return false;
 		var values = {};
 		values[fieldName] = !this[fieldName];
 
-		Meteor.call("xPoliciesUpdate", this._id, values, function(err, res) {
+		Meteor.call("policiesUpdate", this._id, values, function(err, res) {
 			if(err) {
 				alert(err.message);
 			}
@@ -324,7 +324,7 @@ return false;
 					label: "Yes",
 					className: "btn-success",
 					callback: function() {
-						Meteor.call("xPoliciesRemove", me._id, function(err, res) {
+						Meteor.call("policiesRemove", me._id, function(err, res) {
 							if(err) {
 								alert(err.message);
 							}
@@ -354,10 +354,10 @@ return !!(!this.is_signed)
 
 	"checked": function(value) { return value ? "checked" : "" }, 
 	"editButtonClass": function() {
-		return XPolicies.userCanUpdate(Meteor.userId(), this) ? "" : "hidden";
+		return Policies.userCanUpdate(Meteor.userId(), this) ? "" : "hidden";
 	},
 
 	"deleteButtonClass": function() {
-		return XPolicies.userCanRemove(Meteor.userId(), this) ? "" : "hidden";
+		return Policies.userCanRemove(Meteor.userId(), this) ? "" : "hidden";
 	}
 });

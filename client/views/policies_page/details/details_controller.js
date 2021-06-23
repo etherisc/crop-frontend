@@ -36,7 +36,7 @@ this.PoliciesPageDetailsController = RouteController.extend({
 
 		var data = {
 			params: this.params || {},
-			policy: XPolicies.findOne({_id:this.params.policyId}, {})
+			policy: Policies.findOne({_id:this.params.policyId}, {})
 		};
 		
 
