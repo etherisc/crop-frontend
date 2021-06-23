@@ -26,7 +26,7 @@ const mapHeader = (key) => {
 		"phone_no": "Mobile Num",
 		"voucher_no": "Voucher",
 		"timestamp": "Timestamp",
-		"transaction_no": "Transaction",
+		// "transaction_no": "Transaction",
 		"amount": "Amount"
 
 	}; 
@@ -115,7 +115,7 @@ ${rows}
 Helpers.array2table = (arrVal) => {
 
 	const headers = Object.keys(arrVal[0]);
-	const header = `<thead><tr>${headers.map((key) => mapVal(key) ? `<th>${mapHeader(key)}</th>` : '').join('')}</tr></thead>`;
+	const header = `<thead><tr>${headers.map((key) => mapHeader(key) ? `<th>${mapHeader(key)}</th>` : '').join('')}</tr></thead>`;
 	const body = arrVal.map((row) => `<tr>${headers.map((key) => mapHeader(key) ? `<td>${mapVal(key, row[key])}</td>` : '').join('')}</tr>`).join('\n');
 	return new Handlebars.SafeString(`<table class="custom-param-table">${header}${body}</table>`);
 
