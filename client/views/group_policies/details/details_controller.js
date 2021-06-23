@@ -1,6 +1,6 @@
 this.GroupPoliciesDetailsController = RouteController.extend({
 	template: "GroupPoliciesDetails",
-
+	
 
 	yieldTemplates: {
 		/*YIELD_TEMPLATES*/
@@ -27,7 +27,7 @@ this.GroupPoliciesDetailsController = RouteController.extend({
 
 
 
-
+		
 
 		var subs = [
 			Meteor.subscribe("group_policy", this.params.groupPolicyId),
@@ -43,7 +43,7 @@ this.GroupPoliciesDetailsController = RouteController.extend({
 	},
 
 	data: function() {
-
+		
 
 		var data = {
 			params: this.params || {},
@@ -51,9 +51,9 @@ this.GroupPoliciesDetailsController = RouteController.extend({
 			gp_individual_policies_paged: Policies.find(databaseUtils.extendFilter({}, this.gpIndividualPoliciesPagedExtraParams), databaseUtils.extendOptions({}, this.gpIndividualPoliciesPagedExtraParams)),
 			gp_individual_policies_paged_count: Counts.get("gp_individual_policies_paged_count")
 		};
+		
 
-
-
+		
 		data.gp_individual_policies_paged_page_count = this.gpIndividualPoliciesPagedExtraParams && this.gpIndividualPoliciesPagedExtraParams.pageSize ? Math.ceil(data.gp_individual_policies_paged_count / this.gpIndividualPoliciesPagedExtraParams.pageSize) : 1;
 		if(this.isReady() && this.gpIndividualPoliciesPagedExtraParams.pageNo >= data.gp_individual_policies_paged_page_count) {
 			Session.set("GpIndividualPoliciesPagedPageNo", data.gp_individual_policies_paged_page_count > 0 ? data.gp_individual_policies_paged_page_count - 1 : 0);
@@ -63,10 +63,12 @@ if (data.group_policy) {
 };
 
 
+
+
 		return data;
 	},
 
 	onAfterAction: function() {
-
+		
 	}
 });
