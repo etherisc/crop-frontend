@@ -45,7 +45,7 @@ Helpers.array2table = (arrVal) => {
 	const headers = Object.keys(arrVal[0]);
 	const header = `<thead><tr>${headers.map((key) => `<th>${key}</th>`)}</tr></thead>`;
 	const body = arrVal.map((row) => `<tr>${headers.map((key) => {`<td>${row[key]}</td>`})}</tr>`);
-	return `<table class="custom-param-table">${header}${body}</table>`;
+	return Handlebars.SafeString(`<table class="custom-param-table">${header}${body}</table>`);
 	
 }
 
