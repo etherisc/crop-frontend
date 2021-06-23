@@ -36,7 +36,7 @@ this.GroupPoliciesDetailsDetailsController = RouteController.extend({
 
 		var data = {
 			params: this.params || {},
-			policy: Policies.findOne({id:this.params.policyId}, {})
+			policy: Policies.findOne({_nid:this.params.policyId}, {})
 		};
 		
 
