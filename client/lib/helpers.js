@@ -40,6 +40,15 @@ ${rows}
 };
 
 
+Helpers.round2 = function (number) {
+	return Math.round(number * 100) / 100;
+};
+
+Helpers.currency = function (number) {
+	if (isNaN(number)) return '';
+	return Intl.NumberFormat('us-US', { style:'currency', currency: 'KES' }).format(number);
+};
+
 const mapHeader = (key) => ({
 	"name": "Name",
 	"weight": "Weight",
@@ -65,7 +74,7 @@ const mapVal = (key, val) => {
 Helpers.array2table = (arrVal) => {
 
 	const headers = Object.keys(arrVal[0]);
-	const header = `<thead><tr>${headers.map((key) => `<th>${key}</th>`).join('')}</tr></thead>`;
+	const header = `<thead><tr>${headers.map((key) => `<th>${mapHeader(key)}</th>`).join('')}</tr></thead>`;
 	const body = arrVal.map((row) => `<tr>${headers.map((key) => `<td>${mapVal(key, row[key])}</td>`).join('')}</tr>`).join('\n');
 	return new Handlebars.SafeString(`<table class="custom-param-table">${header}${body}</table>`);
 	
@@ -77,15 +86,6 @@ Helpers.txLink = function(txHash) {
 
 Helpers.addressLink = function(address) {
 	return new Handlebars.SafeString(`<a href="https://blockscout.com/xdai/mainnet/address/${address}" target="_blank">${address.slice(0,10)}...</a>`);
-};
-
-Helpers.round2 = function (number) {
-	return Math.round(number * 100) / 100;
-};
-
-Helpers.currency = function (number) {
-	if (isNaN(number)) return '';
-	return Intl.NumberFormat('us-US', { style:'currency', currency: 'KES' }).format(number);
 };
 
 Helpers.displayUserEmail = function(emails, self){
