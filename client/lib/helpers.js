@@ -41,6 +41,7 @@ const mapVal = (key, val) => {
 			return currency(val);
 			
 		case "location":
+			console.log(val);
 			return val.pixel;
 
 		default: return val;
