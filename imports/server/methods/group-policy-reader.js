@@ -24,7 +24,7 @@ const gp_aggregates = function (gp_filter) {
 		gp_deductible_amount += gp_item.payout.deductible_amount;
 		gp_actual_amount += gp_item.payout.actual_amount;
 		
-		const ip_selected = Policies.find({group_policy_id: item.id}).fetch();
+		const ip_selected = Policies.find({group_policy_id: gp_item.id}).fetch();
 
 		ip_selected.forEach(ip_item => {
 			gp_agg_count += 1;
@@ -35,9 +35,7 @@ const gp_aggregates = function (gp_filter) {
 
 	});
 
-	info('Calculate Group Policies aggregates', {payments, sum_insured, policies, amount});
-
-	return {
+	const result = {
 		gp_count,
 		gp_total_amount,
 		gp_deductible_amount,
@@ -47,6 +45,10 @@ const gp_aggregates = function (gp_filter) {
 		gp_agg_deductible_amount,
 		gp_agg_actual_amount
 	};
+	
+	info('Calculate Group Policies aggregates', result);
+
+	return result
 
 }
 
