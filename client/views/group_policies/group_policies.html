@@ -13,106 +13,58 @@
 
 <template name="GroupPoliciesGpAggregates">
 	<div>
-		<table class="custom-param-table">
-			<tbody>
-				<tr>
-					<td>
-						<form role="form" class="form-horizontal">
-							<div class="form-group">
-								<label for="gp_count" class="col-sm-3 control-label">
-								</label>
-								<div class="input-div col-sm-9">
-									<label for="gp_count" class="col-sm-3 control-label">
-										Group Policies
-									</label>
-								</div>
-							</div>
-							<div class="form-group">
-								<label for="gp_count" class="col-sm-3 control-label">
-									# of Policies
-								</label>
-								<div class="input-div col-sm-9">
-									<p class="form-control-static  control-field-gp_sum_insured">
-										{{aggregates.gp_count}}
-									</p>
-								</div>
-							</div>
-							<div class="form-group">
-								<label for="gp_payments" class="col-sm-3 control-label">
-									Total amount
-								</label>
-								<div class="input-div col-sm-9">
-									<p class="form-control-static  control-field-gp_payments">
-										{{aggregates.gp_total_amount}}
-									</p>
-								</div>
-							</div>
-							<div class="form-group">
-								<label for="gp_amount" class="col-sm-3 control-label">
-									Deductible Amount
-								</label>
-								<div class="input-div col-sm-9">
-									<p class="form-control-static  control-field-gp_amount">
-										{{aggregates.gp_deductible_amount}}
-									</p>
-								</div>
-							</div>
-							<div class="form-group">
-								<label for="gp_policies" class="col-sm-3 control-label">
-									Actual Amount
-								</label>
-								<div class="input-div col-sm-9">
-									<p class="form-control-static  control-field-gp_policies">
-										{{aggregates.gp_actual_amount}}
-									</p>
-								</div>
-							</div>
-						</form>
-					</td>
-					<td>
-						<form role="form" class="form-horizontal">
-							<div class="form-group">
-								<label for="gp_count" class="col-sm-3 control-label">
-								</label>
-								<div class="input-div col-sm-9">
-									<label for="gp_count" class="col-sm-3 control-label">
-										Individual Policies
-									</label>
-								</div>
-							</div>
-							<div class="form-group">
-								<div class="input-div col-sm-9">
-									<p class="form-control-static  control-field-gp_agg_count">
-										{{aggregates.gp_agg_count}}
-									</p>
-								</div>
-							</div>
-							<div class="form-group">
-								<div class="input-div col-sm-9">
-									<p class="form-control-static  control-field-gp_agg_total_amount">
-										{{aggregates.gp_agg_total_amount}}
-									</p>
-								</div>
-							</div>
-							<div class="form-group">
-								<div class="input-div col-sm-9">
-									<p class="form-control-static  control-field-gp_agg_deductible_amount">
-										{{aggregates.gp_agg_deductible_amount}}
-									</p>
-								</div>
-							</div>
-							<div class="form-group">
-								<div class="input-div col-sm-9">
-									<p class="form-control-static  control-field-gp_agg_actual_amount">
-										{{aggregates.gp_agg_actual_amount}}
-									</p>
-								</div>
-							</div>
-						</form>
-					</td>
-				</tr>
-			</tbody>
-		</table>
+		<form role="form" class="form-horizontal">
+			<div class="form-group">
+				<label for="gp_count" class="col-sm-3 control-label">
+					# of Group Policies
+				</label>
+				<div class="input-div col-sm-9">
+					<p class="form-control-static  control-field-gp_count">
+						{{aggregates.gp_count}}
+					</p>
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="gp_agg_count" class="col-sm-3 control-label">
+					# Individual Policies
+				</label>
+				<div class="input-div col-sm-9">
+					<p class="form-control-static  control-field-gp_agg_count">
+						{{aggregates.gp_agg_count}}
+					</p>
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="gp_agg_total_amount" class="col-sm-3 control-label">
+					Total Calculated Amount
+				</label>
+				<div class="input-div col-sm-9">
+					<p class="form-control-static  control-field-gp_agg_total_amount">
+						{{aggregates.gp_agg_total_amount}}
+					</p>
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="gp_agg_deductible_amount" class="col-sm-3 control-label">
+					Total Deductible
+				</label>
+				<div class="input-div col-sm-9">
+					<p class="form-control-static  control-field-gp_agg_deductible_amount">
+						{{aggregates.gp_agg_deductible_amount}}
+					</p>
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="gp_agg_actual_amount" class="col-sm-3 control-label">
+					Total Actual Payout
+				</label>
+				<div class="input-div col-sm-9">
+					<p class="form-control-static  control-field-gp_agg_actual_amount">
+						{{aggregates.gp_agg_actual_amount}}
+					</p>
+				</div>
+			</div>
+		</form>
 	</div>
 </template>
 
