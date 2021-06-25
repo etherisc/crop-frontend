@@ -42,7 +42,7 @@ const mapHeader = (key) => {
 		"phone_no": "Mobile Num",
 		"voucher_no": "Voucher",
 		"timestamp": "Timestamp",
-		// "transaction_no": "Transaction",
+		"transaction_no": null,
 		"amount": "Amount"
 
 	}; 
@@ -96,7 +96,8 @@ Helpers.payout_schedule_status2Str = (status) =>
 ][status];
 
 
-Helpers.json2table = function(value) {
+Helpers.json2table = function(value, data) {
+	console.log(data);
 	if (!value) return '';
 	const jsn = typeof value === 'string' ? JSON.parse(value) : value;
 	const rows = Object
@@ -109,7 +110,6 @@ Helpers.json2table = function(value) {
 ${rows}
 </tbody> 
 </table>`;
-	console.log(table);
 
 	/*
 
