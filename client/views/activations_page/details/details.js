@@ -143,3 +143,41 @@ Template.ActivationsPageDetailsForm.helpers({
 	}
 	
 });
+
+Template.ActivationsPageDetailsCustomActions.created = function() {
+
+};
+
+Template.ActivationsPageDetailsCustomActions.destroyed = function() {
+
+};
+
+Template.ActivationsPageDetailsCustomActions.rendered = function() {
+
+};
+
+Template.ActivationsPageDetailsCustomActions.helpers({
+
+});
+
+Template.ActivationsPageDetailsCustomActions.events({
+
+	"click #btn-apply": function (e,t) {
+		e.preventDefault();
+
+		Meteor.call('applyForPolicy', t.data, function(err, res) {
+			
+			if(err) {
+				toast_error(err.message);
+			} else {
+				toast_info(res);
+			}
+			
+		});
+
+		toast_info('Contract Review started');
+
+		return false;
+	}
+
+});

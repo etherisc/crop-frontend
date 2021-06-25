@@ -10,5 +10,13 @@ const Product = new ethers.Contract(
 
 
 const applyForPolicy = async (bpKey, data) => {
-	Product.applyForPolicy(bpKey, data);
+	
+	
+	console.log(data);
+	return 'Success';
+	
+	const result = await Product.applyForPolicy(bpKey, data);
+	
+	info('Result of applyForPolicy:', result);
+	
 };
