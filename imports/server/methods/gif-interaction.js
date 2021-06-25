@@ -5,7 +5,7 @@ console.log('loading gif-interaction.js');
 const applyForPolicy = async (bpKey, data) => {
 
 	console.log(data);
-	cb(null, 'Success');
+	return 'Success';
 
 	const result = await Product.applyForPolicy(bpKey, data);
 
