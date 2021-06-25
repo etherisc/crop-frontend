@@ -41,6 +41,10 @@ Router.privateRoutes = [
 	"admin.payout_schedules.details",
 	"admin.payout_schedules.details.details",
 	"admin.payout_schedules.details.update",
+	"admin.settings",
+	"admin.settings.insert",
+	"admin.settings.update",
+	"admin.settings.details",
 	"user_settings",
 	"user_settings.profile",
 	"user_settings.change_pass",
@@ -97,6 +101,10 @@ Router.roleMap = [
 	{ route: "admin.payout_schedules.details",	roles: ["admin"] },
 	{ route: "admin.payout_schedules.details.details",	roles: ["admin"] },
 	{ route: "admin.payout_schedules.details.update",	roles: ["admin"] },
+	{ route: "admin.settings",	roles: ["admin"] },
+	{ route: "admin.settings.insert",	roles: ["admin"] },
+	{ route: "admin.settings.update",	roles: ["admin"] },
+	{ route: "admin.settings.details",	roles: ["admin"] },
 	{ route: "user_settings",	roles: ["user","admin"] },
 	{ route: "user_settings.profile",	roles: ["user","admin"] },
 	{ route: "user_settings.change_pass",	roles: ["user","admin"] }
@@ -171,6 +179,10 @@ Router.map(function () {
 	this.route("/admin/payout_schedules/details/:payoutScheduleId", {name: "admin.payout_schedules.details", title: "", controller: "AdminPayoutSchedulesDetailsController"});
 	this.route("/admin/payout_schedules/details/:payoutScheduleId/details/:iPolicyId", {name: "admin.payout_schedules.details.details", title: "", controller: "AdminPayoutSchedulesDetailsDetailsController"});
 	this.route("/admin/payout_schedules/details/:payoutScheduleId/update/:iPolicyId", {name: "admin.payout_schedules.details.update", title: "", controller: "AdminPayoutSchedulesDetailsUpdateController"});
+	this.route("/admin/settings", {name: "admin.settings", title: "", controller: "AdminSettingsController"});
+	this.route("/admin/settings/insert", {name: "admin.settings.insert", title: "", controller: "AdminSettingsInsertController"});
+	this.route("/admin/settings/update/:settingId", {name: "admin.settings.update", title: "", controller: "AdminSettingsUpdateController"});
+	this.route("/admin/settings/details/:settingId", {name: "admin.settings.details", title: "", controller: "AdminSettingsDetailsController"});
 	this.route("/user_settings", {name: "user_settings", title: "", controller: "UserSettingsController"});
 	this.route("/user_settings/profile", {name: "user_settings.profile", title: "", controller: "UserSettingsProfileController"});
 	this.route("/user_settings/change_pass", {name: "user_settings.change_pass", title: "", controller: "UserSettingsChangePassController"});
