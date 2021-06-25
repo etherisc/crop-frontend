@@ -16,6 +16,8 @@ const calc_gp_aggregates = function () {
 		count += 1;
 		
 		let gp_agg_count = 0;
+		let gp_agg_sum_insured = 0.0;
+		let gp_agg_sum_premium = 0.0;
 		let gp_agg_total_amount = 0.0;
 		let gp_agg_deductible_amount = 0.0;
 		let gp_agg_actual_amount = 0.0;
@@ -24,6 +26,8 @@ const calc_gp_aggregates = function () {
 		
 		ip_selected.forEach(ip_item => {
 			gp_agg_count += 1;
+			gp_agg_sum_insured += ip_item.sum_insured;
+			gp_agg_sum_premium += ip_item.premium;
 			gp_agg_total_amount += ip_item.payout.total_amount;
 			gp_agg_deductible_amount += ip_item.payout.deductible_amount;
 			gp_agg_actual_amount += ip_item.payout.actual_amount;
@@ -36,6 +40,8 @@ const calc_gp_aggregates = function () {
 
 		GroupPolicies.update({_id: gp_item._id}, {$set: {
 			gp_agg_count,
+			gp_agg_sum_insured,
+			gp_agg_sum_premium,
 			gp_agg_total_amount,
 			gp_agg_deductible_amount,
 			gp_agg_actual_amount
