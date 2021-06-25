@@ -46,7 +46,7 @@ const mapHeader = (key) => {
 		"amount": "Amount"
 
 	}; 
-	return dict[key] ? dict[key] : null;
+	return dict[key] ? dict[key] : key;
 };
 
 const mapVal = (key, val) => {
