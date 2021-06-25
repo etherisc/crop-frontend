@@ -2,7 +2,7 @@
 
 console.log('loading gif-interaction.js');
 
-const applyForPolicy = Meteor.wrapAsync(function (bpKey, data, cb) {
+const applyForPolicy = Meteor.wrapAsync(async (bpKey, data, cb) => {
 
 	console.log(data);
 	cb(null, 'Success');
