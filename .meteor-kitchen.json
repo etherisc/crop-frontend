@@ -142,7 +142,7 @@
 		},
 		{
 			"path": "client/views/admin/admin.html",
-			"checksum": "73e981619934a03d420a62e9fccf084abaff9377"
+			"checksum": "23c0813ee55d373401bd29dc8d1f770800ca54d0"
 		},
 		{
 			"path": "client/views/admin/admin.js",
@@ -1070,7 +1070,7 @@
 		},
 		{
 			"path": "client/lib/helpers.js",
-			"checksum": "f8ad583441c623307c842404024b2ddc4564b3cb"
+			"checksum": "6b47d5bcf3b69ed584343d421ca9cdd835a33d85"
 		},
 		{
 			"path": "client/styles/googlemaps.css",
