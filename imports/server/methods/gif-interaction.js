@@ -2,20 +2,10 @@
 
 console.log('loading gif-interaction.js');
 
-const ethers = require('ethers');
-
-
-
-const applyForPolicy = async function (bpKey, data) {
-
-	const Product = new ethers.Contract(
-		settings('gif.product.addr'), 						
-		settings('gif.product.abi'), 
-		eth.wallet
-	);		
+const applyForPolicy = Meteor.wrapAsync(async (bpKey, data, cb) => {
 
 	console.log(data);
-	return 'Success';
+	cb(null, 'Success');
 
 	const result = await Product.applyForPolicy(bpKey, data);
 
