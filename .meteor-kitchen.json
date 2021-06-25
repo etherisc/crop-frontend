@@ -142,7 +142,7 @@
 		},
 		{
 			"path": "client/views/admin/admin.html",
-			"checksum": "50cdad9ca1daf64aa7a472cb149381fc337b4e5c"
+			"checksum": "43ed4902132257a6d909fbc80d94c52f2760a4ec"
 		},
 		{
 			"path": "client/views/admin/admin.js",
@@ -574,7 +574,7 @@
 		},
 		{
 			"path": "client/views/activations_page/activations_page.html",
-			"checksum": "d6716a4f996f6e90402f69c676cd60cd2926118b"
+			"checksum": "ae95f2a0132d05a02776b5de7ac4a0bf7b6a48f7"
 		},
 		{
 			"path": "client/views/activations_page/activations_page.js",
@@ -1090,7 +1090,7 @@
 		},
 		{
 			"path": "server/lib/server_globals.js",
-			"checksum": "d3728caef61d52fd4e99ad5681231bceb5936c88"
+			"checksum": "e11b47d1f887ce821c45b5c6bbf392e4cfd5faa8"
 		},
 		{
 			"path": "client/lib/compatibility/json-viewer.js",
@@ -1150,7 +1150,7 @@
 		},
 		{
 			"path": "imports/server/methods/gif-interaction.js",
-			"checksum": "55cf8f57df9c86b43b708932d080e6ff91ecfa12"
+			"checksum": "a8a92e160abd0017af141b1ed9e7e04a1e9747ca"
 		},
 		{
 			"path": "lib/string_utils.js",
