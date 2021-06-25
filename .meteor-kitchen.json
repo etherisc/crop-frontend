@@ -142,7 +142,7 @@
 		},
 		{
 			"path": "client/views/admin/admin.html",
-			"checksum": "a5e836595dff7ce52e30687a0a7d001c10d30171"
+			"checksum": "086a58426d8cf6f1541e4db96711b37b4b2f24c0"
 		},
 		{
 			"path": "client/views/admin/admin.js",
@@ -706,7 +706,7 @@
 		},
 		{
 			"path": "client/views/group_policies/details/details.html",
-			"checksum": "3d96471124daaaf310b65c899e51be8507a39ee6"
+			"checksum": "746241ab8d68004c93eb307a2a295172f20073af"
 		},
 		{
 			"path": "client/views/group_policies/details/details.js",
@@ -1066,7 +1066,7 @@
 		},
 		{
 			"path": "imports/server/methods/group-policy-reader.js",
-			"checksum": "d5ceebf7e503276274bbad9ac8d9952df8c78ef7"
+			"checksum": "892df4742b763c9860f7bbb3d9375f042386f859"
 		},
 		{
 			"path": "client/lib/helpers.js",
