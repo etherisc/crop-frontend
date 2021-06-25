@@ -129,7 +129,7 @@
 				<th class="th-sortable" data-sort="id">
 					Group Policy Id
 				</th>
-				<th class="th-sortable" data-sort="location">
+				<th class="th-sortable" data-sort="location.pixel">
 					Location
 				</th>
 				<th class="th-sortable" data-sort="begin_date">
@@ -152,7 +152,7 @@
 			{{id}}
 		</td>
 		<td>
-			{{json2table location this}}
+			{{location.pixel}}
 		</td>
 		<td>
 			{{formatDate begin_date 'MMM-DD'}}
