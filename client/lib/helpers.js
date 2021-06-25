@@ -1,5 +1,21 @@
 console.log('loading helpers.js');
 
+const currency = function (number) {
+	if (isNaN(number)) return '';
+	return Intl.NumberFormat('us-US', { style:'currency', currency: 'KES' }).format(number);
+};
+
+
+const round2 = function (number) {
+	if (isNaN(number)) return '';
+	return Math.round(number * 100) / 100;
+};
+
+const percentage = (number) => {
+	if (isNaN(number)) return '';
+	return Intl.NumberFormat('us-US', { style:'percent', minimumFractionDigits: 2, maximumFractionDigits: 2 }).format(number);
+};
+
 const mapHeader = (key) => {
 	
 	const dict = {
@@ -36,11 +52,12 @@ const mapHeader = (key) => {
 const mapVal = (key, val) => {
 	switch (key) {
 
-		case "payout": 
+		case "payout":
+		case "weight":
 		case "total_amount":
 		case "deductible_amount": 
 		case "actual_amount":
-			return currency(val);
+			return percentage(val);
 			
 		case "location":
 			console.log(val);
@@ -58,16 +75,6 @@ const mapVal = (key, val) => {
 	}
 };
 
-const currency = function (number) {
-	if (isNaN(number)) return '';
-	return Intl.NumberFormat('us-US', { style:'currency', currency: 'KES' }).format(number);
-};
-
-
-const round2 = function (number) {
-	return Math.round(number * 100) / 100;
-};
-
 
 Helpers = {};
 
@@ -75,6 +82,7 @@ Helpers.pre = (text) => new Handlebars.SafeString(`<pre class="code">${text}</pr
 Helpers.safeStr = (str) => new Handlebars.SafeString(str ? str : '');
 Helpers.round2 = round2;
 Helpers.currency = currency;
+Helpers.percentage = percentage;
 
 Helpers.payout_schedule_status2Str = (status) => 
 [
