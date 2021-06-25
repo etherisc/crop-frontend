@@ -65,7 +65,7 @@ Template.GroupPoliciesGpAggregates.events({
 var GroupPoliciesViewExport = function(fileType) {
 	var extraParams = {
 		searchText: Session.get("GroupPolicyListPagedSearchString") || "",
-		searchFields: Session.get("GroupPolicyListPagedSearchFields") || ["id", "location", "sow_window", "sow_date", "begin_date", "end_date", "crop_stages", "payout", "meta", "_nid"],
+		searchFields: Session.get("GroupPolicyListPagedSearchFields") || ["id", "location", "sow_window", "sow_date", "begin_date", "end_date", "crop_stages", "payout", "meta"],
 		sortBy: Session.get("GroupPolicyListPagedSortBy") || "",
 		sortAscending: Session.get("GroupPolicyListPagedSortAscending") || true
 	};

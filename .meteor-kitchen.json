@@ -2,7 +2,7 @@
 	"output_files": [
 		{
 			"path": "client/views/router.js",
-			"checksum": "1960d64d8b6d2a988deef3c7bf844c0853e2b827"
+			"checksum": "ec6d5defd234d7838ae96f09f5d3cbd9adec8fc9"
 		},
 		{
 			"path": "server/controllers/router.js",
@@ -142,7 +142,7 @@
 		},
 		{
 			"path": "client/views/admin/admin.html",
-			"checksum": "4765253c6e83e48e159293f11f305d527beb6b99"
+			"checksum": "52da7546c0c6f3975bc1c895c192952dd2e9c3ee"
 		},
 		{
 			"path": "client/views/admin/admin.js",
@@ -429,52 +429,52 @@
 			"checksum": "d5da75bedd470c58672fd4a94d41f976f4021823"
 		},
 		{
-			"path": "client/views/admin/settings/settings.html",
-			"checksum": "bdb0763a35dc8ef8bf0ab577f018db0615d1a9da"
+			"path": "client/views/admin/settings_page/settings_page.html",
+			"checksum": "b8d1d49174a24d8aac8f3b2baef3d2b5a4ed9241"
 		},
 		{
-			"path": "client/views/admin/settings/settings.js",
-			"checksum": "a0f0aa77471f100b632fbf8e08be0c40f9f74ac4"
+			"path": "client/views/admin/settings_page/settings_page.js",
+			"checksum": "ae8dd57d076126b73139113260debf0d8e780ca6"
 		},
 		{
-			"path": "client/views/admin/settings/settings_controller.js",
-			"checksum": "eac04098162ef7599d48a511f9121a86d61d5c8f"
+			"path": "client/views/admin/settings_page/settings_page_controller.js",
+			"checksum": "819439ba157ae8bb05117a50f5277802a0a956cd"
 		},
 		{
-			"path": "client/views/admin/settings/insert/insert.html",
-			"checksum": "2d041a8dbb5a36611fc20b384dbb0ae7832d4293"
+			"path": "client/views/admin/settings_page/insert/insert.html",
+			"checksum": "165a57386cee8e2d986b991abaaf2e13ae214922"
 		},
 		{
-			"path": "client/views/admin/settings/insert/insert.js",
-			"checksum": "ac072920c66924d0afccba3149efe27c982c9a07"
+			"path": "client/views/admin/settings_page/insert/insert.js",
+			"checksum": "b3a4960c5ecc30d9ed61bd6a2e9ce70fb42db3b2"
 		},
 		{
-			"path": "client/views/admin/settings/insert/insert_controller.js",
-			"checksum": "2583ca301ad2dd015f99fc04821997a9390a333c"
+			"path": "client/views/admin/settings_page/insert/insert_controller.js",
+			"checksum": "c9dd0578ecd2ea1c60e825d8010ef42d540a45ce"
 		},
 		{
-			"path": "client/views/admin/settings/update/update.html",
-			"checksum": "6dabc9f16f16078716fe499fff2ad7006b54fc42"
+			"path": "client/views/admin/settings_page/update/update.html",
+			"checksum": "bc399cda4a91540a1bddea9019e07fcfd87201e4"
 		},
 		{
-			"path": "client/views/admin/settings/update/update.js",
-			"checksum": "0ebde0e4668c6b9f0aa6ff92c64a9d8f2d689299"
+			"path": "client/views/admin/settings_page/update/update.js",
+			"checksum": "6800a5c845c8fd6b5c8785d389584147dd0f273d"
 		},
 		{
-			"path": "client/views/admin/settings/update/update_controller.js",
-			"checksum": "d168533eb5ab92f244bd2c9a2baa2d73ec8c5103"
+			"path": "client/views/admin/settings_page/update/update_controller.js",
+			"checksum": "c91df519ada8e0b2560c90cd50788dd3a38f6d53"
 		},
 		{
-			"path": "client/views/admin/settings/details/details.html",
-			"checksum": "fa688842952d42d0e1541fae343dda520c14cead"
+			"path": "client/views/admin/settings_page/details/details.html",
+			"checksum": "7e02d9b6f8d024bbc97c479f9b6799e6a1f1b27e"
 		},
 		{
-			"path": "client/views/admin/settings/details/details.js",
-			"checksum": "79483ad6267d55286f694227cffd12c42ca6467c"
+			"path": "client/views/admin/settings_page/details/details.js",
+			"checksum": "85c7f537ad74599393e55f6cbf9a7271e939ec53"
 		},
 		{
-			"path": "client/views/admin/settings/details/details_controller.js",
-			"checksum": "11bda208457b167a01c54a85845bc21636fe89d9"
+			"path": "client/views/admin/settings_page/details/details_controller.js",
+			"checksum": "a936ae77a9bbb26eb6397b2670358c6d27f07173"
 		},
 		{
 			"path": "client/views/user_settings/user_settings.html",
@@ -698,11 +698,11 @@
 		},
 		{
 			"path": "client/views/group_policies/group_policies.js",
-			"checksum": "956b1a1397e4df49688053f6399280ac73c06b77"
+			"checksum": "dacc569158a09796be723bdf099abfb5c81e449f"
 		},
 		{
 			"path": "client/views/group_policies/group_policies_controller.js",
-			"checksum": "5872834023b3ee2e6185eea8d74ea3653a104655"
+			"checksum": "561cddee3856947f3738e2ec9d60aa3df98ead08"
 		},
 		{
 			"path": "client/views/group_policies/details/details.html",
@@ -710,11 +710,11 @@
 		},
 		{
 			"path": "client/views/group_policies/details/details.js",
-			"checksum": "c0df978748f22b8d12c69fb0347462c6a6f01f88"
+			"checksum": "b2a331ee52bbbbca574cd4a85b5e1d38d37f8448"
 		},
 		{
 			"path": "client/views/group_policies/details/details_controller.js",
-			"checksum": "206ed49392755cdd1d1b92a614a08dfae596bacd"
+			"checksum": "cd5aad8089e872c0d75ae4bd7482e87df7d29889"
 		},
 		{
 			"path": "client/views/group_policies/details/details/details.html",
@@ -1066,7 +1066,7 @@
 		},
 		{
 			"path": "imports/server/methods/group-policy-reader.js",
-			"checksum": "1b253bd891cd228adeae68b916ec48ec4ffe57a1"
+			"checksum": "f2779e4ff51327b7edd5084a946a47b83564b63d"
 		},
 		{
 			"path": "client/lib/helpers.js",
@@ -1406,10 +1406,10 @@
 		"client/views/admin/payout_schedules/details/update/",
 		"client/views/admin/payout_schedules/insert/",
 		"client/views/admin/payout_schedules/update/",
-		"client/views/admin/settings/",
-		"client/views/admin/settings/details/",
-		"client/views/admin/settings/insert/",
-		"client/views/admin/settings/update/",
+		"client/views/admin/settings_page/",
+		"client/views/admin/settings_page/details/",
+		"client/views/admin/settings_page/insert/",
+		"client/views/admin/settings_page/update/",
 		"client/views/admin/users/",
 		"client/views/admin/users/details/",
 		"client/views/admin/users/edit/",
