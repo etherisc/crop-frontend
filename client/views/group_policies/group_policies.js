@@ -36,16 +36,7 @@ Template.GroupPoliciesGpAggregates.rendered = function() {
 
 	const aggregate = Meteor.call("gp_aggregates", filter, (err, res) => {
 
-		const fmt = (number) => Intl.NumberFormat('us-US', {style: 'currency', currency: 'KES' }).format(number);
-		
-		if (res) {
-			Session.set('aggregates', {
-				amount: fmt(res.amount),
-				sum_insured: fmt(res.sum_insured),
-				payments: fmt(res.payments),
-				policies: res.policies
-			});
-		}
+		if (res) { Session.set('aggregates', res); }
 		
 	});
 
