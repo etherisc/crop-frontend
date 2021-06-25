@@ -147,6 +147,12 @@
 				<th class="th-sortable" data-sort="payout.actual_amount">
 					Actual
 				</th>
+				<th class="th-sortable" data-sort="gp_agg_count">
+					# Policies
+				</th>
+				<th class="th-sortable" data-sort="gp_agg_actual_amount">
+					Actual Amount
+				</th>
 			</tr>
 		</thead>
 		<tbody id="dataview-table-items">
@@ -177,6 +183,12 @@
 		</td>
 		<td>
 			{{percentage payout.actual_amount this}}
+		</td>
+		<td>
+			{{gp_agg_count}}
+		</td>
+		<td>
+			{{gp_agg_actual_amount}}
 		</td>
 	</tr>
 </template>
