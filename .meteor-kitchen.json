@@ -142,7 +142,7 @@
 		},
 		{
 			"path": "client/views/admin/admin.html",
-			"checksum": "314481ec73aed9c1dd33e4b044fd8efa47cd7d5a"
+			"checksum": "5232e0e46e805054fbd613127a756d9f928a55b8"
 		},
 		{
 			"path": "client/views/admin/admin.js",
@@ -1090,7 +1090,7 @@
 		},
 		{
 			"path": "server/lib/server_globals.js",
-			"checksum": "6992f5ddce8b15b00b5f39a7cabb2dedce95cce5"
+			"checksum": "32a46cd281da8bbd840c8410b9b126489123bb9c"
 		},
 		{
 			"path": "client/lib/compatibility/json-viewer.js",
@@ -1154,7 +1154,7 @@
 		},
 		{
 			"path": "server/startup.js",
-			"checksum": "27e44ed015028f26686fc550e3e875ee4f7c008d"
+			"checksum": "937131abec91ef5aee278a794bb73ad674f7d41f"
 		},
 		{
 			"path": "lib/string_utils.js",
