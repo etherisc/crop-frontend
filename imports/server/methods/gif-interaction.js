@@ -11,4 +11,4 @@ const applyForPolicy = Meteor.wrapAsync(async (bpKey, data, cb) => {
 
 	info('Result of applyForPolicy:', result);
 
-};
+});
