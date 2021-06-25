@@ -142,7 +142,7 @@
 		},
 		{
 			"path": "client/views/admin/admin.html",
-			"checksum": "39b1b810536ad1301d7a1a12b191cfa8c064f4aa"
+			"checksum": "79ec204f0d0ba081f4cdbd11110bec3818edce07"
 		},
 		{
 			"path": "client/views/admin/admin.js",
@@ -1106,7 +1106,7 @@
 		},
 		{
 			"path": "client/lib/toast.js",
-			"checksum": "e2bb72895309cdb3f3c8b3e88f43420602854c3d"
+			"checksum": "0e70430718de216e7c33fd919a75c1dac1342f59"
 		},
 		{
 			"path": "client/lib/client_globals.js",
@@ -1150,11 +1150,11 @@
 		},
 		{
 			"path": "imports/server/methods/gif-interaction.js",
-			"checksum": "0ef8394c4b61069e3c216fc5b60939c6bb1e5440"
+			"checksum": "eba536600b0dc650cc962dc1f59f29a4d92500f9"
 		},
 		{
 			"path": "server/startup.js",
-			"checksum": "9910928d7bc4c2f62aa28f6fba3f32de235e36a5"
+			"checksum": "795d29d430bb1336a3b651e1d1a4fa45e9c12687"
 		},
 		{
 			"path": "lib/string_utils.js",

@@ -2,9 +2,9 @@
 
 console.log('loading gif-interaction.js');
 
-const applyForPolicy = async (bpKey, data) => {
+const applyForPolicy = async (args) => {
 
-	console.log(data);
+	console.log(args);
 
 	try {
 		const result = await Product.applyForPolicy(bpKey, data);

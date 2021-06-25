@@ -64,7 +64,7 @@ toast_confirm = function(message, options) {
 	return new Promise((resolve, reject) => {
 		bootbox.confirm({
 			title: '<span style="color:blue; font-weight:bold;">Confirm</span>',
-			message: message,
+			message,
 			backdrop: true,
 			buttons: {
 				confirm: {
