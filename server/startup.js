@@ -1,6 +1,9 @@
 console.log('loading startup.js');
 
-settings = (key) => Settings.findOne({key}).value;
+settings = (key) => {
+	const keyValue = Settings.findOne({key});
+	return keyValue ? keyValue.value : null;
+};
 
 const Minio = require('minio')
 
@@ -17,7 +20,6 @@ const ethers = require('ethers');
 
 eth = {}
 eth.provider = new ethers.providers.JsonRpcProvider(settings('gif.http_provider'));
-console.log(settings('gif.http_provider'));
 
 eth.provider.getBlockNumber()
 .then((res) => {
