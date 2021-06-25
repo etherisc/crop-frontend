@@ -6,6 +6,8 @@ dotenv.config( {
 } );
 
 
+settings = (key) => Settings.findOne({key});
+
 const Minio = require('minio')
 
 minioClient = new Minio.Client({
@@ -20,7 +22,7 @@ minioClient = new Minio.Client({
 const ethers = require('ethers');
 
 eth = {}
-eth.provider = new ethers.providers.JsonRpcProvider(process.env.HTTP_PROVIDER);
+eth.provider = new ethers.providers.JsonRpcProvider(settings('gif.http_provider'));
 
 eth.provider.getBlockNumber()
 .then((res) => {
