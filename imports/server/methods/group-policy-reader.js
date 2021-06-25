@@ -3,8 +3,74 @@
 import { getMinioObject } from '/imports/server/methods/minio.js';
 import { v4 as uuidv4 } from 'uuid';
 
+
+
+const gp_aggregates = function (gp_filter) {
+
+	const gp_selected = GroupPolicies.find(gp_filter).fetch();
+
+	let gp_count = 0;
+	let gp_total_amount = 0.0;
+	let gp_deductible_amount = 0.0;
+	let gp_actual_amount = 0.0;
+	let gp_agg_count = 0;
+	let gp_agg_total_amount = 0.0;
+	let gp_agg_deductible_amount = 0.0;
+	let gp_agg_actual_amount = 0.0;
+
+	gp_selected.forEach(gp_item => {
+		gp_count += 1;
+		gp_total_amount += gp_item.payout.total_amount;
+		gp_deductible_amount += gp_item.payout.deductible_amount;
+		gp_actual_amount += gp_item.payout.actual_amount;
+		
+		const ip_selected = Policies.find({group_policy_id: item.id}).fetch();
+
+		ip_selected.forEach(ip_item => {
+			gp_agg_count += 1;
+			gp_agg_total_amount += ip_item.payout.total_amount;
+			gp_agg_deductible_amount += ip_item.payout.deductible_amount;
+			gp_agg_actual_amount += ip_item.payout.actual_amount;
+		});
+
+	});
+
+	info('Calculate Group Policies aggregates', {payments, sum_insured, policies, amount});
+
+	return {
+		gp_count,
+		gp_total_amount,
+		gp_deductible_amount,
+		gp_actual_amount,
+		gp_agg_count,
+		gp_agg_total_amount,
+		gp_agg_deductible_amount,
+		gp_agg_actual_amount
+	};
+
+}
+
+
+module.exports = { gp_aggregates };
+
+
+
+
+
+
+
+
+/********************* OBSOLETE UNDER NEW ENGINE ****************************
+
+const clear_selected = function () {
+
+	GroupPolicies.update({}, {$set: {select_for_payout: false}}, {multi: true});
+}
+
+
+
 const readGroupPoliciesFile = ({ bucket, folder, output, group_policies, policies }) => {
-	
+
 	const gp_filename = `${folder}/${output}/${group_policies}`;
 	const ip_filename = `${folder}/${output}/${policies}`;
 
@@ -113,7 +179,7 @@ const readGroupPoliciesFile = ({ bucket, folder, output, group_policies, policie
 			premium: item.premium,
 			sum_insured: item.sum_insured
 		};
-		
+
 		if (item.payments && item.payments[0]) {
 			upsertData = Object.assign(upsertData, {
 				paym_mpesa_no: item.payments[0].mpesa_no,
@@ -168,54 +234,4 @@ const readGroupPoliciesFile = ({ bucket, folder, output, group_policies, policie
 }
 
 
-const gp_fix_id = function() {
-
-	GroupPolicies.find({}).forEach(({_id}) => {
-		GroupPolicies.update({_id}, {$set: {_nid: uuidv4()}});
-	});
-
-	Policies.find({}).forEach(({_id}) => {
-		Policies.update({_id}, {$set: {_nid: uuidv4()}});
-	});
-}
-
-
-const gp_aggregates = function (filter) {
-
-	const selected = GroupPolicies.find(filter).fetch();
-
-	let payments = 0.0;
-	let sum_insured = 0.0;
-	let policies = 0;
-	let amount = 0.0;
-
-	selected.forEach(item => {
-		policies = policies + item.acc_policies;
-		payments = payments + item.acc_payments;
-		sum_insured = sum_insured + item.acc_sum_insured;
-		amount = amount + item.acc_amount;
-	});
-
-	info('Calculate Group Policies aggregates', {payments, sum_insured, policies, amount});
-
-	return {
-		payments,
-		sum_insured,
-		policies,
-		amount
-	};
-
-}
-
-const clear_selected = function () {
-
-	GroupPolicies.update({}, {$set: {select_for_payout: false}}, {multi: true});
-}
-
-
-module.exports = { readGroupPoliciesFile, gp_aggregates, clear_selected, gp_fix_id };
-
-
-
-
-
+***************************************************************************************/
