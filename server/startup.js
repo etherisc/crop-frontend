@@ -5,11 +5,11 @@ settings = (key) => Settings.findOne({key}).value;
 const Minio = require('minio')
 
 minioClient = new Minio.Client({
-    endPoint: 'localhost',
-    port: 9000,
-    useSSL: false,
-    accessKey: 'accesskey',
-    secretKey: 'secretkey'
+	endPoint: 'localhost',
+	port: 9000,
+	useSSL: false,
+	accessKey: 'accesskey',
+	secretKey: 'secretkey'
 });
 
 
@@ -30,7 +30,7 @@ eth.provider.getBlockNumber()
 eth.wallet = ethers.Wallet.fromMnemonic(process.env.MNEMONIC).connect(eth.provider)
 
 eth.blockTimestamp = Meteor.wrapAsync(async (blockNumber, done) => {
-	
+
 	try {
 		const block = await eth.provider.getBlock(blockNumber);
 		done(null, block.timestamp * 1000);
@@ -40,15 +40,24 @@ eth.blockTimestamp = Meteor.wrapAsync(async (blockNumber, done) => {
 });
 
 eth.transactionTimestamp = Meteor.wrapAsync(async (tx, done) => {
-	
+
 	try {
 		const transaction = await eth.provider.getTransaction(tx);
 		done(null, eth.blockTimestamp(transaction.blockNumber));
 	} catch (err) {
 		done(err, null);
 	}
-	
+
 });
+
+
+const Product = new ethers.Contract(
+	settings('gif.product.addr'), 						
+	settings('gif.product.abi'), 
+	eth.wallet
+);		
+
+
 
 /*
  *
@@ -65,7 +74,7 @@ s32b = (text) => {
 }
 
 unix2Date = (unixDate) => {
-	
+
 	return new Date(unixDate * 1000);
 }
 
