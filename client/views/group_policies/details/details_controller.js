@@ -18,7 +18,7 @@ this.GroupPoliciesDetailsController = RouteController.extend({
 	isReady: function() {
 		this.gpIndividualPoliciesPagedExtraParams = {
 			searchText: Session.get("GpIndividualPoliciesPagedSearchString") || "",
-			searchFields: Session.get("GpIndividualPoliciesPagedSearchFields") || ["id", "group_policy_id", "phone_no", "premium_amount", "sum_insured_amount", "activation", "payments", "payout", "meta"],
+			searchFields: Session.get("GpIndividualPoliciesPagedSearchFields") || ["id", "group_policy_id", "phone_no", "premium_amount", "sum_insured_amount", "activation", "payments", "payout", "meta", "payout.total_amount", "payout.deductible_amount", "payout.actual_amount"],
 			sortBy: Session.get("GpIndividualPoliciesPagedSortBy") || "",
 			sortAscending: Session.get("GpIndividualPoliciesPagedSortAscending"),
 			pageNo: Session.get("GpIndividualPoliciesPagedPageNo") || 0,
