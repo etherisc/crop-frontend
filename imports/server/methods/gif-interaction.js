@@ -6,7 +6,7 @@ const ethers = require('ethers');
 
 
 
-const applyForPolicy = function (bpKey, data) {
+const applyForPolicy = async function (bpKey, data) {
 
 	const Product = new ethers.Contract(
 		settings('gif.product.addr'), 						
