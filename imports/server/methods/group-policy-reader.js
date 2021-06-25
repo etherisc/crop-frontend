@@ -59,10 +59,10 @@ const gp_aggregates = function (gp_filter) {
 		gp_total_amount += gp_item.payout.total_amount;
 		gp_deductible_amount += gp_item.payout.deductible_amount;
 		gp_actual_amount += gp_item.payout.actual_amount;
-		gp_agg_count += gp_item.agg_count;
-		gp_agg_total_amount += gp_item.agg_total_amount;
-		gp_agg_deductible_amount += gp_item.agg_deductible_amount;
-		gp_agg_actual_amount += gp_item.agg_actual_amount;
+		gp_agg_count += gp_item.gp_agg_count;
+		gp_agg_total_amount += gp_item.gp_agg_total_amount;
+		gp_agg_deductible_amount += gp_item.gp_agg_deductible_amount;
+		gp_agg_actual_amount += gp_item.gp_agg_actual_amount;
 
 	});
 
