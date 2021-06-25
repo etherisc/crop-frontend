@@ -5,6 +5,42 @@ import { v4 as uuidv4 } from 'uuid';
 
 
 
+const calc_gp_aggregates = function () {
+
+	const gp_selected = GroupPolicies.find({}).fetch();
+
+	let count = 0;
+	
+	gp_selected.forEach(gp_item => {
+
+		count += 1;
+		
+		let gp_agg_count = 0;
+		let gp_agg_total_amount = 0.0;
+		let gp_agg_deductible_amount = 0.0;
+		let gp_agg_actual_amount = 0.0;
+
+		const ip_selected = Policies.find({group_policy_id: gp_item.id}).fetch();
+
+		ip_selected.forEach(ip_item => {
+			gp_agg_count += 1;
+			gp_agg_total_amount += ip_item.payout.total_amount;
+			gp_agg_deductible_amount += ip_item.payout.deductible_amount;
+			gp_agg_actual_amount += ip_item.payout.actual_amount;
+		});
+
+		GroupPolicies.update({_id: gp_item._id}, {$set: {
+			gp_agg_count,
+			gp_agg_total_amount,
+			gp_agg_deductible_amount,
+			gp_agg_actual_amount
+		}});
+
+	});
+
+	return count;
+}
+
 const gp_aggregates = function (gp_filter) {
 
 	const gp_selected = GroupPolicies.find(gp_filter).fetch();
@@ -23,15 +59,10 @@ const gp_aggregates = function (gp_filter) {
 		gp_total_amount += gp_item.payout.total_amount;
 		gp_deductible_amount += gp_item.payout.deductible_amount;
 		gp_actual_amount += gp_item.payout.actual_amount;
-
-		const ip_selected = Policies.find({group_policy_id: gp_item.id}).fetch();
-
-		ip_selected.forEach(ip_item => {
-			gp_agg_count += 1;
-			gp_agg_total_amount += ip_item.payout.total_amount;
-			gp_agg_deductible_amount += ip_item.payout.deductible_amount;
-			gp_agg_actual_amount += ip_item.payout.actual_amount;
-		});
+		gp_agg_count += gp_item.agg_count;
+		gp_agg_total_amount += gp_item.agg_total_amount;
+		gp_agg_deductible_amount += gp_item.agg_deductible_amount;
+		gp_agg_actual_amount += gp_item.agg_actual_amount;
 
 	});
 
@@ -58,7 +89,7 @@ const gp_aggregates = function (gp_filter) {
 }
 
 
-module.exports = { gp_aggregates };
+module.exports = { calc_gp_aggregates, gp_aggregates };
 
 
 
