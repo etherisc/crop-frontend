@@ -22,7 +22,7 @@ this.GroupPoliciesDetailsController = RouteController.extend({
 			sortBy: Session.get("GpIndividualPoliciesPagedSortBy") || "",
 			sortAscending: Session.get("GpIndividualPoliciesPagedSortAscending"),
 			pageNo: Session.get("GpIndividualPoliciesPagedPageNo") || 0,
-			pageSize: Session.get("GpIndividualPoliciesPagedPageSize") || 0
+			pageSize: Session.get("GpIndividualPoliciesPagedPageSize") || 20
 		};
 
 
