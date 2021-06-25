@@ -17,6 +17,7 @@ const ethers = require('ethers');
 
 eth = {}
 eth.provider = new ethers.providers.JsonRpcProvider(settings('gif.http_provider'));
+console.log(settings('gif.http_provider');
 
 eth.provider.getBlockNumber()
 .then((res) => {
