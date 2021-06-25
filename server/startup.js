@@ -54,7 +54,7 @@ eth.transactionTimestamp = Meteor.wrapAsync(async (tx, done) => {
 
 
 const Product = new ethers.Contract(
-	settings('gif.product.addr'), 						
+	settings('gif.product.address'), 						
 	settings('gif.product.abi'), 
 	eth.wallet
 );		
