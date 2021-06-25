@@ -165,7 +165,7 @@ Template.ActivationsPageDetailsCustomActions.events({
 	"click #btn-apply": function (e,t) {
 		e.preventDefault();
 
-		toast.confirm('Really?').then((confirm) => {
+		toast_confirm('Really?').then((confirm) => {
 			if(confirm) {
 
 				Meteor.call('applyForPolicy', t.data, function(err, res) {
