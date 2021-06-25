@@ -2,7 +2,7 @@
 	"output_files": [
 		{
 			"path": "client/views/router.js",
-			"checksum": "b598a59149076dd4cbaadf7104fd7ec3b0883664"
+			"checksum": "1960d64d8b6d2a988deef3c7bf844c0853e2b827"
 		},
 		{
 			"path": "server/controllers/router.js",
@@ -142,7 +142,7 @@
 		},
 		{
 			"path": "client/views/admin/admin.html",
-			"checksum": "71caf845080015a0d3a6f48f965c9a6d5981230a"
+			"checksum": "d70a1472abb6763a07d7970402410a9dbc5af7f9"
 		},
 		{
 			"path": "client/views/admin/admin.js",
@@ -427,6 +427,54 @@
 		{
 			"path": "client/views/admin/payout_schedules/details/update/update_controller.js",
 			"checksum": "d5da75bedd470c58672fd4a94d41f976f4021823"
+		},
+		{
+			"path": "client/views/admin/settings/settings.html",
+			"checksum": "bdb0763a35dc8ef8bf0ab577f018db0615d1a9da"
+		},
+		{
+			"path": "client/views/admin/settings/settings.js",
+			"checksum": "a0f0aa77471f100b632fbf8e08be0c40f9f74ac4"
+		},
+		{
+			"path": "client/views/admin/settings/settings_controller.js",
+			"checksum": "eac04098162ef7599d48a511f9121a86d61d5c8f"
+		},
+		{
+			"path": "client/views/admin/settings/insert/insert.html",
+			"checksum": "2d041a8dbb5a36611fc20b384dbb0ae7832d4293"
+		},
+		{
+			"path": "client/views/admin/settings/insert/insert.js",
+			"checksum": "ac072920c66924d0afccba3149efe27c982c9a07"
+		},
+		{
+			"path": "client/views/admin/settings/insert/insert_controller.js",
+			"checksum": "2583ca301ad2dd015f99fc04821997a9390a333c"
+		},
+		{
+			"path": "client/views/admin/settings/update/update.html",
+			"checksum": "6dabc9f16f16078716fe499fff2ad7006b54fc42"
+		},
+		{
+			"path": "client/views/admin/settings/update/update.js",
+			"checksum": "0ebde0e4668c6b9f0aa6ff92c64a9d8f2d689299"
+		},
+		{
+			"path": "client/views/admin/settings/update/update_controller.js",
+			"checksum": "d168533eb5ab92f244bd2c9a2baa2d73ec8c5103"
+		},
+		{
+			"path": "client/views/admin/settings/details/details.html",
+			"checksum": "fa688842952d42d0e1541fae343dda520c14cead"
+		},
+		{
+			"path": "client/views/admin/settings/details/details.js",
+			"checksum": "79483ad6267d55286f694227cffd12c42ca6467c"
+		},
+		{
+			"path": "client/views/admin/settings/details/details_controller.js",
+			"checksum": "11bda208457b167a01c54a85845bc21636fe89d9"
 		},
 		{
 			"path": "client/views/user_settings/user_settings.html",
@@ -973,6 +1021,22 @@
 			"checksum": "ab16b32267145ea14e811f1fc44fd447f43b0f5b"
 		},
 		{
+			"path": "both/collections/settings.js",
+			"checksum": "0cff799577d6670d9054e7373b3db139c5968f3c"
+		},
+		{
+			"path": "server/methods/settings.js",
+			"checksum": "44a3ee959b26a85e25cd7faee17708760d64cf18"
+		},
+		{
+			"path": "server/collections/settings.js",
+			"checksum": "4da6b62af677f4670dfbce9b78b06594a7bcad8e"
+		},
+		{
+			"path": "server/publish/settings.js",
+			"checksum": "5fa0736230b939f9c63d3ebe70e7dfdd11767af4"
+		},
+		{
 			"path": "client/styles/user_styles.less",
 			"checksum": "f08a3edc8a6d5d39aa62d62dfcfbe8ab3b608673"
 		},
@@ -1026,7 +1090,7 @@
 		},
 		{
 			"path": "server/lib/server_globals.js",
-			"checksum": "8177a29b6bd96f95f7fa06aa109e22bd69f8fba3"
+			"checksum": "ce9be785c2be3fff57cfb4c6d523e756d0df8203"
 		},
 		{
 			"path": "client/lib/compatibility/json-viewer.js",
@@ -1083,6 +1147,10 @@
 		{
 			"path": "imports/server/methods/payout-schedule.js",
 			"checksum": "ed843d51a766a8302d2d14675e36f693c2006b58"
+		},
+		{
+			"path": "imports/server/methods/gif-interaction.js",
+			"checksum": "55cf8f57df9c86b43b708932d080e6ff91ecfa12"
 		},
 		{
 			"path": "lib/string_utils.js",
@@ -1334,6 +1402,10 @@
 		"client/views/admin/payout_schedules/details/update/",
 		"client/views/admin/payout_schedules/insert/",
 		"client/views/admin/payout_schedules/update/",
+		"client/views/admin/settings/",
+		"client/views/admin/settings/details/",
+		"client/views/admin/settings/insert/",
+		"client/views/admin/settings/update/",
 		"client/views/admin/users/",
 		"client/views/admin/users/details/",
 		"client/views/admin/users/edit/",
