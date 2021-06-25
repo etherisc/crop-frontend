@@ -51,7 +51,7 @@ const mapHeader = (key) => {
 
 const mapVal = (key, val, data) => {
 	
-	key = 'activation' in data ? `ip_${key}` : key;
+	if (data && 'activation' in data) key = `ip_${key}`;
 	
 	switch (key) {
 
