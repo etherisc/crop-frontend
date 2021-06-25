@@ -9,8 +9,22 @@ const exportActivations = Meteor.wrapAsync(function ({bucket, folder, filename, 
 	const path = `${folder}/${filename}`;
 	
 	const activations_export = [];
+	const normalizeCrop = (crop) => ({
+		"Soya Beans" 	: "SoyBeans",
+		"Crop"			: "Crop",
+		"Maize"			: "Maize",
+		"Potatoes"		: "Potato",
+		"Beans"			: "SoyBeans",
+		"Sorghum"		: "Sorghum",
+		"Green grams"	: "Greengrams",
+		"Wheat"			: "Wheat"
+	}[crop]);
 	
-	selected.forEach(item => activations_export.push(item));
+		
+	selected.forEach(item => {
+		item.value_chain = normalizeCrop(item.value_chain);
+		activations_export.push(item);
+	});
 
 	const content = JSON.stringify(activations_export, null, 2);
 	const count = activations_export.length;
