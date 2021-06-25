@@ -49,7 +49,10 @@ const mapHeader = (key) => {
 	return dict[key] ? dict[key] : key;
 };
 
-const mapVal = (key, val) => {
+const mapVal = (key, val, data) => {
+	
+	key = 'activation' in data ? `ip_${key}` : key;
+	
 	switch (key) {
 
 		case "payout":
@@ -59,8 +62,12 @@ const mapVal = (key, val) => {
 		case "actual_amount":
 			return percentage(val);
 			
+		case "ip_total_amount":
+		case "ip_deductible_amount": 
+		case "ip_actual_amount":
+			return currency(val);
+
 		case "location":
-			console.log(val);
 			return val.name;
 			
 		case "timestamp":
@@ -97,12 +104,11 @@ Helpers.payout_schedule_status2Str = (status) =>
 
 
 Helpers.json2table = function(value, data) {
-	console.log(data);
 	if (!value) return '';
 	const jsn = typeof value === 'string' ? JSON.parse(value) : value;
 	const rows = Object
 	.keys(jsn)
-	.map(item => mapHeader(item) ? `<tr><td>${mapHeader(item)}</td><td>${mapVal(item, jsn[item])}</td><tr>` : '')
+	.map(item => mapHeader(item) ? `<tr><td>${mapHeader(item)}</td><td>${mapVal(item, jsn[item], data)}</td><tr>` : '')
 	.join("\n");
 	const table = rows === '' ? '' : 
 	`<table class="custom-param-table">
