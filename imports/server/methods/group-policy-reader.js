@@ -23,7 +23,7 @@ const gp_aggregates = function (gp_filter) {
 		gp_total_amount += gp_item.payout.total_amount;
 		gp_deductible_amount += gp_item.payout.deductible_amount;
 		gp_actual_amount += gp_item.payout.actual_amount;
-		
+
 		const ip_selected = Policies.find({group_policy_id: gp_item.id}).fetch();
 
 		ip_selected.forEach(ip_item => {
@@ -35,17 +35,22 @@ const gp_aggregates = function (gp_filter) {
 
 	});
 
+	const currency = (number) => {
+		if (isNaN(number)) return '';
+		return Intl.NumberFormat('us-US', { style:'currency', currency: 'KES' }).format(number);
+	};
+
 	const result = {
 		gp_count,
-		gp_total_amount,
-		gp_deductible_amount,
-		gp_actual_amount,
+		gp_total_amount: currency(gp_total_amount),
+		gp_deductible_amount: currency(gp_deductible_amount),
+		gp_actual_amount: currency(gp_actual_amount),
 		gp_agg_count,
-		gp_agg_total_amount,
-		gp_agg_deductible_amount,
-		gp_agg_actual_amount
+		gp_agg_total_amount: currency(gp_agg_total_amount),
+		gp_agg_deductible_amount: currency(gp_agg_deductible_amount),
+		gp_agg_actual_amount: currency(gp_agg_actual_amount)
 	};
-	
+
 	info('Calculate Group Policies aggregates', result);
 
 	return result
