@@ -6,8 +6,6 @@ dotenv.config( {
 } );
 
 
-settings = (key) => Settings.findOne({key});
-
 const Minio = require('minio')
 
 minioClient = new Minio.Client({
@@ -54,32 +52,6 @@ eth.transactionTimestamp = Meteor.wrapAsync(async (tx, done) => {
 	}
 	
 });
-
-contracts = {}; // global contracts object
-
-getContract = (contractName, mode) => {
-		
-	if (contracts[contractName]) {
-		return contracts[contractName];
-	}
-	
-	const contractConfig = Contracts.findOne({name: contractName});
-	if (!contractConfig) {
-		error(`Contract ${contractName} not found!`);
-		return;
-	}
-
-	const Contract = new ethers.Contract(
-		contractConfig.address, 
-		contractConfig.abi, 
-		eth.wallet
-	);		
-	
-	contracts[contractName] = Contract
-	
-	return Contract;
-}
-
 
 /*
  *
