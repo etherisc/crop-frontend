@@ -21,12 +21,17 @@ const calc_gp_aggregates = function () {
 		let gp_agg_actual_amount = 0.0;
 
 		const ip_selected = Policies.find({group_policy_id: gp_item.id}).fetch();
-
+		
 		ip_selected.forEach(ip_item => {
 			gp_agg_count += 1;
 			gp_agg_total_amount += ip_item.payout.total_amount;
 			gp_agg_deductible_amount += ip_item.payout.deductible_amount;
 			gp_agg_actual_amount += ip_item.payout.actual_amount;
+			
+			Policies.update({_id: ip_item._id}, {$set: {
+				gp_id: gp_item._id
+			}});
+			
 		});
 
 		GroupPolicies.update({_id: gp_item._id}, {$set: {
