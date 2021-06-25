@@ -165,17 +165,21 @@ Template.ActivationsPageDetailsCustomActions.events({
 	"click #btn-apply": function (e,t) {
 		e.preventDefault();
 
-		Meteor.call('applyForPolicy', t.data, function(err, res) {
-			
-			if(err) {
-				toast_error(err.message);
-			} else {
-				toast_info(res);
-			}
-			
-		});
+		toast.confirm('Really?').then((confirm) => {
+			if(confirm) {
 
-		toast_info('Contract Review started');
+				Meteor.call('applyForPolicy', t.data, function(err, res) {
+
+					if(err) {
+						toast_error(err.message);
+					} else {
+						toast_info(res);
+					}
+
+				});
+			}
+		})
+
 
 		return false;
 	}
