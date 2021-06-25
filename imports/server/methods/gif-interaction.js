@@ -1,5 +1,8 @@
 /** gif-interaction.js **/
+
 console.log('loading gif-interaction.js');
+
+const ethers = require('ethers');
 
 
 const Product = new ethers.Contract(
