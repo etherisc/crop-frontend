@@ -27,7 +27,7 @@ this.GroupPoliciesDetailsController = RouteController.extend({
 
 
 
-		var gp_id = this._id;
+		var gp_id = this.params.groupPolicyId;
 
 		var subs = [
 			Meteor.subscribe("group_policy", this.params.groupPolicyId),
@@ -43,7 +43,7 @@ this.GroupPoliciesDetailsController = RouteController.extend({
 	},
 
 	data: function() {
-		var gp_id = this._id;
+		var gp_id = this.params.groupPolicyId;
 
 		var data = {
 			params: this.params || {},
