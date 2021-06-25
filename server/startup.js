@@ -1,6 +1,6 @@
 console.log('loading startup.js');
 
-settings = (key) => Settings.findOne({key})
+settings = (key) => Settings.findOne({key}).value;
 
 const Minio = require('minio')
 
