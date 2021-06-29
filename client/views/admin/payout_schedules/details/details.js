@@ -153,7 +153,7 @@ var AdminPayoutSchedulesDetailsPayoutScheduleEntriesExport = function(fileType) 
 		sortAscending: Session.get("PayoutScheduleEntriesListPagedSortAscending") || true
 	};
 
-	var exportFields = [];
+	var exportFields = ["phone_no", "group_policy_id", "premium_amount", "sum_insured_amount", "payout.actual_amount", "payout.override_amount"];
 
 	
 
