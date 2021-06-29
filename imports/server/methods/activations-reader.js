@@ -91,8 +91,6 @@ const readActivationsFile = ({bucket, filename, prefix, subsidy=false}) => {
 				incrementCount(pixel);
 			};
 			
-			M
-
 		});
 
 		info('readActivations successful', {
