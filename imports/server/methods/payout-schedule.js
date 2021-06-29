@@ -1,8 +1,8 @@
-
+console.log('loading payout-schedule.js');
 
 const clearPayoutSchedule = (_id) => {
 	
-	IPolicies.update({payout_schedule_id: _id}, { $unset: {payout_schedule_id: null }}, {multi: true});
+	Policies.update({payout_schedule_id: _id}, { $unset: {payout_schedule_id: null }}, {multi: true});
 	
 };
 
@@ -22,20 +22,20 @@ const createPayoutSchedule = ({_id, title, filter}) => {
 
 	clearPayoutSchedule(_id);
 	
-	IPolicies.update(JSON.parse(filter), {$set: {payout_schedule_id: _id}}, {multi: true});
-	const iPolicies = IPolicies.find(JSON.parse(filter));
+	Policies.update(JSON.parse(filter), {$set: {payout_schedule_id: _id}}, {multi: true});
+	const policies = Policies.find(JSON.parse(filter));
 
 	let sum_premium = 0.0;
 	let sum_insured = 0.0;
 	let sum_payout = 0.0;
 	let num_policies = 0;
 	
-	iPolicies.forEach((iPolicy) => {
+	policies.forEach((policy) => {
 		
 		num_policies += 1;
-		sum_payout += iPolicy.payout_amount;
-		sum_insured += iPolicy.sum_insured;
-		sum_premium += iPolicy.premium;
+		sum_payout += policy.payout.actual_amount;
+		sum_insured += policy.sum_insured_amount;
+		sum_premium += policy.premium_amount;
 		
 	});
 		
