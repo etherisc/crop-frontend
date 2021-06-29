@@ -142,7 +142,7 @@
 		},
 		{
 			"path": "client/views/admin/admin.html",
-			"checksum": "b6bb3cef27f3a639165de444d294184a4246f764"
+			"checksum": "76885b96621d2c786fcaba745f53ab28660c561a"
 		},
 		{
 			"path": "client/views/admin/admin.js",
@@ -302,7 +302,7 @@
 		},
 		{
 			"path": "client/views/admin/logs_sms/details/details.js",
-			"checksum": "633389382620da58d1389dc9f28560af87473dff"
+			"checksum": "72fd1104c77389fd23610ffd0cb5cdd544a9966d"
 		},
 		{
 			"path": "client/views/admin/logs_sms/details/details_controller.js",
@@ -1142,7 +1142,7 @@
 		},
 		{
 			"path": "imports/server/methods/bonga-gateway.js",
-			"checksum": "66e665ad2676616dd3d4e811a53ba9c0d13416ac"
+			"checksum": "63a0eb696ef22430b2ebea29df80446da1dcddf5"
 		},
 		{
 			"path": "imports/server/methods/payout-schedule.js",
