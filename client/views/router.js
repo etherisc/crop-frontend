@@ -177,8 +177,8 @@ Router.map(function () {
 	this.route("/admin/payout_schedules/insert", {name: "admin.payout_schedules.insert", title: "", controller: "AdminPayoutSchedulesInsertController"});
 	this.route("/admin/payout_schedules/update/:payoutScheduleId", {name: "admin.payout_schedules.update", title: "", controller: "AdminPayoutSchedulesUpdateController"});
 	this.route("/admin/payout_schedules/details/:payoutScheduleId", {name: "admin.payout_schedules.details", title: "", controller: "AdminPayoutSchedulesDetailsController"});
-	this.route("/admin/payout_schedules/details/:payoutScheduleId/details/:iPolicyId", {name: "admin.payout_schedules.details.details", title: "", controller: "AdminPayoutSchedulesDetailsDetailsController"});
-	this.route("/admin/payout_schedules/details/:payoutScheduleId/update/:iPolicyId", {name: "admin.payout_schedules.details.update", title: "", controller: "AdminPayoutSchedulesDetailsUpdateController"});
+	this.route("/admin/payout_schedules/details/:payoutScheduleId/details/:policyId", {name: "admin.payout_schedules.details.details", title: "", controller: "AdminPayoutSchedulesDetailsDetailsController"});
+	this.route("/admin/payout_schedules/details/:payoutScheduleId/update/:policyId", {name: "admin.payout_schedules.details.update", title: "", controller: "AdminPayoutSchedulesDetailsUpdateController"});
 	this.route("/admin/settings_page", {name: "admin.settings_page", title: "", controller: "AdminSettingsPageController"});
 	this.route("/admin/settings_page/insert", {name: "admin.settings_page.insert", title: "", controller: "AdminSettingsPageInsertController"});
 	this.route("/admin/settings_page/update/:settingId", {name: "admin.settings_page.update", title: "", controller: "AdminSettingsPageUpdateController"});
