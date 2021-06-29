@@ -200,16 +200,16 @@
 				<th class="th-sortable" data-sort="phone_no">
 					Phone No
 				</th>
-				<th class="th-sortable" data-sort="crop">
+				<th class="th-sortable" data-sort="group_policy_id">
 					Crop
 				</th>
-				<th class="th-sortable" data-sort="premium">
+				<th class="th-sortable" data-sort="premium_amount">
 					Premium
 				</th>
-				<th class="th-sortable" data-sort="sum_insured">
+				<th class="th-sortable" data-sort="sum_insured_amount">
 					Sum Insured
 				</th>
-				<th class="th-sortable" data-sort="payout_amount">
+				<th class="th-sortable" data-sort="payout.actual_amount">
 					Payout Amount
 				</th>
 				<th>
@@ -229,16 +229,16 @@
 			{{phone_no}}
 		</td>
 		<td>
-			{{crop}}
+			{{group_policy_id}}
 		</td>
 		<td>
-			{{currency premium this}}
+			{{currency premium_amount this}}
 		</td>
 		<td>
-			{{currency sum_insured this}}
+			{{currency sum_insured_amount this}}
 		</td>
 		<td>
-			{{currency payout_amount this}}
+			{{currency payout.actual_amount this}}
 		</td>
 		<td class="td-icon">
 			<span id="edit-button" class="fa fa-pencil {{editButtonClass}}" title="Edit">
