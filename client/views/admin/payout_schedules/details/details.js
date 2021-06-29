@@ -466,7 +466,7 @@ Template.AdminPayoutSchedulesDetailsPayoutScheduleEntriesCustomActions.helpers({
 Template.AdminPayoutSchedulesDetailsPayoutScheduleEntriesCustomActions.events({
 	"change #chk-filter": function (e,t) {
 		console.log(e, t);
-		console.log($('#chk-filter').val());
+		console.log($('#chk-filter').prop('checked'));
 	}
 });
 
