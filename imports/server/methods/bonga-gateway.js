@@ -9,26 +9,26 @@ const secret = 'yjokfBb6IQvAmVkiRAvpp9050gaZMD';
 const serviceID = '4849';
 
 const bongaApi = Meteor.wrapAsync(function ({method='get', url = 'send-sms-v1', args = {}}, cb) {
-	
+
 	info('bonga request', {url, args});
-	
+
 	let config;
-	
+
 	if (method === 'get') {
-		
+
 		args.apiClientID = apiClientID;
 		args.key = key;
 		args.secret = secret;
-		
+
 		config = {
 			method,
 			url,
 			baseURL,
 			params: args
 		};
-		
+
 	} else if (method === 'post') {
-		
+
 		data = new FormData();
 		data.append('apiClientID', apiClientID);
 		data.append('key', key);
@@ -46,11 +46,11 @@ const bongaApi = Meteor.wrapAsync(function ({method='get', url = 'send-sms-v1', 
 				...data.getHeaders()
 			}
 		};
-			
+
 	} else {
 		error(`bongaApi: Invalid Method ${method}`, {endpoint, args});
 	};
-	
+
 	axios(config)
 	.then(function (response) {
 		const { status, statusText, headers, data } = response;
@@ -78,35 +78,46 @@ const bongaApi = Meteor.wrapAsync(function ({method='get', url = 'send-sms-v1', 
 
 });
 
-const bongaFetchDeliveryReport = ({_id, unique_id}) => {
+const bongaFetchDeliveryReport = ({_id, url, unique_id}) => {
 	return bongaApi({
 		method: 'get',
-		url: '/fetch-delivery',
+		url,
 		args: {
 			unique_id
 		}
 	});
 };
 
-const bongaSMS = ({mobile_num, message}) => {
+const bongaSMS = ({mobile_num, message, amount = 0.0}) => {
+	
 	const _id = Sms.insert({
 		timestamp: Date.now(), 
 		mobile_num, 
 		message, 
 		status: 0, 
 		status_message: 'sending...'
+		amount,
 	});
+	
 	try {
+
+		const url = amount > 0.0 ? '/b2c-send-money' : '/send-sms-v1';
+		const args = amount > 0.0 ? {
+			mobile: mobile_num, 
+			message, 
+			amount, 
+			smsServiceID: serviceID
+		} : {
+			MSISDN: mobile_num, 
+			txtMessage: message, 
+			serviceID
+		};
 		const response = bongaApi({
 			method: 'post', 
-			url: '/send-sms-v1', 
-			args: {
-				MSISDN: mobile_num, 
-				txtMessage: message, 
-				serviceID
-			}
+			url, 
+			args
 		});
-		
+
 		if (response.data.status === 222) {
 			Sms.upsert({_id}, {$set: {
 				status: response.data.status, 
@@ -143,18 +154,4 @@ const bongaSMS = ({mobile_num, message}) => {
 	return 'Error sending SMS';
 }
 
-const bongaSendMoney = ({mobile, message, amount}) => {
-	const response = bongaApi({
-		method: 'post', 
-		url: '/b2c-send-money', 
-		args: {
-			mobile: mobile_num, 
-			message, 
-			amount, 
-			smsServiceID: serviceID
-		}});
-};
-
-
-module.exports = { bongaApi, bongaSMS, bongaSendMoney };
-				  
+module.exports = { bongaApi, bongaSMS };

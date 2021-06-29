@@ -142,7 +142,7 @@
 		},
 		{
 			"path": "client/views/admin/admin.html",
-			"checksum": "9b7a4e5449e66b34c03c4a57b3e8daef5682c5b0"
+			"checksum": "1a87f322e74bb1fa5ec5c690d86b09f8c18edb8f"
 		},
 		{
 			"path": "client/views/admin/admin.js",
@@ -286,19 +286,19 @@
 		},
 		{
 			"path": "client/views/admin/logs_sms/logs_sms.html",
-			"checksum": "36e588b03363a30c21e87b4376b35a53e71084f3"
+			"checksum": "dcd73abf211142d8f18c9af768fc06b8dd19e260"
 		},
 		{
 			"path": "client/views/admin/logs_sms/logs_sms.js",
-			"checksum": "cb03a3dccf3ab16a6f58018a2e82d399537ba344"
+			"checksum": "cbd305e5e12315ace28c55a3e872c870839787c1"
 		},
 		{
 			"path": "client/views/admin/logs_sms/logs_sms_controller.js",
-			"checksum": "e9d1af718166e08de2b41c22fddeadb348b4b940"
+			"checksum": "2444d5fb94317de461c724fa24ec3496bd0d3ebf"
 		},
 		{
 			"path": "client/views/admin/logs_sms/details/details.html",
-			"checksum": "18f7ebeb686720768a988c5757c7777919757190"
+			"checksum": "dac0279b90655531f6b43218e84ca461caf35334"
 		},
 		{
 			"path": "client/views/admin/logs_sms/details/details.js",
@@ -1122,7 +1122,7 @@
 		},
 		{
 			"path": "imports/server/methods/locations-reader.js",
-			"checksum": "a92618592545203f2eab4aef38b94404cd00f1b2"
+			"checksum": "9434329bd8b820ad6d3c1b36fde485ad0baf31c2"
 		},
 		{
 			"path": "imports/server/methods/activations-export.js",
@@ -1142,7 +1142,7 @@
 		},
 		{
 			"path": "imports/server/methods/bonga-gateway.js",
-			"checksum": "899f9c23a3ede514c94b56503cc534fa1fa39618"
+			"checksum": "31219d4118f28c9eadd15ae7dbd7fc5975588c2c"
 		},
 		{
 			"path": "imports/server/methods/payout-schedule.js",
