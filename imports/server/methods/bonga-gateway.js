@@ -96,7 +96,7 @@ const bongaSMS = ({mobile_num, message, amount = 0.0}) => {
 		message, 
 		status: 0, 
 		status_message: 'sending...'
-		amount,
+		amount
 	});
 	
 	try {
