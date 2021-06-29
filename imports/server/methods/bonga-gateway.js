@@ -78,10 +78,14 @@ const bongaApi = Meteor.wrapAsync(function ({method='get', url = 'send-sms-v1', 
 
 });
 
-const bongaFetchDeliveryReport = ({_id, url, unique_id}) => {
-	
+const bongaFetchDeliveryReport = ({_id}) => {
+
 	try {
-		
+
+		const {amount, unique_id} = Sms.findOne({id});
+
+		const url = amount > 0.0 ? 'b2c-trx-status' : 'fetch-delivery';
+
 		const response = bongaApi({
 			method: 'get',
 			url,
@@ -121,7 +125,7 @@ const bongaFetchDeliveryReport = ({_id, url, unique_id}) => {
 				data: response.data
 			});
 		}
-		
+
 	} catch(err) {
 		error('Error receiving SMS Delivery Report', {message: err.message, stack: err.stack});
 		Sms.upsert({_id}, {$set: { status: 999, status_message: err.message}});
@@ -169,11 +173,7 @@ const bongaSMS = ({mobile_num, message, amount = 0.0}) => {
 				credits: response.data.credits
 			}});
 
-			const deliveryReportUrl = amount > 0.0 ? 
-				  'b2c-trx-status' : 
-			'fetch-delivery';
-
-			bongaFetchDeliveryReport({_id, url: deliveryReportUrl, unique_id: response.data.unique_id});
+			bongaFetchDeliveryReport({_id});
 			return `SMS successfully sent, number: ${mobile_num}, message: ${message}, amount: ${amount}`;
 
 		} else if (response.data.status === 666) {
