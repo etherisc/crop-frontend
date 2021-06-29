@@ -142,7 +142,7 @@
 		},
 		{
 			"path": "client/views/admin/admin.html",
-			"checksum": "6b2b699c3d7bde5bc34c5ee8bf2492339ba55b0d"
+			"checksum": "01592f07ba194cd0de89a2ed7330868971d13c30"
 		},
 		{
 			"path": "client/views/admin/admin.js",
@@ -398,11 +398,11 @@
 		},
 		{
 			"path": "client/views/admin/payout_schedules/details/details.js",
-			"checksum": "1e1a4a6a6d6b8e883b91e6314ab5f48c805f2b73"
+			"checksum": "6c555a1fc509a30001e8e14146bfa4476f18597a"
 		},
 		{
 			"path": "client/views/admin/payout_schedules/details/details_controller.js",
-			"checksum": "f543293cebcd1a326a181a1492253ec9a07d01bf"
+			"checksum": "208dc3c40aa47ebd4d20fc7ba0795deda98e94ab"
 		},
 		{
 			"path": "client/views/admin/payout_schedules/details/details/details.html",
@@ -854,7 +854,7 @@
 		},
 		{
 			"path": "server/publish/i_policies.js",
-			"checksum": "7f648335edf4e00f75bc7e235de4e99bdc3df007"
+			"checksum": "cd0da8586126e8b9d867502a2933899449a12509"
 		},
 		{
 			"path": "both/collections/jobs.js",
@@ -1018,7 +1018,7 @@
 		},
 		{
 			"path": "server/publish/policies.js",
-			"checksum": "d3690d8fcba0a18bfae0eb7f120ef426e56fec5a"
+			"checksum": "2b211a0a753406355819897e8e28a8a1b1b1c026"
 		},
 		{
 			"path": "both/collections/settings.js",

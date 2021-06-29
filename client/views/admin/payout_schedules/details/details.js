@@ -282,7 +282,7 @@ Template.AdminPayoutSchedulesDetailsPayoutScheduleEntries.events({
 Template.AdminPayoutSchedulesDetailsPayoutScheduleEntries.helpers({
 
 	"insertButtonClass": function() {
-		return IPolicies.userCanInsert(Meteor.userId(), {}) ? "" : "hidden";
+		return Policies.userCanInsert(Meteor.userId(), {}) ? "" : "hidden";
 	},
 
 	"isEmpty": function() {
@@ -391,7 +391,7 @@ Template.AdminPayoutSchedulesDetailsPayoutScheduleEntriesTableItems.events({
 		var values = {};
 		values[fieldName] = !this[fieldName];
 
-		Meteor.call("iPoliciesUpdate", this._id, values, function(err, res) {
+		Meteor.call("policiesUpdate", this._id, values, function(err, res) {
 			if(err) {
 				alert(err.message);
 			}
@@ -412,7 +412,7 @@ Template.AdminPayoutSchedulesDetailsPayoutScheduleEntriesTableItems.events({
 					label: "Yes",
 					className: "btn-success",
 					callback: function() {
-						Meteor.call("iPoliciesRemove", me._id, function(err, res) {
+						Meteor.call("policiesRemove", me._id, function(err, res) {
 							if(err) {
 								alert(err.message);
 							}
@@ -439,10 +439,10 @@ Template.AdminPayoutSchedulesDetailsPayoutScheduleEntriesTableItems.helpers({
 
 	"checked": function(value) { return value ? "checked" : "" }, 
 	"editButtonClass": function() {
-		return IPolicies.userCanUpdate(Meteor.userId(), this) ? "" : "hidden";
+		return Policies.userCanUpdate(Meteor.userId(), this) ? "" : "hidden";
 	},
 
 	"deleteButtonClass": function() {
-		return IPolicies.userCanRemove(Meteor.userId(), this) ? "" : "hidden";
+		return Policies.userCanRemove(Meteor.userId(), this) ? "" : "hidden";
 	}
 });
