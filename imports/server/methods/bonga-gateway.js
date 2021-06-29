@@ -123,19 +123,23 @@ const bongaFetchDeliveryReport = (_id) => {
 					status: 222
 				}});
 
-
+				
 			}
+			
+			return 'Receipt received!';
+			
 		} else {
 			error(`Error fetching Delivery Report, unique_id=${sms.unique_id}`, {
 				status: response.status, 
 				statusText: response.statusText, 
 				data: response.data
 			});
-		}
+			return 'Error receiving SMS Delivery Report';		}
 
 	} catch(err) {
 		error('Error receiving SMS Delivery Report', {message: err.message, stack: err.stack});
 		Sms.upsert({_id}, {$set: { status: 999, status_message: err.message}});
+		return 'Error receiving SMS Delivery Report';
 	};
 };
 
