@@ -155,9 +155,9 @@ var AdminPayoutSchedulesDetailsPayoutScheduleEntriesExport = function(fileType) 
 
 	var exportFields = ["phone_no", "group_policy_id", "premium_amount", "sum_insured_amount", "payout.actual_amount", "payout.override_amount"];
 
-	
+	var payoutScheduleFloor = Session.get('payoutScheduleFloor');
 
-	Meteor.call("payoutScheduleEntriesListPagedExport", this.params.payoutScheduleId, extraParams, exportFields, fileType, function(e, data) {
+	Meteor.call("payoutScheduleEntriesListPagedExport", this.params.payoutScheduleId, payoutScheduleFloor, extraParams, exportFields, fileType, function(e, data) {
 		if(e) {
 			alert(e);
 			return;
@@ -465,7 +465,7 @@ Template.AdminPayoutSchedulesDetailsPayoutScheduleEntriesCustomActions.helpers({
 
 Template.AdminPayoutSchedulesDetailsPayoutScheduleEntriesCustomActions.events({
 	"change #chk-filter": function (e,t) {
-		Session.set('payout-schedule-chk-filter', $('#chk-filter').prop('checked'));
+		Session.set('payoutScheduleFloor', $('#chk-filter').prop('checked') ? '0.0' : '-1.0');
 	}
 });
 

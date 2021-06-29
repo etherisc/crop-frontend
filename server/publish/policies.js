@@ -2,8 +2,8 @@ Meteor.publish("gp_individual_policies", function(gp_id) {
 	return Policies.find({gp_id:gp_id}, {});
 });
 
-Meteor.publish("payout_schedule_entries_list", function(payoutScheduleId) {
-	return Policies.find({payout_schedule_id:payoutScheduleId}, {});
+Meteor.publish("payout_schedule_entries_list", function(payoutScheduleId, payoutScheduleFloor) {
+	return Policies.find({payout_schedule_id:payoutScheduleId,"payout.actual_amount":{$gt:payoutScheduleFloor}}, {});
 });
 
 Meteor.publish("policy_list", function() {
@@ -14,19 +14,19 @@ Meteor.publish("policy", function(policyId) {
 	return Policies.find({_id:policyId}, {});
 });
 
-Meteor.publish("payout_schedule_entries_list_paged", function(payoutScheduleId, extraOptions) {
+Meteor.publish("payout_schedule_entries_list_paged", function(payoutScheduleId, payoutScheduleFloor, extraOptions) {
 	extraOptions.doSkip = true;
-	return Policies.find(databaseUtils.extendFilter({payout_schedule_id:payoutScheduleId}, extraOptions), databaseUtils.extendOptions({}, extraOptions));
+	return Policies.find(databaseUtils.extendFilter({payout_schedule_id:payoutScheduleId,"payout.actual_amount":{$gt:payoutScheduleFloor}}, extraOptions), databaseUtils.extendOptions({}, extraOptions));
 });
 
-Meteor.publish("payout_schedule_entries_list_paged_count", function(payoutScheduleId, extraOptions) {
-	Counts.publish(this, "payout_schedule_entries_list_paged_count", Policies.find(databaseUtils.extendFilter({payout_schedule_id:payoutScheduleId}, extraOptions), { fields: { _id: 1 } }));
+Meteor.publish("payout_schedule_entries_list_paged_count", function(payoutScheduleId, payoutScheduleFloor, extraOptions) {
+	Counts.publish(this, "payout_schedule_entries_list_paged_count", Policies.find(databaseUtils.extendFilter({payout_schedule_id:payoutScheduleId,"payout.actual_amount":{$gt:payoutScheduleFloor}}, extraOptions), { fields: { _id: 1 } }));
 });
 
 Meteor.methods({
-	"payoutScheduleEntriesListPagedExport": function(payoutScheduleId, extraOptions, exportFields, fileType) {
+	"payoutScheduleEntriesListPagedExport": function(payoutScheduleId, payoutScheduleFloor, extraOptions, exportFields, fileType) {
 		extraOptions.noPaging = true;
-		var data = Policies.find(databaseUtils.extendFilter({payout_schedule_id:payoutScheduleId}, extraOptions), databaseUtils.extendOptions({}, extraOptions)).fetch();
+		var data = Policies.find(databaseUtils.extendFilter({payout_schedule_id:payoutScheduleId,"payout.actual_amount":{$gt:payoutScheduleFloor}}, extraOptions), databaseUtils.extendOptions({}, extraOptions)).fetch();
 		return objectUtils.exportArrayOfObjects(data, exportFields, fileType);
 	}
 });
