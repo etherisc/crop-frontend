@@ -49,7 +49,7 @@ this.AdminPayoutSchedulesDetailsController = RouteController.extend({
 		var data = {
 			params: this.params || {},
 			payout_schedule: PayoutSchedules.findOne({_id:this.params.payoutScheduleId}, {}),
-			payout_schedule_entries_list_paged: IPolicies.find(databaseUtils.extendFilter({payout_schedule_id:this.params.payoutScheduleId}, this.payoutScheduleEntriesListPagedExtraParams), databaseUtils.extendOptions({}, this.payoutScheduleEntriesListPagedExtraParams)),
+			payout_schedule_entries_list_paged: Policies.find(databaseUtils.extendFilter({payout_schedule_id:this.params.payoutScheduleId}, this.payoutScheduleEntriesListPagedExtraParams), databaseUtils.extendOptions({}, this.payoutScheduleEntriesListPagedExtraParams)),
 			payout_schedule_entries_list_paged_count: Counts.get("payout_schedule_entries_list_paged_count")
 		};
 		
