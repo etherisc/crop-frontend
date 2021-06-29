@@ -107,7 +107,8 @@ const bongaFetchDeliveryReport = (_id) => {
 				Sms.upsert({_id}, {$set: {
 					delivery_status_desc: response.data.delivery_status_desc,
 					date_received: response.data.date_received,
-					status_message: 'Receipt received'
+					status_message: 'Receipt received', 
+					status: 222
 				}});
 
 			} else {
@@ -118,7 +119,8 @@ const bongaFetchDeliveryReport = (_id) => {
 					transaction_cost: response.data.transaction_cost,
 					total_cost: response.data.total_cost,
 					transaction_status: response.data.transaction_status,
-					status_message: 'Receipt received'
+					status_message: 'Receipt received',
+					status: 222
 				}});
 
 
