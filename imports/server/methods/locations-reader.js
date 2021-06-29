@@ -146,13 +146,37 @@ const augmentLocations = () => {
 	const activations = Activations.find({pixel: ZERO});
 
 	activations.forEach(item => {
+
+		// First try to find other activations with same phone number:
+
+		const phoneCand = Activations.find({mobile_num: item.mobile_num, pixel: {$ne: ZERO}});
+		let found = false;
+		
+		phoneCand.forEach(phoneItem => {
+
+			if (found) return;
+
+			const { pixel, latitude, longitude, county, ward } = phoneItem;
+			augmented = 'phone-based';
+			Activations.update({_id: item._id}, { $set: {	pixel, latitude, longitude, county, ward, augmented }});
+			info(`Activation updated based on other record with same mobile_num: ${item.mobile_num} => ${pixel}`);
+			phoneFound += 1;
+			found = true;
+
+		});
+
+		if (found) return;
+		
 		if (!item.county || !item.ward || normalize(`${item.county}${item.ward}`) === '') {
+		
 			noLocation += 1;
+		
 		} else {
+		
 			const {result, countyUnique } = candidates(item.county, item.ward); 
 			if (result.length === 1) {
 				const {pixel, longitude, latitude, county, ward} = result[0];
-				const augmented = 'loc';
+				const augmented = 'location-based';
 				Activations.update({_id: item._id}, { $set: {	pixel, latitude, longitude, county, ward, augmented }});
 				info(`Activation updated based on county/ward: ${pixel}`);
 			} else {
@@ -168,25 +192,6 @@ const augmentLocations = () => {
 
 			}
 		}
-
-		// Now try to find other activations with same phone number:
-
-		const phoneCand = Activations.find({mobile_num: item.mobile_num});
-		let found = false;
-		phoneCand.forEach(phoneItem => {
-
-			if (found) return;
-
-			if (phoneItem.pixel !== ZERO) {
-				const { pixel, latitude, longitude, county, ward } = phoneItem;
-				augmented = 'phone';
-				Activations.update({_id: item._id}, { $set: {	pixel, latitude, longitude, county, ward, augmented }});
-				info(`Activation updated based on other record with same mobile_num: ${item.mobile_num} => ${pixel}`);
-				phoneFound += 1;
-				found = true;
-			}
-
-		});
 
 
 	});
