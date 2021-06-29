@@ -142,7 +142,7 @@
 		},
 		{
 			"path": "client/views/admin/admin.html",
-			"checksum": "79ec204f0d0ba081f4cdbd11110bec3818edce07"
+			"checksum": "6b2b699c3d7bde5bc34c5ee8bf2492339ba55b0d"
 		},
 		{
 			"path": "client/views/admin/admin.js",
@@ -694,11 +694,11 @@
 		},
 		{
 			"path": "client/views/group_policies/group_policies.html",
-			"checksum": "13cac46a3fc4bce7bb72c99191734d1a992a6bea"
+			"checksum": "828967f4beaea5ead3c26e4db6715735607c25b3"
 		},
 		{
 			"path": "client/views/group_policies/group_policies.js",
-			"checksum": "03b95410eba579a1d7ceb641432e0e8bafeaad28"
+			"checksum": "f4b51e6a615118999948f961b9ce393cd9bc95c3"
 		},
 		{
 			"path": "client/views/group_policies/group_policies_controller.js",
@@ -1146,7 +1146,7 @@
 		},
 		{
 			"path": "imports/server/methods/payout-schedule.js",
-			"checksum": "ed843d51a766a8302d2d14675e36f693c2006b58"
+			"checksum": "3162cdf1ce3f76aa09229620bb13e693ec466f9f"
 		},
 		{
 			"path": "imports/server/methods/gif-interaction.js",

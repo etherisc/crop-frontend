@@ -61,7 +61,7 @@ var GroupPoliciesViewExport = function(fileType) {
 		sortAscending: Session.get("GroupPolicyListPagedSortAscending") || true
 	};
 
-	var exportFields = [];
+	var exportFields = ["id", "location.name", "sow_window", "sow_date", "begin_date", "end_date", "payout.total_amount", "payout.deductible_amount", "payout.actual_amount", "gp_agg_count", "gp_agg_actual_amount"];
 
 	
 
