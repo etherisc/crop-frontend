@@ -142,7 +142,7 @@
 		},
 		{
 			"path": "client/views/admin/admin.html",
-			"checksum": "281d87872648bc60d2a95993d55d5ffa12f5e41b"
+			"checksum": "575a2f2618472647fc9ee7680ced2903d07d077a"
 		},
 		{
 			"path": "client/views/admin/admin.js",
@@ -402,7 +402,7 @@
 		},
 		{
 			"path": "client/views/admin/payout_schedules/details/details_controller.js",
-			"checksum": "a80a4be91ff9367864db11f6be775526f8f7091c"
+			"checksum": "79d7c0a1c0cb3cb13025e46320226b1ef3db1181"
 		},
 		{
 			"path": "client/views/admin/payout_schedules/details/details/details.html",

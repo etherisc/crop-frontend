@@ -82,7 +82,7 @@ data.payout_schedule_entries_list_paged =
 	databaseUtils.extendOptions(
 		{}, 
 		this.payoutScheduleEntriesListPagedExtraParams)
-),
+);
 
 
 
