@@ -229,12 +229,13 @@ Template.PartnersDetailsSendSms.events({
 
 				/* on submit */
 const message = values.message;
+const amount = values.amount;
 const mobile_num = t.data.partner.mobile_num;
 
-toast_confirm(`Sending SMS to ${t.data.partner.mobile_num}<br />Message: ${values.message}`)
+toast_confirm(`Sending SMS to ${mobile_num}<br />Message: ${message}<br />Amount: ${amount}`)
 .then((result) => {
 	if (result) {
-		Meteor.call('bongaSMS', { message, mobile_num}, function (err, res) {
+		Meteor.call('bongaSMS', { mobile_num, message, amount}, function (err, res) {
 			
 			if (err) {
 				toast_error(err.message);

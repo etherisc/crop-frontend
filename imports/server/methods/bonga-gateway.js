@@ -89,7 +89,7 @@ const bongaFetchDeliveryReport = ({_id, url, unique_id}) => {
 };
 
 const bongaSMS = ({mobile_num, message, amount = 0.0}) => {
-	
+
 	const _id = Sms.insert({
 		timestamp: Date.now(), 
 		mobile_num, 
@@ -98,10 +98,12 @@ const bongaSMS = ({mobile_num, message, amount = 0.0}) => {
 		status_message: 'sending...',
 		amount
 	});
-	
+
 	try {
 
-		const url = amount > 0.0 ? '/b2c-send-money' : '/send-sms-v1';
+		const url = amount > 0.0 ? 
+			'/b2c-send-money' : 
+			'/send-sms-v1';
 		const args = amount > 0.0 ? {
 			mobile: mobile_num, 
 			message, 
@@ -126,7 +128,12 @@ const bongaSMS = ({mobile_num, message, amount = 0.0}) => {
 				timestamp: Date.now(), 
 				credits: response.data.credits
 			}});
-			const response2 = bongaFetchDeliveryReport({_id, unique_id: response.data.unique_id});
+
+			const deliveryReportUrl = amount > 0.0 ? 
+				'https://app.bongasms.co.ke/api/b2c-trx-status' : 
+				'https://app.bongasms.co.ke/api/fetch-delivery';
+
+			const response2 = bongaFetchDeliveryReport({_id, deliveryReportUrl, unique_id: response.data.unique_id});
 			if (response2.data.status === 222) {
 				Sms.upsert({_id}, {$set: {
 					delivery_status_desc: response2.data.delivery_status_desc,
@@ -140,7 +147,7 @@ const bongaSMS = ({mobile_num, message, amount = 0.0}) => {
 				});
 			}
 			// even if we cannot fetch Deliver Report, we consider the SMS as delivered
-			return 'SMS successfully sent';
+			return `SMS successfully sent, number: ${mobile_num}, message: ${message}, amount: ${amount}`;
 
 		} else if (response.data.status === 666) {
 			Sms.upsert({_id}, {$set: { status: response.data.status, status_message: response.data.status_message }});
@@ -151,7 +158,7 @@ const bongaSMS = ({mobile_num, message, amount = 0.0}) => {
 		error('Error sending SMS', {message: err.message, stack: err.stack});
 		Sms.upsert({_id}, {$set: { status: 999, status_message: 'Unknown Gateway Error'}});
 	}
-	return 'Error sending SMS';
+	return `Error sending SMS; number: ${mobile_num}, message: ${message}, amount: ${amount}`;
 }
 
 module.exports = { bongaApi, bongaSMS };
