@@ -97,7 +97,7 @@ const bongaFetchDeliveryReport = (_id) => {
 			}
 		});
 
-		info(`SMS Delivery Report ${unique_id}`, response.data);
+		info(`SMS Delivery Report ${sms.unique_id}`, response.data);
 
 		if (response.data.status === 222) {
 
@@ -122,7 +122,7 @@ const bongaFetchDeliveryReport = (_id) => {
 
 			}
 		} else {
-			error(`Error fetching Delivery Report, unique_id=${data.unique_id}`, {
+			error(`Error fetching Delivery Report, unique_id=${sms.unique_id}`, {
 				status: response.status, 
 				statusText: response.statusText, 
 				data: response.data
