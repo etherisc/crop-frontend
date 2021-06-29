@@ -59,6 +59,8 @@ this.AdminPayoutSchedulesDetailsController = RouteController.extend({
 		if(this.isReady() && this.payoutScheduleEntriesListPagedExtraParams.pageNo >= data.payout_schedule_entries_list_paged_page_count) {
 			Session.set("PayoutScheduleEntriesListPagedPageNo", data.payout_schedule_entries_list_paged_page_count > 0 ? data.payout_schedule_entries_list_paged_page_count - 1 : 0);
 		}
+/*** Custom Data**/
+
 
 
 		return data;
