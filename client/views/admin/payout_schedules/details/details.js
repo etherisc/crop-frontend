@@ -376,7 +376,7 @@ Template.AdminPayoutSchedulesDetailsPayoutScheduleEntriesTableItems.events({
 		var itemId = item ? item._id : null;
 
 		
-		Router.go("admin.payout_schedules.details.details", mergeObjects(Router.currentRouteParams(), {iPolicyId: this._id}));
+		Router.go("admin.payout_schedules.details.details", mergeObjects(Router.currentRouteParams(), {policyId: this._id}));
 		return false;
 	},
 
@@ -429,7 +429,7 @@ Template.AdminPayoutSchedulesDetailsPayoutScheduleEntriesTableItems.events({
 	},
 	"click #edit-button": function(e, t) {
 		e.preventDefault();
-		Router.go("admin.payout_schedules.details.update", mergeObjects(Router.currentRouteParams(), {iPolicyId: this._id}));
+		Router.go("admin.payout_schedules.details.update", mergeObjects(Router.currentRouteParams(), {policyId: this._id}));
 		return false;
 	}
 });
