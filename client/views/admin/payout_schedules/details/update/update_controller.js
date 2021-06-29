@@ -22,7 +22,7 @@ this.AdminPayoutSchedulesDetailsUpdateController = RouteController.extend({
 		
 
 		var subs = [
-			Meteor.subscribe("i_policy1", this.params.iPolicyId)
+			Meteor.subscribe("policy", this.params.policyId)
 		];
 		var ready = true;
 		_.each(subs, function(sub) {
@@ -37,7 +37,7 @@ this.AdminPayoutSchedulesDetailsUpdateController = RouteController.extend({
 
 		var data = {
 			params: this.params || {},
-			i_policy1: IPolicies.findOne({_id:this.params.iPolicyId}, {})
+			policy: Policies.findOne({_id:this.params.policyId}, {})
 		};
 		
 

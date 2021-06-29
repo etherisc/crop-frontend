@@ -29,13 +29,33 @@
 				{{infoMessage}}
 			</div>
 			{{/if}}
-			<div class="form-group  field-voucher_no">
-				<label for="voucher_no" class="col-sm-3 control-label">
-					Voucher No
+			<div class="form-group  field-id">
+				<label for="id" class="col-sm-3 control-label">
+					Id
 				</label>
 				<div class="input-div col-sm-9">
-					<p class="form-control-static  control-field-voucher_no">
-						{{i_policy1.voucher_no}}
+					<p class="form-control-static  control-field-id">
+						{{policy.id}}
+					</p>
+				</div>
+			</div>
+			<div class="form-group  field-gp_id">
+				<label for="gp_id" class="col-sm-3 control-label">
+					GP _id
+				</label>
+				<div class="input-div col-sm-9">
+					<p class="form-control-static  control-field-gp_id">
+						{{policy.gp_id}}
+					</p>
+				</div>
+			</div>
+			<div class="form-group  field-group_policy_id">
+				<label for="group_policy_id" class="col-sm-3 control-label">
+					Group Policy Id
+				</label>
+				<div class="input-div col-sm-9">
+					<p class="form-control-static  control-field-group_policy_id">
+						{{policy.group_policy_id}}
 					</p>
 				</div>
 			</div>
@@ -45,167 +65,67 @@
 				</label>
 				<div class="input-div col-sm-9">
 					<p class="form-control-static  control-field-phone_no">
-						{{i_policy1.phone_no}}
+						{{policy.phone_no}}
 					</p>
 				</div>
 			</div>
-			<div class="form-group  field-crop">
-				<label for="crop" class="col-sm-3 control-label">
-					Crop
-				</label>
-				<div class="input-div col-sm-9">
-					<p class="form-control-static  control-field-crop">
-						{{i_policy1.crop}}
-					</p>
-				</div>
-			</div>
-			<div class="form-group  field-activation_window">
-				<label for="activation_window" class="col-sm-3 control-label">
-					Activation W.
-				</label>
-				<div class="input-div col-sm-9">
-					<p class="form-control-static  control-field-activation_window">
-						{{i_policy1.activation_window}}
-					</p>
-				</div>
-			</div>
-			<div class="form-group  field-date_begin">
-				<label for="date_begin" class="col-sm-3 control-label">
-					Date Begin
-				</label>
-				<div class="input-div col-sm-9">
-					<p class="form-control-static  control-field-date_begin">
-						{{formatDate i_policy1.date_begin 'MMM-DD'}}
-					</p>
-				</div>
-			</div>
-			<div class="form-group  field-date_end">
-				<label for="date_end" class="col-sm-3 control-label">
-					Date End
-				</label>
-				<div class="input-div col-sm-9">
-					<p class="form-control-static  control-field-date_end">
-						{{formatDate i_policy1.date_end 'MMM-DD'}}
-					</p>
-				</div>
-			</div>
-			<div class="form-group  field-activation_timestamp">
-				<label for="activation_timestamp" class="col-sm-3 control-label">
-					Activation
-				</label>
-				<div class="input-div col-sm-9">
-					<p class="form-control-static  control-field-activation_timestamp">
-						{{formatDate i_policy1.activation_timestamp 'MMM-DD'}}
-					</p>
-				</div>
-			</div>
-			<div class="form-group  field-premium">
-				<label for="premium" class="col-sm-3 control-label">
+			<div class="form-group  field-premium_amount">
+				<label for="premium_amount" class="col-sm-3 control-label">
 					Premium
 				</label>
 				<div class="input-div col-sm-9">
-					<p class="form-control-static  control-field-premium">
-						{{currency i_policy1.premium i_policy1}}
+					<p class="form-control-static  control-field-premium_amount">
+						{{currency policy.premium_amount policy}}
 					</p>
 				</div>
 			</div>
-			<div class="form-group  field-sum_insured">
-				<label for="sum_insured" class="col-sm-3 control-label">
+			<div class="form-group  field-sum_insured_amount">
+				<label for="sum_insured_amount" class="col-sm-3 control-label">
 					Sum Insured
 				</label>
 				<div class="input-div col-sm-9">
-					<p class="form-control-static  control-field-sum_insured">
-						{{currency i_policy1.sum_insured i_policy1}}
+					<p class="form-control-static  control-field-sum_insured_amount">
+						{{currency policy.sum_insured_amount policy}}
 					</p>
 				</div>
 			</div>
-			<div class="form-group  field-paym_mpesa_no">
-				<label for="paym_mpesa_no" class="col-sm-3 control-label">
-					Paym Mpesa No
+			<div class="form-group  field-activation">
+				<label for="activation" class="col-sm-3 control-label">
+					Activation
 				</label>
 				<div class="input-div col-sm-9">
-					<p class="form-control-static  control-field-paym_mpesa_no">
-						{{i_policy1.paym_mpesa_no}}
+					<p class="form-control-static  control-field-activation">
+						{{json2table policy.activation policy}}
 					</p>
 				</div>
 			</div>
-			<div class="form-group  field-paym_timestamp">
-				<label for="paym_timestamp" class="col-sm-3 control-label">
-					Paym Timestamp
+			<div class="form-group  field-payments">
+				<label for="payments" class="col-sm-3 control-label">
+					Payments
 				</label>
 				<div class="input-div col-sm-9">
-					<p class="form-control-static  control-field-paym_timestamp">
-						{{formatDate i_policy1.paym_timestamp 'MMM-DD'}}
+					<p class="form-control-static  control-field-payments">
+						{{array2table policy.payments policy}}
 					</p>
 				</div>
 			</div>
-			<div class="form-group  field-paym_amount">
-				<label for="paym_amount" class="col-sm-3 control-label">
-					Paym Amount
+			<div class="form-group  field-payout">
+				<label for="payout" class="col-sm-3 control-label">
+					Payout
 				</label>
 				<div class="input-div col-sm-9">
-					<p class="form-control-static  control-field-paym_amount">
-						{{currency i_policy1.paym_amount i_policy1}}
+					<p class="form-control-static  control-field-payout">
+						{{json2table policy.payout policy}}
 					</p>
 				</div>
 			</div>
-			<div class="form-group  field-payout_timestamp">
-				<label for="payout_timestamp" class="col-sm-3 control-label">
-					Payout Timestamp
+			<div class="form-group  field-meta">
+				<label for="meta" class="col-sm-3 control-label">
+					Meta
 				</label>
 				<div class="input-div col-sm-9">
-					<p class="form-control-static  control-field-payout_timestamp">
-						{{formatDate i_policy1.payout_timestamp 'MMM-DD'}}
-					</p>
-				</div>
-			</div>
-			<div class="form-group  field-payout_amount_total">
-				<label for="payout_amount_total" class="col-sm-3 control-label">
-					Payout Amount Total
-				</label>
-				<div class="input-div col-sm-9">
-					<p class="form-control-static  control-field-payout_amount_total">
-						{{currency i_policy1.payout_amount_total i_policy1}}
-					</p>
-				</div>
-			</div>
-			<div class="form-group  field-payout_amount_deductible">
-				<label for="payout_amount_deductible" class="col-sm-3 control-label">
-					Payout Amount Deductible
-				</label>
-				<div class="input-div col-sm-9">
-					<p class="form-control-static  control-field-payout_amount_deductible">
-						{{currency i_policy1.payout_amount_deductible i_policy1}}
-					</p>
-				</div>
-			</div>
-			<div class="form-group  field-payout_amount">
-				<label for="payout_amount" class="col-sm-3 control-label">
-					Payout Amount
-				</label>
-				<div class="input-div col-sm-9">
-					<p class="form-control-static  control-field-payout_amount">
-						{{currency i_policy1.payout_amount i_policy1}}
-					</p>
-				</div>
-			</div>
-			<div class="form-group  field-payout_schedule_id">
-				<label for="payout_schedule_id" class="col-sm-3 control-label">
-					Payout Schedule Id
-				</label>
-				<div class="input-div col-sm-9">
-					<p class="form-control-static  control-field-payout_schedule_id">
-						{{i_policy1.payout_schedule_id}}
-					</p>
-				</div>
-			</div>
-			<div class="form-group  field-payout_override_comment">
-				<label for="payout_override_comment" class="col-sm-3 control-label">
-					Payout Override Comment
-				</label>
-				<div class="input-div col-sm-9">
-					<p class="form-control-static  control-field-payout_override_comment">
-						{{i_policy1.payout_override_comment}}
+					<p class="form-control-static  control-field-meta">
+						{{json2table policy.meta policy}}
 					</p>
 				</div>
 			</div>

@@ -10,6 +10,9 @@
 
 <template name="AdminPayoutSchedulesDetailsUpdateForm">
 	<div id="admin-payout-schedules-details-update-form" class="">
+		<h2 id="component-title">
+			Update Payout
+		</h2>
 		<form role="form" class="form-horizontal">
 			{{#if errorMessage}}
 			<div class="alert alert-warning">
@@ -28,7 +31,7 @@
 				</label>
 				<div class="input-div col-sm-9">
 					<p class="form-control-static  control-field-voucher_no">
-						{{i_policy1.voucher_no}}
+						{{policy.voucher_no}}
 					</p>
 				</div>
 			</div>
@@ -38,7 +41,7 @@
 				</label>
 				<div class="input-div col-sm-9">
 					<p class="form-control-static  control-field-phone_no">
-						{{i_policy1.phone_no}}
+						{{policy.phone_no}}
 					</p>
 				</div>
 			</div>
@@ -48,7 +51,7 @@
 				</label>
 				<div class="input-div col-sm-9">
 					<p class="form-control-static  control-field-crop">
-						{{i_policy1.crop}}
+						{{policy.crop}}
 					</p>
 				</div>
 			</div>
@@ -58,7 +61,7 @@
 				</label>
 				<div class="input-div col-sm-9">
 					<p class="form-control-static  control-field-activation_window">
-						{{i_policy1.activation_window}}
+						{{policy.activation_window}}
 					</p>
 				</div>
 			</div>
@@ -68,7 +71,7 @@
 				</label>
 				<div class="input-div col-sm-9">
 					<p class="form-control-static  control-field-date_begin">
-						{{formatDate i_policy1.date_begin 'MMM-DD'}}
+						{{formatDate policy.date_begin 'MMM-DD'}}
 					</p>
 				</div>
 			</div>
@@ -78,7 +81,7 @@
 				</label>
 				<div class="input-div col-sm-9">
 					<p class="form-control-static  control-field-date_end">
-						{{formatDate i_policy1.date_end 'MMM-DD'}}
+						{{formatDate policy.date_end 'MMM-DD'}}
 					</p>
 				</div>
 			</div>
@@ -88,7 +91,7 @@
 				</label>
 				<div class="input-div col-sm-9">
 					<p class="form-control-static  control-field-activation_timestamp">
-						{{formatDate i_policy1.activation_timestamp 'MMM-DD'}}
+						{{formatDate policy.activation_timestamp 'MMM-DD'}}
 					</p>
 				</div>
 			</div>
@@ -98,7 +101,7 @@
 				</label>
 				<div class="input-div col-sm-9">
 					<p class="form-control-static  control-field-premium">
-						{{currency i_policy1.premium i_policy1}}
+						{{currency policy.premium policy}}
 					</p>
 				</div>
 			</div>
@@ -108,7 +111,7 @@
 				</label>
 				<div class="input-div col-sm-9">
 					<p class="form-control-static  control-field-sum_insured">
-						{{currency i_policy1.sum_insured i_policy1}}
+						{{currency policy.sum_insured policy}}
 					</p>
 				</div>
 			</div>
@@ -118,7 +121,7 @@
 				</label>
 				<div class="input-div col-sm-9">
 					<p class="form-control-static  control-field-payout_timestamp">
-						{{formatDate i_policy1.payout_timestamp 'MMM-DD'}}
+						{{formatDate policy.payout_timestamp 'MMM-DD'}}
 					</p>
 				</div>
 			</div>
@@ -128,7 +131,7 @@
 				</label>
 				<div class="input-div col-sm-9">
 					<p class="form-control-static  control-field-payout_amount_total">
-						{{currency i_policy1.payout_amount_total i_policy1}}
+						{{currency policy.payout_amount_total policy}}
 					</p>
 				</div>
 			</div>
@@ -138,7 +141,7 @@
 				</label>
 				<div class="input-div col-sm-9">
 					<p class="form-control-static  control-field-payout_amount_deductible">
-						{{currency i_policy1.payout_amount_deductible i_policy1}}
+						{{currency policy.payout_amount_deductible policy}}
 					</p>
 				</div>
 			</div>
@@ -147,7 +150,7 @@
 					Payout Amount
 				</label>
 				<div class="input-div col-sm-9">
-					<input type="text" name="payout_amount" value="{{round2 i_policy1.payout_amount i_policy1}}" class="form-control " autofocus="autofocus" data-type="float">
+					<input type="text" name="payout_amount" value="{{round2 policy.payout_amount policy}}" class="form-control " autofocus="autofocus" data-type="float">
 					<span id="help-text" class="help-block">
 					</span>
 					<span id="error-text" class="help-block">
@@ -159,7 +162,7 @@
 					Payout Override Comment
 				</label>
 				<div class="input-div col-sm-9">
-					<input type="text" name="payout_override_comment" value="{{i_policy1.payout_override_comment}}" class="form-control " data-type="string">
+					<input type="text" name="payout_override_comment" value="{{policy.payout_override_comment}}" class="form-control " data-type="string">
 					<span id="help-text" class="help-block">
 					</span>
 					<span id="error-text" class="help-block">
