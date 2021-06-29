@@ -446,3 +446,23 @@ Template.AdminPayoutSchedulesDetailsPayoutScheduleEntriesTableItems.helpers({
 		return Policies.userCanRemove(Meteor.userId(), this) ? "" : "hidden";
 	}
 });
+
+Template.AdminPayoutSchedulesDetailsPayoutScheduleEntriesCustomActions.created = function() {
+
+};
+
+Template.AdminPayoutSchedulesDetailsPayoutScheduleEntriesCustomActions.destroyed = function() {
+
+};
+
+Template.AdminPayoutSchedulesDetailsPayoutScheduleEntriesCustomActions.rendered = function() {
+
+};
+
+Template.AdminPayoutSchedulesDetailsPayoutScheduleEntriesCustomActions.helpers({
+
+});
+
+Template.AdminPayoutSchedulesDetailsPayoutScheduleEntriesCustomActions.events({
+
+});
