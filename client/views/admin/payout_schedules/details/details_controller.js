@@ -28,12 +28,12 @@ this.AdminPayoutSchedulesDetailsController = RouteController.extend({
 
 
 
-		
+		var payoutScheduleFloor = Session.get('payoutScheduleFloor');
 
 		var subs = [
 			Meteor.subscribe("payout_schedule", this.params.payoutScheduleId),
-			Meteor.subscribe("payout_schedule_entries_list_paged", this.params.payoutScheduleId, this.payoutScheduleEntriesListPagedExtraParams),
-			Meteor.subscribe("payout_schedule_entries_list_paged_count", this.params.payoutScheduleId, this.payoutScheduleEntriesListPagedExtraParams)
+			Meteor.subscribe("payout_schedule_entries_list_paged", this.params.payoutScheduleId, payoutScheduleFloor, this.payoutScheduleEntriesListPagedExtraParams),
+			Meteor.subscribe("payout_schedule_entries_list_paged_count", this.params.payoutScheduleId, payoutScheduleFloor, this.payoutScheduleEntriesListPagedExtraParams)
 		];
 		var ready = true;
 		_.each(subs, function(sub) {
@@ -44,12 +44,12 @@ this.AdminPayoutSchedulesDetailsController = RouteController.extend({
 	},
 
 	data: function() {
-		
+		var payoutScheduleFloor = Session.get('payoutScheduleFloor');
 
 		var data = {
 			params: this.params || {},
 			payout_schedule: PayoutSchedules.findOne({_id:this.params.payoutScheduleId}, {}),
-			payout_schedule_entries_list_paged: Policies.find(databaseUtils.extendFilter({payout_schedule_id:this.params.payoutScheduleId}, this.payoutScheduleEntriesListPagedExtraParams), databaseUtils.extendOptions({}, this.payoutScheduleEntriesListPagedExtraParams)),
+			payout_schedule_entries_list_paged: Policies.find(databaseUtils.extendFilter({payout_schedule_id:this.params.payoutScheduleId,"payout.actual_amount":{$gt:payoutScheduleFloor}}, this.payoutScheduleEntriesListPagedExtraParams), databaseUtils.extendOptions({}, this.payoutScheduleEntriesListPagedExtraParams)),
 			payout_schedule_entries_list_paged_count: Counts.get("payout_schedule_entries_list_paged_count")
 		};
 		
