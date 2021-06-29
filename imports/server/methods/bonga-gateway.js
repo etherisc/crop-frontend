@@ -133,7 +133,7 @@ const bongaSMS = ({mobile_num, message, amount = 0.0}) => {
 				'https://app.bongasms.co.ke/api/b2c-trx-status' : 
 				'https://app.bongasms.co.ke/api/fetch-delivery';
 
-			const response2 = bongaFetchDeliveryReport({_id, deliveryReportUrl, unique_id: response.data.unique_id});
+			const response2 = bongaFetchDeliveryReport({_id, url: deliveryReportUrl, unique_id: response.data.unique_id});
 			if (response2.data.status === 222) {
 				Sms.upsert({_id}, {$set: {
 					delivery_status_desc: response2.data.delivery_status_desc,
