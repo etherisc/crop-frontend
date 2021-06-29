@@ -92,7 +92,7 @@ const bongaFetchDeliveryReport = (_id) => {
 			method: 'get',
 			url,
 			args: {
-				sms.unique_id
+				unique_id: sms.unique_id
 			}
 		});
 
