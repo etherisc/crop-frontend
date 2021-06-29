@@ -119,6 +119,9 @@
 				<th class="th-sortable" data-sort="amount">
 					Amount
 				</th>
+				<th class="th-sortable" data-sort="total_cost">
+					Total Cost
+				</th>
 			</tr>
 		</thead>
 		<tbody id="dataview-table-items">
@@ -149,6 +152,9 @@
 		</td>
 		<td>
 			{{currency amount this}}
+		</td>
+		<td>
+			{{total_cost}}
 		</td>
 	</tr>
 </template>
