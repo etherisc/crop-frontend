@@ -78,11 +78,11 @@ const bongaApi = Meteor.wrapAsync(function ({method='get', url = 'send-sms-v1', 
 
 });
 
-const bongaFetchDeliveryReport = ({_id}) => {
+const bongaFetchDeliveryReport = (_id) => {
 
 	try {
 
-		const {amount, unique_id} = Sms.findOne({_id});
+		const sms = Sms.findOne({_id});
 
 		const url = amount > 0.0 ? 'b2c-trx-status' : 'fetch-delivery';
 
@@ -173,7 +173,7 @@ const bongaSMS = ({mobile_num, message, amount = 0.0}) => {
 				credits: response.data.credits
 			}});
 
-			bongaFetchDeliveryReport({_id});
+			bongaFetchDeliveryReport(_id);
 			return `SMS successfully sent, number: ${mobile_num}, message: ${message}, amount: ${amount}`;
 
 		} else if (response.data.status === 666) {
