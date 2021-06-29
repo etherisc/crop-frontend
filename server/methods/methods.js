@@ -3,7 +3,7 @@ import logger from '/imports/server/methods/logger.js';
 import { gp_aggregates } from '/imports/server/methods/group-policy-reader.js';
 import { activation_aggregates } from '/imports/server/methods/activations-reader.js';
 import { executeJob } from '/imports/server/methods/job-execution.js';
-import { bongaSMS } from '/imports/server/methods/bonga-gateway.js';
+import { bongaSMS, bongaFetchDeliveryReport } from '/imports/server/methods/bonga-gateway.js';
 import { createPayoutSchedule, changeStatusPayoutSchedule } from '/imports/server/methods/payout-schedule.js';
 import { applyForPolicy } from '/imports/server/methods/gif-interaction.js';
 
@@ -29,6 +29,7 @@ Meteor.methods({
 	activation_aggregates,
 	executeJob,
 	bongaSMS,
+	bongaFetchDeliveryReport,
 	createPayoutSchedule,
 	changeStatusPayoutSchedule,
 	applyForPolicy

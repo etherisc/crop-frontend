@@ -143,3 +143,27 @@ Template.AdminLogsSmsDetailsForm.helpers({
 	}
 	
 });
+
+Template.AdminLogsSmsDetailsFormCustomActions.created = function() {
+
+};
+
+Template.AdminLogsSmsDetailsFormCustomActions.destroyed = function() {
+
+};
+
+Template.AdminLogsSmsDetailsFormCustomActions.rendered = function() {
+
+};
+
+Template.AdminLogsSmsDetailsFormCustomActions.helpers({
+
+});
+
+Template.AdminLogsSmsDetailsFormCustomActions.events({
+	"click #btn-receipt": function (e,t) {
+		e.preventDefault();
+		console.log(t);
+		// Meteor.call('bongaFetchDeliveryReport');
+	},
+});

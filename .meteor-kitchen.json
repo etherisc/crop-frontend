@@ -142,7 +142,7 @@
 		},
 		{
 			"path": "client/views/admin/admin.html",
-			"checksum": "181e23628e1ef4320e7a2a0a96f9709a921ef857"
+			"checksum": "2bbe3b34ccb28d89c12e294606f604ae899aebaf"
 		},
 		{
 			"path": "client/views/admin/admin.js",
@@ -298,11 +298,11 @@
 		},
 		{
 			"path": "client/views/admin/logs_sms/details/details.html",
-			"checksum": "dac0279b90655531f6b43218e84ca461caf35334"
+			"checksum": "6c0a4383739e4c945f65ae6ab8e25c3cec89edb5"
 		},
 		{
 			"path": "client/views/admin/logs_sms/details/details.js",
-			"checksum": "7042a5e8dfc021ebfc009325b81e3c9725464e16"
+			"checksum": "131a12a585e911edc1b3a2d38642c05cddb83084"
 		},
 		{
 			"path": "client/views/admin/logs_sms/details/details_controller.js",
@@ -1062,7 +1062,7 @@
 		},
 		{
 			"path": "server/methods/methods.js",
-			"checksum": "5a58a143643c5e984ea127951e50761b5d346be7"
+			"checksum": "322e451fcf8357e243342dafe48adc8e7392cef0"
 		},
 		{
 			"path": "imports/server/methods/group-policy-reader.js",
