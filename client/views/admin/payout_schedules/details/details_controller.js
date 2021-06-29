@@ -61,6 +61,29 @@ this.AdminPayoutSchedulesDetailsController = RouteController.extend({
 		}
 /*** Custom Data**/
 
+const newFilter = {
+	payout_schedule_id:this.params.payoutScheduleId
+};
+
+if (Session.get('payout-schedule-chk-filter')) {
+	newFilter.payout = {
+		actual_amount: {
+			$gt: 0.0
+		}
+	};
+};
+
+data.payout_schedule_entries_list_paged = 	
+	Policies.find(
+	databaseUtils.extendFilter(
+		newFilter, 
+		this.payoutScheduleEntriesListPagedExtraParams
+	), 
+	databaseUtils.extendOptions(
+		{}, 
+		this.payoutScheduleEntriesListPagedExtraParams)
+),
+
 
 
 		return data;
