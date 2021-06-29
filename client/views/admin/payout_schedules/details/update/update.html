@@ -25,13 +25,13 @@
 				{{infoMessage}}
 			</div>
 			{{/if}}
-			<div class="form-group  field-voucher_no">
-				<label for="voucher_no" class="col-sm-3 control-label">
+			<div class="form-group  field-activation-voucher_no">
+				<label for="activation.voucher_no" class="col-sm-3 control-label">
 					Voucher No
 				</label>
 				<div class="input-div col-sm-9">
-					<p class="form-control-static  control-field-voucher_no">
-						{{policy.voucher_no}}
+					<p class="form-control-static  control-field-activation-voucher_no">
+						{{policy.activation.voucher_no}}
 					</p>
 				</div>
 			</div>
@@ -45,116 +45,74 @@
 					</p>
 				</div>
 			</div>
-			<div class="form-group  field-crop">
-				<label for="crop" class="col-sm-3 control-label">
-					Crop
+			<div class="form-group  field-group_policy_id">
+				<label for="group_policy_id" class="col-sm-3 control-label">
+					Group Policy
 				</label>
 				<div class="input-div col-sm-9">
-					<p class="form-control-static  control-field-crop">
-						{{policy.crop}}
+					<p class="form-control-static  control-field-group_policy_id">
+						{{policy.group_policy_id}}
 					</p>
 				</div>
 			</div>
-			<div class="form-group  field-activation_window">
-				<label for="activation_window" class="col-sm-3 control-label">
-					Activation W.
-				</label>
-				<div class="input-div col-sm-9">
-					<p class="form-control-static  control-field-activation_window">
-						{{policy.activation_window}}
-					</p>
-				</div>
-			</div>
-			<div class="form-group  field-date_begin">
-				<label for="date_begin" class="col-sm-3 control-label">
-					Date Begin
-				</label>
-				<div class="input-div col-sm-9">
-					<p class="form-control-static  control-field-date_begin">
-						{{formatDate policy.date_begin 'MMM-DD'}}
-					</p>
-				</div>
-			</div>
-			<div class="form-group  field-date_end">
-				<label for="date_end" class="col-sm-3 control-label">
-					Date End
-				</label>
-				<div class="input-div col-sm-9">
-					<p class="form-control-static  control-field-date_end">
-						{{formatDate policy.date_end 'MMM-DD'}}
-					</p>
-				</div>
-			</div>
-			<div class="form-group  field-activation_timestamp">
-				<label for="activation_timestamp" class="col-sm-3 control-label">
+			<div class="form-group  field-activation-timestamp">
+				<label for="activation.timestamp" class="col-sm-3 control-label">
 					Activation
 				</label>
 				<div class="input-div col-sm-9">
-					<p class="form-control-static  control-field-activation_timestamp">
-						{{formatDate policy.activation_timestamp 'MMM-DD'}}
+					<p class="form-control-static  control-field-activation-timestamp">
+						{{formatDate policy.activation.timestamp 'YYYY-MM-DD'}}
 					</p>
 				</div>
 			</div>
-			<div class="form-group  field-premium">
-				<label for="premium" class="col-sm-3 control-label">
+			<div class="form-group  field-premium_amount">
+				<label for="premium_amount" class="col-sm-3 control-label">
 					Premium
 				</label>
 				<div class="input-div col-sm-9">
-					<p class="form-control-static  control-field-premium">
-						{{currency policy.premium policy}}
+					<p class="form-control-static  control-field-premium_amount">
+						{{currency policy.premium_amount policy}}
 					</p>
 				</div>
 			</div>
-			<div class="form-group  field-sum_insured">
-				<label for="sum_insured" class="col-sm-3 control-label">
+			<div class="form-group  field-sum_insured_amount">
+				<label for="sum_insured_amount" class="col-sm-3 control-label">
 					Sum Insured
 				</label>
 				<div class="input-div col-sm-9">
-					<p class="form-control-static  control-field-sum_insured">
-						{{currency policy.sum_insured policy}}
+					<p class="form-control-static  control-field-sum_insured_amount">
+						{{currency policy.sum_insured_amount policy}}
 					</p>
 				</div>
 			</div>
-			<div class="form-group  field-payout_timestamp">
-				<label for="payout_timestamp" class="col-sm-3 control-label">
-					Payout Timestamp
-				</label>
-				<div class="input-div col-sm-9">
-					<p class="form-control-static  control-field-payout_timestamp">
-						{{formatDate policy.payout_timestamp 'MMM-DD'}}
-					</p>
-				</div>
-			</div>
-			<div class="form-group  field-payout_amount_total">
-				<label for="payout_amount_total" class="col-sm-3 control-label">
+			<div class="form-group  field-payout-total_amount">
+				<label for="payout.total_amount" class="col-sm-3 control-label">
 					Payout Amount Total
 				</label>
 				<div class="input-div col-sm-9">
-					<p class="form-control-static  control-field-payout_amount_total">
-						{{currency policy.payout_amount_total policy}}
+					<p class="form-control-static  control-field-payout-total_amount">
+						{{currency policy.payout.total_amount policy}}
 					</p>
 				</div>
 			</div>
-			<div class="form-group  field-payout_amount_deductible">
-				<label for="payout_amount_deductible" class="col-sm-3 control-label">
+			<div class="form-group  field-payout-deductible_amount">
+				<label for="payout.deductible_amount" class="col-sm-3 control-label">
 					Payout Amount Deductible
 				</label>
 				<div class="input-div col-sm-9">
-					<p class="form-control-static  control-field-payout_amount_deductible">
-						{{currency policy.payout_amount_deductible policy}}
+					<p class="form-control-static  control-field-payout-deductible_amount">
+						{{currency policy.payout.deductible_amount policy}}
 					</p>
 				</div>
 			</div>
-			<div class="form-group  field-payout_amount">
-				<label for="payout_amount" class="col-sm-3 control-label">
+			<div class="form-group  field-payout-actual_amount">
+				<label for="payout.actual_amount" class="col-sm-3 control-label">
 					Payout Amount
 				</label>
 				<div class="input-div col-sm-9">
-					<input type="text" name="payout_amount" value="{{round2 policy.payout_amount policy}}" class="form-control " autofocus="autofocus" data-type="float">
-					<span id="help-text" class="help-block">
-					</span>
-					<span id="error-text" class="help-block">
-					</span>
+					<p class="form-control-static  control-field-payout-actual_amount">
+						{{currency policy.payout.actual_amount policy}}
+					</p>
 				</div>
 			</div>
 			<div class="form-group  field-payout_override_comment">
@@ -162,7 +120,19 @@
 					Payout Override Comment
 				</label>
 				<div class="input-div col-sm-9">
-					<input type="text" name="payout_override_comment" value="{{policy.payout_override_comment}}" class="form-control " data-type="string">
+					<input type="text" name="payout_override_comment" value="{{policy.payout_override_comment}}" class="form-control " autofocus="autofocus" data-type="string">
+					<span id="help-text" class="help-block">
+					</span>
+					<span id="error-text" class="help-block">
+					</span>
+				</div>
+			</div>
+			<div class="form-group  field-payout-override_amount">
+				<label for="payout.override_amount" class="col-sm-3 control-label">
+					Override Amount
+				</label>
+				<div class="input-div col-sm-9">
+					<input type="text" name="payout.override_amount" value="{{currency policy.payout.override_amount policy}}" class="form-control " data-type="float">
 					<span id="help-text" class="help-block">
 					</span>
 					<span id="error-text" class="help-block">
