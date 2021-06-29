@@ -163,7 +163,6 @@ Template.AdminLogsSmsDetailsFormCustomActions.helpers({
 Template.AdminLogsSmsDetailsFormCustomActions.events({
 	"click #btn-receipt": function (e,t) {
 		e.preventDefault();
-		console.log(t);
-		// Meteor.call('bongaFetchDeliveryReport');
+		Meteor.call('bongaFetchDeliveryReport', t.data.logline_sms._id);
 	},
 });
