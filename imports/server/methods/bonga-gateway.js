@@ -79,13 +79,53 @@ const bongaApi = Meteor.wrapAsync(function ({method='get', url = 'send-sms-v1', 
 });
 
 const bongaFetchDeliveryReport = ({_id, url, unique_id}) => {
-	return bongaApi({
-		method: 'get',
-		url,
-		args: {
-			unique_id
+	
+	try {
+		
+		const response = bongaApi({
+			method: 'get',
+			url,
+			args: {
+				unique_id
+			}
+		});
+
+		info(`SMS Delivery Report ${unique_id}`, response.data);
+
+		if (response.data.status === 222) {
+
+
+			if ('delivery_status_desc' in response.data) {
+
+				Sms.upsert({_id}, {$set: {
+					delivery_status_desc: response.data.delivery_status_desc,
+					date_received: response.data.date_received
+				}});
+
+			} else {
+
+				Sms.upsert({_id}, {$set: {
+					delivery_status_desc: response.data.status_message,
+					operator_cost: response.data.operator_cost,
+					transaction_cost: response.data.transaction_cost,
+					total_cost: response.data.total_cost,
+					transaction_status: response.data.transaction_status
+				}});
+
+
+			}
+		} else {
+			error(`Error fetching Delivery Report, unique_id=${data.unique_id}`, {
+				status: response.status, 
+				statusText: response.statusText, 
+				data: response.data
+			});
 		}
-	});
+		
+	} catch(err) {
+		error('Error receiving SMS Delivery Report', {message: err.message, stack: err.stack});
+		Sms.upsert({_id}, {$set: { status: 999, status_message: err.message}});
+	};
 };
 
 const bongaSMS = ({mobile_num, message, amount = 0.0}) => {
@@ -102,8 +142,8 @@ const bongaSMS = ({mobile_num, message, amount = 0.0}) => {
 	try {
 
 		const url = amount > 0.0 ? 
-			'/b2c-send-money' : 
-			'/send-sms-v1';
+			  '/b2c-send-money' : 
+		'/send-sms-v1';
 		const args = amount > 0.0 ? {
 			mobile: mobile_num, 
 			message, 
@@ -130,23 +170,10 @@ const bongaSMS = ({mobile_num, message, amount = 0.0}) => {
 			}});
 
 			const deliveryReportUrl = amount > 0.0 ? 
-				'https://app.bongasms.co.ke/api/b2c-trx-status' : 
-				'https://app.bongasms.co.ke/api/fetch-delivery';
+				  'b2c-trx-status' : 
+			'fetch-delivery';
 
-			const response2 = bongaFetchDeliveryReport({_id, url: deliveryReportUrl, unique_id: response.data.unique_id});
-			if (response2.data.status === 222) {
-				Sms.upsert({_id}, {$set: {
-					delivery_status_desc: response2.data.delivery_status_desc,
-					date_received: response2.data.date_received
-				}});
-			} else {
-				error(`Error fetching Delivery Report, unique_id=${data.unique_id}`, {
-					status: response2.status, 
-					statusText: response2.statusText, 
-					data: response2.data
-				});
-			}
-			// even if we cannot fetch Deliver Report, we consider the SMS as delivered
+			bongaFetchDeliveryReport({_id, url: deliveryReportUrl, unique_id: response.data.unique_id});
 			return `SMS successfully sent, number: ${mobile_num}, message: ${message}, amount: ${amount}`;
 
 		} else if (response.data.status === 666) {
@@ -156,9 +183,9 @@ const bongaSMS = ({mobile_num, message, amount = 0.0}) => {
 		};
 	} catch (err) {
 		error('Error sending SMS', {message: err.message, stack: err.stack});
-		Sms.upsert({_id}, {$set: { status: 999, status_message: 'Unknown Gateway Error'}});
+		Sms.upsert({_id}, {$set: { status: 999, status_message: err.message}});
 	}
 	return `Error sending SMS; number: ${mobile_num}, message: ${message}, amount: ${amount}`;
 }
 
-module.exports = { bongaApi, bongaSMS };
+module.exports = { bongaApi, bongaSMS, bongaFetchDeliveryReport };
