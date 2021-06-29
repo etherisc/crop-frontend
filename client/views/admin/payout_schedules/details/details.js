@@ -465,7 +465,7 @@ Template.AdminPayoutSchedulesDetailsPayoutScheduleEntriesCustomActions.helpers({
 
 Template.AdminPayoutSchedulesDetailsPayoutScheduleEntriesCustomActions.events({
 	"change #chk-filter": function (e,t) {
-		Session.set('payoutScheduleFloor', $('#chk-filter').prop('checked') ? '0.0' : '-1.0');
+		Session.set('payoutScheduleFloor', $('#chk-filter').prop('checked') ? 0.0 : -1.0);
 	}
 });
 
