@@ -59,29 +59,6 @@ this.AdminPayoutSchedulesDetailsController = RouteController.extend({
 		if(this.isReady() && this.payoutScheduleEntriesListPagedExtraParams.pageNo >= data.payout_schedule_entries_list_paged_page_count) {
 			Session.set("PayoutScheduleEntriesListPagedPageNo", data.payout_schedule_entries_list_paged_page_count > 0 ? data.payout_schedule_entries_list_paged_page_count - 1 : 0);
 		}
-/*** Custom Data**/
-
-const newFilter = {
-	payout_schedule_id:this.params.payoutScheduleId
-};
-
-if (Session.get('payout-schedule-chk-filter')) {
-	newFilter["payout.actual_amount"] = {$gt: 0.0};
-};
-
-console.log(newFilter);
-
-data.payout_schedule_entries_list_paged = 	
-	Policies.find(
-	databaseUtils.extendFilter(
-		newFilter, 
-		this.payoutScheduleEntriesListPagedExtraParams
-	), 
-	databaseUtils.extendOptions(
-		{}, 
-		this.payoutScheduleEntriesListPagedExtraParams)
-);
-
 
 
 		return data;
