@@ -212,6 +212,9 @@
 				<th class="th-sortable" data-sort="payout.actual_amount">
 					Payout Amount
 				</th>
+				<th class="th-sortable" data-sort="payout.override_amount">
+					Override
+				</th>
 				<th>
 					&nbsp;
 				</th>
@@ -239,6 +242,9 @@
 		</td>
 		<td>
 			{{currency payout.actual_amount this}}
+		</td>
+		<td>
+			{{currency payout.override_amount this}}
 		</td>
 		<td class="td-icon">
 			<span id="edit-button" class="fa fa-pencil {{editButtonClass}}" title="Edit">
