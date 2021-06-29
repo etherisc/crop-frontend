@@ -456,7 +456,7 @@ Template.AdminPayoutSchedulesDetailsPayoutScheduleEntriesCustomActions.destroyed
 };
 
 Template.AdminPayoutSchedulesDetailsPayoutScheduleEntriesCustomActions.rendered = function() {
-
+	$('#chk-filter').prop('checked', Session.get('payout-schedule-chk-filter'));
 };
 
 Template.AdminPayoutSchedulesDetailsPayoutScheduleEntriesCustomActions.helpers({
@@ -465,6 +465,7 @@ Template.AdminPayoutSchedulesDetailsPayoutScheduleEntriesCustomActions.helpers({
 
 Template.AdminPayoutSchedulesDetailsPayoutScheduleEntriesCustomActions.events({
 	"change #chk-filter": function (e,t) {
+		Session.set('payout-schedule-chk-filter', $('#chk-filter').prop('checked'));
 		Session.set('payoutScheduleFloor', $('#chk-filter').prop('checked') ? 0.0 : -1.0);
 	}
 });
