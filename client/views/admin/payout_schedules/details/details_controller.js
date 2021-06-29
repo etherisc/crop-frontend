@@ -66,7 +66,7 @@ const newFilter = {
 };
 
 if (Session.get('payout-schedule-chk-filter')) {
-	newFilter["payout.actual_amont"] = {$gt: 0.0};
+	newFilter["payout.actual_amount"] = {$gt: 0.0};
 };
 
 console.log(newFilter);
