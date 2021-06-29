@@ -83,14 +83,16 @@ const bongaFetchDeliveryReport = (_id) => {
 	try {
 
 		const sms = Sms.findOne({_id});
+		
+		if (!('amount' in sms) sms.amount = 0.0;
 
-		const url = amount > 0.0 ? 'b2c-trx-status' : 'fetch-delivery';
+		const url = sms.amount > 0.0 ? 'b2c-trx-status' : 'fetch-delivery';
 
 		const response = bongaApi({
 			method: 'get',
 			url,
 			args: {
-				unique_id
+				sms.unique_id
 			}
 		});
 
