@@ -110,6 +110,12 @@
 				<th class="th-sortable" data-sort="sum_insured_amount">
 					Sum Insured
 				</th>
+				<th class="th-sortable" data-sort="payout.deductible_amount">
+					Deductible
+				</th>
+				<th class="th-sortable" data-sort="payout.total_amount">
+					Total
+				</th>
 			</tr>
 		</thead>
 		<tbody id="dataview-table-items">
@@ -131,6 +137,12 @@
 		</td>
 		<td>
 			{{currency sum_insured_amount this}}
+		</td>
+		<td>
+			{{payout.deductible_amount}}
+		</td>
+		<td>
+			{{payout.total_amount}}
 		</td>
 	</tr>
 </template>
