@@ -25,17 +25,17 @@ Template.PoliciesPage.helpers({
 
 var PoliciesPageViewExport = function(fileType) {
 	var extraParams = {
-		searchText: Session.get("PolicyList1PagedSearchString") || "",
-		searchFields: Session.get("PolicyList1PagedSearchFields") || ["id", "gp_id", "group_policy_id", "phone_no", "premium_amount", "sum_insured_amount", "activation", "payments", "payout", "meta"],
-		sortBy: Session.get("PolicyList1PagedSortBy") || "",
-		sortAscending: Session.get("PolicyList1PagedSortAscending") || true
+		searchText: Session.get("PolicyListPagedSearchString") || "",
+		searchFields: Session.get("PolicyListPagedSearchFields") || ["id", "gp_id", "group_policy_id", "phone_no", "premium_amount", "sum_insured_amount", "activation", "payments", "payout", "meta"],
+		sortBy: Session.get("PolicyListPagedSortBy") || "",
+		sortAscending: Session.get("PolicyListPagedSortAscending") || true
 	};
 
 	var exportFields = ["id", "gp_id", "group_policy_id", "phone_no", "premium_amount", "sum_insured_amount", "activation", "payments", "payout", "meta"];
 
 	
 
-	Meteor.call("policyList1PagedExport", extraParams, exportFields, fileType, function(e, data) {
+	Meteor.call("policyListPagedExport", extraParams, exportFields, fileType, function(e, data) {
 		if(e) {
 			alert(e);
 			return;
@@ -72,7 +72,7 @@ Template.PoliciesPageView.events({
 			if(searchInput) {
 				searchInput.focus();
 				var searchString = searchInput.val();
-				Session.set("PolicyList1PagedSearchString", searchString);
+				Session.set("PolicyListPagedSearchString", searchString);
 			}
 
 		}
@@ -88,7 +88,7 @@ Template.PoliciesPageView.events({
 				var searchInput = form.find("#dataview-search-input");
 				if(searchInput) {
 					var searchString = searchInput.val();
-					Session.set("PolicyList1PagedSearchString", searchString);
+					Session.set("PolicyListPagedSearchString", searchString);
 				}
 
 			}
@@ -103,7 +103,7 @@ Template.PoliciesPageView.events({
 				var searchInput = form.find("#dataview-search-input");
 				if(searchInput) {
 					searchInput.val("");
-					Session.set("PolicyList1PagedSearchString", "");
+					Session.set("PolicyListPagedSearchString", "");
 				}
 
 			}
@@ -140,17 +140,17 @@ Template.PoliciesPageView.events({
 
 	"click .prev-page-link": function(e, t) {
 		e.preventDefault();
-		var currentPage = Session.get("PolicyList1PagedPageNo") || 0;
+		var currentPage = Session.get("PolicyListPagedPageNo") || 0;
 		if(currentPage > 0) {
-			Session.set("PolicyList1PagedPageNo", currentPage - 1);
+			Session.set("PolicyListPagedPageNo", currentPage - 1);
 		}
 	},
 
 	"click .next-page-link": function(e, t) {
 		e.preventDefault();
-		let currentPage = Session.get("PolicyList1PagedPageNo") || 0;
-		if(currentPage < this.policy_list1paged_page_count - 1) {
-			Session.set("PolicyList1PagedPageNo", currentPage + 1);
+		let currentPage = Session.get("PolicyListPagedPageNo") || 0;
+		if(currentPage < this.policy_list_paged_page_count - 1) {
+			Session.set("PolicyListPagedPageNo", currentPage + 1);
 		}
 	}
 
@@ -164,22 +164,22 @@ Template.PoliciesPageView.helpers({
 	},
 
 	"isEmpty": function() {
-		return !this.policy_list1_paged || this.policy_list1_paged.count() == 0;
+		return !this.policy_list_paged || this.policy_list_paged.count() == 0;
 	},
 	"isNotEmpty": function() {
-		return this.policy_list1_paged && this.policy_list1_paged.count() > 0;
+		return this.policy_list_paged && this.policy_list_paged.count() > 0;
 	},
 	"isNotFound": function() {
-		return this.policy_list1_paged && this.policy_list1_paged.count() == 0 && Session.get("PolicyList1PagedSearchString");
+		return this.policy_list_paged && this.policy_list_paged.count() == 0 && Session.get("PolicyListPagedSearchString");
 	},
 	"gotPrevPage": function() {
-		return !!Session.get("PolicyList1PagedPageNo");
+		return !!Session.get("PolicyListPagedPageNo");
 	},
 	"gotNextPage": function() {
-		return (Session.get("PolicyList1PagedPageNo") || 0) < this.policy_list1paged_page_count - 1;
+		return (Session.get("PolicyListPagedPageNo") || 0) < this.policy_list_paged_page_count - 1;
 	},
 	"searchString": function() {
-		return Session.get("PolicyList1PagedSearchString");
+		return Session.get("PolicyListPagedSearchString");
 	},
 	"viewAsTable": function() {
 		return Session.get("PoliciesPageViewStyle") == "table";
@@ -213,18 +213,18 @@ Template.PoliciesPageViewTable.onRendered(function() {
 Template.PoliciesPageViewTable.events({
 	"click .th-sortable": function(e, t) {
 		e.preventDefault();
-		var oldSortBy = Session.get("PolicyList1PagedSortBy");
+		var oldSortBy = Session.get("PolicyListPagedSortBy");
 		var newSortBy = $(e.target).attr("data-sort");
 
-		Session.set("PolicyList1PagedSortBy", newSortBy);
+		Session.set("PolicyListPagedSortBy", newSortBy);
 		if(oldSortBy == newSortBy) {
-			var sortAscending = Session.get("PolicyList1PagedSortAscending");
+			var sortAscending = Session.get("PolicyListPagedSortAscending");
 			if(typeof sortAscending == "undefined") {
 				sortAscending = true;
 			}
-			Session.set("PolicyList1PagedSortAscending", !sortAscending);
+			Session.set("PolicyListPagedSortAscending", !sortAscending);
 		} else {
-			Session.set("PolicyList1PagedSortAscending", true);
+			Session.set("PolicyListPagedSortAscending", true);
 		}
 	}
 });

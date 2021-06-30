@@ -21,7 +21,7 @@ this.PoliciesPageDetailsController = RouteController.extend({
 		
 
 		var subs = [
-			Meteor.subscribe("policy1", this.params.policyId)
+			Meteor.subscribe("policy", this.params.policyId)
 		];
 		var ready = true;
 		_.each(subs, function(sub) {
@@ -36,7 +36,7 @@ this.PoliciesPageDetailsController = RouteController.extend({
 
 		var data = {
 			params: this.params || {},
-			policy1: Policies.findOne({_id:this.params.policyId}, {})
+			policy: Policies.findOne({_id:this.params.policyId}, {})
 		};
 		
 

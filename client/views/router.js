@@ -16,7 +16,6 @@ Router.publicRoutes = [
 
 Router.privateRoutes = [
 	"home_private",
-	"dashboard",
 	"admin",
 	"admin.users",
 	"admin.users.details",
@@ -45,24 +44,14 @@ Router.privateRoutes = [
 	"admin.settings_page.insert",
 	"admin.settings_page.update",
 	"admin.settings_page.details",
-	"user_settings",
-	"user_settings.profile",
-	"user_settings.change_pass",
 	"logout",
-	"payments_page",
-	"payments_page.insert",
-	"payments_page.update",
-	"payments_page.details",
+	"blockchain",
+	"dashboard",
 	"activations_page",
 	"activations_page.insert",
 	"activations_page.update",
 	"activations_page.details",
 	"activations_map",
-	"blockchain",
-	"partners",
-	"partners.insert",
-	"partners.update",
-	"partners.details",
 	"group_policies",
 	"group_policies.details",
 	"group_policies.details.details",
@@ -70,8 +59,19 @@ Router.privateRoutes = [
 	"locations.insert",
 	"locations.update",
 	"locations.details",
+	"payments_page",
+	"payments_page.insert",
+	"payments_page.update",
+	"payments_page.details",
+	"partners",
+	"partners.insert",
+	"partners.update",
+	"partners.details",
 	"policies_page",
-	"policies_page.details"
+	"policies_page.details",
+	"user_settings",
+	"user_settings.profile",
+	"user_settings.change_pass"
 ];
 
 Router.freeRoutes = [
@@ -156,7 +156,6 @@ Router.map(function () {
 	this.route("/forgot_password", {name: "forgot_password", title: "", controller: "ForgotPasswordController"});
 	this.route("/reset_password/:resetPasswordToken", {name: "reset_password", title: "", controller: "ResetPasswordController"});
 	this.route("/home_private", {name: "home_private", title: "Welcome {{userFullName}}!", controller: "HomePrivateController"});
-	this.route("/dashboard", {name: "dashboard", title: "", controller: "DashboardController"});
 	this.route("/admin", {name: "admin", title: "", controller: "AdminController"});
 	this.route("/admin/users", {name: "admin.users", title: "", controller: "AdminUsersController"});
 	this.route("/admin/users/details/:userId", {name: "admin.users.details", title: "", controller: "AdminUsersDetailsController"});
@@ -185,24 +184,14 @@ Router.map(function () {
 	this.route("/admin/settings_page/insert", {name: "admin.settings_page.insert", title: "", controller: "AdminSettingsPageInsertController"});
 	this.route("/admin/settings_page/update/:settingId", {name: "admin.settings_page.update", title: "", controller: "AdminSettingsPageUpdateController"});
 	this.route("/admin/settings_page/details/:settingId", {name: "admin.settings_page.details", title: "", controller: "AdminSettingsPageDetailsController"});
-	this.route("/user_settings", {name: "user_settings", title: "", controller: "UserSettingsController"});
-	this.route("/user_settings/profile", {name: "user_settings.profile", title: "", controller: "UserSettingsProfileController"});
-	this.route("/user_settings/change_pass", {name: "user_settings.change_pass", title: "", controller: "UserSettingsChangePassController"});
 	this.route("/logout", {name: "logout", title: "", controller: "LogoutController"});
-	this.route("/payments_page", {name: "payments_page", title: "", controller: "PaymentsPageController"});
-	this.route("/payments_page/insert", {name: "payments_page.insert", title: "", controller: "PaymentsPageInsertController"});
-	this.route("/payments_page/update/:paymentId", {name: "payments_page.update", title: "", controller: "PaymentsPageUpdateController"});
-	this.route("/payments_page/details/:paymentId", {name: "payments_page.details", title: "", controller: "PaymentsPageDetailsController"});
+	this.route("/blockchain", {name: "blockchain", title: "Connect to Wallet", controller: "BlockchainController"});
+	this.route("/dashboard", {name: "dashboard", title: "", controller: "DashboardController"});
 	this.route("/activations_page", {name: "activations_page", title: "Activations", controller: "ActivationsPageController"});
 	this.route("/activations_page/insert", {name: "activations_page.insert", title: "Activations", controller: "ActivationsPageInsertController"});
 	this.route("/activations_page/update/:activationId", {name: "activations_page.update", title: "Activations", controller: "ActivationsPageUpdateController"});
 	this.route("/activations_page/details/:activationId", {name: "activations_page.details", title: "Activations", controller: "ActivationsPageDetailsController"});
 	this.route("/activations_map", {name: "activations_map", title: "", controller: "ActivationsMapController"});
-	this.route("/blockchain", {name: "blockchain", title: "Connect to Wallet", controller: "BlockchainController"});
-	this.route("/partners", {name: "partners", title: "", controller: "PartnersController"});
-	this.route("/partners/insert", {name: "partners.insert", title: "", controller: "PartnersInsertController"});
-	this.route("/partners/update/:partnerId", {name: "partners.update", title: "", controller: "PartnersUpdateController"});
-	this.route("/partners/details/:partnerId", {name: "partners.details", title: "", controller: "PartnersDetailsController"});
 	this.route("/group_policies", {name: "group_policies", title: "Group Policies", controller: "GroupPoliciesController"});
 	this.route("/group_policies/details/:groupPolicyId", {name: "group_policies.details", title: "Group Policies", controller: "GroupPoliciesDetailsController"});
 	this.route("/group_policies/details/:groupPolicyId/details/:policyId", {name: "group_policies.details.details", title: "Group Policies", controller: "GroupPoliciesDetailsDetailsController"});
@@ -210,6 +199,17 @@ Router.map(function () {
 	this.route("/locations/insert", {name: "locations.insert", title: "", controller: "LocationsInsertController"});
 	this.route("/locations/update/:locationId", {name: "locations.update", title: "", controller: "LocationsUpdateController"});
 	this.route("/locations/details/:locationId", {name: "locations.details", title: "", controller: "LocationsDetailsController"});
+	this.route("/payments_page", {name: "payments_page", title: "", controller: "PaymentsPageController"});
+	this.route("/payments_page/insert", {name: "payments_page.insert", title: "", controller: "PaymentsPageInsertController"});
+	this.route("/payments_page/update/:paymentId", {name: "payments_page.update", title: "", controller: "PaymentsPageUpdateController"});
+	this.route("/payments_page/details/:paymentId", {name: "payments_page.details", title: "", controller: "PaymentsPageDetailsController"});
+	this.route("/partners", {name: "partners", title: "", controller: "PartnersController"});
+	this.route("/partners/insert", {name: "partners.insert", title: "", controller: "PartnersInsertController"});
+	this.route("/partners/update/:partnerId", {name: "partners.update", title: "", controller: "PartnersUpdateController"});
+	this.route("/partners/details/:partnerId", {name: "partners.details", title: "", controller: "PartnersDetailsController"});
 	this.route("/policies_page", {name: "policies_page", title: "", controller: "PoliciesPageController"});
 	this.route("/policies_page/details/:policyId", {name: "policies_page.details", title: "", controller: "PoliciesPageDetailsController"});
+	this.route("/user_settings", {name: "user_settings", title: "", controller: "UserSettingsController"});
+	this.route("/user_settings/profile", {name: "user_settings.profile", title: "", controller: "UserSettingsProfileController"});
+	this.route("/user_settings/change_pass", {name: "user_settings.change_pass", title: "", controller: "UserSettingsChangePassController"});
 });
