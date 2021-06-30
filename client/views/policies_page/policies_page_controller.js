@@ -16,13 +16,13 @@ this.PoliciesPageController = RouteController.extend({
 	},
 
 	isReady: function() {
-		this.policyList1PagedExtraParams = {
-			searchText: Session.get("PolicyList1PagedSearchString") || "",
-			searchFields: Session.get("PolicyList1PagedSearchFields") || ["id", "gp_id", "group_policy_id", "phone_no", "premium_amount", "sum_insured_amount", "activation", "payments", "payout", "meta"],
-			sortBy: Session.get("PolicyList1PagedSortBy") || "",
-			sortAscending: Session.get("PolicyList1PagedSortAscending"),
-			pageNo: Session.get("PolicyList1PagedPageNo") || 0,
-			pageSize: Session.get("PolicyList1PagedPageSize") || 20
+		this.policyListPagedExtraParams = {
+			searchText: Session.get("PolicyListPagedSearchString") || "",
+			searchFields: Session.get("PolicyListPagedSearchFields") || ["id", "gp_id", "group_policy_id", "phone_no", "premium_amount", "sum_insured_amount", "activation", "payments", "payout", "meta"],
+			sortBy: Session.get("PolicyListPagedSortBy") || "",
+			sortAscending: Session.get("PolicyListPagedSortAscending"),
+			pageNo: Session.get("PolicyListPagedPageNo") || 0,
+			pageSize: Session.get("PolicyListPagedPageSize") || 20
 		};
 
 
@@ -30,8 +30,8 @@ this.PoliciesPageController = RouteController.extend({
 		
 
 		var subs = [
-			Meteor.subscribe("policy_list1_paged", this.policyList1PagedExtraParams),
-			Meteor.subscribe("policy_list1_paged_count", this.policyList1PagedExtraParams)
+			Meteor.subscribe("policy_list_paged", this.policyListPagedExtraParams),
+			Meteor.subscribe("policy_list_paged_count", this.policyListPagedExtraParams)
 		];
 		var ready = true;
 		_.each(subs, function(sub) {
@@ -46,15 +46,15 @@ this.PoliciesPageController = RouteController.extend({
 
 		var data = {
 			params: this.params || {},
-			policy_list1_paged: Policies.find(databaseUtils.extendFilter({}, this.policyList1PagedExtraParams), databaseUtils.extendOptions({}, this.policyList1PagedExtraParams)),
-			policy_list1_paged_count: Counts.get("policy_list1_paged_count")
+			policy_list_paged: Policies.find(databaseUtils.extendFilter({}, this.policyListPagedExtraParams), databaseUtils.extendOptions({}, this.policyListPagedExtraParams)),
+			policy_list_paged_count: Counts.get("policy_list_paged_count")
 		};
 		
 
 		
-		data.policy_list1_paged_page_count = this.policyList1PagedExtraParams && this.policyList1PagedExtraParams.pageSize ? Math.ceil(data.policy_list1_paged_count / this.policyList1PagedExtraParams.pageSize) : 1;
-		if(this.isReady() && this.policyList1PagedExtraParams.pageNo >= data.policy_list1_paged_page_count) {
-			Session.set("PolicyList1PagedPageNo", data.policy_list1_paged_page_count > 0 ? data.policy_list1_paged_page_count - 1 : 0);
+		data.policy_list_paged_page_count = this.policyListPagedExtraParams && this.policyListPagedExtraParams.pageSize ? Math.ceil(data.policy_list_paged_count / this.policyListPagedExtraParams.pageSize) : 1;
+		if(this.isReady() && this.policyListPagedExtraParams.pageNo >= data.policy_list_paged_page_count) {
+			Session.set("PolicyListPagedPageNo", data.policy_list_paged_page_count > 0 ? data.policy_list_paged_page_count - 1 : 0);
 		}
 
 
