@@ -1,0 +1,142 @@
+<template name="PoliciesPageDetails">
+	<div class="page-container container" id="content">
+		<div class="row" id="title_row">
+			<div class="col-md-12">
+			</div>
+		</div>
+		{{> PoliciesPageDetailsForm}}
+	</div>
+</template>
+
+<template name="PoliciesPageDetailsForm">
+	<div id="policies-page-details-form" class="">
+		<h2 id="component-title">
+			<a href="#" id="form-back-button" class="btn btn-default" title="back">
+				<span class="fa fa-chevron-left">
+				</span>
+			</a>
+			Policy Details
+		</h2>
+		<form role="form" class="form-horizontal">
+			{{#if errorMessage}}
+			<div class="alert alert-warning">
+				{{errorMessage}}
+			</div>
+			{{/if}}
+
+			{{#if infoMessage}}
+			<div class="alert alert-success">
+				{{infoMessage}}
+			</div>
+			{{/if}}
+			<div class="form-group  field-id">
+				<label for="id" class="col-sm-3 control-label">
+					Id
+				</label>
+				<div class="input-div col-sm-9">
+					<p class="form-control-static  control-field-id">
+						{{policy1.id}}
+					</p>
+				</div>
+			</div>
+			<div class="form-group  field-gp_id">
+				<label for="gp_id" class="col-sm-3 control-label">
+					GP _id
+				</label>
+				<div class="input-div col-sm-9">
+					<p class="form-control-static  control-field-gp_id">
+						{{policy1.gp_id}}
+					</p>
+				</div>
+			</div>
+			<div class="form-group  field-group_policy_id">
+				<label for="group_policy_id" class="col-sm-3 control-label">
+					Group Policy Id
+				</label>
+				<div class="input-div col-sm-9">
+					<p class="form-control-static  control-field-group_policy_id">
+						{{policy1.group_policy_id}}
+					</p>
+				</div>
+			</div>
+			<div class="form-group  field-phone_no">
+				<label for="phone_no" class="col-sm-3 control-label">
+					Phone No
+				</label>
+				<div class="input-div col-sm-9">
+					<p class="form-control-static  control-field-phone_no">
+						{{policy1.phone_no}}
+					</p>
+				</div>
+			</div>
+			<div class="form-group  field-premium_amount">
+				<label for="premium_amount" class="col-sm-3 control-label">
+					Premium
+				</label>
+				<div class="input-div col-sm-9">
+					<p class="form-control-static  control-field-premium_amount">
+						{{currency policy1.premium_amount policy1}}
+					</p>
+				</div>
+			</div>
+			<div class="form-group  field-sum_insured_amount">
+				<label for="sum_insured_amount" class="col-sm-3 control-label">
+					Sum Insured
+				</label>
+				<div class="input-div col-sm-9">
+					<p class="form-control-static  control-field-sum_insured_amount">
+						{{currency policy1.sum_insured_amount policy1}}
+					</p>
+				</div>
+			</div>
+			<div class="form-group  field-activation">
+				<label for="activation" class="col-sm-3 control-label">
+					Activation
+				</label>
+				<div class="input-div col-sm-9">
+					<p class="form-control-static  control-field-activation">
+						{{json2table policy1.activation policy1}}
+					</p>
+				</div>
+			</div>
+			<div class="form-group  field-payments">
+				<label for="payments" class="col-sm-3 control-label">
+					Payments
+				</label>
+				<div class="input-div col-sm-9">
+					<p class="form-control-static  control-field-payments">
+						{{array2table policy1.payments policy1}}
+					</p>
+				</div>
+			</div>
+			<div class="form-group  field-payout">
+				<label for="payout" class="col-sm-3 control-label">
+					Payout
+				</label>
+				<div class="input-div col-sm-9">
+					<p class="form-control-static  control-field-payout">
+						{{json2table policy1.payout policy1}}
+					</p>
+				</div>
+			</div>
+			<div class="form-group  field-meta">
+				<label for="meta" class="col-sm-3 control-label">
+					Meta
+				</label>
+				<div class="input-div col-sm-9">
+					<p class="form-control-static  control-field-meta">
+						{{json2table policy1.meta policy1}}
+					</p>
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="submit-div col-sm-9 col-sm-offset-3">
+					<a href="#" id="form-close-button" class="btn btn-primary">
+						OK
+					</a>
+				</div>
+			</div>
+		</form>
+	</div>
+</template>
+

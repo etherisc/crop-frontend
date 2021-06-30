@@ -57,40 +57,37 @@ const readActivationsFile = ({bucket, filename, prefix, subsidy=false}) => {
 					// Insert new Activation
 					order_number = `Subsidy-${subsidy-counter}`;
 					Activations.insert({
-						
-						
+
+
 					});
 				}
 
 			} else {
-				const result = Activations.upsert(
-					{ order_number },
+				const result = Activations.insert(
 					{ 
-						$set: {
-							mobile_num: mobile_no,
-							call_time: date_activated,
-							latitude: Number(latitude),
-							longitude: Number(longitude),
-							order_number,
-							activation_code: voucher_code,
-							value_chain,
-							amount_premium,
-							amount_subsidy,
-							region,
-							county,
-							ward,
-							district,
-							village,
-							pixel,
-							mpesa_ref,
-							mpesa_name,
-							prefix					
-						}
+						mobile_num: mobile_no,
+						call_time: date_activated,
+						latitude: Number(latitude),
+						longitude: Number(longitude),
+						order_number,
+						activation_code: voucher_code,
+						value_chain,
+						amount_premium,
+						amount_subsidy,
+						region,
+						county,
+						ward,
+						district,
+						village,
+						pixel,
+						mpesa_ref,
+						mpesa_name,
+						prefix					
 					}
 				);
 				incrementCount(pixel);
 			};
-			
+
 		});
 
 		info('readActivations successful', {

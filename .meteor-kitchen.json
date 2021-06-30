@@ -2,7 +2,7 @@
 	"output_files": [
 		{
 			"path": "client/views/router.js",
-			"checksum": "711012d7ff7396e9cbbb5868d3240402d74090de"
+			"checksum": "d6e944262e55c2e60567ebbb1240c4e66df107da"
 		},
 		{
 			"path": "server/controllers/router.js",
@@ -38,7 +38,7 @@
 		},
 		{
 			"path": "client/views/layout/layout.html",
-			"checksum": "f49e2d0d6992b8503d2decbe70db51a5cb8f3bf4"
+			"checksum": "69768212b6dc9b4ab101cf7da0b75bd176cac38d"
 		},
 		{
 			"path": "client/views/layout/layout.js",
@@ -142,7 +142,7 @@
 		},
 		{
 			"path": "client/views/admin/admin.html",
-			"checksum": "57d70892465423d6fc0f142c34ef6c17aa4f320b"
+			"checksum": "055735567d8fa2d57125d66cc0be025431545e12"
 		},
 		{
 			"path": "client/views/admin/admin.js",
@@ -777,6 +777,30 @@
 			"checksum": "f41d874711887b8564ceb7c333d92e581d4c4f62"
 		},
 		{
+			"path": "client/views/policies_page/policies_page.html",
+			"checksum": "5594d4f4d57c26f4af5ffea733a40954cfeed9bd"
+		},
+		{
+			"path": "client/views/policies_page/policies_page.js",
+			"checksum": "70c0198932cfc150776e633a3be5f6e85cd9cc7a"
+		},
+		{
+			"path": "client/views/policies_page/policies_page_controller.js",
+			"checksum": "0a66479f801df171c03a9264285184ac1f4964b6"
+		},
+		{
+			"path": "client/views/policies_page/details/details.html",
+			"checksum": "f0af525be9553ef3127b51dbf594fbfa4b2c943f"
+		},
+		{
+			"path": "client/views/policies_page/details/details.js",
+			"checksum": "a9bcdacb355c3aeed3d6e165a761866d056d118f"
+		},
+		{
+			"path": "client/views/policies_page/details/details_controller.js",
+			"checksum": "bab28f40d7841f233d8b64a1540b0200781b828c"
+		},
+		{
 			"path": "both/collections/activations.js",
 			"checksum": "4155997afcfd2cc7278f634ff409f4eba2214c97"
 		},
@@ -1018,7 +1042,7 @@
 		},
 		{
 			"path": "server/publish/policies.js",
-			"checksum": "e04d8d52cfe7e849a257cab9966863b9786e3276"
+			"checksum": "e15df31ccb200c336d135803f64e05181234419c"
 		},
 		{
 			"path": "both/collections/settings.js",
@@ -1070,7 +1094,7 @@
 		},
 		{
 			"path": "client/lib/helpers.js",
-			"checksum": "a17c5dec3611181a9004b29b0bb41421f5d69ed5"
+			"checksum": "9f4cf2b2e361d2356fc44d33173adfad2bd8df08"
 		},
 		{
 			"path": "client/styles/googlemaps.css",
@@ -1086,7 +1110,7 @@
 		},
 		{
 			"path": "imports/server/methods/activations-reader.js",
-			"checksum": "ef906d4e45977bf880ceb58734305080e11b52b3"
+			"checksum": "b006392bbb0bb568a107e69a269b048568d69dec"
 		},
 		{
 			"path": "server/lib/server_globals.js",
@@ -1126,7 +1150,7 @@
 		},
 		{
 			"path": "imports/server/methods/activations-export.js",
-			"checksum": "29b2681b4e15a083035482e05cfa6e9c69d7de33"
+			"checksum": "34f01a8a0f1adafb1801aa40536dc1507f928249"
 		},
 		{
 			"path": "client/styles/custom.css",
@@ -1439,6 +1463,8 @@
 		"client/views/payments_page/details/",
 		"client/views/payments_page/insert/",
 		"client/views/payments_page/update/",
+		"client/views/policies_page/",
+		"client/views/policies_page/details/",
 		"client/views/register/",
 		"client/views/reset_password/",
 		"client/views/user_settings/",

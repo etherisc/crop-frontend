@@ -69,7 +69,9 @@ Router.privateRoutes = [
 	"locations",
 	"locations.insert",
 	"locations.update",
-	"locations.details"
+	"locations.details",
+	"policies_page",
+	"policies_page.details"
 ];
 
 Router.freeRoutes = [
@@ -208,4 +210,6 @@ Router.map(function () {
 	this.route("/locations/insert", {name: "locations.insert", title: "", controller: "LocationsInsertController"});
 	this.route("/locations/update/:locationId", {name: "locations.update", title: "", controller: "LocationsUpdateController"});
 	this.route("/locations/details/:locationId", {name: "locations.details", title: "", controller: "LocationsDetailsController"});
+	this.route("/policies_page", {name: "policies_page", title: "", controller: "PoliciesPageController"});
+	this.route("/policies_page/details/:policyId", {name: "policies_page.details", title: "", controller: "PoliciesPageDetailsController"});
 });
