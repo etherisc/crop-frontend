@@ -19,8 +19,8 @@ const transporter = nodemailer.createTransport(transport);
 
 const sendMail = ({to, subject, text}) => {
 	
-	const info = transporter.sendMail({to, subject, text});
-	info(`Mail sent to ${to}: ${subject}`, {to, subject, text, info});
+	const mailInfo = transporter.sendMail({to, subject, text});
+	info(`Mail sent to ${to}: ${subject}`, {to, subject, text, mailInfo});
 	
 	
 };
