@@ -17,9 +17,9 @@ const transport = {
 const transporter = nodemailer.createTransport(transport);
 
 
-const sendMail = ({to, subject, text}) => {
+const sendMail = async ({to, subject, text}) => {
 	
-	const mailInfo = transporter.sendMail({to, subject, text});
+	const mailInfo = await transporter.sendMail({to, subject, text});
 	info(`Mail sent to ${to}: ${subject}`, {to, subject, text, mailInfo});
 	
 	
