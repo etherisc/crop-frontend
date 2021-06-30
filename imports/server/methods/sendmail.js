@@ -2,6 +2,7 @@ console.log('loading sendmail.js');
 
 const nodemailer = require('nodemailer');
 
+const from = 'claims@acreafrica.com';
 
 const transport = {
   host: "mail.acreafrica.com",
@@ -19,8 +20,8 @@ const transporter = nodemailer.createTransport(transport);
 
 const sendMail = async ({to, subject, text}) => {
 	
-	const mailInfo = await transporter.sendMail({to, subject, text});
-	info(`Mail sent to ${to}: ${subject}`, {to, subject, text, mailInfo});
+	const mailInfo = await transporter.sendMail({from, to, subject, text});
+	info(`Mail sent to ${to}: ${subject}`, {from, to, subject, text, mailInfo});
 	
 	
 };
