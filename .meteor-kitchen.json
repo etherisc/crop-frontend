@@ -130,7 +130,7 @@
 		},
 		{
 			"path": "client/views/admin/admin.html",
-			"checksum": "7b641b733fed4f2e5aebe526c7b418af76666bfa"
+			"checksum": "7c9162e839ced1be85089784587d7f361cda5641"
 		},
 		{
 			"path": "client/views/admin/admin.js",
@@ -1154,7 +1154,7 @@
 		},
 		{
 			"path": "imports/server/methods/payout-schedule.js",
-			"checksum": "3162cdf1ce3f76aa09229620bb13e693ec466f9f"
+			"checksum": "5a0e7f12416cdea8d3f304ec51ac21f0ba89aa2d"
 		},
 		{
 			"path": "imports/server/methods/gif-interaction.js",
@@ -1163,6 +1163,10 @@
 		{
 			"path": "server/startup.js",
 			"checksum": "795d29d430bb1336a3b651e1d1a4fa45e9c12687"
+		},
+		{
+			"path": "imports/server/methods/sendmail.js",
+			"checksum": "66f52e9602b7d2f6b169fdbcd2e0e57cbab3109b"
 		},
 		{
 			"path": "lib/string_utils.js",
@@ -1509,6 +1513,7 @@
 			"fast-levenshtein",
 			"form-data",
 			"uuid",
+			"nodemailer",
 			"bcrypt"
 		],
 		"mrt": [

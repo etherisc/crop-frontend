@@ -1,5 +1,7 @@
 console.log('loading payout-schedule.js');
 
+import { sendMail } from '/imports/server/methods/sendmail.js';
+
 const clearPayoutSchedule = (_id) => {
 	
 	Policies.update({payout_schedule_id: _id}, { $unset: {payout_schedule_id: null }}, {multi: true});
@@ -56,6 +58,17 @@ const setStatusPayoutSchedule = (_id, newStatus) => {
 	info(`PayoutSchedule status set: ${message}`); 
 };
 
+
+const sendMailInsurance = (scheduleConfig) => {
+	
+	sendMail({
+		to: 'christoph@etherisc.com',
+		subject: 'Mail from Acre',
+		text: 'This is the text with a http://acre-staging.etherisc.com link'
+	});
+	
+};
+
 const changeStatusPayoutSchedule = (_id) => {
 
 	const scheduleConfig = PayoutSchedules.findOne({_id});
@@ -79,6 +92,9 @@ const changeStatusPayoutSchedule = (_id) => {
 			break;
 		case '3': // Send to Insurance
 			setStatusPayoutSchedule(_id, '4');
+			
+			sendMailInsurance(scheduleConfig);
+			
 			return 'Payout schedule has been sent to insurance company';
 			break;
 		case '4': // Approval by Insurance
