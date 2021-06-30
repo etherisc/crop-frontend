@@ -10,16 +10,19 @@ const exportActivations = Meteor.wrapAsync(function ({bucket, folder, filename, 
 	
 	const activations_export = [];
 	const normalizeCrop = (crop) => ({
-		"Soya Beans" 	: "SoyBeans",
-		"Crop"			: "Crop",
-		"Maize"			: "Maize",
-		"Potatoes"		: "Potato",
 		"Beans"			: "SoyBeans",
-		"Sorghum"		: "Sorghum",
+		"Crop"			: "Crop",
+		"Greengrams"	: "Greengrams",
 		"Green grams"	: "Greengrams",
+		"Maize"			: "Maize",
+		"Potato"		: "Potato",
+		"Potatoes"		: "Potato",
+		"Sorghum"		: "Sorghum",
+		"Sorghum"		: "Sorghum",
+		"Soya Beans" 	: "SoyBeans",
+		"SoyBeans"		: "SoyBeans",
 		"Wheat"			: "Wheat"
 	}[crop]);
-	
 		
 	selected.forEach(item => {
 		item.value_chain = normalizeCrop(item.value_chain);
