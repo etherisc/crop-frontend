@@ -69,7 +69,7 @@ const sendMailInsurance = (scheduleConfig) => {
 	
 };
 
-const changeStatusPayoutSchedule = (_id) => {
+const changeStatusPayoutSchedule = async (_id) => {
 
 	const scheduleConfig = PayoutSchedules.findOne({_id});
 	if (!scheduleConfig) {
@@ -93,7 +93,7 @@ const changeStatusPayoutSchedule = (_id) => {
 		case '3': // Send to Insurance
 			setStatusPayoutSchedule(_id, '4');
 			
-			sendMailInsurance(scheduleConfig);
+			await sendMailInsurance(scheduleConfig);
 			
 			return 'Payout schedule has been sent to insurance company';
 			break;
