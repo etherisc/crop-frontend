@@ -23,6 +23,9 @@ const exportActivations = Meteor.wrapAsync(function ({bucket, folder, filename, 
 		
 	selected.forEach(item => {
 		item.value_chain = normalizeCrop(item.value_chain);
+		if (!item.call_time) return;
+		item.call_time = new Date(item.call_time);
+		item.mobile_num = item.mobile_num.toString();
 		activations_export.push(item);
 	});
 

@@ -14,6 +14,14 @@ Meteor.publish("policy", function(policyId) {
 	return Policies.find({_id:policyId}, {});
 });
 
+Meteor.publish("policy_list1", function() {
+	return Policies.find({}, {});
+});
+
+Meteor.publish("policy1", function(policyId) {
+	return Policies.find({_id:policyId}, {});
+});
+
 Meteor.publish("payout_schedule_entries_list_paged", function(payoutScheduleId, payoutScheduleFloor, extraOptions) {
 	extraOptions.doSkip = true;
 	return Policies.find(databaseUtils.extendFilter({payout_schedule_id:payoutScheduleId,"payout.actual_amount":{$gt:payoutScheduleFloor}}, extraOptions), databaseUtils.extendOptions({}, extraOptions));
@@ -44,6 +52,23 @@ Meteor.methods({
 	"gpIndividualPoliciesPagedExport": function(gp_id, extraOptions, exportFields, fileType) {
 		extraOptions.noPaging = true;
 		var data = Policies.find(databaseUtils.extendFilter({gp_id:gp_id}, extraOptions), databaseUtils.extendOptions({}, extraOptions)).fetch();
+		return objectUtils.exportArrayOfObjects(data, exportFields, fileType);
+	}
+});
+
+Meteor.publish("policy_list1_paged", function(extraOptions) {
+	extraOptions.doSkip = true;
+	return Policies.find(databaseUtils.extendFilter({}, extraOptions), databaseUtils.extendOptions({}, extraOptions));
+});
+
+Meteor.publish("policy_list1_paged_count", function(extraOptions) {
+	Counts.publish(this, "policy_list1_paged_count", Policies.find(databaseUtils.extendFilter({}, extraOptions), { fields: { _id: 1 } }));
+});
+
+Meteor.methods({
+	"policyList1PagedExport": function(extraOptions, exportFields, fileType) {
+		extraOptions.noPaging = true;
+		var data = Policies.find(databaseUtils.extendFilter({}, extraOptions), databaseUtils.extendOptions({}, extraOptions)).fetch();
 		return objectUtils.exportArrayOfObjects(data, exportFields, fileType);
 	}
 });

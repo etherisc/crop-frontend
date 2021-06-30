@@ -42,11 +42,12 @@ const mapHeader = (key) => {
 		"phone_no": "Mobile Num",
 		"voucher_no": "Voucher",
 		"timestamp": "Timestamp",
-		"transaction_no": null,
+		"transaction_no": "hidden",
+		"stage_info": "hidden",
 		"amount": "Amount"
 
 	}; 
-	return dict[key] ? dict[key] : key;
+	return dict[key] === 'hidden' ? null : (dict[key] ? dict[key] : key);
 };
 
 const mapVal = (key, val, data) => {
