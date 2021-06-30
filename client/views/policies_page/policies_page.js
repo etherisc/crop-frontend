@@ -26,12 +26,12 @@ Template.PoliciesPage.helpers({
 var PoliciesPageViewExport = function(fileType) {
 	var extraParams = {
 		searchText: Session.get("PolicyListPagedSearchString") || "",
-		searchFields: Session.get("PolicyListPagedSearchFields") || ["id", "gp_id", "group_policy_id", "phone_no", "premium_amount", "sum_insured_amount", "activation", "payments", "payout", "meta"],
+		searchFields: Session.get("PolicyListPagedSearchFields") || ["id", "gp_id", "group_policy_id", "phone_no", "premium_amount", "sum_insured_amount", "activation", "payments", "payout.deductible_amount", "payout.actual_amount", "payout.total_amount"],
 		sortBy: Session.get("PolicyListPagedSortBy") || "",
 		sortAscending: Session.get("PolicyListPagedSortAscending") || true
 	};
 
-	var exportFields = ["id", "gp_id", "group_policy_id", "phone_no", "premium_amount", "sum_insured_amount", "activation", "payments", "payout", "meta"];
+	var exportFields = ["id", "gp_id", "group_policy_id", "phone_no", "premium_amount", "sum_insured_amount", "activation", "payments", "payout.actual_amount"];
 
 	
 
