@@ -36,10 +36,18 @@ const readActivationsFile = ({bucket, filename, prefix, subsidy=false}) => {
 				mpesa_ref,
 				mpesa_name,
 				date_activated,
-				amount_subsidy
+				amount_subsidy,
+				germ_dry_blocks,
+				veg_dry_blocks,
+				flower_dry_blocks,
+				actual_amount
 			} = item; 
 
 			order_number = serial_number ? serial_number : (order_number ? order_number : null);
+
+			// Quick hack
+			order_number = `${order_number}_${Math.round(actual_amount * 100)}_${germ_dry_blocks}_${veg_dry_blocks}`;
+
 			const amount_premium = premium_amount ? premium_amount : (denomination ? denomination : null);
 			const pixel = latLng2PixelStr({lat: Number(latitude), lng: Number(longitude)});
 

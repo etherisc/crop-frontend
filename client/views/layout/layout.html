@@ -176,17 +176,10 @@
 				</b>
 			</a>
 			<ul id="menu-items" class="dropdown-menu">
-				<li class="hidden">
-					<a href="#">
+				<li class="hidden {{menuItemClass 'policies_page'}}">
+					<a href="{{pathFor 'policies_page'}}">
 						<span class="item-title">
 							Policies
-						</span>
-					</a>
-				</li>
-				<li class="hidden">
-					<a href="#">
-						<span class="item-title">
-							Payouts
 						</span>
 					</a>
 				</li>
@@ -194,6 +187,20 @@
 					<a href="{{pathFor 'group_policies'}}">
 						<span class="item-title">
 							Group Policies
+						</span>
+					</a>
+				</li>
+				<li class="{{menuItemClass 'admin.payout_schedules'}}">
+					<a href="{{pathFor 'admin.payout_schedules'}}">
+						<span class="item-title">
+							Payout Schedules
+						</span>
+					</a>
+				</li>
+				<li class="hidden">
+					<a href="#">
+						<span class="item-title">
+							Payouts
 						</span>
 					</a>
 				</li>

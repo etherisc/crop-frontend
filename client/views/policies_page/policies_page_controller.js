@@ -18,7 +18,7 @@ this.PoliciesPageController = RouteController.extend({
 	isReady: function() {
 		this.policyListPagedExtraParams = {
 			searchText: Session.get("PolicyListPagedSearchString") || "",
-			searchFields: Session.get("PolicyListPagedSearchFields") || ["id", "gp_id", "group_policy_id", "phone_no", "premium_amount", "sum_insured_amount", "activation", "payments", "payout.deductible_amount", "payout.actual_amount", "payout.total_amount"],
+			searchFields: Session.get("PolicyListPagedSearchFields") || ["id", "gp_id", "group_policy_id", "phone_no", "premium_amount", "sum_insured_amount", "activation", "payments", "payout.total_amount", "payout.deductible_amount", "payout.actual_amount"],
 			sortBy: Session.get("PolicyListPagedSortBy") || "",
 			sortAscending: Session.get("PolicyListPagedSortAscending"),
 			pageNo: Session.get("PolicyListPagedPageNo") || 0,

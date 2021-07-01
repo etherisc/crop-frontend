@@ -28,7 +28,7 @@ this.AdminPayoutSchedulesDetailsController = RouteController.extend({
 
 
 
-		var payoutScheduleFloor = Session.get('payoutScheduleFloor');
+		var payoutScheduleFloor = Session.get('payoutScheduleFloor') || -1;
 
 		var subs = [
 			Meteor.subscribe("payout_schedule", this.params.payoutScheduleId),
@@ -44,7 +44,7 @@ this.AdminPayoutSchedulesDetailsController = RouteController.extend({
 	},
 
 	data: function() {
-		var payoutScheduleFloor = Session.get('payoutScheduleFloor');
+		var payoutScheduleFloor = Session.get('payoutScheduleFloor') || -1;
 
 		var data = {
 			params: this.params || {},

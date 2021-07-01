@@ -155,7 +155,7 @@ var AdminPayoutSchedulesDetailsPayoutScheduleEntriesExport = function(fileType) 
 
 	var exportFields = ["phone_no", "group_policy_id", "premium_amount", "sum_insured_amount", "payout.actual_amount", "payout.override_amount"];
 
-	var payoutScheduleFloor = Session.get('payoutScheduleFloor');
+	var payoutScheduleFloor = Session.get('payoutScheduleFloor') || -1;
 
 	Meteor.call("payoutScheduleEntriesListPagedExport", this.params.payoutScheduleId, payoutScheduleFloor, extraParams, exportFields, fileType, function(e, data) {
 		if(e) {

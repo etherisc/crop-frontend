@@ -2,7 +2,7 @@
 	"output_files": [
 		{
 			"path": "client/views/router.js",
-			"checksum": "3d0a9d5f5ad805f5784525de1bfa0f9d0bcb3257"
+			"checksum": "6d11dd9afc17de049aeaa03672c3c144678de0ba"
 		},
 		{
 			"path": "server/controllers/router.js",
@@ -38,7 +38,7 @@
 		},
 		{
 			"path": "client/views/layout/layout.html",
-			"checksum": "60ea5587bbdf07e2e1dcee51ee7bef91b266c70a"
+			"checksum": "f4adc9dd7546742fd6ec2d7e3b44318e443d8821"
 		},
 		{
 			"path": "client/views/layout/layout.js",
@@ -130,7 +130,7 @@
 		},
 		{
 			"path": "client/views/admin/admin.html",
-			"checksum": "38f5dda723673022d5d40a80828c4b40c0953ec0"
+			"checksum": "579cc9b6a1871efb1607b5ee2ebe8f144b13eb7e"
 		},
 		{
 			"path": "client/views/admin/admin.js",
@@ -350,7 +350,7 @@
 		},
 		{
 			"path": "client/views/admin/payout_schedules/payout_schedules.js",
-			"checksum": "ffed4f169a84bb5bac8d31713cf741d62ebc3b35"
+			"checksum": "4d2c90bf03ac69ba0faa5f48b6a396f05a097e99"
 		},
 		{
 			"path": "client/views/admin/payout_schedules/payout_schedules_controller.js",
@@ -386,11 +386,11 @@
 		},
 		{
 			"path": "client/views/admin/payout_schedules/details/details.js",
-			"checksum": "4fe41e6c2c323dbad01fe1de54c8b88a25018a90"
+			"checksum": "34cf39bbe11f11d5ec55ec0c0a737569f31b8ea6"
 		},
 		{
 			"path": "client/views/admin/payout_schedules/details/details_controller.js",
-			"checksum": "f58791f62dc4c9812c8a45fdef2fc8c99905d240"
+			"checksum": "9c347aab9f29674d1570a25633a630416e5d2826"
 		},
 		{
 			"path": "client/views/admin/payout_schedules/details/details/details.html",
@@ -562,7 +562,7 @@
 		},
 		{
 			"path": "client/views/group_policies/group_policies.html",
-			"checksum": "828967f4beaea5ead3c26e4db6715735607c25b3"
+			"checksum": "5d1b600f096181da91bf1b32968533fbc1ebbe8a"
 		},
 		{
 			"path": "client/views/group_policies/group_policies.js",
@@ -734,7 +734,7 @@
 		},
 		{
 			"path": "client/views/partners/details/details.js",
-			"checksum": "7dfe565e5f16aee812a8f5c436a94049a2fbd3e0"
+			"checksum": "2b6f54ceb49e2f9ea5f038383e881d9dfb2f70b6"
 		},
 		{
 			"path": "client/views/partners/details/details_controller.js",
@@ -742,15 +742,15 @@
 		},
 		{
 			"path": "client/views/policies_page/policies_page.html",
-			"checksum": "d0ff4539e216affd1a782d2208cd70b80bc7ce6b"
+			"checksum": "6a24315ed8727ab3a91eec276f1dfed338d37a20"
 		},
 		{
 			"path": "client/views/policies_page/policies_page.js",
-			"checksum": "19dea343a6f20bae2f0746a648b86aff5ddcc0a7"
+			"checksum": "bd245240fb785e12abbfe5a420d87c4a0990c93e"
 		},
 		{
 			"path": "client/views/policies_page/policies_page_controller.js",
-			"checksum": "63125d6e6599512dea4a3294dc49d1b91bd84fea"
+			"checksum": "52bf7b2d6646adaa5177a3bdba988a54e9466df2"
 		},
 		{
 			"path": "client/views/policies_page/details/details.html",
@@ -802,7 +802,7 @@
 		},
 		{
 			"path": "both/collections/activations.js",
-			"checksum": "4155997afcfd2cc7278f634ff409f4eba2214c97"
+			"checksum": "d0591a3c1823ecb212c2d6d90e4972bc4ab67420"
 		},
 		{
 			"path": "server/methods/activations.js",
@@ -818,7 +818,7 @@
 		},
 		{
 			"path": "both/collections/crop_stages.js",
-			"checksum": "23559998622ecad28db29ee2fd3507431f380847"
+			"checksum": "a5986fb4b772eb614277327647f192e7ff27786c"
 		},
 		{
 			"path": "server/methods/crop_stages.js",
@@ -850,7 +850,7 @@
 		},
 		{
 			"path": "both/collections/group_policies.js",
-			"checksum": "0ce44d03590e8e370038c56659adfbe7036e12b7"
+			"checksum": "754e65e3040aa524795adc26ae5387822d25001a"
 		},
 		{
 			"path": "server/methods/group_policies.js",
@@ -866,7 +866,7 @@
 		},
 		{
 			"path": "both/collections/jobs.js",
-			"checksum": "96006a3800293d37d63699a957fe672fd0889c35"
+			"checksum": "338ed9228b0365fa34cbce6a88d404fd3e2e199f"
 		},
 		{
 			"path": "server/methods/jobs.js",
@@ -878,11 +878,11 @@
 		},
 		{
 			"path": "server/publish/jobs.js",
-			"checksum": "49acdc16d3e6efe985e1b86cf1ba58aff380edf9"
+			"checksum": "d54d393e9adcb36e59769cbf91b6f66bf7d73bea"
 		},
 		{
 			"path": "both/collections/locations.js",
-			"checksum": "d5369494d1f33a379e702720998a37c57bc3ca74"
+			"checksum": "afde3893385ae225d265a4874dd2ecad983e1d9b"
 		},
 		{
 			"path": "server/methods/locations.js",
@@ -898,7 +898,7 @@
 		},
 		{
 			"path": "both/collections/logs.js",
-			"checksum": "d3eb589c82f19d1a4ed302c1567d82d2bfa8ec7b"
+			"checksum": "eba89979c44b2e2ecb85828adadc4a62f6176c0a"
 		},
 		{
 			"path": "server/methods/logs.js",
@@ -910,11 +910,11 @@
 		},
 		{
 			"path": "server/publish/logs.js",
-			"checksum": "f6d84ba3cb23c6e3b4767a0fbae186f54812057f"
+			"checksum": "4d8f992e8bbe54224c1f2a3a940a75490460ddfd"
 		},
 		{
 			"path": "both/collections/notifications.js",
-			"checksum": "0bdf81f2fcb6b6bafc3f961e22109e5fee7e75f1"
+			"checksum": "37368f52fb6edba3d15dc81b37b260687fadce58"
 		},
 		{
 			"path": "server/methods/notifications.js",
@@ -926,11 +926,11 @@
 		},
 		{
 			"path": "server/publish/notifications.js",
-			"checksum": "5d2ecd1e268df4a170e4a88e6f3568924ffe6a8b"
+			"checksum": "27d0ccf267134488155bb669f2ebd27011953882"
 		},
 		{
 			"path": "both/collections/partners.js",
-			"checksum": "14a48696073788fef101873c23ddfdd4fa0bfc9f"
+			"checksum": "1ee330cd479ead5be0604fdc179f678af94f20a7"
 		},
 		{
 			"path": "server/methods/partners.js",
@@ -942,11 +942,11 @@
 		},
 		{
 			"path": "server/publish/partners.js",
-			"checksum": "aa81ea8d7c14cfbc69b98f16920b2afffb59e63f"
+			"checksum": "0877e65d529f938800d464989f60ec26b859a687"
 		},
 		{
 			"path": "both/collections/payments.js",
-			"checksum": "5cccb362cef33173b690f371e1207501a384025e"
+			"checksum": "d182bbbb1c289ce64ee63cdeb3e59d7d59e1c9d8"
 		},
 		{
 			"path": "server/methods/payments.js",
@@ -958,11 +958,11 @@
 		},
 		{
 			"path": "server/publish/payments.js",
-			"checksum": "5e94969e7e10a08850f21348abdd3f92feae6db1"
+			"checksum": "62c1617ae1c44f37e2669f5db4a072a3e9e685c5"
 		},
 		{
 			"path": "both/collections/payout_schedules.js",
-			"checksum": "1e1926dc059e1efad701502181c248bb815607a3"
+			"checksum": "9f37dceb2fa2220b8f3e96ccad4e641e425fa417"
 		},
 		{
 			"path": "server/methods/payout_schedules.js",
@@ -994,7 +994,7 @@
 		},
 		{
 			"path": "both/collections/sms.js",
-			"checksum": "93050990a59ba2810b1f28ee9c7272777f03ac7c"
+			"checksum": "bfc8d9b68e55dd20118b7de50ddb513979accab7"
 		},
 		{
 			"path": "server/methods/sms.js",
@@ -1006,15 +1006,15 @@
 		},
 		{
 			"path": "server/publish/sms.js",
-			"checksum": "13bee0639ae1f4e280d196d9fd6403d5db258e3a"
+			"checksum": "0be2c3d71dc13f12192f98581d76f180b8b32e10"
 		},
 		{
 			"path": "server/publish/users.js",
-			"checksum": "16d198ea716570d6a64af8fe4fe08697d13e4205"
+			"checksum": "c442df41136fcb93ba89053c8a7250abca131714"
 		},
 		{
 			"path": "both/collections/policies.js",
-			"checksum": "b204a25de80733efa43ef5900989df6719d9d153"
+			"checksum": "890856eec8502134a9ee3973d80718c2227aa3e9"
 		},
 		{
 			"path": "server/methods/policies.js",
@@ -1030,7 +1030,7 @@
 		},
 		{
 			"path": "both/collections/settings.js",
-			"checksum": "0cff799577d6670d9054e7373b3db139c5968f3c"
+			"checksum": "9bf95d152853387043dec28497d472630b95d4a8"
 		},
 		{
 			"path": "server/methods/settings.js",
@@ -1042,7 +1042,7 @@
 		},
 		{
 			"path": "server/publish/settings.js",
-			"checksum": "5fa0736230b939f9c63d3ebe70e7dfdd11767af4"
+			"checksum": "f6cea51ee870d497c24de7d3adafc45f103b4a4a"
 		},
 		{
 			"path": "client/styles/user_styles.less",
@@ -1094,7 +1094,7 @@
 		},
 		{
 			"path": "imports/server/methods/activations-reader.js",
-			"checksum": "b006392bbb0bb568a107e69a269b048568d69dec"
+			"checksum": "b6965764c114a358e1189e2dd293345597a5a11b"
 		},
 		{
 			"path": "server/lib/server_globals.js",
@@ -1150,11 +1150,11 @@
 		},
 		{
 			"path": "imports/server/methods/bonga-gateway.js",
-			"checksum": "63a0eb696ef22430b2ebea29df80446da1dcddf5"
+			"checksum": "61cba7496fbd5205ddf024ed39fb4a09785af628"
 		},
 		{
 			"path": "imports/server/methods/payout-schedule.js",
-			"checksum": "e0b3e63675b6e20d8edac76c94039fb0dc0ae3d5"
+			"checksum": "305adeae5f246fc97328dc386f252d7005bd32d3"
 		},
 		{
 			"path": "imports/server/methods/gif-interaction.js",
