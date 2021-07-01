@@ -11,7 +11,7 @@ const applyForPolicy = async (args) => {
 	
 	
 	try {
-		const result = await Product.applyForPolicy(bpKey, data);
+		const result = await Product.applyForPolicy(bpKey, data, {gasLimit: 500000});
 
 		info('Result of applyForPolicy:', result);
 		return 'Success!';
