@@ -334,15 +334,22 @@ return false;
 "click [data-action='confirm_payout']": function(e, t) {
 e.preventDefault();
 
-Meteor.call('changeStatusPayoutSchedule', this._id, function (err, res) {
+toast_confirm('Attention: You are about to trigger the actual payment. Are you sure?', (res) => {
 
-	if (err) {
-		toast_error(`Error: ${err.message}`);
-	} else {
-		toast_info(`Status changed: ${res}`);
-	}
+	if (res) {
+		Meteor.call('changeStatusPayoutSchedule', this._id, function (err, res) {
+
+			if (err) {
+				toast_error(`Error: ${err.message}`);
+			} else {
+				toast_info(`Status changed: ${res}`);
+			}
+
+		});
+	};
 
 });
+
 
 return false;
 
@@ -416,24 +423,24 @@ return false;
 
 Template.AdminPayoutSchedulesViewTableItems.helpers({
 	"isEnabledCreate": function() {
-return !!(this.status === '0')
+return !!(Meteor.user() && (Meteor.user().roles.indexOf("readonly") < 0) && this.status === '0')
 },
 "isEnabledApproveActuary": function() {
-return !!(this.status === '1')
+return !!(Meteor.user() && (Meteor.user().roles.indexOf("readonly") < 0) && this.status === '1')
 },
 "isEnabledApproveProjectManager": function() {
-return !!(this.status === '2'
+return !!(Meteor.user() && (Meteor.user().roles.indexOf("readonly") < 0) && this.status === '2'
 )
 },
 "isEnabledSendInsurance": function() {
-return !!(this.status === '3')
+return !!(Meteor.user() && (Meteor.user().roles.indexOf("readonly") < 0) && this.status === '3')
 },
 "isEnabledApprovalInsurance": function() {
-return !!(this.status === '4'
+return !!(Meteor.user() && (Meteor.user().roles.indexOf("readonly") < 0) && this.status === '4'
 )
 },
 "isEnabledConfirmPayout": function() {
-return !!(this.status === '5')
+return !!(Meteor.user() && (Meteor.user().roles.indexOf("readonly") < 0) && this.status === '5')
 },
 
 

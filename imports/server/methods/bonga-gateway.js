@@ -185,7 +185,7 @@ const bongaSMS = ({mobile_num, message, amount = 0.0}) => {
 			}});
 
 			bongaFetchDeliveryReport(_id);
-			return `SMS successfully sent, number: ${mobile_num}, message: ${message}, amount: ${amount}`;
+			return {msg: `SMS successfully sent, number: ${mobile_num}, message: ${message}, amount: ${amount}`, _id};
 
 		} else if (response.data.status === 666) {
 			Sms.upsert({_id}, {$set: { status: response.data.status, status_message: response.data.status_message }});
@@ -196,7 +196,7 @@ const bongaSMS = ({mobile_num, message, amount = 0.0}) => {
 		error('Error sending SMS', {message: err.message, stack: err.stack});
 		Sms.upsert({_id}, {$set: { status: 999, status_message: err.message}});
 	}
-	return `Error sending SMS; number: ${mobile_num}, message: ${message}, amount: ${amount}`;
+	throw new Meteor.Error(`Error sending SMS; number: ${mobile_num}, message: ${message}, amount: ${amount}`);
 }
 
 module.exports = { bongaApi, bongaSMS, bongaFetchDeliveryReport };

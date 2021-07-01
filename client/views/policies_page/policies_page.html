@@ -110,11 +110,14 @@
 				<th class="th-sortable" data-sort="sum_insured_amount">
 					Sum Insured
 				</th>
+				<th class="th-sortable" data-sort="payout.total_amount">
+					Total
+				</th>
 				<th class="th-sortable" data-sort="payout.deductible_amount">
 					Deductible
 				</th>
-				<th class="th-sortable" data-sort="payout.total_amount">
-					Total
+				<th class="th-sortable" data-sort="payout.actual_amount">
+					Actual Payout
 				</th>
 			</tr>
 		</thead>
@@ -139,10 +142,13 @@
 			{{currency sum_insured_amount this}}
 		</td>
 		<td>
-			{{payout.deductible_amount}}
+			{{currency payout.total_amount this}}
 		</td>
 		<td>
-			{{payout.total_amount}}
+			{{currency payout.deductible_amount this}}
+		</td>
+		<td>
+			{{currency payout.actual_amount this}}
 		</td>
 	</tr>
 </template>

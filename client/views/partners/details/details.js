@@ -240,7 +240,7 @@ toast_confirm(`Sending SMS to ${mobile_num}<br />Message: ${message}<br />Amount
 			if (err) {
 				toast_error(err.message);
 			} else {
-				toast_success(res);
+				toast_success(res.msg);
 			}
 		});
 	};

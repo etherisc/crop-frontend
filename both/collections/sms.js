@@ -1,13 +1,13 @@
 this.Sms = new Mongo.Collection("sms");
 
 this.Sms.userCanInsert = function(userId, doc) {
-	return true;
+	return Users.isInRoles(userId, ["admin","blocked","user"]);
 };
 
 this.Sms.userCanUpdate = function(userId, doc) {
-	return true;
+	return userId && (doc.createdBy == userId || Users.isInRoles(userId, ["admin","blocked","user"]));
 };
 
 this.Sms.userCanRemove = function(userId, doc) {
-	return true;
+	return userId && (doc.createdBy == userId || Users.isInRoles(userId, ["admin","blocked","user"]));
 };
