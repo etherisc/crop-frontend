@@ -64,7 +64,7 @@ const sendMailInsurance = (scheduleConfig) => {
 
 	info('SendMail', scheduleConfig);
 	sendMail({
-		to: 'bnjuguna@acreafrica.com',
+		to: 'christoph@etherisc.com',
 		subject: 'Acre Africa: A payout schedule is prepared for review',
 		text: `
 To whom it may concern!
