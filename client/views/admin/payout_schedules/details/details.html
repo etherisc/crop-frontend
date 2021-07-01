@@ -69,6 +69,26 @@
 					</p>
 				</div>
 			</div>
+			<div class="form-group  field-num_executed">
+				<label for="num_executed" class="col-sm-3 control-label">
+					Num Executed
+				</label>
+				<div class="input-div col-sm-9">
+					<p class="form-control-static  control-field-num_executed">
+						{{payout_schedule.num_executed}}
+					</p>
+				</div>
+			</div>
+			<div class="form-group  field-num_error">
+				<label for="num_error" class="col-sm-3 control-label">
+					Num Error
+				</label>
+				<div class="input-div col-sm-9">
+					<p class="form-control-static  control-field-num_error">
+						{{payout_schedule.num_error}}
+					</p>
+				</div>
+			</div>
 			<div class="form-group  field-sum_premium">
 				<label for="sum_premium" class="col-sm-3 control-label">
 					Sum Premium
@@ -96,6 +116,26 @@
 				<div class="input-div col-sm-9">
 					<p class="form-control-static  control-field-sum_payout">
 						{{currency payout_schedule.sum_payout payout_schedule}}
+					</p>
+				</div>
+			</div>
+			<div class="form-group  field-sum_executed">
+				<label for="sum_executed" class="col-sm-3 control-label">
+					Sum Executed
+				</label>
+				<div class="input-div col-sm-9">
+					<p class="form-control-static  control-field-sum_executed">
+						{{currency payout_schedule.sum_executed payout_schedule}}
+					</p>
+				</div>
+			</div>
+			<div class="form-group  field-sum_error">
+				<label for="sum_error" class="col-sm-3 control-label">
+					Sum Error
+				</label>
+				<div class="input-div col-sm-9">
+					<p class="form-control-static  control-field-sum_error">
+						{{currency payout_schedule.sum_error payout_schedule}}
 					</p>
 				</div>
 			</div>

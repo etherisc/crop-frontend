@@ -26,7 +26,7 @@ Template.AdminPayoutSchedules.helpers({
 var AdminPayoutSchedulesViewExport = function(fileType) {
 	var extraParams = {
 		searchText: Session.get("PayoutScheduleListPagedSearchString") || "",
-		searchFields: Session.get("PayoutScheduleListPagedSearchFields") || ["title", "filter", "status", "num_policies", "sum_premium", "sum_insured", "sum_payout", "createdAt", "modifiedAt", "audit_trail"],
+		searchFields: Session.get("PayoutScheduleListPagedSearchFields") || ["title", "filter", "status", "num_policies", "num_executed", "num_error", "sum_premium", "sum_insured", "sum_payout", "sum_executed", "sum_error", "createdAt", "modifiedAt", "audit_trail"],
 		sortBy: Session.get("PayoutScheduleListPagedSortBy") || "",
 		sortAscending: Session.get("PayoutScheduleListPagedSortAscending") || true
 	};

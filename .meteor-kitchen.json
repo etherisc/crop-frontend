@@ -130,7 +130,7 @@
 		},
 		{
 			"path": "client/views/admin/admin.html",
-			"checksum": "9cbe89779b18e8248156e3e418e38888c8cb18e4"
+			"checksum": "a35c9493ac44553e81bf4bac99cf782f7cfd297d"
 		},
 		{
 			"path": "client/views/admin/admin.js",
@@ -346,15 +346,15 @@
 		},
 		{
 			"path": "client/views/admin/payout_schedules/payout_schedules.html",
-			"checksum": "7f8db92c35fc1edcdb0fc9a1cbf4080d3ecd9391"
+			"checksum": "0e99d0859037e275d4c6973b53e674956bfa9aeb"
 		},
 		{
 			"path": "client/views/admin/payout_schedules/payout_schedules.js",
-			"checksum": "9945149aec74de55562d435add9b736d48bc720b"
+			"checksum": "087313f1faedc27021c5c99972d820cb443de5df"
 		},
 		{
 			"path": "client/views/admin/payout_schedules/payout_schedules_controller.js",
-			"checksum": "9ee2f87ea5e79884307fef5dbbc8d3f86e32f617"
+			"checksum": "913f3b47f4d2f35a1b028492a229cf83b58131d0"
 		},
 		{
 			"path": "client/views/admin/payout_schedules/insert/insert.html",
@@ -382,7 +382,7 @@
 		},
 		{
 			"path": "client/views/admin/payout_schedules/details/details.html",
-			"checksum": "d4ff15df99879f14a97dc502e1cecaeb9715600e"
+			"checksum": "fe0c4524ce1b5bcc6e563fe52458f6a112df56c6"
 		},
 		{
 			"path": "client/views/admin/payout_schedules/details/details.js",
@@ -1154,7 +1154,7 @@
 		},
 		{
 			"path": "imports/server/methods/payout-schedule.js",
-			"checksum": "dd5f3d0dd1699d2530695928a59f7317554e2a1f"
+			"checksum": "b248721b1f644914e8de26b54ac112277232e769"
 		},
 		{
 			"path": "imports/server/methods/gif-interaction.js",
