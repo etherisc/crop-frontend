@@ -1,0 +1,122 @@
+<template name="AdminLogsBusinessTaskDetails">
+	<div class="page-container container" id="content">
+		<div class="row" id="title_row">
+			<div class="col-md-12">
+			</div>
+		</div>
+		{{> AdminLogsBusinessTaskDetailsForm}}
+	</div>
+</template>
+
+<template name="AdminLogsBusinessTaskDetailsForm">
+	<div id="admin-logs-business-task-details-form" class="">
+		<h2 id="component-title">
+			<a href="#" id="form-back-button" class="btn btn-default" title="back">
+				<span class="fa fa-chevron-left">
+				</span>
+			</a>
+			Btx Line Details
+		</h2>
+		<form role="form">
+			{{#if errorMessage}}
+			<div class="alert alert-warning">
+				{{errorMessage}}
+			</div>
+			{{/if}}
+
+			{{#if infoMessage}}
+			<div class="alert alert-success">
+				{{infoMessage}}
+			</div>
+			{{/if}}
+			<div class="form-group  field-process_name">
+				<label for="process_name">
+					Process Name
+				</label>
+				<div class="input-div">
+					<p class="form-control-static  control-field-process_name">
+						{{btx_line.process_name}}
+					</p>
+				</div>
+			</div>
+			<div class="form-group  field-business_tx_id">
+				<label for="business_tx_id">
+					Business Tx Id
+				</label>
+				<div class="input-div">
+					<p class="form-control-static  control-field-business_tx_id">
+						{{btx_line.business_tx_id}}
+					</p>
+				</div>
+			</div>
+			<div class="form-group  field-business_tx_status">
+				<label for="business_tx_status">
+					Business Tx Status
+				</label>
+				<div class="input-div">
+					<p class="form-control-static  control-field-business_tx_status">
+						{{btx_line.business_tx_status}}
+					</p>
+				</div>
+			</div>
+			<div class="form-group  field-task_name">
+				<label for="task_name">
+					Task Name
+				</label>
+				<div class="input-div">
+					<p class="form-control-static  control-field-task_name">
+						{{btx_line.task_name}}
+					</p>
+				</div>
+			</div>
+			<div class="form-group  field-task_id">
+				<label for="task_id">
+					Task Id
+				</label>
+				<div class="input-div">
+					<p class="form-control-static  control-field-task_id">
+						{{btx_line.task_id}}
+					</p>
+				</div>
+			</div>
+			<div class="form-group  field-task_status">
+				<label for="task_status">
+					Task Status
+				</label>
+				<div class="input-div">
+					<p class="form-control-static  control-field-task_status">
+						{{btx_line.task_status}}
+					</p>
+				</div>
+			</div>
+			<div class="form-group  field-message">
+				<label for="message">
+					Message
+				</label>
+				<div class="input-div">
+					<p class="form-control-static  control-field-message">
+						{{btx_line.message}}
+					</p>
+				</div>
+			</div>
+			<div class="form-group  field-timestamp">
+				<label for="timestamp">
+					Timestamp
+				</label>
+				<div class="input-div">
+					<p class="form-control-static  control-field-timestamp">
+						{{formatDate btx_line.timestamp 'YYYY-MM-DD HH:mm:ss'}}
+					</p>
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="submit-div">
+					<a href="#" id="form-close-button" class="btn btn-primary">
+						OK
+					</a>
+				</div>
+			</div>
+		</form>
+	</div>
+</template>
+
