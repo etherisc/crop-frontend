@@ -84,6 +84,12 @@
 				<th class="th-sortable" data-sort="num_policies">
 					Num Policies
 				</th>
+				<th class="th-sortable" data-sort="num_executed">
+					Num Executed
+				</th>
+				<th class="th-sortable" data-sort="num_error">
+					Num Error
+				</th>
 				<th class="th-sortable" data-sort="sum_premium">
 					Sum Premium
 				</th>
@@ -92,6 +98,12 @@
 				</th>
 				<th class="th-sortable" data-sort="sum_payout">
 					Sum Payout
+				</th>
+				<th class="th-sortable" data-sort="sum_executed">
+					Sum Executed
+				</th>
+				<th class="th-sortable" data-sort="sum_error">
+					Sum Error
 				</th>
 				<th class="th-sortable" data-sort="createdAt">
 					Created
@@ -143,6 +155,12 @@
 			{{num_policies}}
 		</td>
 		<td>
+			{{num_executed}}
+		</td>
+		<td>
+			{{num_error}}
+		</td>
+		<td>
 			{{currency sum_premium this}}
 		</td>
 		<td>
@@ -150,6 +168,12 @@
 		</td>
 		<td>
 			{{currency sum_payout this}}
+		</td>
+		<td>
+			{{currency sum_executed this}}
+		</td>
+		<td>
+			{{currency sum_error this}}
 		</td>
 		<td>
 			{{formatDate createdAt 'DD/MM/YYYY HH:mm:ss'}}

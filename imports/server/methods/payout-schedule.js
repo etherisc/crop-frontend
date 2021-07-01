@@ -31,18 +31,31 @@ const createPayoutSchedule = ({_id, title, filter}) => {
 	let sum_premium = 0.0;
 	let sum_insured = 0.0;
 	let sum_payout = 0.0;
+	let sum_executed = 0.0;
+	let sum_error = 0.0;
 	let num_policies = 0;
+	let num_error = 0;
+	let num_executed = 0;
 
 	policies.forEach((policy) => {
 
 		num_policies += 1;
-		sum_payout += policy.payout.actual_amount;
-		sum_insured += policy.sum_insured_amount;
-		sum_premium += policy.premium_amount;
+		sum_payout += round(policy.payout.actual_amount, 2);
+		sum_insured += round(policy.sum_insured_amount, 2);
+		sum_premium += round(policy.premium_amount, 2);
 
 	});
 
-	PayoutSchedules.update({_id}, {$set: {sum_insured, sum_payout, sum_premium, num_policies}});
+	PayoutSchedules.update({_id}, {$set: {
+		sum_insured, 
+		sum_payout, 
+		sum_premium, 
+		sum_executed,
+		sum_error,
+		num_policies,
+		num_executed,
+		num_error
+	}});
 
 	info('Payout Schedule created', {title, sum_premium, sum_insured, sum_payout, num_policies});
 
@@ -62,10 +75,13 @@ const setStatusPayoutSchedule = (_id, newStatus) => {
 
 const sendMailInsurance = (scheduleConfig) => {
 
+	const to = settings('insurer_email_recipient');
+	const subject = settings('insurer_email_subject');
+
 	info('SendMail', scheduleConfig);
 	sendMail({
-		to: 'christoph@etherisc.com',
-		subject: 'Acre Africa: A payout schedule is prepared for review',
+		to,
+		subject,
 		text: `
 To whom it may concern!
 
@@ -97,15 +113,15 @@ const executePayoutSchedule = (scheduleConfig) => {
 	payouts.forEach((policy) => {
 
 		if (foundError) return;
-		
+
 		// check if we had a payout from an earlier run of same schedule:
 		if (policy.executedPayout && 
 			policy.executedPayout.scheduleConfig._id === scheduleConfig._id) {
 			info(`Policy already paid out`, policy);
 			return;
 		};
-		
-		const amount = policy.payout.actual_amount;
+
+		const amount = round(policy.payout.actual_amount, 2);
 
 		if (amount < 0.01) {
 			error(`Payout too small, ${amount}`, policy);
@@ -114,7 +130,7 @@ const executePayoutSchedule = (scheduleConfig) => {
 		};
 
 		sum_payout += amount;
-		
+
 		schedule.push({
 			amount,
 			message: `Dear farmer,you have received payment of KsH ${amount} from ACRE Africa via OliveTree gateway, for loss covered under BimaPima insurance LR2021!`,
@@ -131,8 +147,9 @@ const executePayoutSchedule = (scheduleConfig) => {
 		throw new Meteor.Error(errMsg);
 	};
 
-	if (sum_payout !== scheduleConfig.sum_payout) {
-		const errMsg = `Sum Payout inconsistent: Expected: ${scheduleConfig.sum_payout}, actual: ${sum_payout} - aborting!`;
+	const sum_expected = scheduleConfig.sum_payout - scheduleConfig.sum_executed;
+	if (Math.abs(sum_payout - sum_expected) > 0.01) {
+		const errMsg = `Sum Payout inconsistent: Expected: ${round(sum_expected, 2)}, actual: ${round(sum_payout, 2)} - aborting!`;
 		error(errMsg, scheduleConfig);
 		throw new Meteor.Error(errMsg);
 	};
@@ -140,12 +157,21 @@ const executePayoutSchedule = (scheduleConfig) => {
 
 	// Now everything seems fine!
 
-	schedule.forEach(executedPayout => {
+	const liveMode = settings('payout_live_mode') === 'live';
 
+	let {sum_executed, num_executed} = PayoutSchedules.findOne({_id: scheduleConfig._id});
+
+	let sum_error = 0.0;
+	let num_error = 0;
+
+	schedule.forEach(executedPayout => {
 		try {
-			// const res = bongaSMS(executedPayout);
-			const res = {_id: 99};
+
+			const res = liveMode ? bongaSMS(executedPayout) : {_id: 99};
+			if (num_executed >= parseInt(settings('max_exec'))) throw new Meteor.Error('Demo');
 			executedPayout.sms_id = res._id;
+			sum_executed += executedPayout.amount;
+			num_executed += 1;
 
 			Policies.update(
 				{_id: executedPayout.policy_id}, 
@@ -154,10 +180,27 @@ const executePayoutSchedule = (scheduleConfig) => {
 
 		} catch (err) {
 			// In case of error, we log it, but continue paying out.
-			error('Unable to execute payout', payout);
+			error('Unable to execute payout', executedPayout);
+			sum_error += executedPayout.amount;
+			num_error += 1;
 		}		
 
 	});
+
+	const updateSums = {
+			sum_executed,
+			sum_error,
+			num_executed,
+			num_error
+		};
+	
+	PayoutSchedules.update(
+		{_id: scheduleConfig._id},
+		{$set: updateSums});
+
+	info('executePayoutSchedule finished', updateSums);
+	
+	return num_error;
 
 };
 
@@ -199,11 +242,14 @@ const changeStatusPayoutSchedule = async (_id) => {
 			return 'Approval by insurance company has been notarized';
 
 		case '5': // Approval by General Manager
-			setStatusPayoutSchedule(_id, '6');
+			const num_error = executePayoutSchedule(scheduleConfig);
+			if (num_error === 0) {
+				setStatusPayoutSchedule(_id, '6');
+				return 'Payout has been executed - process finished';
+			} else {
+				return `Payout has been executed, but ${num_error} payments failed. Please check & repeat!`;
+			};
 
-			await executePayoutSchedule(scheduleConfig);
-
-			return 'Payout has been executed - process finished';
 
 		case '6': // Finished - nothing to do
 			return 'Process is already finished';
