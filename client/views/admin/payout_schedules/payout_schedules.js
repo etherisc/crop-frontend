@@ -334,7 +334,8 @@ return false;
 "click [data-action='confirm_payout']": function(e, t) {
 e.preventDefault();
 
-toast_confirm('Attention: You are about to trigger the actual payment. Are you sure?', (res) => {
+toast_confirm('Attention: You are about to trigger the actual payment. Are you sure?')
+.then((res) => {
 
 	if (res) {
 		Meteor.call('changeStatusPayoutSchedule', this._id, function (err, res) {
