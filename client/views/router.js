@@ -44,6 +44,8 @@ Router.privateRoutes = [
 	"admin.settings_page.insert",
 	"admin.settings_page.update",
 	"admin.settings_page.details",
+	"admin.logs_business_task",
+	"admin.logs_business_task.details",
 	"logout",
 	"blockchain",
 	"dashboard",
@@ -107,6 +109,8 @@ Router.roleMap = [
 	{ route: "admin.settings_page.insert",	roles: ["admin","blocked","user"] },
 	{ route: "admin.settings_page.update",	roles: ["admin","blocked","user"] },
 	{ route: "admin.settings_page.details",	roles: ["admin","blocked","user"] },
+	{ route: "admin.logs_business_task",	roles: ["admin","readonly"] },
+	{ route: "admin.logs_business_task.details",	roles: ["admin","readonly"] },
 	{ route: "blockchain",	roles: ["admin","blocked","user"] },
 	{ route: "dashboard",	roles: ["admin","blocked","user"] },
 	{ route: "activations_page",	roles: ["admin","blocked","user"] },
@@ -200,6 +204,8 @@ Router.map(function () {
 	this.route("/admin/settings_page/insert", {name: "admin.settings_page.insert", title: "", controller: "AdminSettingsPageInsertController"});
 	this.route("/admin/settings_page/update/:settingId", {name: "admin.settings_page.update", title: "", controller: "AdminSettingsPageUpdateController"});
 	this.route("/admin/settings_page/details/:settingId", {name: "admin.settings_page.details", title: "", controller: "AdminSettingsPageDetailsController"});
+	this.route("/admin/logs_business_task", {name: "admin.logs_business_task", title: "", controller: "AdminLogsBusinessTaskController"});
+	this.route("/admin/logs_business_task/details/:btxLineId", {name: "admin.logs_business_task.details", title: "", controller: "AdminLogsBusinessTaskDetailsController"});
 	this.route("/logout", {name: "logout", title: "", controller: "LogoutController"});
 	this.route("/blockchain", {name: "blockchain", title: "Connect to Wallet", controller: "BlockchainController"});
 	this.route("/dashboard", {name: "dashboard", title: "", controller: "DashboardController"});
