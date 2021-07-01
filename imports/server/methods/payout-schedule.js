@@ -89,7 +89,7 @@ Email: Actuarial@ACREAFRICA.COM
 const executePayoutSchedule = (scheduleConfig) => {
 
 	const payouts = Policies.find(JSON.parse(scheduleConfig.filter));
-	const sum_payout = 0.0;
+	let sum_payout = 0.0;
 	const schedule = [];
 
 	let foundError = false;
