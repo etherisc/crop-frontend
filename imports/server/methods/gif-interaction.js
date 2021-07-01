@@ -6,6 +6,10 @@ const applyForPolicy = async (args) => {
 
 	console.log(args);
 
+	const bpKey = s32b('TestKey');
+	const data = s32b('TestData');
+	
+	
 	try {
 		const result = await Product.applyForPolicy(bpKey, data);
 
