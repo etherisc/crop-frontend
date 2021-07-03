@@ -11,7 +11,7 @@
 <template name="AdminLogsBusinessTaskView">
 	<div id="admin-logs-business-task-view" class="">
 		<h2 id="component-title">
-			Btx Lines
+			Business Transaction Log
 		</h2>
 		<form id="dataview-controls" class="form-inline">
 			<div id="dataview-controls-search">
@@ -68,14 +68,11 @@
 	<table id="dataview-table" class="table table-striped table-hover">
 		<thead id="dataview-table-header">
 			<tr id="dataview-table-header-row">
-				<th class="th-sortable" data-sort="process_name">
-					Process Name
+				<th class="th-sortable" data-sort="timestamp">
+					Timestamp
 				</th>
 				<th class="th-sortable" data-sort="business_tx_id">
 					Business Tx Id
-				</th>
-				<th class="th-sortable" data-sort="business_tx_status">
-					Business Tx Status
 				</th>
 				<th class="th-sortable" data-sort="task_name">
 					Task Name
@@ -83,14 +80,8 @@
 				<th class="th-sortable" data-sort="task_id">
 					Task Id
 				</th>
-				<th class="th-sortable" data-sort="task_status">
-					Task Status
-				</th>
 				<th class="th-sortable" data-sort="message">
 					Message
-				</th>
-				<th class="th-sortable" data-sort="timestamp">
-					Timestamp
 				</th>
 			</tr>
 		</thead>
@@ -103,13 +94,10 @@
 <template name="AdminLogsBusinessTaskViewTableItems">
 	<tr id="dataview-table-items-row">
 		<td>
-			{{process_name}}
+			{{formatDate timestamp 'YYYY-MM-DD HH:mm:ss'}}
 		</td>
 		<td>
 			{{business_tx_id}}
-		</td>
-		<td>
-			{{business_tx_status}}
 		</td>
 		<td>
 			{{task_name}}
@@ -118,13 +106,7 @@
 			{{task_id}}
 		</td>
 		<td>
-			{{task_status}}
-		</td>
-		<td>
 			{{message}}
-		</td>
-		<td>
-			{{formatDate timestamp 'YYYY-MM-DD HH:mm:ss'}}
 		</td>
 	</tr>
 </template>

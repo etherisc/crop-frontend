@@ -1,4 +1,16 @@
-const minio = require('minio');
+console.log('loading minio.js');
+
+const Minio = require('minio')
+
+minioClient = new Minio.Client({
+	endPoint: 'localhost',
+	port: 9000,
+	useSSL: false,
+	accessKey: 'accesskey',
+	secretKey: 'secretkey'
+});
+
+
 
 const getMinioObject = Meteor.wrapAsync((bucket, filename, cb) => {
 

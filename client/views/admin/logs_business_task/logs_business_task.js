@@ -26,7 +26,7 @@ Template.AdminLogsBusinessTask.helpers({
 var AdminLogsBusinessTaskViewExport = function(fileType) {
 	var extraParams = {
 		searchText: Session.get("BtxLineListPagedSearchString") || "",
-		searchFields: Session.get("BtxLineListPagedSearchFields") || ["process_name", "business_tx_id", "business_tx_status", "task_name", "task_id", "task_status", "message", "timestamp"],
+		searchFields: Session.get("BtxLineListPagedSearchFields") || ["timestamp", "process_name", "business_tx_id", "business_tx_status", "task_name", "task_id", "task_status", "message"],
 		sortBy: Session.get("BtxLineListPagedSortBy") || "",
 		sortAscending: Session.get("BtxLineListPagedSortAscending") || true
 	};

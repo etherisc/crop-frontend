@@ -1,8 +1,8 @@
 Meteor.publish("setting_list", function() {
 	if(Users.isInRoles(this.userId, ["admin","blocked","user"])) {
-		return Settings.find({}, {});
+		return Settings.find({}, {sort:{key:1}});
 	}
-	return Settings.find({createdBy:this.userId}, {});
+	return Settings.find({createdBy:this.userId}, {sort:{key:1}});
 });
 
 Meteor.publish("settings_null", function() {
@@ -22,9 +22,9 @@ Meteor.publish("setting", function(settingId) {
 Meteor.publish("setting_list_paged", function(extraOptions) {
 	extraOptions.doSkip = true;
 	if(Users.isInRoles(this.userId, ["admin","blocked","user"])) {
-		return Settings.find(databaseUtils.extendFilter({}, extraOptions), databaseUtils.extendOptions({}, extraOptions));
+		return Settings.find(databaseUtils.extendFilter({}, extraOptions), databaseUtils.extendOptions({sort:{key:1}}, extraOptions));
 	}
-	return Settings.find(databaseUtils.extendFilter({createdBy:this.userId}, extraOptions), databaseUtils.extendOptions({}, extraOptions));
+	return Settings.find(databaseUtils.extendFilter({createdBy:this.userId}, extraOptions), databaseUtils.extendOptions({sort:{key:1}}, extraOptions));
 });
 
 Meteor.publish("setting_list_paged_count", function(extraOptions) {
@@ -35,10 +35,10 @@ Meteor.methods({
 	"settingListPagedExport": function(extraOptions, exportFields, fileType) {
 		extraOptions.noPaging = true;
 		if(Users.isInRoles(this.userId, ["admin","blocked","user"])) {
-			var data = Settings.find(databaseUtils.extendFilter({}, extraOptions), databaseUtils.extendOptions({}, extraOptions)).fetch();
+			var data = Settings.find(databaseUtils.extendFilter({}, extraOptions), databaseUtils.extendOptions({sort:{key:1}}, extraOptions)).fetch();
 			return objectUtils.exportArrayOfObjects(data, exportFields, fileType);
 		}
-		var data = Settings.find(databaseUtils.extendFilter({createdBy:this.userId}, extraOptions), databaseUtils.extendOptions({}, extraOptions)).fetch();
+		var data = Settings.find(databaseUtils.extendFilter({createdBy:this.userId}, extraOptions), databaseUtils.extendOptions({sort:{key:1}}, extraOptions)).fetch();
 		return objectUtils.exportArrayOfObjects(data, exportFields, fileType);
 	}
 });

@@ -17,7 +17,7 @@
 			</a>
 			Btx Line Details
 		</h2>
-		<form role="form">
+		<form role="form" class="form-horizontal">
 			{{#if errorMessage}}
 			<div class="alert alert-warning">
 				{{errorMessage}}
@@ -29,88 +29,88 @@
 				{{infoMessage}}
 			</div>
 			{{/if}}
+			<div class="form-group  field-timestamp">
+				<label for="timestamp" class="col-sm-3 control-label">
+					Timestamp
+				</label>
+				<div class="input-div col-sm-9">
+					<p class="form-control-static  control-field-timestamp">
+						{{formatDate btx_line.timestamp 'YYYY-MM-DD HH:mm:ss'}}
+					</p>
+				</div>
+			</div>
 			<div class="form-group  field-process_name">
-				<label for="process_name">
+				<label for="process_name" class="col-sm-3 control-label">
 					Process Name
 				</label>
-				<div class="input-div">
+				<div class="input-div col-sm-9">
 					<p class="form-control-static  control-field-process_name">
 						{{btx_line.process_name}}
 					</p>
 				</div>
 			</div>
 			<div class="form-group  field-business_tx_id">
-				<label for="business_tx_id">
+				<label for="business_tx_id" class="col-sm-3 control-label">
 					Business Tx Id
 				</label>
-				<div class="input-div">
+				<div class="input-div col-sm-9">
 					<p class="form-control-static  control-field-business_tx_id">
 						{{btx_line.business_tx_id}}
 					</p>
 				</div>
 			</div>
 			<div class="form-group  field-business_tx_status">
-				<label for="business_tx_status">
+				<label for="business_tx_status" class="col-sm-3 control-label">
 					Business Tx Status
 				</label>
-				<div class="input-div">
+				<div class="input-div col-sm-9">
 					<p class="form-control-static  control-field-business_tx_status">
 						{{btx_line.business_tx_status}}
 					</p>
 				</div>
 			</div>
 			<div class="form-group  field-task_name">
-				<label for="task_name">
+				<label for="task_name" class="col-sm-3 control-label">
 					Task Name
 				</label>
-				<div class="input-div">
+				<div class="input-div col-sm-9">
 					<p class="form-control-static  control-field-task_name">
 						{{btx_line.task_name}}
 					</p>
 				</div>
 			</div>
 			<div class="form-group  field-task_id">
-				<label for="task_id">
+				<label for="task_id" class="col-sm-3 control-label">
 					Task Id
 				</label>
-				<div class="input-div">
+				<div class="input-div col-sm-9">
 					<p class="form-control-static  control-field-task_id">
 						{{btx_line.task_id}}
 					</p>
 				</div>
 			</div>
 			<div class="form-group  field-task_status">
-				<label for="task_status">
+				<label for="task_status" class="col-sm-3 control-label">
 					Task Status
 				</label>
-				<div class="input-div">
+				<div class="input-div col-sm-9">
 					<p class="form-control-static  control-field-task_status">
 						{{btx_line.task_status}}
 					</p>
 				</div>
 			</div>
 			<div class="form-group  field-message">
-				<label for="message">
+				<label for="message" class="col-sm-3 control-label">
 					Message
 				</label>
-				<div class="input-div">
+				<div class="input-div col-sm-9">
 					<p class="form-control-static  control-field-message">
 						{{btx_line.message}}
 					</p>
 				</div>
 			</div>
-			<div class="form-group  field-timestamp">
-				<label for="timestamp">
-					Timestamp
-				</label>
-				<div class="input-div">
-					<p class="form-control-static  control-field-timestamp">
-						{{formatDate btx_line.timestamp 'YYYY-MM-DD HH:mm:ss'}}
-					</p>
-				</div>
-			</div>
 			<div class="form-group">
-				<div class="submit-div">
+				<div class="submit-div col-sm-9 col-sm-offset-3">
 					<a href="#" id="form-close-button" class="btn btn-primary">
 						OK
 					</a>

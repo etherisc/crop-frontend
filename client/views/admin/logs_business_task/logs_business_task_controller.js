@@ -1,9 +1,10 @@
 this.AdminLogsBusinessTaskController = RouteController.extend({
-	template: "AdminLogsBusinessTask",
+	template: "Admin",
 	
 
 	yieldTemplates: {
-		/*YIELD_TEMPLATES*/
+		'AdminLogsBusinessTask': { to: 'AdminSubcontent'}
+		
 	},
 
 	onBeforeAction: function() {
@@ -11,14 +12,14 @@ this.AdminLogsBusinessTaskController = RouteController.extend({
 	},
 
 	action: function() {
-		if(this.isReady()) { this.render(); } else { this.render("loading"); }
+		if(this.isReady()) { this.render(); } else { this.render("Admin"); this.render("loading", { to: "AdminSubcontent" });}
 		/*ACTION_FUNCTION*/
 	},
 
 	isReady: function() {
 		this.btxLineListPagedExtraParams = {
 			searchText: Session.get("BtxLineListPagedSearchString") || "",
-			searchFields: Session.get("BtxLineListPagedSearchFields") || ["process_name", "business_tx_id", "business_tx_status", "task_name", "task_id", "task_status", "message", "timestamp"],
+			searchFields: Session.get("BtxLineListPagedSearchFields") || ["timestamp", "process_name", "business_tx_id", "business_tx_status", "task_name", "task_id", "task_status", "message"],
 			sortBy: Session.get("BtxLineListPagedSortBy") || "",
 			sortAscending: Session.get("BtxLineListPagedSortAscending"),
 			pageNo: Session.get("BtxLineListPagedPageNo") || 0,
@@ -46,7 +47,7 @@ this.AdminLogsBusinessTaskController = RouteController.extend({
 
 		var data = {
 			params: this.params || {},
-			btx_line_list_paged: BusinessTransactionLog.find(databaseUtils.extendFilter({}, this.btxLineListPagedExtraParams), databaseUtils.extendOptions({}, this.btxLineListPagedExtraParams)),
+			btx_line_list_paged: BusinessTransactionLog.find(databaseUtils.extendFilter({}, this.btxLineListPagedExtraParams), databaseUtils.extendOptions({sort:{timestamp:-1}}, this.btxLineListPagedExtraParams)),
 			btx_line_list_paged_count: Counts.get("btx_line_list_paged_count")
 		};
 		
