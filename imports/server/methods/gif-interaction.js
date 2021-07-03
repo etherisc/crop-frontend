@@ -18,7 +18,7 @@ const applyForPolicy = async (args) => {
 			eth.wallet()
 		);		
 
-		const result = await Product.applyForPolicy(bpKey, data, {gasLimit: 500000});
+		const result = await Product.applyForPolicy(bpKey, data, {from: settings('gif.from'), gasLimit: 500000});
 
 		info('Result of applyForPolicy:', result);
 		return 'Success!';
