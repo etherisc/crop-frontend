@@ -6,6 +6,7 @@ import { eth } from '/imports/server/methods/ethereum-provider.js';
 const applyForPolicy = async (args) => {
 
 	console.log(args);
+	console.log(eth);
 
 	const bpKey = eth.s32b('TestKey');
 	const data = eth.s32b('TestData');
