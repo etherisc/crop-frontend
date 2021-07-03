@@ -10,11 +10,11 @@ const getTransporter = () => {
 
 	if (transporter) return transporter;
 
-	const from = settings.('smtp.from');
-	const host = settings.('smtp.host');
-	const port = settings.('smtp.port');
-	const user = settings.('smtp.user');
-	const pass = settings.('smtp.pass');
+	const from = settings('smtp.from');
+	const host = settings('smtp.host');
+	const port = settings('smtp.port');
+	const user = settings('smtp.user');
+	const pass = settings('smtp.pass');
 
 	const transport = {
 		host,

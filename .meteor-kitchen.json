@@ -130,7 +130,7 @@
 		},
 		{
 			"path": "client/views/admin/admin.html",
-			"checksum": "cca4ff6a06875d5c385fa4f190180ab4806207b6"
+			"checksum": "39c4eac834ab6fea1026c0b117618a93e560ba1b"
 		},
 		{
 			"path": "client/views/admin/admin.js",
@@ -1206,7 +1206,7 @@
 		},
 		{
 			"path": "imports/server/methods/sendmail.js",
-			"checksum": "7c4d72283d3846e5f2710cf8f33d60f252407ad6"
+			"checksum": "1f12bfc4f0d7548e1fa209fd33c71927822a0bd6"
 		},
 		{
 			"path": "imports/server/methods/ethereum-provider.js",
