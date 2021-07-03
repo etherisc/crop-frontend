@@ -37,7 +37,8 @@ const getTransporter = () => {
 
 
 const sendMail = async ({to, subject, text}) => {
-	if (const transporter = getTransporter()) {
+	const transporter = getTransporter();
+	if (transporter) {
 		const mailInfo = await transporter.sendMail({from, to, subject, text});
 		info(`Mail sent to ${to}: ${subject}`, {from, to, subject, text, mailInfo});
 	} else {
