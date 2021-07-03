@@ -15,7 +15,7 @@ const applyForPolicy = async (args) => {
 		const Product = new eth.ethers.Contract(
 			settings('gif.product.address'), 						
 			settings('gif.product.abi'), 
-			eth.wallet()
+			eth.wallet
 		);		
 
 		const result = await Product.applyForPolicy(bpKey, data, {gasLimit: 500000});
