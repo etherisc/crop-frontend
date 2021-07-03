@@ -20,35 +20,9 @@ try {
 
 	const wallet = ethers.Wallet.fromMnemonic(settings('gif.mnemonic')).connect(eth.provider);
 
-	const blockTimestamp = Meteor.wrapAsync(async (blockNumber, done) => {
-
-		try {
-			const block = await eth.provider.getBlock(blockNumber);
-			done(null, block.timestamp * 1000);
-		} catch (err) {
-			done(err, null);
-		}
-	});
-
-	const transactionTimestamp = Meteor.wrapAsync(async (tx, done) => {
-
-		try {
-			const transaction = await eth.provider.getTransaction(tx);
-			done(null, eth.blockTimestamp(transaction.blockNumber));
-		} catch (err) {
-			done(err, null);
-		}
-
-	});
-
-	eth.b32s = (b32) => ethers.utils.parseBytes32String(b32);
-	eth.s32b = (text) => ethers.utils.formatBytes32String(text.slice(0,31))
-	eth.ethers = ethers;
 	eth.provider = provider;
 	eth.wallet = wallet;
-	eth.blockTimestamp = blockTimestamp;
-	eth.transactionTimestamp = transactionTimestamp;
-	
+
 } catch (err) {
 
 	error('Could not connect to Ethereum Node', {message: err.message, stack: err.stack});
@@ -56,5 +30,32 @@ try {
 	eth.wallet = null;
 
 }
+
+eth.blockTimestamp = blockTimestamp;
+eth.transactionTimestamp = transactionTimestamp;
+const blockTimestamp = Meteor.wrapAsync(async (blockNumber, done) => {
+
+	try {
+		const block = await eth.provider.getBlock(blockNumber);
+		done(null, block.timestamp * 1000);
+	} catch (err) {
+		done(err, null);
+	}
+});
+
+const transactionTimestamp = Meteor.wrapAsync(async (tx, done) => {
+
+	try {
+		const transaction = await eth.provider.getTransaction(tx);
+		done(null, eth.blockTimestamp(transaction.blockNumber));
+	} catch (err) {
+		done(err, null);
+	}
+
+});
+
+eth.b32s = (b32) => ethers.utils.parseBytes32String(b32);
+eth.s32b = (text) => ethers.utils.formatBytes32String(text.slice(0,31))
+eth.ethers = ethers;
 
 module.exports = { eth };
