@@ -1,15 +1,14 @@
-/** gif-interaction.js **/
+console.log('loading gif-interaction.js');
 
 import { eth } from '/imports/server/methods/ethereum-provider.js';
 
-console.log('loading gif-interaction.js');
 
 const applyForPolicy = async (args) => {
 
 	console.log(args);
 
-	const bpKey = s32b('TestKey');
-	const data = s32b('TestData');
+	const bpKey = eth.s32b('TestKey');
+	const data = eth.s32b('TestData');
 
 	try {
 		const Product = new eth.ethers.Contract(
