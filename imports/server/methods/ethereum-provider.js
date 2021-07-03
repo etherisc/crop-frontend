@@ -18,7 +18,7 @@ try {
 		error(`Could not connect to ethereum node, err=${err.message}`, {message: err.message, stack: err.stack});
 	});
 
-	const wallet = ethers.Wallet.fromMnemonic(settings('gif.mnemonic').connect(eth.provider)
+	const wallet = ethers.Wallet.fromMnemonic(settings('gif.mnemonic').connect(eth.provider);
 
 	const blockTimestamp = Meteor.wrapAsync(async (blockNumber, done) => {
 
