@@ -130,7 +130,7 @@
 		},
 		{
 			"path": "client/views/admin/admin.html",
-			"checksum": "9b8aa68b40ea346dc644d13c703fd78722898b50"
+			"checksum": "b56a432ab1a1b644593748992c3cb10f100e9b1c"
 		},
 		{
 			"path": "client/views/admin/admin.js",
@@ -1198,7 +1198,7 @@
 		},
 		{
 			"path": "imports/server/methods/gif-interaction.js",
-			"checksum": "d5e3668873113cf5876a6971fac434a9681339ee"
+			"checksum": "b100184f65342b0de85c9f05b9291d79d1fc132e"
 		},
 		{
 			"path": "server/startup.js",
@@ -1210,7 +1210,7 @@
 		},
 		{
 			"path": "imports/server/methods/ethereum-provider.js",
-			"checksum": "7e464040838e0ed7f3de47284c505fe54c7b49cc"
+			"checksum": "a407ab41f3b3a8d751aef8ad1303382a7931b4a7"
 		},
 		{
 			"path": "both/utils.js",
