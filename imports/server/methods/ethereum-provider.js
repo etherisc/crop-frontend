@@ -4,32 +4,22 @@ import { settings } from '/imports/server/methods/settings.js';
 
 const ethers = require('ethers');
 
-const eth = {}
+const provider = () => {
+	try {
+		return new ethers.providers.JsonRpcProvider(settings('gif.http_provider'));
+	} catch ({message, stack}) {
+		error('Could not connect to Ethereum Node', {message, stack});
+	}
+};
 
-try {
-
-	const provider = new ethers.providers.JsonRpcProvider(settings('gif.http_provider'));
-
-	provider.getBlockNumber()
-	.then((res) => {
-		info(`Connected to ethereum node, blocknumber: ${res}`);
-	})
-	.catch((err) => {
-		error(`Could not connect to ethereum node, err=${err.message}`, {message: err.message, stack: err.stack});
-	});
-
-	const wallet = ethers.Wallet.fromMnemonic(settings('gif.mnemonic')).connect(eth.provider);
-
-	eth.provider = provider;
-	eth.wallet = wallet;
-
-} catch (err) {
-
-	error('Could not connect to Ethereum Node', {message: err.message, stack: err.stack});
-	eth.provider = null;
-	eth.wallet = null;
-
+const wallet = () => {
+	try {
+		return ethers.Wallet.fromMnemonic(settings('gif.mnemonic')).connect(eth.provider());
+	} catch ({message, stack}) {
+		error('Could not create Signer', {message, stack});			
+	}
 }
+
 
 const blockTimestamp = Meteor.wrapAsync(async (blockNumber, done) => {
 
@@ -52,10 +42,18 @@ const transactionTimestamp = Meteor.wrapAsync(async (tx, done) => {
 
 });
 
-eth.ethers = ethers;
-eth.blockTimestamp = blockTimestamp;
-eth.transactionTimestamp = transactionTimestamp;
-eth.b32s = (b32) => ethers.utils.parseBytes32String(b32);
-eth.s32b = (text) => ethers.utils.formatBytes32String(text.slice(0,31))
+
+const b32s = (b32) => ethers.utils.parseBytes32String(b32);
+const s32b = (text) => ethers.utils.formatBytes32String(text.slice(0,31));
+
+eth = {
+	ethers, 
+	blockTimestamp,
+	provider, 
+	wallet,
+	transactionTimestamp,
+	b32s, 
+	s32b
+};
 
 module.exports = { eth };
