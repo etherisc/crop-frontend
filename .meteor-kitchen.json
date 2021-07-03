@@ -14,7 +14,7 @@
 		},
 		{
 			"path": "server/server.js",
-			"checksum": "42f2046637fb03a1307f514625a5c9e560788aa0"
+			"checksum": "3d5b343c8c5b75d140b16f198587c358a5a19c7e"
 		},
 		{
 			"path": "client/views/not_found/not_found.html",
@@ -38,7 +38,7 @@
 		},
 		{
 			"path": "client/views/layout/layout.html",
-			"checksum": "f4adc9dd7546742fd6ec2d7e3b44318e443d8821"
+			"checksum": "3ca524aa78780578e34eae13093d3db10e720d61"
 		},
 		{
 			"path": "client/views/layout/layout.js",
@@ -130,7 +130,7 @@
 		},
 		{
 			"path": "client/views/admin/admin.html",
-			"checksum": "63ef4908c2f216fe3748e0c99bd34d9f6086a772"
+			"checksum": "871b4dd08042307a685f404aceb97a2c3b127f96"
 		},
 		{
 			"path": "client/views/admin/admin.js",
@@ -426,7 +426,7 @@
 		},
 		{
 			"path": "client/views/admin/settings_page/settings_page_controller.js",
-			"checksum": "819439ba157ae8bb05117a50f5277802a0a956cd"
+			"checksum": "e951a661296ef57d65e963d19d1800844a2aa1fd"
 		},
 		{
 			"path": "client/views/admin/settings_page/insert/insert.html",
@@ -466,19 +466,19 @@
 		},
 		{
 			"path": "client/views/admin/logs_business_task/logs_business_task.html",
-			"checksum": "64021048653df19a673e8c5354d1698f2987fa4c"
+			"checksum": "a61ce6b51e106c1679f85731b81910169d6ca356"
 		},
 		{
 			"path": "client/views/admin/logs_business_task/logs_business_task.js",
-			"checksum": "832e9a0b2db6f2a4586dbf6765a820a5328a46cd"
+			"checksum": "b72734d8433fd1755cdb21dd3670d05fe974ae37"
 		},
 		{
 			"path": "client/views/admin/logs_business_task/logs_business_task_controller.js",
-			"checksum": "668a3357fa551d86119661379b6f5f26e3fd7993"
+			"checksum": "fe400ba53b8e38b919840ba2494b5880a7996c9f"
 		},
 		{
 			"path": "client/views/admin/logs_business_task/details/details.html",
-			"checksum": "7ffe8c6fc397cca08c500e1fbf64ec06e1e87e47"
+			"checksum": "4cd6060ff050ca33a7a8b85c282676252e017116"
 		},
 		{
 			"path": "client/views/admin/logs_business_task/details/details.js",
@@ -486,7 +486,7 @@
 		},
 		{
 			"path": "client/views/admin/logs_business_task/details/details_controller.js",
-			"checksum": "f8e226805ebd339f02ea8dd748c6696c037f128d"
+			"checksum": "cbbab266082842d5364f9ba10e863296b3905016"
 		},
 		{
 			"path": "client/views/logout/logout.html",
@@ -1066,7 +1066,7 @@
 		},
 		{
 			"path": "server/publish/settings.js",
-			"checksum": "f6cea51ee870d497c24de7d3adafc45f103b4a4a"
+			"checksum": "ee1dadbfe17c8f2d19c790ffb5cf29585c509185"
 		},
 		{
 			"path": "both/collections/business_transaction_log.js",
@@ -1082,7 +1082,7 @@
 		},
 		{
 			"path": "server/publish/business_transaction_log.js",
-			"checksum": "baad564775c774f8a4e82af2ec3a3fbffc05dbe7"
+			"checksum": "8a5b80039883a1c11e18b974cb884c02be044f0f"
 		},
 		{
 			"path": "client/styles/user_styles.less",
@@ -1162,7 +1162,7 @@
 		},
 		{
 			"path": "imports/server/methods/minio.js",
-			"checksum": "63f2fee548a47e06968279ef3ae0842d8275da2a"
+			"checksum": "0ee82e65f6b492d6b88b3393794f8111fc53d404"
 		},
 		{
 			"path": "imports/server/methods/job-execution.js",
@@ -1198,15 +1198,27 @@
 		},
 		{
 			"path": "imports/server/methods/gif-interaction.js",
-			"checksum": "b0228f0d355acacc6a0c40cbfe0123b4148a8110"
+			"checksum": "86ff9ff0cfad1c48488b059975f42a6e41b50329"
 		},
 		{
 			"path": "server/startup.js",
-			"checksum": "795d29d430bb1336a3b651e1d1a4fa45e9c12687"
+			"checksum": "94da6e447b06c2c420b7b3a6ff462b088a1f2ef9"
 		},
 		{
 			"path": "imports/server/methods/sendmail.js",
-			"checksum": "9b80d987c2825921f005af9363aa16e644277428"
+			"checksum": "063dc33f0ff631f74e0f4ad08140503815149ed3"
+		},
+		{
+			"path": "imports/server/methods/ethereum-provider.js",
+			"checksum": "95191883196071ec42715e7e69ad25332c9f240d"
+		},
+		{
+			"path": "both/utils.js",
+			"checksum": "f78edab007d1d200b506efc47ee6cf6bfa817832"
+		},
+		{
+			"path": "imports/server/methods/settings.js",
+			"checksum": "84b8abc346fbdf024db5616daff756ee7da6964d"
 		},
 		{
 			"path": "lib/string_utils.js",

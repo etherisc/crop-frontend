@@ -1,8 +1,14 @@
 console.log('loading sendmail.js');
 
+import { settings } from '/imports/server/methods/settings.js';
+
 const nodemailer = require('nodemailer');
 
-const from = 'claims@acreafrica.com';
+const from = settings.('smtp.from');
+const host = settings.('smtp.host');
+const port = settings.('smtp.port');
+const user = settings.('smtp.user');
+const pass = settings.('smtp.pass');
 
 const transport = {
   host: "mail.acreafrica.com",
@@ -10,7 +16,7 @@ const transport = {
   secure: true,
   auth: {
     user: "claims@acreafrica.com",
-    pass: "dE@nz,N0xot*"
+    pass: ""
   }
 };
 

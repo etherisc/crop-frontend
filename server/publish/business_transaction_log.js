@@ -1,5 +1,5 @@
 Meteor.publish("btx_line_list", function() {
-	return BusinessTransactionLog.find({}, {});
+	return BusinessTransactionLog.find({}, {sort:{timestamp:-1}});
 });
 
 Meteor.publish("btx_line", function(btxLineId) {
@@ -8,7 +8,7 @@ Meteor.publish("btx_line", function(btxLineId) {
 
 Meteor.publish("btx_line_list_paged", function(extraOptions) {
 	extraOptions.doSkip = true;
-	return BusinessTransactionLog.find(databaseUtils.extendFilter({}, extraOptions), databaseUtils.extendOptions({}, extraOptions));
+	return BusinessTransactionLog.find(databaseUtils.extendFilter({}, extraOptions), databaseUtils.extendOptions({sort:{timestamp:-1}}, extraOptions));
 });
 
 Meteor.publish("btx_line_list_paged_count", function(extraOptions) {
@@ -18,7 +18,7 @@ Meteor.publish("btx_line_list_paged_count", function(extraOptions) {
 Meteor.methods({
 	"btxLineListPagedExport": function(extraOptions, exportFields, fileType) {
 		extraOptions.noPaging = true;
-		var data = BusinessTransactionLog.find(databaseUtils.extendFilter({}, extraOptions), databaseUtils.extendOptions({}, extraOptions)).fetch();
+		var data = BusinessTransactionLog.find(databaseUtils.extendFilter({}, extraOptions), databaseUtils.extendOptions({sort:{timestamp:-1}}, extraOptions)).fetch();
 		return objectUtils.exportArrayOfObjects(data, exportFields, fileType);
 	}
 });

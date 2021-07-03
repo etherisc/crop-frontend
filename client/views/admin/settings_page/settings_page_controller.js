@@ -47,7 +47,7 @@ this.AdminSettingsPageController = RouteController.extend({
 
 		var data = {
 			params: this.params || {},
-			setting_list_paged: Settings.find(databaseUtils.extendFilter({}, this.settingListPagedExtraParams), databaseUtils.extendOptions({}, this.settingListPagedExtraParams)),
+			setting_list_paged: Settings.find(databaseUtils.extendFilter({}, this.settingListPagedExtraParams), databaseUtils.extendOptions({sort:{key:1}}, this.settingListPagedExtraParams)),
 			setting_list_paged_count: Counts.get("setting_list_paged_count")
 		};
 		
