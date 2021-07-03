@@ -6,7 +6,9 @@ const ethers = require('ethers');
 
 const provider = () => {
 	try {
-		return new ethers.providers.JsonRpcProvider(settings('gif.http_provider'));
+		const provider = new ethers.providers.JsonRpcProvider(settings('gif.http_provider'));
+		info('Provider connected');
+		return provider;
 	} catch ({message, stack}) {
 		error('Could not connect to Ethereum Node', {message, stack});
 	}
@@ -14,7 +16,9 @@ const provider = () => {
 
 const wallet = () => {
 	try {
-		return ethers.Wallet.fromMnemonic(settings('gif.mnemonic')).connect(eth.provider());
+		const wallet = ethers.Wallet.fromMnemonic(settings('gif.mnemonic')).connect(eth.provider());
+		info('Wallet connected', wallet);
+		return wallet;
 	} catch ({message, stack}) {
 		error('Could not create Signer', {message, stack});			
 	}
