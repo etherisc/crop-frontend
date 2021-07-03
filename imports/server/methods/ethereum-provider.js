@@ -31,8 +31,6 @@ try {
 
 }
 
-eth.blockTimestamp = blockTimestamp;
-eth.transactionTimestamp = transactionTimestamp;
 const blockTimestamp = Meteor.wrapAsync(async (blockNumber, done) => {
 
 	try {
@@ -54,8 +52,10 @@ const transactionTimestamp = Meteor.wrapAsync(async (tx, done) => {
 
 });
 
+eth.ethers = ethers;
+eth.blockTimestamp = blockTimestamp;
+eth.transactionTimestamp = transactionTimestamp;
 eth.b32s = (b32) => ethers.utils.parseBytes32String(b32);
 eth.s32b = (text) => ethers.utils.formatBytes32String(text.slice(0,31))
-eth.ethers = ethers;
 
 module.exports = { eth };
