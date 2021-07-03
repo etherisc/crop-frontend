@@ -1,7 +1,7 @@
 console.log('loading gif-interaction.js');
 
 import { eth } from '/imports/server/methods/ethereum-provider.js';
-
+import { settings } from '/imports/server/methods/settings.js';
 
 const applyForPolicy = async (args) => {
 
