@@ -27,7 +27,7 @@ const applyForPolicy = async (args) => {
 
 		const result = await Product.applyForPolicy(bpKey, data, {gasLimit: 500000});
 		const receipt = await result.wait();
-		const logs = abiDecoder.decodeLogs(receipt.events);
+		const logs = abiDecoder.decodeLogs(receipt.logs);
 		
 		info(`Result of applyForPolicy ${bpKey}`, {result, receipt, logs});
 		return 'Success!';
