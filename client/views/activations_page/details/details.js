@@ -182,6 +182,75 @@ Template.ActivationsPageDetailsFormCustomActions.events({
 
 
 		return false;
+	},
+
+	"click #btn-underwrite": function (e,t) {
+		e.preventDefault();
+
+		toast_confirm('Really?').then((confirm) => {
+			if(confirm) {
+
+				Meteor.call('underwrite', t.data, function(err, res) {
+
+					if(err) {
+						toast_error(err.message);
+					} else {
+						toast_info(res);
+					}
+
+				});
+			}
+		})
+
+
+		return false;
+	},
+
+	"click #btn-claim": function (e,t) {
+		e.preventDefault();
+
+		toast_confirm('Really?').then((confirm) => {
+			if(confirm) {
+
+				Meteor.call('claim', t.data, function(err, res) {
+
+					if(err) {
+						toast_error(err.message);
+					} else {
+						toast_info(res);
+					}
+
+				});
+			}
+		})
+
+
+		return false;
+	},
+	
+	"click #btn-payout": function (e,t) {
+		e.preventDefault();
+
+		toast_confirm('Really?').then((confirm) => {
+			if(confirm) {
+
+				Meteor.call('payout', t.data, function(err, res) {
+
+					if(err) {
+						toast_error(err.message);
+					} else {
+						toast_info(res);
+					}
+
+				});
+			}
+		})
+
+
+		return false;
 	}
+
+
+
 
 });
