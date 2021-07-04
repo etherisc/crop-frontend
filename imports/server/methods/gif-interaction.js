@@ -1,15 +1,22 @@
 console.log('loading gif-interaction.js');
 
+const abiDecoder = require('abi-decoder');
+
+
 import { eth } from '/imports/server/methods/ethereum-provider.js';
 import { settings } from '/imports/server/methods/settings.js';
 import { v4 as uuidv4 } from 'uuid';
+import { productABI } from '/both/lib/product-abi.js';
+
+
 
 const Product = new eth.ethers.Contract(
 			settings('gif.product.address'), 						
-			settings('gif.product.abi'), 
+			productABI, 
 			eth.wallet()
 		);	
 
+abiDecoder.addABI(productABI);
 
 const applyForPolicy = async (args) => {
 
@@ -20,7 +27,7 @@ const applyForPolicy = async (args) => {
 
 		const result = await Product.applyForPolicy(bpKey, data, {gasLimit: 500000});
 		const receipt = await result.wait();
-		receipt.logs = receipt.events.map(event => console.log(event));
+		const receipt.logs = abiDecoder.decodeLogs(receipt.events);
 		
 		info(`Result of applyForPolicy ${bpKey}`, {result, receipt});
 		return 'Success!';
