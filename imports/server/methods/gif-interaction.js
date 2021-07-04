@@ -48,7 +48,7 @@ const underwrite = async (args) => {
 
 	try {
 
-		const result = await Product.underwrite(bpKey);
+		const result = await Product.underwrite(bpKey, {gasLimit: 3000000});
 		const receipt = await result.wait();
 		const logs = abiDecoder.decodeLogs(receipt.logs);
 
