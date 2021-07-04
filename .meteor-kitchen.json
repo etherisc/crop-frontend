@@ -130,7 +130,7 @@
 		},
 		{
 			"path": "client/views/admin/admin.html",
-			"checksum": "355a56214ee31a5db93f6c208423e5435e7fdf2d"
+			"checksum": "507d6a6f705c1aaa31380d5b43517a4bb544b72a"
 		},
 		{
 			"path": "client/views/admin/admin.js",
@@ -1198,7 +1198,7 @@
 		},
 		{
 			"path": "imports/server/methods/gif-interaction.js",
-			"checksum": "4d63c15c406c315ee2ddc73aba42ec5edfab59a6"
+			"checksum": "a91b0e088659f2661e7e0e603e222e66bac3779b"
 		},
 		{
 			"path": "server/startup.js",
@@ -1221,8 +1221,8 @@
 			"checksum": "84b8abc346fbdf024db5616daff756ee7da6964d"
 		},
 		{
-			"path": "both/lib/product-abi.js",
-			"checksum": "bd55d94330948c467412d115e69c1b6908c36b7d"
+			"path": "both/lib/contract-abi.js",
+			"checksum": "9a3b67e9c7d234e1401dfb5571628c10ce183c68"
 		},
 		{
 			"path": "lib/string_utils.js",
