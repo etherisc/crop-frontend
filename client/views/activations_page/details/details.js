@@ -144,23 +144,23 @@ Template.ActivationsPageDetailsForm.helpers({
 	
 });
 
-Template.ActivationsPageDetailsCustomActions.created = function() {
+Template.ActivationsPageDetailsFormCustomActions.created = function() {
 
 };
 
-Template.ActivationsPageDetailsCustomActions.destroyed = function() {
+Template.ActivationsPageDetailsFormCustomActions.destroyed = function() {
 
 };
 
-Template.ActivationsPageDetailsCustomActions.rendered = function() {
+Template.ActivationsPageDetailsFormCustomActions.rendered = function() {
 
 };
 
-Template.ActivationsPageDetailsCustomActions.helpers({
+Template.ActivationsPageDetailsFormCustomActions.helpers({
 
 });
 
-Template.ActivationsPageDetailsCustomActions.events({
+Template.ActivationsPageDetailsFormCustomActions.events({
 
 	"click #btn-apply": function (e,t) {
 		e.preventDefault();

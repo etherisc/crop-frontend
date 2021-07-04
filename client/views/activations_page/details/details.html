@@ -4,7 +4,7 @@
 			<div class="col-md-12">
 			</div>
 		</div>
-		{{> ActivationsPageDetailsForm}}{{> ActivationsPageDetailsCustomActions}}
+		{{> ActivationsPageDetailsForm}}
 	</div>
 </template>
 
@@ -188,9 +188,10 @@
 			</div>
 		</form>
 	</div>
+	{{> ActivationsPageDetailsFormCustomActions}}
 </template>
 
-<template name="ActivationsPageDetailsCustomActions">
+<template name="ActivationsPageDetailsFormCustomActions">
 	<button class="btn btn-warning" id="btn-apply">
 		Apply for Policy
 	</button>
