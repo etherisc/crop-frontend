@@ -6,7 +6,7 @@ const abiDecoder = require('abi-decoder');
 import { eth } from '/imports/server/methods/ethereum-provider.js';
 import { settings } from '/imports/server/methods/settings.js';
 import { v4 as uuidv4 } from 'uuid';
-import { productABI } from '/both/lib/product-abi.js';
+import { productABI, policyABI } from '/both/lib/product-abi.js';
 
 
 
@@ -16,7 +16,7 @@ const Product = new eth.ethers.Contract(
 			eth.wallet()
 		);	
 
-abiDecoder.addABI(productABI);
+abiDecoder.addABI(policyABI);
 
 const applyForPolicy = async (args) => {
 
