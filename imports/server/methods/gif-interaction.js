@@ -25,7 +25,7 @@ const applyForPolicy = async (args) => {
 
 	try {
 
-		const result = await Product.applyForPolicy(bpKey, data, {gasLimit: 500000});
+		const result = await Product.applyForPolicy(bpKey, data);
 		const receipt = await result.wait();
 		const logs = abiDecoder.decodeLogs(receipt.logs);
 		
@@ -48,9 +48,11 @@ const underwrite = async (args) => {
 
 	try {
 
-		const result = await Product.underwrite(bpKey, {gasLimit: 500000});
+		const result = await Product.underwrite(bpKey);
+		const receipt = await result.wait();
+		const logs = abiDecoder.decodeLogs(receipt.logs);
 
-		info(`Result of underwrite ${bpKey}`, result);
+		info(`Result of underwrite ${bpKey}`, {result, receipt, logs});
 		return 'Success!';
 
 	} catch (err) {
@@ -70,9 +72,11 @@ const claim = async (args) => {
 
 	try {
 
-		const result = await Product.newClaim(bpKey, data, {gasLimit: 500000});
+		const result = await Product.newClaim(bpKey, data);
+		const receipt = await result.wait();
+		const logs = abiDecoder.decodeLogs(receipt.logs);
 
-		info(`Result of underwrite ${bpKey}`, result);
+		info(`Result of underwrite ${bpKey}`, {result, receipt, logs});
 		return 'Success!';
 
 	} catch (err) {
@@ -92,9 +96,11 @@ const payout = async (args) => {
 
 	try {
 
-		const result = await Product.payout(bpKey, data, {gasLimit: 500000});
+		const result = await Product.payout(bpKey, data);
+		const receipt = await result.wait();
+		const logs = abiDecoder.decodeLogs(receipt.logs);
 
-		info(`Result of underwrite ${bpKey}`, result);
+		info(`Result of underwrite ${bpKey}`, {result, receipt, logs});
 		return 'Success!';
 
 	} catch (err) {
