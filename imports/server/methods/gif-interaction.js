@@ -20,7 +20,7 @@ const applyForPolicy = async (args) => {
 
 		const result = await Product.applyForPolicy(bpKey, data, {gasLimit: 500000});
 		const receipt = await result.wait();
-		receipt.logs = receipt.events.map(event => event.decode());
+		receipt.logs = receipt.events.map(event => console.log(event));
 		
 		info(`Result of applyForPolicy ${bpKey}`, {result, receipt});
 		return 'Success!';
