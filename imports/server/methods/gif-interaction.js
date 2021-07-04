@@ -44,7 +44,7 @@ const applyForPolicy = async (args) => {
 
 const underwrite = async (args) => {
 
-	const bpKey = eth.s32b(args.activation_id);
+	const bpKey = eth.s32b(args.activation._id);
 
 	try {
 
@@ -67,7 +67,7 @@ const underwrite = async (args) => {
 
 const claim = async (args) => {
 
-	const bpKey = eth.s32b(args.activation_id);
+	const bpKey = eth.s32b(args.activation._id);
 	const data = eth.s32b('TestData');
 
 	try {
