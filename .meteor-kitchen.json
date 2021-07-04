@@ -130,7 +130,7 @@
 		},
 		{
 			"path": "client/views/admin/admin.html",
-			"checksum": "8526ed4f2d66f655bf027dad49f8e4abaf1b7d9f"
+			"checksum": "621ad573a6f08edbd30880d784adfe29e886501c"
 		},
 		{
 			"path": "client/views/admin/admin.js",
@@ -1110,7 +1110,7 @@
 		},
 		{
 			"path": "server/methods/methods.js",
-			"checksum": "322e451fcf8357e243342dafe48adc8e7392cef0"
+			"checksum": "18f6c06e58060743ad1cdc4bcc084bcd0701866d"
 		},
 		{
 			"path": "imports/server/methods/group-policy-reader.js",
@@ -1198,7 +1198,7 @@
 		},
 		{
 			"path": "imports/server/methods/gif-interaction.js",
-			"checksum": "7de6caeb85880d78888c1aa8a2a3aaf01fef7aab"
+			"checksum": "2c2b50c5afcae12a70e526a56d1be91dde03a2af"
 		},
 		{
 			"path": "server/startup.js",

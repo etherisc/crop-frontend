@@ -12,6 +12,8 @@ const Product = new eth.ethers.Contract(
 
 
 const applyForPolicy = async (args) => {
+	// args == t.data
+	console.log(args);
 
 	const bpKey = eth.s32b(uuidv4());
 	const data = eth.s32b('TestData');
@@ -33,4 +35,76 @@ const applyForPolicy = async (args) => {
 };
 
 
-module.exports = { applyForPolicy };
+const underwrite = async (args) => {
+	// args == t.data
+	console.log(args);
+
+	const bpKey = eth.s32b(uuidv4());
+	const data = eth.s32b('TestData');
+
+	try {
+
+		const result = await Product.applyForPolicy(bpKey, data, {gasLimit: 500000});
+
+		info('Result of applyForPolicy:', result);
+		return 'Success!';
+
+	} catch (err) {
+		error('Error applyForPolicy', {message: err.message, stack: err.stack});
+		return err.message;
+	}
+
+
+
+};
+
+
+const claim = async (args) => {
+	// args == t.data
+	console.log(args);
+
+	const bpKey = eth.s32b(uuidv4());
+	const data = eth.s32b('TestData');
+
+	try {
+
+		const result = await Product.applyForPolicy(bpKey, data, {gasLimit: 500000});
+
+		info('Result of applyForPolicy:', result);
+		return 'Success!';
+
+	} catch (err) {
+		error('Error applyForPolicy', {message: err.message, stack: err.stack});
+		return err.message;
+	}
+
+
+
+};
+
+
+const payout = async (args) => {
+	// args == t.data
+	console.log(args);
+
+	const bpKey = eth.s32b(uuidv4());
+	const data = eth.s32b('TestData');
+
+	try {
+
+		const result = await Product.applyForPolicy(bpKey, data, {gasLimit: 500000});
+
+		info('Result of applyForPolicy:', result);
+		return 'Success!';
+
+	} catch (err) {
+		error('Error applyForPolicy', {message: err.message, stack: err.stack});
+		return err.message;
+	}
+
+
+
+};
+
+
+module.exports = { applyForPolicy, underwrite, claim, payout };

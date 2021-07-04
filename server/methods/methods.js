@@ -5,7 +5,7 @@ import { activation_aggregates } from '/imports/server/methods/activations-reade
 import { executeJob } from '/imports/server/methods/job-execution.js';
 import { bongaSMS, bongaFetchDeliveryReport } from '/imports/server/methods/bonga-gateway.js';
 import { createPayoutSchedule, changeStatusPayoutSchedule } from '/imports/server/methods/payout-schedule.js';
-import { applyForPolicy } from '/imports/server/methods/gif-interaction.js';
+import { applyForPolicy, underwrite, claim, payout } from '/imports/server/methods/gif-interaction.js';
 
 const executePayouts = () => {
 	Payouts.update({execute: true}, {$set: {execute: false, executed: true}}, {multi: true});
@@ -32,5 +32,8 @@ Meteor.methods({
 	bongaFetchDeliveryReport,
 	createPayoutSchedule,
 	changeStatusPayoutSchedule,
-	applyForPolicy
+	applyForPolicy,
+	underwrite,
+	claim,
+	payout
 });
