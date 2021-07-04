@@ -18,9 +18,10 @@ const applyForPolicy = async (args) => {
 
 	try {
 
-		const result = await Product.applyForPolicy(bpKey, data, {gasLimit: 500000}).wait();
-
-		info(`Result of applyForPolicy ${bpKey}`, result);
+		const result = await Product.applyForPolicy(bpKey, data, {gasLimit: 500000});
+		const receipt = await result.wait();
+		
+		info(`Result of applyForPolicy ${bpKey}`, {result, receipt});
 		return 'Success!';
 
 	} catch (err) {
