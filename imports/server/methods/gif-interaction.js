@@ -12,19 +12,19 @@ const Product = new eth.ethers.Contract(
 
 
 const applyForPolicy = async (args) => {
-	console.log(args);
-	const bpKey = eth.s32b(args._id);
+
+	const bpKey = eth.s32b(args.activation._id);
 	const data = eth.s32b('TestData');
 
 	try {
 
 		const result = await Product.applyForPolicy(bpKey, data, {gasLimit: 500000}).wait();
 
-		info('Result of applyForPolicy:', result);
+		info(`Result of applyForPolicy ${bpKey}`, result);
 		return 'Success!';
 
 	} catch (err) {
-		error('Error applyForPolicy', {args, message: err.message, stack: err.stack});
+		error(`Error applyForPolicy ${bpKey}`, {args, message: err.message, stack: err.stack});
 		return err.message;
 	}
 
@@ -35,17 +35,17 @@ const applyForPolicy = async (args) => {
 
 const underwrite = async (args) => {
 
-	const bpKey = eth.s32b(args._id);
+	const bpKey = eth.s32b(args.activation_id);
 
 	try {
 
 		const result = await Product.underwrite(bpKey, {gasLimit: 500000});
 
-		info(`Result of underwrite ${args._id}`, result);
+		info(`Result of underwrite ${bpKey}`, result);
 		return 'Success!';
 
 	} catch (err) {
-		error(`Error underwrite ${args._id}`, {args, message: err.message, stack: err.stack});
+		error(`Error underwrite ${bpKey}`, {args, message: err.message, stack: err.stack});
 		return err.message;
 	}
 
@@ -56,17 +56,18 @@ const underwrite = async (args) => {
 
 const claim = async (args) => {
 
-	const bpKey = eth.s32b(args._id);
+	const bpKey = eth.s32b(args.activation_id);
+	const data = eth.s32b('TestData');
 
 	try {
 
 		const result = await Product.newClaim(bpKey, data, {gasLimit: 500000});
 
-		info(`Result of underwrite ${args._id}`, result);
+		info(`Result of underwrite ${bpKey}`, result);
 		return 'Success!';
 
 	} catch (err) {
-		error(`Error underwrite ${args._id}`, {args, message: err.message, stack: err.stack});
+		error(`Error underwrite ${bpKey}`, {args, message: err.message, stack: err.stack});
 		return err.message;
 	}
 
@@ -77,17 +78,18 @@ const claim = async (args) => {
 
 const payout = async (args) => {
 
-	const bpKey = eth.s32b(args._id);
+	const bpKey = eth.s32b(args.activation._id);
+	const data = eth.s32b('TestData');
 
 	try {
 
-		const result = await Product.payout(bpKey, {gasLimit: 500000});
+		const result = await Product.payout(bpKey, data, {gasLimit: 500000});
 
-		info(`Result of underwrite ${args._id}`, result);
+		info(`Result of underwrite ${bpKey}`, result);
 		return 'Success!';
 
 	} catch (err) {
-		error(`Error underwrite ${args._id}`, {args, message: err.message, stack: err.stack});
+		error(`Error underwrite ${bpKey}`, {args, message: err.message, stack: err.stack});
 		return err.message;
 	}
 
