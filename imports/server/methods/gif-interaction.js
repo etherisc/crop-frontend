@@ -12,21 +12,19 @@ const Product = new eth.ethers.Contract(
 
 
 const applyForPolicy = async (args) => {
-	// args == t.data
-	console.log(args);
 
-	const bpKey = eth.s32b(uuidv4());
+	const bpKey = eth.s32b(args._id);
 	const data = eth.s32b('TestData');
 
 	try {
 
-		const result = await Product.applyForPolicy(bpKey, data, {gasLimit: 500000});
+		const result = await Product.applyForPolicy(bpKey, data, {gasLimit: 500000}).wait();
 
 		info('Result of applyForPolicy:', result);
 		return 'Success!';
 
 	} catch (err) {
-		error('Error applyForPolicy', {message: err.message, stack: err.stack});
+		error('Error applyForPolicy', {args, message: err.message, stack: err.stack});
 		return err.message;
 	}
 
@@ -36,21 +34,18 @@ const applyForPolicy = async (args) => {
 
 
 const underwrite = async (args) => {
-	// args == t.data
-	console.log(args);
 
-	const bpKey = eth.s32b(uuidv4());
-	const data = eth.s32b('TestData');
+	const bpKey = eth.s32b(args._id);
 
 	try {
 
-		const result = await Product.applyForPolicy(bpKey, data, {gasLimit: 500000});
+		const result = await Product.underwrite(bpKey, {gasLimit: 500000});
 
-		info('Result of applyForPolicy:', result);
+		info(`Result of underwrite ${args._id}`, result);
 		return 'Success!';
 
 	} catch (err) {
-		error('Error applyForPolicy', {message: err.message, stack: err.stack});
+		error(`Error underwrite ${args._id}`, {args, message: err.message, stack: err.stack});
 		return err.message;
 	}
 
@@ -60,21 +55,18 @@ const underwrite = async (args) => {
 
 
 const claim = async (args) => {
-	// args == t.data
-	console.log(args);
 
-	const bpKey = eth.s32b(uuidv4());
-	const data = eth.s32b('TestData');
+	const bpKey = eth.s32b(args._id);
 
 	try {
 
-		const result = await Product.applyForPolicy(bpKey, data, {gasLimit: 500000});
+		const result = await Product.newClaim(bpKey, data, {gasLimit: 500000});
 
-		info('Result of applyForPolicy:', result);
+		info(`Result of underwrite ${args._id}`, result);
 		return 'Success!';
 
 	} catch (err) {
-		error('Error applyForPolicy', {message: err.message, stack: err.stack});
+		error(`Error underwrite ${args._id}`, {args, message: err.message, stack: err.stack});
 		return err.message;
 	}
 
@@ -84,27 +76,25 @@ const claim = async (args) => {
 
 
 const payout = async (args) => {
-	// args == t.data
-	console.log(args);
 
-	const bpKey = eth.s32b(uuidv4());
-	const data = eth.s32b('TestData');
+	const bpKey = eth.s32b(args._id);
 
 	try {
 
-		const result = await Product.applyForPolicy(bpKey, data, {gasLimit: 500000});
+		const result = await Product.payout(bpKey, {gasLimit: 500000});
 
-		info('Result of applyForPolicy:', result);
+		info(`Result of underwrite ${args._id}`, result);
 		return 'Success!';
 
 	} catch (err) {
-		error('Error applyForPolicy', {message: err.message, stack: err.stack});
+		error(`Error underwrite ${args._id}`, {args, message: err.message, stack: err.stack});
 		return err.message;
 	}
 
 
 
 };
+
 
 
 module.exports = { applyForPolicy, underwrite, claim, payout };
