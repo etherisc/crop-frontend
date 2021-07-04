@@ -12,7 +12,7 @@ const Product = new eth.ethers.Contract(
 
 
 const applyForPolicy = async (args) => {
-
+	console.log(args);
 	const bpKey = eth.s32b(args._id);
 	const data = eth.s32b('TestData');
 
