@@ -34,8 +34,6 @@ const contractCall = async (method, ...args) => {
 		throw new Meteor.Error(err.message);
 	}
 
-
-
 };
 
 
@@ -193,6 +191,8 @@ const payout = async (args) => {
 	info(`payout ${bpKey2uuid(bc.bpKey)}`, bc);
 	return 'Success!';
 }
+
+
 
 
 module.exports = { applyForPolicy, underwrite, claim, payout };
