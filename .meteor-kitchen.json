@@ -130,7 +130,7 @@
 		},
 		{
 			"path": "client/views/admin/admin.html",
-			"checksum": "6026524f2c379003db267f0db589175191ceb517"
+			"checksum": "19cb7b0030bc6158e02ed2338b0c726bdf0de4ca"
 		},
 		{
 			"path": "client/views/admin/admin.js",
@@ -394,7 +394,7 @@
 		},
 		{
 			"path": "client/views/admin/payout_schedules/details/details/details.html",
-			"checksum": "b493830adbf0515f2d6270c0567bb7011cf6cc65"
+			"checksum": "061a6d0be34b392cd1601a07e39fc644c15d6612"
 		},
 		{
 			"path": "client/views/admin/payout_schedules/details/details/details.js",
@@ -610,7 +610,7 @@
 		},
 		{
 			"path": "client/views/group_policies/details/details/details.html",
-			"checksum": "e7e1f1beef22dd913cc87d4a9c06e3c294db6fdf"
+			"checksum": "c07cbf80a4efeefd7c8850911bca5f036c17c6a2"
 		},
 		{
 			"path": "client/views/group_policies/details/details/details.js",
@@ -778,7 +778,7 @@
 		},
 		{
 			"path": "client/views/policies_page/details/details.html",
-			"checksum": "61c831d89ad6fb888d04a3383e5bb7118a99f571"
+			"checksum": "23f574c77df717249b8bd71259787f775d3dce02"
 		},
 		{
 			"path": "client/views/policies_page/details/details.js",
