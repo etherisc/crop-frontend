@@ -153,8 +153,8 @@ Helpers.displayUserEmail = function(emails, self){
 	);
 };
 
-Helpers.showActionButton = function(method, data) {
-	console.log(method, data);
+Helpers.showActionButton = function(method, ...data) {
+	console.log(method, data, this);
 	return true;
 }
 
