@@ -131,7 +131,7 @@ Helpers.array2table = (arrVal) => {
 };
 
 
-Helpers.bcAuditTrail = (bc) => {
+Helpers.bcAuditTrail = ({bc}) => {
 	const txLink = (txHash) => `<a href="https://blockscout.com/xdai/mainnet/tx/${txHash}" target="_blank">${txHash.slice(0,10)}...</a>`;
 	const lines = [];
 	if (bc.apply) lines.push({ step: 'Apply', tx: txLink(bc.apply.transactionHash), payload: '' });
