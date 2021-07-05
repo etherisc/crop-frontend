@@ -78,6 +78,7 @@ const applyForPolicy = async (args) => {
 	
 	Policies.update({_id}, {$set: {bc_trail: {apply}, next_action: 'underwrite'}});
 	info(`applyForPolicy ${bpKey}`, {apply});
+	return 'Success!';
 	
 }
 
