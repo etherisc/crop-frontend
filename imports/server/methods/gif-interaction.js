@@ -54,8 +54,7 @@ const payout = (bpKey, payoutId, data) => contractCall('payout', bpKey, payoutId
 
 const applyForPolicy = async (args) => {
 		
-	console.log(args);
-	return;
+	const {policy: {_id}} = args;
 	const {bc_trail, group_policy_id, phone_no, premium_amount, sum_insured_amount, activation: {timestamp}} = Policies.findOne({_id});
 		
 	if (bc_trail && bc_trail.apply) {
