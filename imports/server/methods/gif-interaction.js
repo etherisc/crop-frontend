@@ -74,7 +74,6 @@ const applyForPolicy = async (args) => {
 	const {receipt: {transactionHash, blockNumber}} = await contractCall('applyForPolicy', bc.bpKey, hash);
 
 	bc = {
-		bpKey,
 		next_action: 'underwrite',
 		apply: {
 			text, 
