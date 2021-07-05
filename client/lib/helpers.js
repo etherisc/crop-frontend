@@ -149,7 +149,7 @@ Helpers.bcAuditTrail = (bc) => {
 	const line = ({step, tx, payload}) => `<tr><td>${step}</td><td>${tx}</td><td>${payload}</td></tr>`;
 	const header = `<thead><tr><th>Step</th><th>Tx</th><th>Payload</th></tr></thead>`;
 	const body = `<tbody>${lines.map(line).join('\n')}</tbody>`;
-	const table = `<p>Business Key: ${bpKey2uuid(bc.bpKey)}</p><table class="custom-param-table">${header}${body}</table>`;
+	const table = `<p><strong>Business Key:</strong> ${bpKey2uuid(bc.bpKey)}</p><table class="custom-param-table">${header}${body}</table>`;
 	
 	return new Handlebars.SafeString(table);
 
