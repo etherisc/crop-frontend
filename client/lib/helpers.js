@@ -84,6 +84,8 @@ const mapVal = (key, val, data) => {
 };
 
 
+const short = (txt, len) => `${txt.slice(0, len)}...`;
+
 Helpers = {};
 
 Helpers.pre = (text) => new Handlebars.SafeString(`<pre class="code">${text}</pre>`);
@@ -135,10 +137,10 @@ Helpers.bcAuditTrail = (bc) => {
 	
 	const txLink = (txHash) => `<a href="https://blockscout.com/xdai/mainnet/tx/${txHash}" target="_blank">${txHash.slice(0,10)}...</a>`;
 	const lines = [];
-	if (bc.apply) lines.push({ step: 'Apply', tx: txLink(bc.apply.transactionHash), payload: '' });
-	if (bc.underwrite) lines.push({ step: 'Underwrite', tx: txLink(bc.underwrite.transactionHash), payload: ''});
-	if (bc.claim) lines.push({ step: 'Claim', tx: txLink(bc.claim.transactionHash), payload: '' });
-	if (bc.payout) lines.push({ step: 'Payout', tx: txLink(bc.payout.transactionHash), payload: ''});
+	if (bc.apply) lines.push({ step: 'Apply', tx: txLink(bc.apply.transactionHash), payload: `Policy Data Hash: ${short(bc.apply.hash, 10)}` });
+	if (bc.underwrite) lines.push({ step: 'Underwrite', tx: txLink(bc.underwrite.transactionHash), payload: 'n/a'});
+	if (bc.claim) lines.push({ step: 'Claim', tx: txLink(bc.claim.transactionHash), payload: `Claim Data Hash: ${short(bc.claim.hash, 10)}` });
+	if (bc.payout) lines.push({ step: 'Payout', tx: txLink(bc.payout.transactionHash), payload: `Payout-Id: ${bc.payout.payoutId}` });
 	
 	const line = ({step, tx, payload}) => `<tr><td>${step}</td><td>${tx}</td>${payload}<td></td></tr>`;
 	const header = `<thead><tr><th>Step</th><th>Tx</th><th>Payload</th></tr></thead>`;
