@@ -71,7 +71,6 @@ const applyForPolicy = async (args) => {
 		sum_insured_amount,
 		timestamp});
 		
-	console.log(bpKey, text, hash);
 	const {receipt: {transactionHash, blockNumber}} = await contractCall('applyForPolicy', bpKey, hash);
 	
 	const apply = {text, hash, transactionHash, blockNumber, timestamp: await eth.blockTimestamp(blockNumber)};
@@ -83,6 +82,23 @@ const applyForPolicy = async (args) => {
 }
 
 const underwrite = async (_id) => {
+	const {policy: {_id}} = args;
+	const {bc_trail} = Policies.findOne({_id});
+		
+	if (bc_trail && bc_trail.underwrite) {
+		const msg = `Policy ${_id} already applied`;
+		error(msg, {_id});
+		throw new Meteor.Error(msg);
+	}
+	
+	const bpKey = eth.s32b(_id);		
+	const {receipt: {transactionHash, blockNumber}} = await contractCall('underwrite', bpKey);
+	
+	const underwrite = {transactionHash, blockNumber, timestamp: await eth.blockTimestamp(blockNumber)};
+	
+	Policies.update({_id}, {$set: {bc_trail: {underwrite}, next_action: 'claim'}});
+	info(`underwrite ${bpKey}`, {underwrite});
+	return 'Success!';
 }
 
 const claim = async (_id) => {
