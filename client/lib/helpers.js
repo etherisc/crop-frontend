@@ -138,9 +138,9 @@ Helpers.bcAuditTrail = (bc) => {
 	const txLink = (txHash) => `<a href="https://blockscout.com/xdai/mainnet/tx/${txHash}" target="_blank">${txHash.slice(0,10)}...</a>`;
 	const lines = [];
 	if (bc.apply) lines.push({ step: 'Apply', tx: txLink(bc.apply.transactionHash), payload: '' });
-	if (bc.underwrite) lines.push({ step: 'Underwrite', tx: txLink(bc.apply.transactionHash), payload: ''});
-	if (bc.claim) lines.push({ step: 'Claim', tx: txLink(bc.apply.transactionHash), payload: '' });
-	if (bc.payout) lines.push({ step: 'Payout', tx: txLink(bc.apply.transactionHash), payload: ''});
+	if (bc.underwrite) lines.push({ step: 'Underwrite', tx: txLink(bc.underwrite.transactionHash), payload: ''});
+	if (bc.claim) lines.push({ step: 'Claim', tx: txLink(bc.claim.transactionHash), payload: '' });
+	if (bc.payout) lines.push({ step: 'Payout', tx: txLink(bc.payout.transactionHash), payload: ''});
 	
 	const line = ({step, tx, payload}) => `<tr><td>${step}</td><td>${tx}</td>${payload}<td></td></tr>`;
 	const header = `<thead><tr><th>Step</th><th>Tx</th><th>Payload</th></tr></thead>`;
