@@ -67,7 +67,6 @@ const applyForPolicy = async (args) => {
 	}
 
 	bc = {bpKey: uuid2bpKey(_id)};
-	console.log(bc.bpKey);
 	const {text, hash} = keccak256({
 		group_policy_id,
 		phone_no,
@@ -126,7 +125,7 @@ const underwrite = async (args) => {
 const claim = async (args) => {
 
 	const {policy: {_id}} = args;
-	let {bc} = Policies.findOne({_id});
+	let {bc, payout} = Policies.findOne({_id});
 
 	if (bc && bc.claim) {
 		const msg = `Policy ${_id} already claimed`;
@@ -134,13 +133,18 @@ const claim = async (args) => {
 		throw new Meteor.Error(msg);
 	}
 
-	const {receipt: {transactionHash, blockNumber}, logs} = await contractCall('newClaim', bc.bpKey);
+	const {text, hash} = keccak256(payout);
+
+	const {receipt: {transactionHash, blockNumber}, logs} = await contractCall('newClaim', bc.bpKey, hash);
 
 	bc = {
 		claim: {
+			text,
+			hash,
 			transactionHash, 
 			blockNumber, 
-			timestamp: await eth.blockTimestamp(blockNumber)
+			timestamp: await eth.blockTimestamp(blockNumber),
+			logs
 		},
 		...bc
 	};
