@@ -53,59 +53,127 @@ const payout = (bpKey, payoutId, data) => contractCall('payout', bpKey, payoutId
 */
 
 const applyForPolicy = async (args) => {
-		
+
 	const {policy: {_id}} = args;
-	const {bc_trail, group_policy_id, gp_id, phone_no, premium_amount, sum_insured_amount, activation: {timestamp}} = Policies.findOne({_id});
-		
-	if (bc_trail && bc_trail.apply) {
+	let {bc, group_policy_id, gp_id, phone_no, premium_amount, sum_insured_amount, activation: {timestamp}} = Policies.findOne({_id});
+
+	if (bc && bc.apply) {
 		const msg = `Policy ${_id} already applied`;
 		error(msg, {_id});
 		throw new Meteor.Error(msg);
 	}
-	
-	const bpKey = eth.s32b(_id.replace('-','')); // shorten UUID
+
+	bc = {bpKey: `0x${_id.replace(/-/g,'')}`}; // shorten UUID
 	const {text, hash} = keccak256({
 		group_policy_id,
 		phone_no,
 		premium_amount,
 		sum_insured_amount,
 		timestamp});
-		
-	const {receipt: {transactionHash, blockNumber}} = await contractCall('applyForPolicy', bpKey, hash);
-	
-	const apply = {bpKey, text, hash, transactionHash, blockNumber, timestamp: await eth.blockTimestamp(blockNumber)};
-	
-	Policies.update({_id}, {$set: {bc_trail: {apply}, next_action: 'underwrite'}});
-	info(`applyForPolicy ${bpKey}`, {apply});
+
+	const {receipt: {transactionHash, blockNumber}} = await contractCall('applyForPolicy', bc.bpKey, hash);
+
+	bc = {
+		bpKey,
+		next_action: 'underwrite',
+		apply: {
+			text, 
+			hash, 
+			transactionHash, 
+			blockNumber, 
+			timestamp: await eth.blockTimestamp(blockNumber)
+		}, 
+		...bc
+	};
+
+	Policies.update({_id}, {$set: {bc}});
+	info(`applyForPolicy ${bpKey}`, bc);
 	return 'Success!';
-	
+
 }
 
 const underwrite = async (args) => {
 
 	const {policy: {_id}} = args;
-	const {bc_trail} = Policies.findOne({_id});
-		
-	if (bc_trail && bc_trail.underwrite) {
+	let {bc} = Policies.findOne({_id});
+
+	if (bc && bc.underwrite) {
+		const msg = `Policy ${_id} already underwritten`;
+		error(msg, {_id});
+		throw new Meteor.Error(msg);
+	}
+
+	const {receipt: {transactionHash, blockNumber}} = await contractCall('underwrite', bc.bpKey);
+
+	bc = {
+		next_action: 'claim',
+		underwrite: {
+			transactionHash, 
+			blockNumber, 
+			timestamp: await eth.blockTimestamp(blockNumber)
+		},
+		...bc
+	};
+
+	Policies.update({_id}, {$set: {bc}});
+	info(`underwrite ${bpKey}`, bc);
+	return 'Success!';
+}
+
+const claim = async (args) => {
+
+	const {policy: {_id}} = args;
+	let {bc} = Policies.findOne({_id});
+
+	if (bc && bc.claim) {
+		const msg = `Policy ${_id} already claimed`;
+		error(msg, {_id});
+		throw new Meteor.Error(msg);
+	}
+
+	const {receipt: {transactionHash, blockNumber}, logs} = await contractCall('newClaim', bc.bpKey);
+
+	bc = {
+		next_action: 'payout',
+		claim: {
+			transactionHash, 
+			blockNumber, 
+			timestamp: await eth.blockTimestamp(blockNumber)
+		},
+		...bc
+	};
+
+	Policies.update({_id}, {$set: {bc}});
+	info(`claim ${bpKey}`, bc);
+	return 'Success!';
+}
+
+const payout = async (args) => {
+
+	const {policy: {_id}} = args;
+	let {bc} = Policies.findOne({_id});
+
+	if (bc && bc.underwrite) {
 		const msg = `Policy ${_id} already applied`;
 		error(msg, {_id});
 		throw new Meteor.Error(msg);
 	}
-	
-	const bpKey = eth.s32b(_id);		
-	const {receipt: {transactionHash, blockNumber}} = await contractCall('underwrite', bpKey);
-	
-	const underwrite = {transactionHash, blockNumber, timestamp: await eth.blockTimestamp(blockNumber)};
-	
-	Policies.update({_id}, {$set: {bc_trail: {underwrite}, next_action: 'claim'}});
-	info(`underwrite ${bpKey}`, {underwrite});
+
+	const {receipt: {transactionHash, blockNumber}} = await contractCall('payout', bc.bpKey, bc.payoutId);
+
+	bc = {
+		next_action: 'none',
+		payout: {
+			transactionHash, 
+			blockNumber, 
+			timestamp: await eth.blockTimestamp(blockNumber)
+		},
+		...bc
+	};
+
+	Policies.update({_id}, {$set: {bc}});
+	info(`payout ${bpKey}`, bc);
 	return 'Success!';
-}
-
-const claim = async (_id) => {
-}
-
-const payout = async (_id) => {
 }
 
 
