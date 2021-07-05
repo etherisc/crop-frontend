@@ -20,6 +20,7 @@ const contractCall = async (method, ...args) => {
 	);	
 
 	try {
+		info(`<before> Tx Response ${method}`, args);
 
 		const txResponse = await Product[method](...args);
 		const receipt = await txResponse.wait();
