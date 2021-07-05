@@ -27,13 +27,13 @@ const wallet = () => {
 
 const blockTimestamp = async (blockNumber) => {
 
-	const block = await eth.provider.getBlock(blockNumber);
+	const block = await eth.provider().getBlock(blockNumber);
 	return block.timestamp * 1000;
 };
 
 const transactionTimestamp = async (tx) => {
 
-	const transaction = await eth.provider.getTransaction(tx);
+	const transaction = await eth.provider().getTransaction(tx);
 	return await eth.blockTimestamp(transaction.blockNumber);
 };
 
