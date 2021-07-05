@@ -46,7 +46,7 @@ const keccak256 = (obj) => {
 };
 
 
-const uuid2bpKey = (uuid) => `0x${uuid.replace(/-/g, '').padEnd(32, '0')}`;
+const uuid2bpKey = (uuid) => `0x${uuid.replace(/-/g, '').padEnd(64, '0')}`;
 
 /*
 const applyForPolicy = (bpKey, data) => contractCall('applyForPolicy', bpKey, data);
