@@ -130,7 +130,7 @@
 		},
 		{
 			"path": "client/views/admin/admin.html",
-			"checksum": "14996857cf759337f9baeda39872023e1c207699"
+			"checksum": "45f0c187bc0a645e60a3f513c5f93566fc920274"
 		},
 		{
 			"path": "client/views/admin/admin.js",
@@ -394,7 +394,7 @@
 		},
 		{
 			"path": "client/views/admin/payout_schedules/details/details/details.html",
-			"checksum": "0a1af4b58cceab62eed2fdf01e6ef685163c2b74"
+			"checksum": "b493830adbf0515f2d6270c0567bb7011cf6cc65"
 		},
 		{
 			"path": "client/views/admin/payout_schedules/details/details/details.js",
@@ -610,7 +610,7 @@
 		},
 		{
 			"path": "client/views/group_policies/details/details/details.html",
-			"checksum": "476328eb1144ee4a7340514907ba1efdbefb611b"
+			"checksum": "e7e1f1beef22dd913cc87d4a9c06e3c294db6fdf"
 		},
 		{
 			"path": "client/views/group_policies/details/details/details.js",
@@ -778,7 +778,7 @@
 		},
 		{
 			"path": "client/views/policies_page/details/details.html",
-			"checksum": "f2e235ca452482d484be83f74e8ca5d3976d9cd2"
+			"checksum": "dfd2580ee72f45a922b6ed4fd0b34a5137bf2225"
 		},
 		{
 			"path": "client/views/policies_page/details/details.js",
@@ -1118,7 +1118,7 @@
 		},
 		{
 			"path": "client/lib/helpers.js",
-			"checksum": "db3c6cb7ee09dcf1591289be1f09690dd39d31b5"
+			"checksum": "53787860288c2a3927c227e9f43f0fef4a2d8ef6"
 		},
 		{
 			"path": "client/styles/googlemaps.css",
@@ -1198,7 +1198,7 @@
 		},
 		{
 			"path": "imports/server/methods/gif-interaction.js",
-			"checksum": "ea60037970c306eb35611462f719f84acb8b1168"
+			"checksum": "771e6b73c60edc71dd028aa53f270af7a515f0fe"
 		},
 		{
 			"path": "server/startup.js",

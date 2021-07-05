@@ -17,7 +17,7 @@ const percentage = (number) => {
 };
 
 const mapHeader = (key) => {
-	
+
 	const dict = {
 		"name": "Name",
 		"weight": "Weight",
@@ -51,9 +51,9 @@ const mapHeader = (key) => {
 };
 
 const mapVal = (key, val, data) => {
-	
+
 	if (data && 'activation' in data) key = `ip_${key}`;
-	
+
 	switch (key) {
 
 		case "payout":
@@ -62,7 +62,7 @@ const mapVal = (key, val, data) => {
 		case "deductible_amount": 
 		case "actual_amount":
 			return percentage(val);
-			
+
 		case "ip_total_amount":
 		case "ip_deductible_amount": 
 		case "ip_actual_amount":
@@ -70,12 +70,12 @@ const mapVal = (key, val, data) => {
 
 		case "location":
 			return val.name;
-			
+
 		case "timestamp":
 		case "created_at":
 		case "completed_at":
 			return moment(val).format('YYYY-MM-DD HH:mm:ss');
-			
+
 		case "transaction_no":
 			return null;
 
@@ -118,13 +118,6 @@ ${rows}
 </tbody> 
 </table>`;
 
-	/*
-
-<thead>
-<tr><th>Param</th><th>Value</th></tr>
-</thead>
-
-*/
 	return new Handlebars.SafeString(table);
 };
 
@@ -132,10 +125,27 @@ Helpers.array2table = (arrVal) => {
 
 	const headers = Object.keys(arrVal[0]);
 	const header = `<thead><tr>${headers.map((key) => mapHeader(key) ? `<th>${mapHeader(key)}</th>` : '').join('')}</tr></thead>`;
-	const body = arrVal.map((row) => `<tr>${headers.map((key) => mapHeader(key) ? `<td>${mapVal(key, row[key])}</td>` : '').join('')}</tr>`).join('\n');
+	const body = `<tbody>${arrVal.map((row) => `<tr>${headers.map((key) => mapHeader(key) ? `<td>${mapVal(key, row[key])}</td>` : '').join('')}</tr>`).join('\n')}</tbody>`;
 	return new Handlebars.SafeString(`<table class="custom-param-table">${header}${body}</table>`);
 
 };
+
+
+Helpers.bcAuditTrail = (bc) => {
+	const txLink = (txHash) => `<a href="https://blockscout.com/xdai/mainnet/tx/${txHash}" target="_blank">${txHash.slice(0,10)}...</a>`;
+	const lines = [];
+	if (bc.apply) lines.push({ step: 'Apply', tx: txLink(bc.apply.transactionHash), payload: '' });
+	if (bc.underwrite) lines.push({ step: 'Underwrite', tx: txLink(bc.apply.transactionHash), payload: ''});
+	if (bc.claim) lines.push({ step: 'Claim', tx: txLink(bc.apply.transactionHash), payload: '' });
+	if (bc.payout) lines.push({ step: 'Payout', tx: txLink(bc.apply.transactionHash), payload: ''});
+	
+	const line = (step, tx, payload) => `<tr><td>${step}</td><td>${tx}</td>${payload}<td></td></tr>`;
+	const header = `<thead><tr><th>Step</th><th>Tx</th><th>Payload</th></tr></thead>`;
+	const body = `<tbody>${lines.map(line)}</tbody>`;
+	const table = `<table class="custom-param-table">${header}${body}</table>`;
+	return new Handlebars.SafeString(table);
+
+}
 
 Helpers.txLink = function(txHash) {
 	return new Handlebars.SafeString(`<a href="https://blockscout.com/xdai/mainnet/tx/${txHash}" target="_blank">${txHash.slice(0,10)}...</a>`);
