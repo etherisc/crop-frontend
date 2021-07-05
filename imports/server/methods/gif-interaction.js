@@ -46,7 +46,10 @@ const keccak256 = (obj) => {
 };
 
 const uuid2bpKey = (uuid) => `0x${uuid.replace(/-/g,'').padEnd(64, '0')}`;
-const bpKey2uuid = (bpKey) => Buffer.from(bpKey, 'hex').toString('hex');
+const bpKey2uuid = (bpKey) => {
+	const raw = Buffer.from(bpKey.slice(2), 'hex').toString('hex').replace(/(00)+$/, '');
+	return `${raw.slice(0,8)}-${raw.slice(8,12)}-${raw.slice(12,16)}-${raw.slice(16,20)}-${raw.slice(20,32)}`;
+}
 
 /*
 const applyForPolicy = (bpKey, data) => contractCall('applyForPolicy', bpKey, data);
@@ -160,16 +163,20 @@ const payout = async (args) => {
 	const {policy: {_id}} = args;
 	let {bc} = Policies.findOne({_id});
 
-	if (bc && bc.underwrite) {
-		const msg = `Policy ${_id} already applied`;
+	if (bc && bc.payout) {
+		const msg = `Policy ${_id} already paid out`;
 		error(msg, {_id});
 		throw new Meteor.Error(msg);
 	}
+	
+	const logNewPayout = bc.claim.logs.find(log => log.name === 'LogNewPayout');
+	const payoutId = parseInt(logNewPayout.events.find(event => event.name === 'payoutId').value);
 
-	const {receipt: {transactionHash, blockNumber}} = await contractCall('payout', bc.bpKey, bc.payoutId);
+	const {receipt: {transactionHash, blockNumber}} = await contractCall('payout', bc.bpKey, payoutId);
 
 	bc = {
 		payout: {
+			payoutId,
 			transactionHash, 
 			blockNumber, 
 			timestamp: await eth.blockTimestamp(blockNumber)
