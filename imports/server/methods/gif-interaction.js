@@ -77,7 +77,7 @@ const applyForPolicy = async (args) => {
 	const apply = {text, hash, transactionHash, blockNumber, timestamp: eth.blockTimestamp(blockNumber)};
 	
 	Policies.update({_id}, {$set: {bc_trail: {apply}, next_action: 'underwrite'}});
-	info(`applyForPolicy ${bpKey}`, {apply}
+	info(`applyForPolicy ${bpKey}`, {apply});
 	
 }
 
