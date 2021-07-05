@@ -55,7 +55,7 @@ const payout = (bpKey, payoutId, data) => contractCall('payout', bpKey, payoutId
 const applyForPolicy = async (args) => {
 		
 	const {policy: {_id}} = args;
-	const {bc_trail, group_policy_id, phone_no, premium_amount, sum_insured_amount, activation: {timestamp}} = Policies.findOne({_id});
+	const {bc_trail, group_policy_id, gp_id, phone_no, premium_amount, sum_insured_amount, activation: {timestamp}} = Policies.findOne({_id});
 		
 	if (bc_trail && bc_trail.apply) {
 		const msg = `Policy ${_id} already applied`;
@@ -63,7 +63,7 @@ const applyForPolicy = async (args) => {
 		throw new Meteor.Error(msg);
 	}
 	
-	const bpKey = policy.gp_id;
+	const bpKey = s32b(gp_id.replace('-', ''));
 	const {text, hash} = keccak256({
 		group_policy_id,
 		phone_no,
