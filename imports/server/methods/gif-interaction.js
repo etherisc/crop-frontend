@@ -176,7 +176,7 @@ const payout = async (args) => {
 	
 	const {text, hash} = keccak256(executedPayout);
 	
-	const {receipt: {transactionHash, blockNumber}} = await contractCall('payout', bc.bpKey, payoutId);
+	const {receipt: {transactionHash, blockNumber}} = await contractCall('payout', bc.bpKey, payoutId, hash);
 
 	bc = {
 		payout: {
