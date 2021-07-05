@@ -40,6 +40,7 @@ const contractCall = async (method, ...args) => {
 
 
 const keccak256 = (obj) => {
+	if (!obj) obj = {};
 	const text = JSON.stringify(obj);
 	const hash = eth.ethers.utils.keccak256(Buffer.from(text));
 	return {text, hash};
@@ -161,7 +162,7 @@ const claim = async (args) => {
 const payout = async (args) => {
 
 	const {policy: {_id}} = args;
-	let {bc} = Policies.findOne({_id});
+	let {bc, executedPayout} = Policies.findOne({_id});
 
 	if (bc && bc.payout) {
 		const msg = `Policy ${_id} already paid out`;
@@ -171,7 +172,10 @@ const payout = async (args) => {
 	
 	const logNewPayout = bc.claim.logs.find(log => log.name === 'LogNewPayout');
 	const payoutId = parseInt(logNewPayout.events.find(event => event.name === 'payoutId').value);
-
+	
+	
+	const {text, hash} = keccak256(executedPayout);
+	
 	const {receipt: {transactionHash, blockNumber}} = await contractCall('payout', bc.bpKey, payoutId);
 
 	bc = {
