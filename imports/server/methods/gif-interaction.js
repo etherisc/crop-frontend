@@ -45,6 +45,8 @@ const keccak256 = (obj) => {
 	return {text, hash};
 };
 
+const uuid2bpKey = (uuid) => `0x${uuid.replace(/-/g,'').padEnd(64)}`;
+const bpKey2uuid = (bpKey) => Buffer.from(bpKey, 'hex').toString('hex');
 
 /*
 const applyForPolicy = (bpKey, data) => contractCall('applyForPolicy', bpKey, data);
@@ -87,7 +89,7 @@ const applyForPolicy = async (args) => {
 	};
 
 	Policies.update({_id}, {$set: {bc}});
-	info(`applyForPolicy ${eth.b32s(bc.bpKey)}`, bc);
+	info(`applyForPolicy ${bpKey2uuid(bc.bpKey)}`, bc);
 	return 'Success!';
 
 }
@@ -116,7 +118,7 @@ const underwrite = async (args) => {
 	};
 
 	Policies.update({_id}, {$set: {bc}});
-	info(`underwrite ${eth.b32s(bc.bpKey)}`, bc);
+	info(`underwrite ${bpKey2uuid(bc.bpKey)}`, bc);
 	return 'Success!';
 }
 
@@ -144,7 +146,7 @@ const claim = async (args) => {
 	};
 
 	Policies.update({_id}, {$set: {bc}});
-	info(`claim ${eth.b32s(bc.bpKey)}`, bc);
+	info(`claim ${bpKey2uuid(bc.bpKey)}`, bc);
 	return 'Success!';
 }
 
@@ -172,7 +174,7 @@ const payout = async (args) => {
 	};
 
 	Policies.update({_id}, {$set: {bc}});
-	info(`payout ${eth.b32s(bc.bpKey)}`, bc);
+	info(`payout ${bpKey2uuid(bc.bpKey)}`, bc);
 	return 'Success!';
 }
 
