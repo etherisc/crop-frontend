@@ -81,7 +81,8 @@ const applyForPolicy = async (args) => {
 	
 }
 
-const underwrite = async (_id) => {
+const underwrite = async (args) => {
+
 	const {policy: {_id}} = args;
 	const {bc_trail} = Policies.findOne({_id});
 		
