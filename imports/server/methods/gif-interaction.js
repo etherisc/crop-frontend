@@ -78,7 +78,6 @@ const applyForPolicy = async (args) => {
 	const {receipt: {transactionHash, blockNumber}} = await contractCall('applyForPolicy', bc.bpKey, hash);
 
 	bc = {
-		next_action: 'underwrite',
 		apply: {
 			text, 
 			hash, 
@@ -88,6 +87,7 @@ const applyForPolicy = async (args) => {
 		}, 
 		...bc
 	};
+	bc.next_action = 'underwrite';
 
 	Policies.update({_id}, {$set: {bc}});
 	info(`applyForPolicy ${bpKey2uuid(bc.bpKey)}`, bc);
@@ -109,7 +109,6 @@ const underwrite = async (args) => {
 	const {receipt: {transactionHash, blockNumber}} = await contractCall('underwrite', bc.bpKey);
 
 	bc = {
-		next_action: 'claim',
 		underwrite: {
 			transactionHash, 
 			blockNumber, 
@@ -117,6 +116,7 @@ const underwrite = async (args) => {
 		},
 		...bc
 	};
+	bc.next_action = 'claim';
 
 	Policies.update({_id}, {$set: {bc}});
 	info(`underwrite ${bpKey2uuid(bc.bpKey)}`, bc);
@@ -137,7 +137,6 @@ const claim = async (args) => {
 	const {receipt: {transactionHash, blockNumber}, logs} = await contractCall('newClaim', bc.bpKey);
 
 	bc = {
-		next_action: 'payout',
 		claim: {
 			transactionHash, 
 			blockNumber, 
@@ -145,6 +144,7 @@ const claim = async (args) => {
 		},
 		...bc
 	};
+	bc.next_action = 'payout';
 
 	Policies.update({_id}, {$set: {bc}});
 	info(`claim ${bpKey2uuid(bc.bpKey)}`, bc);
@@ -165,7 +165,6 @@ const payout = async (args) => {
 	const {receipt: {transactionHash, blockNumber}} = await contractCall('payout', bc.bpKey, bc.payoutId);
 
 	bc = {
-		next_action: 'none',
 		payout: {
 			transactionHash, 
 			blockNumber, 
@@ -173,6 +172,7 @@ const payout = async (args) => {
 		},
 		...bc
 	};
+	bc.next_action = 'none';
 
 	Policies.update({_id}, {$set: {bc}});
 	info(`payout ${bpKey2uuid(bc.bpKey)}`, bc);
