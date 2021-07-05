@@ -85,6 +85,10 @@ const mapVal = (key, val, data) => {
 
 
 const short = (txt, len) => `${txt.slice(0, len)}...`;
+const bpKey2uuid = (bpKey) => {
+	const raw = Buffer.from(bpKey.slice(2), 'hex').toString('hex').replace(/(00)+$/, '');
+	return `${raw.slice(0,8)}-${raw.slice(8,12)}-${raw.slice(12,16)}-${raw.slice(16,20)}-${raw.slice(20,32)}`;
+}
 
 Helpers = {};
 
@@ -145,7 +149,7 @@ Helpers.bcAuditTrail = (bc) => {
 	const line = ({step, tx, payload}) => `<tr><td>${step}</td><td>${tx}</td><td>${payload}</td></tr>`;
 	const header = `<thead><tr><th>Step</th><th>Tx</th><th>Payload</th></tr></thead>`;
 	const body = `<tbody>${lines.map(line).join('\n')}</tbody>`;
-	const table = `<table class="custom-param-table">${header}${body}</table>`;
+	const table = `<p>Business Key: ${bpKey2uuid(bc.bpKey)}</p><table class="custom-param-table">${header}${body}</table>`;
 	
 	return new Handlebars.SafeString(table);
 
