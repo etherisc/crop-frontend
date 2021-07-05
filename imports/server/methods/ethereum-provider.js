@@ -25,26 +25,17 @@ const wallet = () => {
 }
 
 
-const blockTimestamp = Meteor.wrapAsync(async (blockNumber, done) => {
+const blockTimestamp = async (blockNumber) => {
 
-	try {
-		const block = await eth.provider.getBlock(blockNumber);
-		done(null, block.timestamp * 1000);
-	} catch (err) {
-		done(err, null);
-	}
-});
+	const block = await eth.provider.getBlock(blockNumber);
+	return block.timestamp * 1000;
+};
 
-const transactionTimestamp = Meteor.wrapAsync(async (tx, done) => {
+const transactionTimestamp = async (tx) => {
 
-	try {
-		const transaction = await eth.provider.getTransaction(tx);
-		done(null, eth.blockTimestamp(transaction.blockNumber));
-	} catch (err) {
-		done(err, null);
-	}
-
-});
+	const transaction = await eth.provider.getTransaction(tx);
+	return await eth.blockTimestamp(transaction.blockNumber);
+};
 
 
 const b32s = (b32) => ethers.utils.parseBytes32String(b32);
