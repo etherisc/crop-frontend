@@ -154,8 +154,8 @@ Helpers.displayUserEmail = function(emails, self){
 };
 
 Helpers.showActionButton = function(method) {
-	if (!this.policy.next_action && method === 'apply') return true;
-	return (this.policy.next_action && method === this.policy.next_action);
+	if (!this.policy.bc && method === 'apply') return true;
+	return (this.policy.bc.next_action && method === this.policy.bc.next_action);
 }
 
 /********************* INSERT NEW HELPERS ABOVE *************************/
