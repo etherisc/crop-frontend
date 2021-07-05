@@ -67,6 +67,7 @@ const applyForPolicy = async (args) => {
 	}
 
 	bc = {bpKey: uuid2bpKey(_id)};
+	console.log(bc.bpKey);
 	const {text, hash} = keccak256({
 		group_policy_id,
 		phone_no,
