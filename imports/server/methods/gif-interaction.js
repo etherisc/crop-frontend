@@ -45,7 +45,7 @@ const keccak256 = (obj) => {
 	return {text, hash};
 };
 
-const uuid2bpKey = (uuid) => `0x${uuid.replace(/-/g,'').padEnd(64)}`;
+const uuid2bpKey = (uuid) => `0x${uuid.replace(/-/g,'').padEnd(64, '0')}`;
 const bpKey2uuid = (bpKey) => Buffer.from(bpKey, 'hex').toString('hex');
 
 /*
