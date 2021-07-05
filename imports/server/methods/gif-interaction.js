@@ -73,7 +73,7 @@ const applyForPolicy = async (args) => {
 		
 	const {receipt: {transactionHash, blockNumber}} = await contractCall('applyForPolicy', bpKey, hash);
 	
-	const apply = {text, hash, transactionHash, blockNumber, timestamp: await eth.blockTimestamp(blockNumber)};
+	const apply = {bpKey, text, hash, transactionHash, blockNumber, timestamp: await eth.blockTimestamp(blockNumber)};
 	
 	Policies.update({_id}, {$set: {bc_trail: {apply}, next_action: 'underwrite'}});
 	info(`applyForPolicy ${bpKey}`, {apply});
