@@ -78,7 +78,14 @@ const applyForPolicy = async (_id) => {
 	
 }
 
+const underwrite = async (_id) => {
+}
 
+const claim = async (_id) => {
+}
+
+const payout = async (_id) => {
+}
 
 
 module.exports = { applyForPolicy, underwrite, claim, payout };
