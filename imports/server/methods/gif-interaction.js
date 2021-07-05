@@ -52,10 +52,11 @@ const claim = (bpKey, data) => contractCall('newClaim', bpKey, data);
 const payout = (bpKey, payoutId, data) => contractCall('payout', bpKey, payoutId, data);
 */
 
-const applyForPolicy = async (_id) => {
+const applyForPolicy = async (args) => {
 		
-	const policy = Policies.findOne({_id});
-	const {bc_trail, group_policy_id, phone_no, premium_amount, sum_insured_amount, activation: {timestamp}} = policy;
+	console.log(args);
+	return;
+	const {bc_trail, group_policy_id, phone_no, premium_amount, sum_insured_amount, activation: {timestamp}} = Policies.findOne({_id});
 		
 	if (bc_trail && bc_trail.apply) {
 		const msg = `Policy ${_id} already applied`;
