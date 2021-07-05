@@ -45,6 +45,9 @@ const keccak256 = (obj) => {
 	return {text, hash};
 };
 
+
+const uuid2bpKey = (uuid) => `0x${uuid.replace(/-/g, '').padEnd(32, '0')}`;
+
 /*
 const applyForPolicy = (bpKey, data) => contractCall('applyForPolicy', bpKey, data);
 const underwrite = (bpKey) => contractCall('underwrite', bpKey);
@@ -63,7 +66,7 @@ const applyForPolicy = async (args) => {
 		throw new Meteor.Error(msg);
 	}
 
-	bc = {bpKey: eth.s32b(_id.replace(/-/g,''))}; // shorten UUID
+	bc = {bpKey: uuid2bpKey(_id)}; // shorten UUID
 	const {text, hash} = keccak256({
 		group_policy_id,
 		phone_no,
