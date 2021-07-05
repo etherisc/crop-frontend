@@ -144,7 +144,7 @@ Helpers.bcAuditTrail = (bc) => {
 	
 	const line = (step, tx, payload) => `<tr><td>${step}</td><td>${tx}</td>${payload}<td></td></tr>`;
 	const header = `<thead><tr><th>Step</th><th>Tx</th><th>Payload</th></tr></thead>`;
-	const body = `<tbody>${lines.map(line)}</tbody>`;
+	const body = `<tbody>${lines.map(line).join('\n')}</tbody>`;
 	const table = `<table class="custom-param-table">${header}${body}</table>`;
 	console.log(table);
 	return new Handlebars.SafeString(table);
