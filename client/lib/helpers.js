@@ -155,8 +155,8 @@ Helpers.displayUserEmail = function(emails, self){
 
 Helpers.showActionButton = function(method) {
 	console.log(method, this);
-	if (!this.nextAction && method === 'apply') return true;
-	return (this.nextAction && method === this.nextAction);
+	if (!this.policy.next_action && method === 'apply') return true;
+	return (this.policy.next_action && method === this.policy.next_action);
 }
 
 /********************* INSERT NEW HELPERS ABOVE *************************/
