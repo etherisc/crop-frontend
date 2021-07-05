@@ -71,7 +71,7 @@ const applyForPolicy = async (args) => {
 		sum_insured_amount,
 		timestamp});
 		
-	const {receipt: {transactionHash, blockNumber}} = contractCall('applyForPolicy', bpKey, hash);
+	const {receipt: {transactionHash, blockNumber}} = await contractCall('applyForPolicy', bpKey, hash);
 	
 	const apply = {text, hash, transactionHash, timestamp: eth.blockTimeStamp(blockNumber)};
 	
