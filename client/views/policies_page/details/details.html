@@ -138,5 +138,29 @@
 			</div>
 		</form>
 	</div>
+	{{> PoliciesPageDetailsFormCustomActions}}
+</template>
+
+<template name="PoliciesPageDetailsFormCustomActions">
+	{{#if showActionButton 'apply'}}
+	<button class="btn btn-warning" id="btn-apply">
+		Apply for Policy
+	</button>
+	{{/if}}
+	{{#if showActionButton 'underwrite'}}
+	<button class="btn btn-warning" id="btn-underwrite">
+		Underwrite Policy
+	</button>
+	{{/if}}
+	{{#if showActionButton 'claim'}}
+	<button class="btn btn-warning" id="btn-claim">
+		Claim Policy
+	</button>
+	{{/if}}
+	{{#if showActionButton 'payout'}}
+	<button class="btn btn-warning" id="btn-payout">
+		Payout Policy
+	</button>
+	{{/if}}
 </template>
 

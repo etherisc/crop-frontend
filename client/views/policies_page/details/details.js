@@ -143,3 +143,112 @@ Template.PoliciesPageDetailsForm.helpers({
 	}
 	
 });
+
+Template.PoliciesPageDetailsFormCustomActions.created = function() {
+
+};
+
+Template.PoliciesPageDetailsFormCustomActions.destroyed = function() {
+
+};
+
+Template.PoliciesPageDetailsFormCustomActions.rendered = function() {
+
+};
+
+Template.PoliciesPageDetailsFormCustomActions.helpers({
+
+});
+
+Template.PoliciesPageDetailsFormCustomActions.events({
+	
+	"click #btn-apply": function (e,t) {
+		e.preventDefault();
+
+		toast_confirm('Really?').then((confirm) => {
+			if(confirm) {
+
+				Meteor.call('applyForPolicy', t.data, function(err, res) {
+
+					if(err) {
+						toast_error(err.message);
+					} else {
+						toast_info(res);
+					}
+
+				});
+			}
+		})
+
+
+		return false;
+	},
+
+	"click #btn-underwrite": function (e,t) {
+		e.preventDefault();
+
+		toast_confirm('Really?').then((confirm) => {
+			if(confirm) {
+
+				Meteor.call('underwrite', t.data, function(err, res) {
+
+					if(err) {
+						toast_error(err.message);
+					} else {
+						toast_info(res);
+					}
+
+				});
+			}
+		})
+
+
+		return false;
+	},
+
+	"click #btn-claim": function (e,t) {
+		e.preventDefault();
+
+		toast_confirm('Really?').then((confirm) => {
+			if(confirm) {
+
+				Meteor.call('claim', t.data, function(err, res) {
+
+					if(err) {
+						toast_error(err.message);
+					} else {
+						toast_info(res);
+					}
+
+				});
+			}
+		})
+
+
+		return false;
+	},
+
+	"click #btn-payout": function (e,t) {
+		e.preventDefault();
+
+		toast_confirm('Really?').then((confirm) => {
+			if(confirm) {
+
+				Meteor.call('payout', t.data, function(err, res) {
+
+					if(err) {
+						toast_error(err.message);
+					} else {
+						toast_info(res);
+					}
+
+				});
+			}
+		})
+
+
+		return false;
+	}
+
+
+});

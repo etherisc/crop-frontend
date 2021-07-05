@@ -130,7 +130,7 @@
 		},
 		{
 			"path": "client/views/admin/admin.html",
-			"checksum": "328cc811b66140fb018d74190ed1dcb0b374a1cc"
+			"checksum": "29b55a618ca4ebe18d766591c0a73f427ce547df"
 		},
 		{
 			"path": "client/views/admin/admin.js",
@@ -562,11 +562,11 @@
 		},
 		{
 			"path": "client/views/activations_page/details/details.html",
-			"checksum": "229f6c1fba8c9c1bcefbe7e598836b0fc3a8a584"
+			"checksum": "720a8f78b4536674e62a2c97945295a62844c7b5"
 		},
 		{
 			"path": "client/views/activations_page/details/details.js",
-			"checksum": "eb80549d23407386e971b4c07d971267cb518426"
+			"checksum": "1464d2a7307a0f08012a9dc1d573ef3a08bfe7c2"
 		},
 		{
 			"path": "client/views/activations_page/details/details_controller.js",
@@ -778,11 +778,11 @@
 		},
 		{
 			"path": "client/views/policies_page/details/details.html",
-			"checksum": "88d6b373a800ad80839b2f167341afeb8ee95107"
+			"checksum": "bc0e3e4285553aaaf6a74dcba4da164917ff0d9e"
 		},
 		{
 			"path": "client/views/policies_page/details/details.js",
-			"checksum": "a9bcdacb355c3aeed3d6e165a761866d056d118f"
+			"checksum": "42f060e5a3e2ab9764ebe0a697cb754d333859f6"
 		},
 		{
 			"path": "client/views/policies_page/details/details_controller.js",
@@ -1118,7 +1118,7 @@
 		},
 		{
 			"path": "client/lib/helpers.js",
-			"checksum": "9f4cf2b2e361d2356fc44d33173adfad2bd8df08"
+			"checksum": "57e547bfaf9e5dacdecb0a15d018a4026f66ab98"
 		},
 		{
 			"path": "client/styles/googlemaps.css",
@@ -1198,7 +1198,7 @@
 		},
 		{
 			"path": "imports/server/methods/gif-interaction.js",
-			"checksum": "0fc205117767b583f9aa5ad219140eb61ef11ba6"
+			"checksum": "a91c49e7ff067fac111da5944143712e472c8fe3"
 		},
 		{
 			"path": "server/startup.js",
@@ -1210,7 +1210,7 @@
 		},
 		{
 			"path": "imports/server/methods/ethereum-provider.js",
-			"checksum": "4d12a1072408ecb4a728ace4c88beaea8a6ffff0"
+			"checksum": "f23b91bd4cc6640873bf9580fb92b70dc94ec9f9"
 		},
 		{
 			"path": "both/utils.js",

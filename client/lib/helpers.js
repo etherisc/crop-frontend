@@ -153,6 +153,10 @@ Helpers.displayUserEmail = function(emails, self){
 	);
 };
 
+Helpers.showActionButton = function(method, data) {
+	console.log(method, data);
+	return true;
+}
 
 /********************* INSERT NEW HELPERS ABOVE *************************/
 
