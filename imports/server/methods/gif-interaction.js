@@ -54,8 +54,9 @@ const payout = (bpKey, payoutId, data) => contractCall('payout', bpKey, payoutId
 
 const applyForPolicy = async (_id) => {
 		
-	const {bc_trail, group_policy_id, phone_no, premium_amount, sum_insured_amount, activation: {timestamp}} = Policies.findOne({_id});
-	
+	const policy = Policies.findOne({_id});
+	const {bc_trail, group_policy_id, phone_no, premium_amount, sum_insured_amount, activation: {timestamp}} = policy;
+		
 	if (bc_trail && bc_trail.apply) {
 		const msg = `Policy ${_id} already applied`;
 		error(msg, {_id});
