@@ -86,7 +86,7 @@ const applyForPolicy = async (args) => {
 	};
 
 	Policies.update({_id}, {$set: {bc}});
-	info(`applyForPolicy ${bpKey}`, bc);
+	info(`applyForPolicy ${eth.b32s(bc.bpKey)}`, bc);
 	return 'Success!';
 
 }
@@ -115,7 +115,7 @@ const underwrite = async (args) => {
 	};
 
 	Policies.update({_id}, {$set: {bc}});
-	info(`underwrite ${bpKey}`, bc);
+	info(`underwrite ${eth.b32s(bc.bpKey)}`, bc);
 	return 'Success!';
 }
 
@@ -143,7 +143,7 @@ const claim = async (args) => {
 	};
 
 	Policies.update({_id}, {$set: {bc}});
-	info(`claim ${bpKey}`, bc);
+	info(`claim ${eth.b32s(bc.bpKey)}`, bc);
 	return 'Success!';
 }
 
@@ -171,7 +171,7 @@ const payout = async (args) => {
 	};
 
 	Policies.update({_id}, {$set: {bc}});
-	info(`payout ${bpKey}`, bc);
+	info(`payout ${eth.b32s(bc.bpKey)}`, bc);
 	return 'Success!';
 }
 
