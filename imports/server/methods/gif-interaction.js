@@ -63,7 +63,7 @@ const applyForPolicy = async (args) => {
 		throw new Meteor.Error(msg);
 	}
 	
-	const bpKey = eth.s32b(_id);
+	const bpKey = eth.s32b(_id.replace('-','')); // shorten UUID
 	const {text, hash} = keccak256({
 		group_policy_id,
 		phone_no,
