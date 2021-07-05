@@ -113,11 +113,11 @@
 				<th class="th-sortable" data-sort="payout.total_amount">
 					Total
 				</th>
-				<th class="th-sortable" data-sort="payout.deductible_amount">
-					Deductible
-				</th>
 				<th class="th-sortable" data-sort="payout.actual_amount">
 					Actual Payout
+				</th>
+				<th class="th-sortable" data-sort="next_action">
+					Next Action
 				</th>
 			</tr>
 		</thead>
@@ -145,10 +145,10 @@
 			{{currency payout.total_amount this}}
 		</td>
 		<td>
-			{{currency payout.deductible_amount this}}
+			{{currency payout.actual_amount this}}
 		</td>
 		<td>
-			{{currency payout.actual_amount this}}
+			{{next_action}}
 		</td>
 	</tr>
 </template>
