@@ -185,7 +185,7 @@ const payout = async (args) => {
 		},
 		...bc
 	};
-	bc.next_action = 'none';
+	bc.next_action = 'finished';
 
 	Policies.update({_id}, {$set: {bc}});
 	info(`payout ${bpKey2uuid(bc.bpKey)}`, bc);
