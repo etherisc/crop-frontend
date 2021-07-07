@@ -25,6 +25,21 @@ Template.ActivationsMap.helpers({
 
 Template.ActivationsMapMap.created = function() {
 
+
+
+	const col = (cnt) => {
+		const cols = [
+			{thr: 1, fillColor: '#6699ff', fillOpacity: 0.45},      // blue
+			{thr: 10, fillColor: '#ffcc99', fillOpacity: 0.56},     // yellow 1
+			{thr: 50, fillColor: '#ffcc66', fillOpacity: 0.77},     // yellow 2
+			{thr: 100, fillColor: '#ffcc33', fillOpacity: 0.0.92},  // yellow 3
+			{thr: 200, fillColor: '#ff9966', fillOpacity: 0.7},     // red 1
+			{thr: 300, fillColor: '#ff6633', fillOpacity: 0.77},    // red 2
+			{thr: 999999, fillColor: '#ff3333', fillOpacity: 0.9}   // red 3
+		];	
+		return cols.find(item => item.thr > cnt)
+	}
+
 	GoogleMaps.ready('activationsMap', function({instance: map, options}) {
 
 		let timer;
@@ -65,13 +80,14 @@ Template.ActivationsMapMap.created = function() {
 						const pixel = `Pixel${latLng2Pixel({lat: lat/10, lng: lng/10})}`;
 						const counts = RecordCounts.findOne({pixel});
 						if (counts) {
+							const {fillColor, fillOpacity} = col(counts.count);
 							const op = (counts.count)/1400 + 0.4 > 0.9 ? 0.9 : (counts.count)/1400 + 0.4;
 							const rectangle = new google.maps.Rectangle({
 								strokeColor: "#FFFFFF",
 								strokeOpacity: 0.5,
 								strokeWeight: 1, 
-								fillColor: "#FF0000", 
-								fillOpacity: op, 
+								fillColor, 
+								fillOpacity, 
 								map,
 								bounds: {
 									north: (lat/10) + 0.05,
@@ -87,14 +103,15 @@ Template.ActivationsMapMap.created = function() {
 
 							rectangles.push({rectangle, txt});
 						} else {
+							const {fillColor, fillOpacity} = col(0);
 							let loc = Locations.findOne({pixel});
 							if (loc  && loc.site_table_exists) {
 								const circle = new google.maps.Circle({
 									strokeColor: "#FFFFFF",
 									strokeOpacity: 0.8,
 									strokeWeight: 1,
-									fillColor: "#6699ff",
-									fillOpacity: 0.45,
+									fillColor,
+									fillOpacity,
 									map,
 									center: new google.maps.LatLng(lat/10, lng/10),
 									radius: 5000, // meters
