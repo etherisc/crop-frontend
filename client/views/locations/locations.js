@@ -31,7 +31,7 @@ var LocationsViewExport = function(fileType) {
 		sortAscending: Session.get("LocationListPagedSortAscending") || true
 	};
 
-	var exportFields = [];
+	var exportFields = ["pixel"];
 
 	
 
