@@ -28,4 +28,6 @@ const sendTelegram = (msg) => {
 	
 };
 
+connectBot();
+
 module.exports = { sendTelegram };
