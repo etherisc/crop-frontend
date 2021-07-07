@@ -12,7 +12,7 @@ const connectBot = () => {
 	if (!bot) {
 		const token = settings('telegram.bot.token');
 		bot = new TelegramBot(token, {polling: true});
-		let chatId = null;
+		chatId = null;
 		bot.onText(/\/start/, async (msg) => {
 			chatId = msg.chat.id;
 			await bot.sendMessage(chatId, 'Hello, ready to receive your messages!');
