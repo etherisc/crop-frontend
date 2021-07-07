@@ -109,7 +109,7 @@ const mockSMS = (payout) => {
 	
 	sendTelegram(`SMS to +${payout.mobile_num}`);
 	sendTelegram(payout.message);
-	
+	console.log(`SMS to +${payout.mobile_num}`);
 
 	return {msg: 'Mock SMS successfull sent', _id: 99};
 
