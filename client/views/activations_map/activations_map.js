@@ -125,7 +125,7 @@ Template.ActivationsMapMap.created = function() {
 									center: new google.maps.LatLng(lat/10, lng/10),
 									radius: 5000, // meters
 								});
-								circles.push({circle, txt});
+								circles.push({circle});
 							}
 						}
 					}
