@@ -130,7 +130,7 @@
 		},
 		{
 			"path": "client/views/admin/admin.html",
-			"checksum": "2abe7793ec734ba8efd3a4e47245e220b96c188b"
+			"checksum": "7ed3fb26fe21e6de90f5d16e1d01e876c6b90cc9"
 		},
 		{
 			"path": "client/views/admin/admin.js",
@@ -578,7 +578,7 @@
 		},
 		{
 			"path": "client/views/activations_map/activations_map.js",
-			"checksum": "160432720b937aba0e893d1fcc588ee0c16ad367"
+			"checksum": "a0d9b233787b9017d31f95405c184fa9fd4e51d8"
 		},
 		{
 			"path": "client/views/activations_map/activations_map_controller.js",
