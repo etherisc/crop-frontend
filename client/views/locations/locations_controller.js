@@ -18,7 +18,7 @@ this.LocationsController = RouteController.extend({
 	isReady: function() {
 		this.locationListPagedExtraParams = {
 			searchText: Session.get("LocationListPagedSearchString") || "",
-			searchFields: Session.get("LocationListPagedSearchFields") || ["prefix", "source", "county", "ward", "pixel", "latitude", "longitude"],
+			searchFields: Session.get("LocationListPagedSearchFields") || ["prefix", "source", "county", "ward", "pixel", "latitude", "longitude", "site_table_entry"],
 			sortBy: Session.get("LocationListPagedSortBy") || "",
 			sortAscending: Session.get("LocationListPagedSortAscending"),
 			pageNo: Session.get("LocationListPagedPageNo") || 0,
