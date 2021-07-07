@@ -44,6 +44,7 @@ Template.ActivationsMapMap.created = function() {
 
 		let timer;
 		let rectangles = [];
+		let circles = [];
 
 		const drawRectangles = () => {
 
@@ -58,6 +59,14 @@ Template.ActivationsMapMap.created = function() {
 						txt = null;
 					});
 					rectangles = [];
+				}
+
+				if (circles) {
+					circles.forEach(({circle}) => {
+						circle.setMap(null);
+						circle = null;
+					});
+					circles = [];
 				}
 
 				var bounds = map.getBounds();
@@ -103,9 +112,9 @@ Template.ActivationsMapMap.created = function() {
 
 							rectangles.push({rectangle, txt});
 						} else {
-							const {fillColor, fillOpacity} = col(0);
 							let loc = Locations.findOne({pixel});
 							if (loc  && loc.site_table_exists) {
+								const {fillColor, fillOpacity} = col(0);
 								const circle = new google.maps.Circle({
 									strokeColor: "#FFFFFF",
 									strokeOpacity: 0.8,
@@ -116,6 +125,7 @@ Template.ActivationsMapMap.created = function() {
 									center: new google.maps.LatLng(lat/10, lng/10),
 									radius: 5000, // meters
 								});
+								circles.push({circle, txt});
 							}
 						}
 					}
