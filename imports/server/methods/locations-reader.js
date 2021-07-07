@@ -15,6 +15,23 @@ const normalize = (text) => {
 
 }
 
+const readSiteTableLocations = ({bucket, filename}) => {
+
+	const act_content = getMinioObject(bucket, filename);
+
+	const act_json = JSON.parse(act_content);
+
+	act_json.forEach(item => {
+		Locations.upsert({pixel: item.pixel}, {$set: {site_table_exists: true}});
+	});
+
+	const msg = `Site Table Locations updated, count: ${act_json.length}`;
+	
+	info(msg);
+	return(msg);
+
+};
+
 
 const readLocationsFile = ({bucket, filename, prefix}) => {
 
@@ -107,7 +124,7 @@ const augmentLocations = () => {
 		let cNorm = normalize(cty);
 		let wNorm = normalize(wrd);
 		let foundOne = false;
-		
+
 		locs.forEach(loc => {
 			if (foundOne) return;
 			const cDist = levDistance(cNorm, loc.cNorm);
@@ -151,7 +168,7 @@ const augmentLocations = () => {
 
 		const phoneCand = Activations.find({mobile_num: item.mobile_num, pixel: {$ne: ZERO}});
 		let found = false;
-		
+
 		phoneCand.forEach(phoneItem => {
 
 			if (found) return;
@@ -166,13 +183,13 @@ const augmentLocations = () => {
 		});
 
 		if (found) return;
-		
+
 		if (!item.county || !item.ward || normalize(`${item.county}${item.ward}`) === '') {
-		
+
 			noLocation += 1;
-		
+
 		} else {
-		
+
 			const {result, countyUnique } = candidates(item.county, item.ward); 
 			if (result.length === 1) {
 				const {pixel, longitude, latitude, county, ward} = result[0];
@@ -201,5 +218,5 @@ const augmentLocations = () => {
 };
 
 
-module.exports = { readLocationsFile, augmentLocations };
+module.exports = { readLocationsFile, augmentLocations, readSiteTableLocations };
 

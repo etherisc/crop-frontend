@@ -117,6 +117,9 @@
 				<th class="th-sortable" data-sort="pixel">
 					Pixel
 				</th>
+				<th class="th-sortable" data-sort="site_table_entry">
+					Site Table Entry
+				</th>
 				<th>
 					&nbsp;
 				</th>
@@ -144,6 +147,9 @@
 		</td>
 		<td>
 			{{pixel}}
+		</td>
+		<td>
+			<input type="checkbox" class="inline-checkbox {{editButtonClass}}" data-field="site_table_entry" {{checked site_table_entry}}>
 		</td>
 		<td class="td-icon">
 			<span id="edit-button" class="fa fa-pencil {{editButtonClass}}" title="Edit">
