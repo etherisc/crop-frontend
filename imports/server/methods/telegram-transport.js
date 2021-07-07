@@ -26,6 +26,7 @@ const connectBot = () => {
 const sendTelegram = async (msg) => {
 	
 	if (!bot) connectBot();
+	console.log(chatId);
 	if (chatId) await bot.sendMessage(chatId, msg);
 	
 };

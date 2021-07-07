@@ -170,7 +170,7 @@ const executePayoutSchedule = (scheduleConfig) => {
 
 	// Now everything seems fine!
 
-	const liveMode = settings('payout_live_mode') === 'live';
+	const liveMode = settings('payout.mode') === 'live';
 
 	let {sum_executed, num_executed} = PayoutSchedules.findOne({_id: scheduleConfig._id});
 
