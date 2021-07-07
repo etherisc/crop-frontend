@@ -2,27 +2,30 @@ console.log('loading telegram-transport.js');
 
 const TelegramBot = require('node-telegram-bot-api');
 
-// replace the value below with the Telegram token you receive from @BotFather
-const token = settings('telegram.bot.token');
-
-// Create a bot that uses 'polling' to fetch new updates
-const bot = new TelegramBot(token, {polling: true});
-
+let bot = null;
 let chatId = null;
 
-// Matches "/echo [whatever]"
-bot.onText(/\/start/, (msg) => {
-  // 'msg' is the received Message from Telegram
-  // 'match' is the result of executing the regexp above on the text content
-  // of the message
+const connectBot = () => {
 
-  chatId = msg.chat.id;
+	if (!bot) {
+		const token = settings('telegram.bot.token');
+		bot = new TelegramBot(token, {polling: true});
+		let chatId = null;
+		bot.onText(/\/start/, (msg) => {
+			chatId = msg.chat.id;
+			bot.sendMessage(chatId, 'Hello, ready to receive your messages!');
+		});
 
-  // send back the matched "whatever" to the chat
-  bot.sendMessage(chatId, 'Hello, ready to receive your messages!');
-});
+	}
+}
 
-  // send a message to the chat acknowledging receipt of their message
-const sendTelegram = (msg) => chatId ? bot.sendMessage(chatId, 'Ok') : null;
+
+
+const sendTelegram = (msg) => {
+	
+	if (!bot) connectBot();
+	if (chatId) bot.sendMessage(chatId, msg);
+	
+};
 
 module.exports = { sendTelegram };
