@@ -13,9 +13,9 @@ const connectBot = () => {
 		const token = settings('telegram.bot.token');
 		bot = new TelegramBot(token, {polling: true});
 		let chatId = null;
-		bot.onText(/\/start/, (msg) => {
+		bot.onText(/\/start/, async (msg) => {
 			chatId = msg.chat.id;
-			bot.sendMessage(chatId, 'Hello, ready to receive your messages!');
+			await bot.sendMessage(chatId, 'Hello, ready to receive your messages!');
 		});
 
 	}
@@ -23,10 +23,10 @@ const connectBot = () => {
 
 
 
-const sendTelegram = (msg) => {
+const sendTelegram = async (msg) => {
 	
 	if (!bot) connectBot();
-	if (chatId) bot.sendMessage(chatId, msg);
+	if (chatId) await bot.sendMessage(chatId, msg);
 	
 };
 
