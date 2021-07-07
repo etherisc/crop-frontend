@@ -130,7 +130,7 @@
 		},
 		{
 			"path": "client/views/admin/admin.html",
-			"checksum": "5c2752756dfbf6c4f505e727df699915f5bb252f"
+			"checksum": "073877ff1ee9f1039adb815ded1ff05da612e920"
 		},
 		{
 			"path": "client/views/admin/admin.js",
@@ -1226,7 +1226,7 @@
 		},
 		{
 			"path": "imports/server/methods/telegram-transport.js",
-			"checksum": "903c9267c6ca5969877d19fe1ff8ee49e01e6783"
+			"checksum": "89f24e3f4402fd2a4fef6147d570dc4947f88b57"
 		},
 		{
 			"path": "lib/string_utils.js",

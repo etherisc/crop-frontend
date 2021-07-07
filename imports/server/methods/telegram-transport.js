@@ -1,5 +1,7 @@
 console.log('loading telegram-transport.js');
 
+import { settings } from '/imports/server/methods/settings.js';
+
 const TelegramBot = require('node-telegram-bot-api');
 
 let bot = null;
