@@ -88,7 +88,6 @@ Template.ActivationsMapMap.created = function() {
 							rectangles.push({rectangle, txt});
 						} else {
 							let loc = Locations.findOne({pixel});
-							console.log(pixel, loc);
 							if (loc  && loc.site_table_exists) {
 								const circle = new google.maps.Circle({
 									strokeColor: "#FFFFFF",
