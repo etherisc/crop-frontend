@@ -8,6 +8,7 @@ Template.ActivationsMap.onDestroyed(function() {
 
 Template.ActivationsMap.onRendered(function() {
 	Meteor.subscribe('record_count_list');
+Meteor.subscribe('locations_list');
 	Meteor.defer(function() {
 		globalOnRendered();
 		$("input[autofocus]").focus();
@@ -28,7 +29,7 @@ Template.ActivationsMapMap.created = function() {
 
 		let timer;
 		let rectangles = [];
-		
+
 		const drawRectangles = () => {
 
 			if (timer) window.clearTimeout(timer);
@@ -85,6 +86,20 @@ Template.ActivationsMapMap.created = function() {
 							const txt = new TxtOverlay(latlng, customTxt, "gmlp-textbox", map)
 
 							rectangles.push({rectangle, txt});
+						} else {
+							let loc;
+							if (loc = Locations.findOne({pixel}) && loc.site_table_exists) {
+								const circle = new google.maps.Circle({
+									strokeColor: "#FFFFFF",
+									strokeOpacity: 0.8,
+									strokeWeight: 2,
+									fillColor: "#6699ff",
+									fillOpacity: 0.45,
+									map,
+									center: new google.maps.LatLng(lat/10, lng/10),
+									radius: 5000, // meters
+								});
+							}
 						}
 					}
 				}
