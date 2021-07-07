@@ -26,7 +26,7 @@ Template.Locations.helpers({
 var LocationsViewExport = function(fileType) {
 	var extraParams = {
 		searchText: Session.get("LocationListPagedSearchString") || "",
-		searchFields: Session.get("LocationListPagedSearchFields") || ["prefix", "source", "county", "ward", "pixel", "latitude", "longitude", "site_table_entry"],
+		searchFields: Session.get("LocationListPagedSearchFields") || ["prefix", "source", "county", "ward", "pixel", "latitude", "longitude", "site_table_exists"],
 		sortBy: Session.get("LocationListPagedSortBy") || "",
 		sortAscending: Session.get("LocationListPagedSortAscending") || true
 	};
