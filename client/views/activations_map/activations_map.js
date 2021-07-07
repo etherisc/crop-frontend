@@ -92,7 +92,7 @@ Template.ActivationsMapMap.created = function() {
 								const circle = new google.maps.Circle({
 									strokeColor: "#FFFFFF",
 									strokeOpacity: 0.8,
-									strokeWeight: 2,
+									strokeWeight: 1,
 									fillColor: "#6699ff",
 									fillOpacity: 0.45,
 									map,
