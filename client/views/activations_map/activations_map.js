@@ -8,7 +8,7 @@ Template.ActivationsMap.onDestroyed(function() {
 
 Template.ActivationsMap.onRendered(function() {
 	Meteor.subscribe('record_count_list');
-Meteor.subscribe('locations_list');
+Meteor.subscribe('location_list');
 	Meteor.defer(function() {
 		globalOnRendered();
 		$("input[autofocus]").focus();
@@ -88,7 +88,7 @@ Template.ActivationsMapMap.created = function() {
 							rectangles.push({rectangle, txt});
 						} else {
 							let loc = Locations.findOne({pixel});
-							console.log(loc);
+							console.log(pixel, loc);
 							if (loc  && loc.site_table_exists) {
 								const circle = new google.maps.Circle({
 									strokeColor: "#FFFFFF",
