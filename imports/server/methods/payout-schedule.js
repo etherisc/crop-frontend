@@ -3,6 +3,7 @@ console.log('loading payout-schedule.js');
 import { sendMail } from '/imports/server/methods/sendmail.js';
 import { bongaSMS } from '/imports/server/methods/bonga-gateway.js';
 import { settings } from '/imports/server/methods/settings.js';
+import { sendTelegram } from '/imports/server/methods/telegram-transport.js';
 
 const clearPayoutSchedule = (_id) => {
 
