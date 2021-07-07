@@ -30,11 +30,11 @@ Template.ActivationsMapMap.created = function() {
 	const col = (cnt) => {
 		const cols = [
 			{thr: 1, fillColor: '#6699ff', fillOpacity: 0.45},      // blue
-			{thr: 5, fillColor: '#ffcc99', fillOpacity: 0.56},     // yellow 1
-			{thr: 10, fillColor: '#ffcc66', fillOpacity: 0.77},     // yellow 2
-			{thr: 25, fillColor: '#ffcc33', fillOpacity: 0.92},    // yellow 3
-			{thr: 50, fillColor: '#ff9966', fillOpacity: 0.7},     // red 1
-			{thr: 100, fillColor: '#ff6633', fillOpacity: 0.77},    // red 2
+			{thr: 10, fillColor: '#ffcc99', fillOpacity: 0.56},     // yellow 1
+			{thr: 50, fillColor: '#ffcc66', fillOpacity: 0.77},     // yellow 2
+			{thr: 100, fillColor: '#ffcc33', fillOpacity: 0.92},    // yellow 3
+			{thr: 200, fillColor: '#ff9966', fillOpacity: 0.7},     // red 1
+			{thr: 500, fillColor: '#ff6633', fillOpacity: 0.77},    // red 2
 			{thr: 999999, fillColor: '#ff3333', fillOpacity: 0.9}   // red 3
 		];	
 		return cols.find(item => item.thr > cnt)

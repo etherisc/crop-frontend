@@ -130,7 +130,7 @@
 		},
 		{
 			"path": "client/views/admin/admin.html",
-			"checksum": "b447e495e80c1bbeb914fc2c0c1c9b28f5fce565"
+			"checksum": "0a88a587541c8f35890dd9cab179273daa1f0dfd"
 		},
 		{
 			"path": "client/views/admin/admin.js",
@@ -578,7 +578,7 @@
 		},
 		{
 			"path": "client/views/activations_map/activations_map.js",
-			"checksum": "0ff495396e0d1aa594de2e1a499f3a55ac669895"
+			"checksum": "c898978a67a78678e2790f7fb1ee66315875d1d3"
 		},
 		{
 			"path": "client/views/activations_map/activations_map_controller.js",
@@ -1194,7 +1194,7 @@
 		},
 		{
 			"path": "imports/server/methods/payout-schedule.js",
-			"checksum": "b248721b1f644914e8de26b54ac112277232e769"
+			"checksum": "22930baf9695360df9c587c17325f83688a70033"
 		},
 		{
 			"path": "imports/server/methods/gif-interaction.js",
@@ -1223,6 +1223,10 @@
 		{
 			"path": "both/lib/contract-abi.js",
 			"checksum": "9a3b67e9c7d234e1401dfb5571628c10ce183c68"
+		},
+		{
+			"path": "imports/server/methods/telegram-transport.js",
+			"checksum": "769cb0a7e5802b754e5d25f2a2a85369d1c9fd4c"
 		},
 		{
 			"path": "lib/string_utils.js",
@@ -1573,6 +1577,7 @@
 			"uuid",
 			"nodemailer",
 			"abi-decoder",
+			"node-telegram-bot-api",
 			"bcrypt"
 		],
 		"mrt": [

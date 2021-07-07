@@ -102,6 +102,17 @@ Email: Actuarial@ACREAFRICA.COM
 
 };
 
+
+const mockSMS = (payout) => {
+	
+	sendTelegram(`SMS to +${payout.mobile_num}`);
+	sendTelegram(payout.message);
+	
+
+	return {msg: 'Mock SMS successfull sent', _id: 99};
+
+};
+
 const executePayoutSchedule = (scheduleConfig) => {
 
 	const payouts = Policies.find(JSON.parse(scheduleConfig.filter));
@@ -167,7 +178,7 @@ const executePayoutSchedule = (scheduleConfig) => {
 	schedule.forEach(executedPayout => {
 		try {
 
-			const res = liveMode ? bongaSMS(executedPayout) : {_id: 99};
+			const res = liveMode ? bongaSMS(executedPayout) : mockSMS(executedPayout)
 			if (num_executed >= parseInt(settings('max_exec'))) throw new Meteor.Error('Demo');
 			executedPayout.sms_id = res._id;
 			sum_executed += executedPayout.amount;
