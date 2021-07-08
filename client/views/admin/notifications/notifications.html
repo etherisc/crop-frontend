@@ -78,17 +78,14 @@
 				<th class="th-sortable" data-sort="title">
 					Title
 				</th>
-				<th class="th-sortable" data-sort="recurring">
-					Recurring
+				<th class="th-sortable" data-sort="text">
+					Text
 				</th>
 				<th class="th-sortable" data-sort="last_run">
 					Last Run
 				</th>
 				<th class="th-sortable" data-sort="status">
 					Status
-				</th>
-				<th class="th-sortable" data-sort="message">
-					Message
 				</th>
 				<th>
 					&nbsp;
@@ -110,16 +107,13 @@
 			{{title}}
 		</td>
 		<td>
-			{{recurring}}
+			{{pre text this}}
 		</td>
 		<td>
 			{{formatDate last_run 'DD/MM/YYYY HH:mm:ss'}}
 		</td>
 		<td>
 			{{status}}
-		</td>
-		<td>
-			{{message}}
 		</td>
 		<td class="td-icon">
 			<span id="edit-button" class="fa fa-pencil {{editButtonClass}}" title="Edit">
