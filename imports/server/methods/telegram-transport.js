@@ -1,7 +1,6 @@
 console.log('loading telegram-transport.js');
 
 import { settings } from '/imports/server/methods/settings.js';
-import { addExceptionHandler } from '/imports/server/methods/exception-handler.js';
 
 const TelegramBot = require('node-telegram-bot-api');
 
@@ -9,7 +8,10 @@ let tgBot = {};
 
 tgBot.chatId = null;
 tgBot.connected = false;
-tgBot.connected = () => !!tgBot.chatId;
+tgBot.pollingError = false;
+
+tgBot.connected = () => !!tgBot.chatId && !tgBot.pollingError;
+
 tgBot.connectBot = () => {
 
 	try {
@@ -20,6 +22,13 @@ tgBot.connectBot = () => {
 				return;
 			}
 			tgBot.bot = new TelegramBot(tgBot.token, {polling: true});
+			
+			tgBot.on('polling_error', () => {
+				tgBot.bot.stopPolling();
+				tgBot.chatId = '';
+				tgBot.pollingError = true;
+			});
+			
 			tgBot.bot.onText(/\/start/, async (msg) => {
 				tgBot.chatId = msg.chat.id;
 				await tgBot.bot.sendMessage(tgBot.chatId, 'Hello, ready to receive your messages!');
@@ -30,12 +39,6 @@ tgBot.connectBot = () => {
 		error('Error connecting Telegram Bot', {message, stack});
 	};
 }
-
-addExceptionHandler((type, error)  => {
-	if (type === 'exception') {
-		tgBot.bot.stopPolling();
-	}
-});
 
 tgBot.sendTelegram = async (msg) => {
 
