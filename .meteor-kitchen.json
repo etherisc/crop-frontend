@@ -130,7 +130,7 @@
 		},
 		{
 			"path": "client/views/admin/admin.html",
-			"checksum": "b078d2d069e089cdf4809872f130010723b08647"
+			"checksum": "5f08f216780c445a3c3c9b164ffca010f9275d09"
 		},
 		{
 			"path": "client/views/admin/admin.js",
@@ -1110,7 +1110,7 @@
 		},
 		{
 			"path": "server/methods/methods.js",
-			"checksum": "18f6c06e58060743ad1cdc4bcc084bcd0701866d"
+			"checksum": "6299577a7ecb585388400aee0777a85f67a301f3"
 		},
 		{
 			"path": "imports/server/methods/group-policy-reader.js",
@@ -1138,7 +1138,7 @@
 		},
 		{
 			"path": "server/lib/server_globals.js",
-			"checksum": "32a46cd281da8bbd840c8410b9b126489123bb9c"
+			"checksum": "1cb39d39731930d2e4d1e6de295b0efb8ed207a1"
 		},
 		{
 			"path": "client/lib/compatibility/json-viewer.js",
@@ -1201,10 +1201,6 @@
 			"checksum": "0e083b96d1debf6fbaea8ecb873d55ad6dfdf372"
 		},
 		{
-			"path": "server/startup.js",
-			"checksum": "94da6e447b06c2c420b7b3a6ff462b088a1f2ef9"
-		},
-		{
 			"path": "imports/server/methods/sendmail.js",
 			"checksum": "7c66d501bc6876899179097b26e76aeace1a8e9e"
 		},
@@ -1226,7 +1222,11 @@
 		},
 		{
 			"path": "imports/server/methods/telegram-transport.js",
-			"checksum": "6a1fe5b2bf92cfbc85dfa68915c789a7789aeb44"
+			"checksum": "18e0c2e938c9aff8114ed4212b8f1484edb5065f"
+		},
+		{
+			"path": "imports/server/methods/exception-handler.js",
+			"checksum": "7c6eaaea12b8a146bd0b3d585010b6d346aeef03"
 		},
 		{
 			"path": "lib/string_utils.js",
