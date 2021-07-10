@@ -7,8 +7,6 @@ import { bongaSMS, bongaFetchDeliveryReport } from '/imports/server/methods/bong
 import { createPayoutSchedule, changeStatusPayoutSchedule } from '/imports/server/methods/payout-schedule.js';
 import { applyForPolicy, underwrite, claim, payout } from '/imports/server/methods/gif-interaction.js';
 
-import '/imports/server/methods/exception-handler.js';
-
 const executePayouts = () => {
 	Payouts.update({execute: true}, {$set: {execute: false, executed: true}}, {multi: true});
 }
