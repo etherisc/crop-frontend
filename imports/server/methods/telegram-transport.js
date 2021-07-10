@@ -9,9 +9,6 @@ let tgBot = {};
 tgBot.chatId = null;
 tgBot.connected = false;
 tgBot.pollingError = false;
-tgBot.error = error;
-tgBot.info = info;
-
 tgBot.connected = () => !!tgBot.chatId && !tgBot.pollingError;
 
 tgBot.connectBot = () => {
@@ -20,28 +17,28 @@ tgBot.connectBot = () => {
 		if (!tgBot.bot) {
 			tgBot.token = settings('telegram.bot.token');
 			if (!tgBot.token) {
-				tgBot.error('Could not start telegram bot, not token provided');
+				error('Could not start telegram bot, not token provided');
 				return;
 			}
 			
 			tgBot.bot = new TelegramBot(tgBot.token, {polling: true});
 			
-			tgBot.bot.on('polling_error', (error) => {
+			tgBot.bot.on('polling_error', Meteor.bindEnvironment((err) => {
 				tgBot.bot.stopPolling();
-				tgBot.error('Telegram polling error, stopping polling...', {message: error.message});
+				error('Telegram polling error, stopping polling...', {message: error.message});
 				tgBot.chatId = '';
 				tgBot.pollingError = true;
-			});
+			}));
 			
 			tgBot.bot.onText(/\/start/, async (msg) => {
 				tgBot.chatId = msg.chat.id;
 				await tgBot.bot.sendMessage(tgBot.chatId, 'Hello, ready to receive your messages!');
-				tgBot.info(`Bot connected, chatId = ${tgBot.chatId}`);
+				info(`Bot connected, chatId = ${tgBot.chatId}`);
 			});
 
 		}
 	} catch ({message, stack}) {
-		tgBot.error('Error connecting Telegram Bot', {message, stack});
+		error('Error connecting Telegram Bot', {message, stack});
 	};
 }
 
