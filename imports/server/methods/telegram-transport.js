@@ -25,7 +25,7 @@ tgBot.connectBot = () => {
 			
 			tgBot.bot.on('polling_error', Meteor.bindEnvironment((err) => {
 				tgBot.bot.stopPolling();
-				error('Telegram polling error, stopping polling... maybe other bot instance running?', {error});
+				error('Telegram polling error, stopping polling... maybe other bot instance running?', {err});
 				tgBot.chatId = '';
 				tgBot.pollingError = true;
 			}));
