@@ -21,10 +21,12 @@ tgBot.connectBot = () => {
 				error('Could not start telegram bot, not token provided');
 				return;
 			}
+			
 			tgBot.bot = new TelegramBot(tgBot.token, {polling: true});
 			
-			tgBot.on('polling_error', () => {
+			tgBot.on('polling_error', (error) => {
 				tgBot.bot.stopPolling();
+				error('Telegram polling error, stopping polling...', {message: error.message});
 				tgBot.chatId = '';
 				tgBot.pollingError = true;
 			});
