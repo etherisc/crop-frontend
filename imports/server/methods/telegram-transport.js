@@ -24,7 +24,7 @@ tgBot.connectBot = () => {
 			
 			tgBot.bot = new TelegramBot(tgBot.token, {polling: true});
 			
-			tgBot.on('polling_error', (error) => {
+			tgBot.bot.on('polling_error', (error) => {
 				tgBot.bot.stopPolling();
 				error('Telegram polling error, stopping polling...', {message: error.message});
 				tgBot.chatId = '';
