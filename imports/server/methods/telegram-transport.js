@@ -4,33 +4,43 @@ import { settings } from '/imports/server/methods/settings.js';
 
 const TelegramBot = require('node-telegram-bot-api');
 
-let bot = null;
-let chatId = null;
+let tgBot = {};
 
-const connectBot = () => {
+tgBot.chatId = null;
+tgBot.connected = false;
+tgBot.connected = () => !!tgBot.chatId;
+tgBot.connectBot = () => {
 
-	if (!bot) {
-		const token = settings('telegram.bot.token');
-		if (!token) return;
-		bot = new TelegramBot(token, {polling: true});
-		chatId = null;
-		bot.onText(/\/start/, async (msg) => {
-			chatId = msg.chat.id;
-			await bot.sendMessage(chatId, 'Hello, ready to receive your messages!');
-		});
+	try {
+		if (!tgBot.bot) {
+			tgBot.token = settings('telegram.bot.token');
+			if (!tgBot.token) {
+				error('Could not start telegram bot, not token provided');
+				return;
+			}
+			tgBot.bot = new TelegramBot(tgBot.token, {polling: true});
+			tgBot.bot.onText(/\/start/, async (msg) => {
+				tgBot.chatId = msg.chat.id;
+				await tgBot.bot.sendMessage(tgBot.chatId, 'Hello, ready to receive your messages!');
+			});
 
-	}
+		}
+	} catch ({message, stack}) {
+		error('Error connecting Telegram Bot', {message, stack});
+	};
 }
 
 
 
-const sendTelegram = async (msg) => {
+tgBot.sendTelegram = async (msg) => {
 	
-	if (!bot) connectBot();
-	if (bot && chatId) await bot.sendMessage(chatId, msg);
-	
+	if (tgBot.connected()) {
+		await tgBot.bot.sendMessage(tgBot.chatId, msg);
+	} else {
+		connectBot();
+	}
 };
 
-connectBot();
+tgBot.connectBot();
 
-module.exports = { sendTelegram };
+module.exports = tgBot;
