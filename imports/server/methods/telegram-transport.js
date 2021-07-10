@@ -1,6 +1,7 @@
 console.log('loading telegram-transport.js');
 
 import { settings } from '/imports/server/methods/settings.js';
+import { addExceptionHandler } from '/imports/server/methods/exception-handler.js';
 
 const TelegramBot = require('node-telegram-bot-api');
 
@@ -30,10 +31,14 @@ tgBot.connectBot = () => {
 	};
 }
 
-
+addExceptionHandler((type, error)  => {
+	if (type === 'exception') {
+		tgBot.bot.stopPolling();
+	}
+});
 
 tgBot.sendTelegram = async (msg) => {
-	
+
 	if (tgBot.connected()) {
 		await tgBot.bot.sendMessage(tgBot.chatId, msg);
 	} else {
