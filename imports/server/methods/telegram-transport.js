@@ -23,9 +23,9 @@ tgBot.connectBot = () => {
 			
 			tgBot.bot = new TelegramBot(tgBot.token, {polling: true});
 			
-			tgBot.bot.on('polling_error', Meteor.bindEnvironment((err) => {
+			tgBot.bot.on('polling_error', Meteor.bindEnvironment(({message, stack}) => {
 				tgBot.bot.stopPolling();
-				error('Telegram polling error, stopping polling... maybe other bot instance running?', {err});
+				error('Telegram polling error, stopping polling... maybe other bot instance running?', {message, stack});
 				tgBot.chatId = '';
 				tgBot.pollingError = true;
 			}));
