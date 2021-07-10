@@ -11,6 +11,7 @@ const connectBot = () => {
 
 	if (!bot) {
 		const token = settings('telegram.bot.token');
+		if (!token) return;
 		bot = new TelegramBot(token, {polling: true});
 		chatId = null;
 		bot.onText(/\/start/, async (msg) => {
@@ -25,10 +26,8 @@ const connectBot = () => {
 
 const sendTelegram = async (msg) => {
 	
-	console.log(bot, chatId);
 	if (!bot) connectBot();
-	console.log(chatId);
-	if (chatId) await bot.sendMessage(chatId, msg);
+	if (bot && chatId) await bot.sendMessage(chatId, msg);
 	
 };
 
