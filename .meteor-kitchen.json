@@ -130,7 +130,7 @@
 		},
 		{
 			"path": "client/views/admin/admin.html",
-			"checksum": "914c3135e48a1b016f665c9fbcc1ea18c5e5aa14"
+			"checksum": "e35b5de0bcfd005f4fbbd5e710acf23e0aacfd78"
 		},
 		{
 			"path": "client/views/admin/admin.js",
@@ -346,11 +346,11 @@
 		},
 		{
 			"path": "client/views/admin/payout_schedules/payout_schedules.html",
-			"checksum": "0e99d0859037e275d4c6973b53e674956bfa9aeb"
+			"checksum": "1e81542999f4eeda676fb103ee46e8d887a4fc8d"
 		},
 		{
 			"path": "client/views/admin/payout_schedules/payout_schedules.js",
-			"checksum": "087313f1faedc27021c5c99972d820cb443de5df"
+			"checksum": "94b991cce7ac085f49245f7269884ffda8bd1e41"
 		},
 		{
 			"path": "client/views/admin/payout_schedules/payout_schedules_controller.js",
@@ -1118,7 +1118,7 @@
 		},
 		{
 			"path": "client/lib/helpers.js",
-			"checksum": "9838af7b6427f73e29fd728a98ef5d29d5b8ef79"
+			"checksum": "4fddd48e3aa8a06ec910f45365d5bb5f21ccc3c5"
 		},
 		{
 			"path": "client/styles/googlemaps.css",
@@ -1194,7 +1194,7 @@
 		},
 		{
 			"path": "imports/server/methods/payout-schedule.js",
-			"checksum": "aa9964d2f3de8762a423e5a92f6fbec658ef1c91"
+			"checksum": "a01fe5e8ec17721cd026d1515fe7c24b4bac5b92"
 		},
 		{
 			"path": "imports/server/methods/gif-interaction.js",
@@ -1222,7 +1222,7 @@
 		},
 		{
 			"path": "imports/server/methods/telegram-transport.js",
-			"checksum": "733b2fcba594596fc7ffa94d4f62638ba48d03f7"
+			"checksum": "a4ba4ab40a68c7df02b5c46a3ad731d8b7645265"
 		},
 		{
 			"path": "lib/string_utils.js",

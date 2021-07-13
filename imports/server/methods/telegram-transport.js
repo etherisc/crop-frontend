@@ -7,7 +7,6 @@ const TelegramBot = require('node-telegram-bot-api');
 let tgBot = {};
 
 tgBot.chatId = null;
-tgBot.connected = false;
 tgBot.pollingError = false;
 tgBot.connected = () => !!tgBot.chatId && !tgBot.pollingError;
 
@@ -31,6 +30,10 @@ tgBot.connectBot = () => {
 			}));
 			
 			tgBot.bot.onText(/\/start/, async (msg) => {
+				if (tgBot.connected()) {
+					await tgBot.bot.sendMessage(tgBot.chatId, 'Hello, bot is already listening!');	
+					return;
+				}
 				tgBot.chatId = msg.chat.id;
 				await tgBot.bot.sendMessage(tgBot.chatId, 'Hello, ready to receive your messages!');
 				info(`Bot connected, chatId = ${tgBot.chatId}`);

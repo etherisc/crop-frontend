@@ -4,6 +4,8 @@ import { sendMail } from '/imports/server/methods/sendmail.js';
 import { bongaSMS } from '/imports/server/methods/bonga-gateway.js';
 import { settings } from '/imports/server/methods/settings.js';
 import { sendTelegram } from '/imports/server/methods/telegram-transport.js';
+import { applyForPolicy, underwrite, claim, payout } from '/imports/server/methods/gif-interaction.js';
+
 
 const clearPayoutSchedule = (_id) => {
 
@@ -113,6 +115,35 @@ const mockSMS = (payout) => {
 
 	return {msg: 'Mock SMS successfull sent', _id: 99};
 
+};
+
+const applyUnderwriteClaim = (scheduleConfig) => {
+
+	const payouts = Policies.find(JSON.parse(scheduleConfig.filter));
+	
+	payouts.forEach((policy) => {
+
+		if (policy.bc && policy.bc.apply) {
+			info(`Policy already applied`, policy);
+		} else {
+			await applyForPolicy({policy});
+		}			
+
+		if (policy.bc.underwrite) {
+			info(`Policy already underwritten`, policy);
+		} else {
+			await underwrite({policy});
+		}			
+
+		if (policy.bc.claim) {
+			info(`Policy already claimed`, policy);
+		} else {
+			await underwrite({policy});
+		}			
+	});
+				
+	info('applyUnderwriteClaim finished');
+	
 };
 
 const executePayoutSchedule = (scheduleConfig) => {
@@ -234,20 +265,19 @@ const changeStatusPayoutSchedule = async (_id) => {
 			return 'Payout schedule has been created';
 
 		case '1': // Approve by Actuary
-			setStatusPayoutSchedule(_id, '3');
+			setStatusPayoutSchedule(_id, '5');
+			await applyUnderwriteClaim(scheduleConfig); 
 			return 'Approval by Actuary has been notarized';
 
-			/*	
+		
 		case '2': // Approve by Project Manager
 			setStatusPayoutSchedule(_id, '3');			
 			return 'Approval by project manager has been notarized';
-		*/
+	
 
 		case '3': // Send to Insurance
 			setStatusPayoutSchedule(_id, '4');
-
 			await sendMailInsurance(scheduleConfig);
-
 			return 'Payout schedule has been sent to insurance company';
 
 		case '4': // Approval by Insurance
