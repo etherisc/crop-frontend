@@ -127,7 +127,7 @@ const applyUnderwriteClaim = async (scheduleConfig) => {
 
 		try { await applyForPolicy({policy}); } catch (err) { noop(); }
 		try { await underwrite({policy}); } catch (err) { noop(); }
-		try { await underwrite({policy}); } catch (err) { noop(); }
+		try { await claim({policy}); } catch (err) { noop(); }
 
 	};
 
