@@ -108,7 +108,7 @@ Email: Actuarial@ACREAFRICA.COM
 
 
 const mockSMS = (payout) => {
-	
+
 	sendTelegram(`SMS to +${payout.mobile_num}`);
 	sendTelegram(payout.message);
 	console.log(`SMS to +${payout.mobile_num}`);
@@ -120,31 +120,22 @@ const mockSMS = (payout) => {
 const applyUnderwriteClaim = async (scheduleConfig) => {
 
 	const payouts = Policies.find(JSON.parse(scheduleConfig.filter)).fetch();
-	
+
 	for(let idx = 0; idx < payouts.length; idx += 1) {
 
 		const policy = payouts[idx];
-		if (policy.bc && policy.bc.apply) {
-			info(`Policy already applied`, policy);
-		} else {
+		try {
 			await applyForPolicy({policy});
-		}			
-
-		if (policy.bc.underwrite) {
-			info(`Policy already underwritten`, policy);
-		} else {
 			await underwrite({policy});
-		}			
-
-		if (policy.bc.claim) {
-			info(`Policy already claimed`, policy);
-		} else {
 			await underwrite({policy});
-		}			
+		} catch (err) {
+			info('catched');
+		}
+
 	};
-				
+
 	info(`applyUnderwriteClaim finished, ${payouts.length}`);
-	
+
 };
 
 const executePayoutSchedule = (scheduleConfig) => {
@@ -233,18 +224,18 @@ const executePayoutSchedule = (scheduleConfig) => {
 	});
 
 	const updateSums = {
-			sum_executed,
-			sum_error,
-			num_executed,
-			num_error
-		};
-	
+		sum_executed,
+		sum_error,
+		num_executed,
+		num_error
+	};
+
 	PayoutSchedules.update(
 		{_id: scheduleConfig._id},
 		{$set: updateSums});
 
 	info('executePayoutSchedule finished', updateSums);
-	
+
 	return num_error;
 
 };
@@ -270,11 +261,11 @@ const changeStatusPayoutSchedule = async (_id) => {
 			await applyUnderwriteClaim(scheduleConfig); 
 			return 'Approval by Actuary has been notarized';
 
-		
+
 		case '2': // Approve by Project Manager
 			setStatusPayoutSchedule(_id, '3');			
 			return 'Approval by project manager has been notarized';
-	
+
 
 		case '3': // Send to Insurance
 			setStatusPayoutSchedule(_id, '4');
