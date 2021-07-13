@@ -204,6 +204,13 @@
 			{{/if}}
 		</td>
 		<td class="td-button">
+			{{#if isEnabledConfirmPayout}}
+			<button type="button" id="action-button" data-action="confirm_payout" class="btn btn-primary btn-xs">
+				Confirm payout
+			</button>
+			{{/if}}
+		</td>
+		<td class="td-button">
 			{{#if isEnabledApproveProjectManager}}
 			<button type="button" id="action-button" data-action="approve_project_manager" class="btn btn-primary btn-xs">
 				Approve by Project Manager
@@ -221,13 +228,6 @@
 			{{#if isEnabledApprovalInsurance}}
 			<button type="button" id="action-button" data-action="approval_insurance" class="btn btn-primary btn-xs">
 				Approval by Insurance Company
-			</button>
-			{{/if}}
-		</td>
-		<td class="td-button">
-			{{#if isEnabledConfirmPayout}}
-			<button type="button" id="action-button" data-action="confirm_payout" class="btn btn-primary btn-xs">
-				Confirm payout
 			</button>
 			{{/if}}
 		</td>

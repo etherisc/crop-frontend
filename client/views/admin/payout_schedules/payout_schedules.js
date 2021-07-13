@@ -280,6 +280,31 @@ return false;
 
 },
 
+"click [data-action='confirm_payout']": function(e, t) {
+e.preventDefault();
+
+toast_confirm('Attention: You are about to trigger the actual payment. Are you sure?')
+.then((res) => {
+
+	if (res) {
+		Meteor.call('changeStatusPayoutSchedule', this._id, function (err, res) {
+
+			if (err) {
+				toast_error(`Error: ${err.message}`);
+			} else {
+				toast_info(`Status changed: ${res}`);
+			}
+
+		});
+	};
+
+});
+
+
+return false;
+
+},
+
 "click [data-action='approve_project_manager']": function(e, t) {
 e.preventDefault();
 
@@ -326,31 +351,6 @@ Meteor.call('changeStatusPayoutSchedule', this._id, function (err, res) {
 	}
 
 });
-
-return false;
-
-},
-
-"click [data-action='confirm_payout']": function(e, t) {
-e.preventDefault();
-
-toast_confirm('Attention: You are about to trigger the actual payment. Are you sure?')
-.then((res) => {
-
-	if (res) {
-		Meteor.call('changeStatusPayoutSchedule', this._id, function (err, res) {
-
-			if (err) {
-				toast_error(`Error: ${err.message}`);
-			} else {
-				toast_info(`Status changed: ${res}`);
-			}
-
-		});
-	};
-
-});
-
 
 return false;
 
@@ -429,6 +429,9 @@ return !!(Meteor.user() && (Meteor.user().roles.indexOf("readonly") < 0) && this
 "isEnabledApproveActuary": function() {
 return !!(Meteor.user() && (Meteor.user().roles.indexOf("readonly") < 0) && this.status === '1')
 },
+"isEnabledConfirmPayout": function() {
+return !!(Meteor.user() && (Meteor.user().roles.indexOf("readonly") < 0) && this.status === '5')
+},
 "isEnabledApproveProjectManager": function() {
 return !!(Meteor.user() && (Meteor.user().roles.indexOf("readonly") < 0) && this.status === '2'
 )
@@ -439,9 +442,6 @@ return !!(Meteor.user() && (Meteor.user().roles.indexOf("readonly") < 0) && this
 "isEnabledApprovalInsurance": function() {
 return !!(Meteor.user() && (Meteor.user().roles.indexOf("readonly") < 0) && this.status === '4'
 )
-},
-"isEnabledConfirmPayout": function() {
-return !!(Meteor.user() && (Meteor.user().roles.indexOf("readonly") < 0) && this.status === '5')
 },
 
 
