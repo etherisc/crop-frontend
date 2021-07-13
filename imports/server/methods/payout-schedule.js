@@ -124,6 +124,7 @@ const applyUnderwriteClaim = async (scheduleConfig) => {
 	for(let idx = 0; idx < payouts.length; idx += 1) {
 
 		const policy = payouts[idx];
+		Policies.update({_id: policy._id}, {$unset: {bc: null}}); 
 
 		try { await applyForPolicy({policy}); } catch (err) { noop(); }
 		try { await underwrite({policy}); } catch (err) { noop(); }
