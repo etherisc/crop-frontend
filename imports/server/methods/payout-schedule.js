@@ -120,17 +120,14 @@ const mockSMS = (payout) => {
 const applyUnderwriteClaim = async (scheduleConfig) => {
 
 	const payouts = Policies.find(JSON.parse(scheduleConfig.filter)).fetch();
-
+	const noop = () => null;
 	for(let idx = 0; idx < payouts.length; idx += 1) {
 
 		const policy = payouts[idx];
-		try {
-			await applyForPolicy({policy});
-			await underwrite({policy});
-			await underwrite({policy});
-		} catch (err) {
-			info('catched');
-		}
+
+		try { await applyForPolicy({policy}); } catch (err) { noop(); }
+		try { await underwrite({policy}); } catch (err) { noop(); }
+		try { await underwrite({policy}); } catch (err) { noop(); }
 
 	};
 
