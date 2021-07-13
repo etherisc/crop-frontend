@@ -121,8 +121,7 @@ const applyUnderwriteClaim = async (scheduleConfig) => {
 
 	const payouts = Policies.find(JSON.parse(scheduleConfig.filter));
 	
-	for (let idx = 0; idx < payouts.length; idx += 1) {
-		const policy = payouts[idx];
+	payouts.forEach(async (policy) => {
 
 		if (policy.bc && policy.bc.apply) {
 			info(`Policy already applied`, policy);
@@ -141,7 +140,7 @@ const applyUnderwriteClaim = async (scheduleConfig) => {
 		} else {
 			await underwrite({policy});
 		}			
-	};
+	});
 				
 	info(`applyUnderwriteClaim finished, ${payouts.length}`);
 	
