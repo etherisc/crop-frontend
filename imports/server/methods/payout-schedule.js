@@ -117,7 +117,7 @@ const mockSMS = (payout) => {
 
 };
 
-const applyUnderwriteClaim = (scheduleConfig) => {
+const applyUnderwriteClaim = async (scheduleConfig) => {
 
 	const payouts = Policies.find(JSON.parse(scheduleConfig.filter));
 	
