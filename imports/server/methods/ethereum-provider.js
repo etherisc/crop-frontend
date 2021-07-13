@@ -4,10 +4,15 @@ import { settings } from '/imports/server/methods/settings.js';
 
 const ethers = require('ethers');
 
+let providerStore = null;
+let walletStore = null;
+
 const provider = () => {
+	if (providerStore) return providerStore;
 	try {
 		const provider = new ethers.providers.JsonRpcProvider(settings('gif.http_provider'));
 		info('Provider connected');
+		providerStore = provider;
 		return provider;
 	} catch ({message, stack}) {
 		error('Could not connect to Ethereum Node', {message, stack});
@@ -15,9 +20,11 @@ const provider = () => {
 };
 
 const wallet = () => {
+	if (walletStore) return walletStore;
 	try {
 		const wallet = ethers.Wallet.fromMnemonic(settings('gif.mnemonic')).connect(eth.provider());
 		info('Wallet connected', wallet);
+		walletStore = wallet;
 		return wallet;
 	} catch ({message, stack}) {
 		error('Could not create Signer', {message, stack});			
