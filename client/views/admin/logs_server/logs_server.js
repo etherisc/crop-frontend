@@ -362,7 +362,7 @@ Template.AdminLogsServerLogsViewCustomActions.events({
 	"click #btn-clear": function (e,t) {
 		e.preventDefault();
 
-		Meteor.call('logger.clear', {source: 'browser'});
+		Meteor.call('logger.clear', {source: 'server'});
 	}
 
 });
