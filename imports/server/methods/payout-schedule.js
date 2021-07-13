@@ -143,7 +143,7 @@ const applyUnderwriteClaim = async (scheduleConfig) => {
 		}			
 	};
 				
-	info('applyUnderwriteClaim finished');
+	info(`applyUnderwriteClaim finished, ${payouts.length}`);
 	
 };
 
