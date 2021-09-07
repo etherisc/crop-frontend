@@ -181,9 +181,9 @@ const policyPayouts = function(claims) {
 	console.log(claims);
 
 	let payout = {
-		total_amount: 0.0,
-		actual_amount: 0.0,
-		deductible_amount: 0.0
+		ip_total_amount: 0.0,
+		ip_actual_amount: 0.0,
+		ip_deductible_amount: 0.0
 	};
 
 	claims.forEach(claim => {
