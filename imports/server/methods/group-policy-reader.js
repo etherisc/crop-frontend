@@ -21,6 +21,7 @@ const calc_gp_aggregates = function () {
 		let gp_agg_total_amount = 0.0;
 		let gp_agg_deductible_amount = 0.0;
 		let gp_agg_actual_amount = 0.0;
+		let _id = uuidv4();
 
 		const ip_selected = Policies.find({group_policy_id: gp_item.id}).fetch();
 		
@@ -48,20 +49,24 @@ const calc_gp_aggregates = function () {
 			*/	
 			
 			Policies.update({_id: ip_item._id}, {$set: {
-				gp_id: gp_item._id
+				gp_id: _id
 			}});
 			
 		});
 
-		GroupPolicies.update({_id: gp_item._id}, {$set: {
-			_id: uuidv4(),
+		const gp_item_new = {
+			_id,
 			gp_agg_count,
 			gp_agg_sum_insured,
 			gp_agg_sum_premium,
 			gp_agg_total_amount,
 			gp_agg_deductible_amount,
-			gp_agg_actual_amount
-		}});
+			gp_agg_actual_amount,
+			...gp_item
+		};
+		
+		GroupPolicies.insert(gp_item_new);
+		GroupPolicies.remove({_id: gp_item._id});
 
 	});
 
