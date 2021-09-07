@@ -188,7 +188,7 @@ Helpers.policyPayouts = function(claims) {
 		actual_amount: 2.0,
 		deductible_amount: 3.0
 	};
-	return json2table(payout);
+	return this.json2table(payout);
 };
 
 /********************* INSERT NEW HELPERS ABOVE *************************/
