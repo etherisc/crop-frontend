@@ -126,8 +126,8 @@ const applyUnderwriteClaim = async (scheduleConfig) => {
 		const policy = payouts[idx];
 		Policies.update({_id: policy._id}, {$unset: {bc: null}}); 
 
-		try { await applyForPolicy({policy}); } catch (err) { noop(); }
-		try { await underwrite({policy}); } catch (err) { noop(); }
+		//try { await applyForPolicy({policy}); } catch (err) { noop(); }
+		//try { await underwrite({policy}); } catch (err) { noop(); }
 		try { await claim({policy}); } catch (err) { noop(); }
 
 	};
@@ -136,7 +136,7 @@ const applyUnderwriteClaim = async (scheduleConfig) => {
 
 };
 
-const executePayoutSchedule = (scheduleConfig) => {
+const executePayoutSchedule = async (scheduleConfig) => {
 
 	const payouts = Policies.find(JSON.parse(scheduleConfig.filter));
 	let sum_payout = 0.0;
@@ -198,10 +198,13 @@ const executePayoutSchedule = (scheduleConfig) => {
 	let sum_error = 0.0;
 	let num_error = 0;
 
-	schedule.forEach(executedPayout => {
+	for (let idx = 0; idx < schedule.length; idx += 1) {
+		const executedPayout = schedule[idx];
 		try {
 
 			const res = liveMode ? bongaSMS(executedPayout) : mockSMS(executedPayout)
+			//try { await payout({policy: {_id: executedPayout.policy_id}}); } catch (err) { noop(); }
+
 			if (num_executed >= parseInt(settings('max_exec'))) throw new Meteor.Error('Demo');
 			executedPayout.sms_id = res._id;
 			sum_executed += executedPayout.amount;
@@ -219,7 +222,7 @@ const executePayoutSchedule = (scheduleConfig) => {
 			num_error += 1;
 		}		
 
-	});
+	};
 
 	const updateSums = {
 		sum_executed,
@@ -275,7 +278,7 @@ const changeStatusPayoutSchedule = async (_id) => {
 			return 'Approval by insurance company has been notarized';
 
 		case '5': // Approval by General Manager
-			const num_error = executePayoutSchedule(scheduleConfig);
+			const num_error = await executePayoutSchedule(scheduleConfig);
 			if (num_error === 0) {
 				setStatusPayoutSchedule(_id, '6');
 				return 'Payout has been executed - process finished';

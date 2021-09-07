@@ -143,7 +143,7 @@ const bongaFetchDeliveryReport = (_id) => {
 	};
 };
 
-const bongaSMS = ({mobile_num, message, amount = 0.0}) => {
+const bongaSMS = ({mobile_num, message, amount = 0.0, prefix = ''}) => {
 
 	const _id = Sms.insert({
 		timestamp: Date.now(), 
@@ -176,16 +176,23 @@ const bongaSMS = ({mobile_num, message, amount = 0.0}) => {
 		});
 
 		if (response.data.status === 222) {
+			
 			Sms.upsert({_id}, {$set: {
-				status: response.data.status, 
-				status_message: response.data.status_message, 
-				unique_id: response.data.unique_id, 
 				timestamp: Date.now(), 
-				credits: response.data.credits
+				prefix,
+				...response.data
 			}});
 
 			bongaFetchDeliveryReport(_id);
-			return {msg: `SMS successfully sent, number: ${mobile_num}, message: ${message}, amount: ${amount}`, _id};
+			return {
+				msg: `SMS successfully sent, number: ${mobile_num}, message: ${message}, amount: ${amount}`, 
+				_id,
+				prefix,
+				mobile_num,
+				message,
+				amount,
+				...response.data
+			};
 
 		} else if (response.data.status === 666) {
 			Sms.upsert({_id}, {$set: { status: response.data.status, status_message: response.data.status_message }});

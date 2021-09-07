@@ -148,7 +148,7 @@ Template.AdminPayoutSchedulesDetailsForm.helpers({
 var AdminPayoutSchedulesDetailsPayoutScheduleEntriesExport = function(fileType) {
 	var extraParams = {
 		searchText: Session.get("PayoutScheduleEntriesListPagedSearchString") || "",
-		searchFields: Session.get("PayoutScheduleEntriesListPagedSearchFields") || ["phone_no", "group_policy_id", "premium_amount", "sum_insured_amount", "payout.actual_amount", "payout.override_amount"],
+		searchFields: Session.get("PayoutScheduleEntriesListPagedSearchFields") || ["phone_no", "group_policy_id", "premium_amount", "sum_insured_amount", "payout.actual_amount", "payout.override_amount", "bc.next_action", "_id"],
 		sortBy: Session.get("PayoutScheduleEntriesListPagedSortBy") || "",
 		sortAscending: Session.get("PayoutScheduleEntriesListPagedSortAscending") || true
 	};

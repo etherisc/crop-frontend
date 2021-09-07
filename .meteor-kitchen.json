@@ -2,7 +2,7 @@
 	"output_files": [
 		{
 			"path": "client/views/router.js",
-			"checksum": "f7b0b66b0d27a980ac7a1b7591a0e892a92566fd"
+			"checksum": "854a43d62a5a454f22625011795d7d3e70bb64ec"
 		},
 		{
 			"path": "server/controllers/router.js",
@@ -130,7 +130,7 @@
 		},
 		{
 			"path": "client/views/admin/admin.html",
-			"checksum": "7a578a5c7e10d7734c07b577c8c0d4701f7f3ae3"
+			"checksum": "7d8eacda422098622ddeebe6d8fec3db46e02c03"
 		},
 		{
 			"path": "client/views/admin/admin.js",
@@ -274,19 +274,19 @@
 		},
 		{
 			"path": "client/views/admin/logs_sms/logs_sms.html",
-			"checksum": "a58d43520c2db483486b9cada4730cf52f5d3b0c"
+			"checksum": "e70cec72e46877d56dce6bb5eae7d3d2418c1e99"
 		},
 		{
 			"path": "client/views/admin/logs_sms/logs_sms.js",
-			"checksum": "b88eb8178cb2e6a93f97c336306d0f5f0fd0dd94"
+			"checksum": "616223fef45437d2026a58bf98db179a6f6d534e"
 		},
 		{
 			"path": "client/views/admin/logs_sms/logs_sms_controller.js",
-			"checksum": "6f2abc44500e2538a6f09f8fe4e32c5d5a5c46a9"
+			"checksum": "7c94a0c5b23bd77d2fb8add015c8da0c34cdfaae"
 		},
 		{
 			"path": "client/views/admin/logs_sms/details/details.html",
-			"checksum": "90528b0ee4725dc7d63e519470151dac97fdf22a"
+			"checksum": "b7e024dc917fefe4bf609406d692ae04c94d2dad"
 		},
 		{
 			"path": "client/views/admin/logs_sms/details/details.js",
@@ -386,15 +386,15 @@
 		},
 		{
 			"path": "client/views/admin/payout_schedules/details/details.js",
-			"checksum": "34cf39bbe11f11d5ec55ec0c0a737569f31b8ea6"
+			"checksum": "ff2c4698ece23b266462abd76584084e7a648009"
 		},
 		{
 			"path": "client/views/admin/payout_schedules/details/details_controller.js",
-			"checksum": "9c347aab9f29674d1570a25633a630416e5d2826"
+			"checksum": "6c08c5030aa7baf399c5a77f43500a263626aaca"
 		},
 		{
 			"path": "client/views/admin/payout_schedules/details/details/details.html",
-			"checksum": "b493830adbf0515f2d6270c0567bb7011cf6cc65"
+			"checksum": "8ee895db69a515508e5ed25b25dd2ae3cd2d865e"
 		},
 		{
 			"path": "client/views/admin/payout_schedules/details/details/details.js",
@@ -487,6 +487,18 @@
 		{
 			"path": "client/views/admin/logs_business_task/details/details_controller.js",
 			"checksum": "cbbab266082842d5364f9ba10e863296b3905016"
+		},
+		{
+			"path": "client/views/admin/direct_payouts/direct_payouts.html",
+			"checksum": "ff6f4f3886d3a22919df5cb8402132d09ca86980"
+		},
+		{
+			"path": "client/views/admin/direct_payouts/direct_payouts.js",
+			"checksum": "301fb98c60699d0bc2966c478b91a26ff5a04ebe"
+		},
+		{
+			"path": "client/views/admin/direct_payouts/direct_payouts_controller.js",
+			"checksum": "216ac133fb98a257f81d1815a4abb6a85d3dd5d3"
 		},
 		{
 			"path": "client/views/logout/logout.html",
@@ -610,7 +622,7 @@
 		},
 		{
 			"path": "client/views/group_policies/details/details/details.html",
-			"checksum": "e7e1f1beef22dd913cc87d4a9c06e3c294db6fdf"
+			"checksum": "d35a573341f3cf2fc59235003ff56b49c930ccd0"
 		},
 		{
 			"path": "client/views/group_policies/details/details/details.js",
@@ -758,7 +770,7 @@
 		},
 		{
 			"path": "client/views/partners/details/details.js",
-			"checksum": "2b6f54ceb49e2f9ea5f038383e881d9dfb2f70b6"
+			"checksum": "e79b44fcbd069941c7b93ad3d95899c433507c9e"
 		},
 		{
 			"path": "client/views/partners/details/details_controller.js",
@@ -766,15 +778,15 @@
 		},
 		{
 			"path": "client/views/policies_page/policies_page.html",
-			"checksum": "8122771b7088fa750f66cd61d076c55107c2ae63"
+			"checksum": "90faf4a686d864c52ab9d8606622b5a361e3a083"
 		},
 		{
 			"path": "client/views/policies_page/policies_page.js",
-			"checksum": "8ba128fbbb4297ca655faa8e6c89b06bd6309220"
+			"checksum": "29ce38553c3153da2d8fb78fa7d13b8e4b1fd8a7"
 		},
 		{
 			"path": "client/views/policies_page/policies_page_controller.js",
-			"checksum": "04d2d28553afccde1d89f26905da448a06e53cec"
+			"checksum": "358fc5b6cf5582342bc4e504ca4c3e2ecaad6541"
 		},
 		{
 			"path": "client/views/policies_page/details/details.html",
@@ -1085,6 +1097,22 @@
 			"checksum": "8a5b80039883a1c11e18b974cb884c02be044f0f"
 		},
 		{
+			"path": "both/collections/direct_payouts.js",
+			"checksum": "6bb0906eb5a10651b834df4f3711d1c9a5c28891"
+		},
+		{
+			"path": "server/methods/direct_payouts.js",
+			"checksum": "f800522a676d455c92e917e3d3975c61d0472fc2"
+		},
+		{
+			"path": "server/collections/direct_payouts.js",
+			"checksum": "899139148d02a31f39bf3d85ff83728124b7c894"
+		},
+		{
+			"path": "server/publish/direct_payouts.js",
+			"checksum": "c8ab3de21172e4586187a4bb65e25ccf16cb0e48"
+		},
+		{
 			"path": "client/styles/user_styles.less",
 			"checksum": "f08a3edc8a6d5d39aa62d62dfcfbe8ab3b608673"
 		},
@@ -1114,11 +1142,11 @@
 		},
 		{
 			"path": "imports/server/methods/group-policy-reader.js",
-			"checksum": "dffb03fbac6eb3da30683654a4c97a507ec5cebb"
+			"checksum": "b0e95f5895b309a2177644328f53df6a72b39209"
 		},
 		{
 			"path": "client/lib/helpers.js",
-			"checksum": "4fddd48e3aa8a06ec910f45365d5bb5f21ccc3c5"
+			"checksum": "d13230cd42613677e5e1f99a4ec21e783609fe38"
 		},
 		{
 			"path": "client/styles/googlemaps.css",
@@ -1166,7 +1194,7 @@
 		},
 		{
 			"path": "imports/server/methods/job-execution.js",
-			"checksum": "217f8f2f5133ac385ed30d909f9517c2819577a5"
+			"checksum": "ecad40828d1cbc3f0e2c8212a458679a00b34e23"
 		},
 		{
 			"path": "imports/server/methods/locations-reader.js",
@@ -1190,15 +1218,15 @@
 		},
 		{
 			"path": "imports/server/methods/bonga-gateway.js",
-			"checksum": "61cba7496fbd5205ddf024ed39fb4a09785af628"
+			"checksum": "38936c1b1fec48be26670810724325467fb6c52c"
 		},
 		{
 			"path": "imports/server/methods/payout-schedule.js",
-			"checksum": "5f623d24bee65940ed6f009e0e0d0c1aedae4dec"
+			"checksum": "dd0146c5468ee4186fa174502bda0b23c727a71b"
 		},
 		{
 			"path": "imports/server/methods/gif-interaction.js",
-			"checksum": "0e083b96d1debf6fbaea8ecb873d55ad6dfdf372"
+			"checksum": "e01f22a80841c0b9435032f21af15def8ec356bf"
 		},
 		{
 			"path": "imports/server/methods/sendmail.js",
@@ -1223,6 +1251,10 @@
 		{
 			"path": "imports/server/methods/telegram-transport.js",
 			"checksum": "a4ba4ab40a68c7df02b5c46a3ad731d8b7645265"
+		},
+		{
+			"path": "imports/server/methods/direct-payouts.js",
+			"checksum": "c4824346722d89bfb8019398cedf7a1cca7b1bb6"
 		},
 		{
 			"path": "lib/string_utils.js",
@@ -1456,6 +1488,7 @@
 		"client/views/activations_page/update/",
 		"client/views/admin/",
 		"client/views/admin/details_modal/",
+		"client/views/admin/direct_payouts/",
 		"client/views/admin/jobs/",
 		"client/views/admin/jobs/details/",
 		"client/views/admin/jobs/insert/",

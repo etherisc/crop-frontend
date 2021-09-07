@@ -26,12 +26,12 @@ Template.PoliciesPage.helpers({
 var PoliciesPageViewExport = function(fileType) {
 	var extraParams = {
 		searchText: Session.get("PolicyListPagedSearchString") || "",
-		searchFields: Session.get("PolicyListPagedSearchFields") || ["id", "gp_id", "group_policy_id", "phone_no", "premium_amount", "sum_insured_amount", "activation", "payments", "payout.total_amount", "payout.deductible_amount", "payout.actual_amount", "bc.next_action", "stage_payout.germination_dry", "stage_payout.germination_wet", "stage_payout.vegetation", "stage_payout.flowering", "stage_payout.excess_rain", "stage_payout.total"],
+		searchFields: Session.get("PolicyListPagedSearchFields") || ["id", "gp_id", "group_policy_id", "phone_no", "premium_amount", "sum_insured_amount", "activation", "payments", "payout.total_amount", "payout.deductible_amount", "payout.actual_amount", "bc.next_action", "stage_payout.germination_dry", "stage_payout.germination_wet", "stage_payout.vegetation", "stage_payout.flowering", "stage_payout.excess_rain", "stage_payout.total", "_id"],
 		sortBy: Session.get("PolicyListPagedSortBy") || "",
 		sortAscending: Session.get("PolicyListPagedSortAscending") || true
 	};
 
-	var exportFields = ["id", "gp_id", "group_policy_id", "phone_no", "premium_amount", "sum_insured_amount", "payout.total_amount", "payout.deductible_amount", "payout.actual_amount", "stage_payout.germination_dry", "stage_payout.germination_wet", "stage_payout.vegetation", "stage_payout.flowering", "stage_payout.excess_rain", "stage_payout.total"];
+	var exportFields = ["id", "gp_id", "group_policy_id", "phone_no", "premium_amount", "sum_insured_amount", "activation", "payments", "payout.total_amount", "payout.deductible_amount", "payout.actual_amount", "bc.next_action", "stage_payout.germination_dry", "stage_payout.germination_wet", "stage_payout.vegetation", "stage_payout.flowering", "stage_payout.excess_rain", "stage_payout.total", "_id"];
 
 	
 

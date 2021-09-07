@@ -1,17 +1,17 @@
-<template name="AdminLogsSms">
+<template name="AdminDirectPayouts">
 	<div class="page-container container" id="content">
 		<div class="row" id="title_row">
 			<div class="col-md-12">
 			</div>
 		</div>
-		{{> AdminLogsSmsView}}
+		{{> AdminDirectPayoutsView}}
 	</div>
 </template>
 
-<template name="AdminLogsSmsView">
-	<div id="admin-logs-sms-view" class="">
+<template name="AdminDirectPayoutsView">
+	<div id="admin-direct-payouts-view" class="">
 		<h2 id="component-title">
-			SMS Logs
+			Direct Payouts
 		</h2>
 		<form id="dataview-controls" class="form-inline">
 			<div id="dataview-controls-search">
@@ -58,7 +58,7 @@
 		</form>
 		{{#if isNotEmpty}}
 		<div id="dataview-data">
-			{{#if viewAsTable}} {{> AdminLogsSmsViewTable}} {{/if}}
+			{{#if viewAsTable}} {{> AdminDirectPayoutsViewTable}} {{/if}}
 		</div>
 		<nav aria-label="...">
 			<ul class="pager">
@@ -92,35 +92,21 @@
 		{{/if}}
 		{{/if}}
 	</div>
+	{{> AdminDirectPayoutsViewCustomActions}}
 </template>
 
-<template name="AdminLogsSmsViewTable">
-	<table id="dataview-table" class="table table-striped table-hover">
+<template name="AdminDirectPayoutsViewTable">
+	<table id="dataview-table" class="table table-striped">
 		<thead id="dataview-table-header">
 			<tr id="dataview-table-header-row">
-				<th class="th-sortable" data-sort="timestamp">
-					Timestamp
-				</th>
 				<th class="th-sortable" data-sort="mobile_num">
-					Mobile Num
-				</th>
-				<th class="th-sortable" data-sort="message">
-					Message
-				</th>
-				<th class="th-sortable" data-sort="status">
-					Status
-				</th>
-				<th class="th-sortable" data-sort="status_message">
-					Status Message
-				</th>
-				<th class="th-sortable" data-sort="unique_id">
-					Unique Id
+					Mobile Number
 				</th>
 				<th class="th-sortable" data-sort="amount">
 					Amount
 				</th>
-				<th class="th-sortable" data-sort="total_cost">
-					Total Cost
+				<th class="th-sortable" data-sort="status">
+					Status
 				</th>
 				<th class="th-sortable" data-sort="prefix">
 					Prefix
@@ -128,40 +114,28 @@
 			</tr>
 		</thead>
 		<tbody id="dataview-table-items">
-			{{#each logline_sms_list_paged}} {{> AdminLogsSmsViewTableItems}} {{/each}}
+			{{#each direct_payout_list_paged}} {{> AdminDirectPayoutsViewTableItems}} {{/each}}
 		</tbody>
 	</table>
 </template>
 
-<template name="AdminLogsSmsViewTableItems">
+<template name="AdminDirectPayoutsViewTableItems">
 	<tr id="dataview-table-items-row">
 		<td>
-			{{formatDate timestamp 'DD/MM/YYYY HH:mm:ss'}}
-		</td>
-		<td>
 			{{mobile_num}}
-		</td>
-		<td>
-			{{message}}
-		</td>
-		<td>
-			{{status}}
-		</td>
-		<td>
-			{{status_message}}
-		</td>
-		<td>
-			{{unique_id}}
 		</td>
 		<td>
 			{{currency amount this}}
 		</td>
 		<td>
-			{{currency total_cost this}}
+			{{status}}
 		</td>
 		<td>
 			{{prefix}}
 		</td>
 	</tr>
+</template>
+
+<template name="AdminDirectPayoutsViewCustomActions">
 </template>
 

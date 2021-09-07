@@ -26,12 +26,12 @@ Template.AdminLogsSms.helpers({
 var AdminLogsSmsViewExport = function(fileType) {
 	var extraParams = {
 		searchText: Session.get("LoglineSmsListPagedSearchString") || "",
-		searchFields: Session.get("LoglineSmsListPagedSearchFields") || ["timestamp", "mobile_num", "message", "status", "status_message", "unique_id", "credits", "delivery_status_desc", "date_received", "amount", "total_cost"],
+		searchFields: Session.get("LoglineSmsListPagedSearchFields") || ["timestamp", "mobile_num", "message", "status", "status_message", "unique_id", "credits", "delivery_status_desc", "date_received", "amount", "total_cost", "prefix"],
 		sortBy: Session.get("LoglineSmsListPagedSortBy") || "",
 		sortAscending: Session.get("LoglineSmsListPagedSortAscending") || true
 	};
 
-	var exportFields = ["timestamp", "mobile_num", "message", "status", "status_message", "unique_id", "credits", "delivery_status_desc", "date_received", "amount"];
+	var exportFields = ["timestamp", "mobile_num", "message", "status", "status_message", "unique_id", "credits", "delivery_status_desc", "date_received", "amount", "total_cost", "prefix"];
 
 	
 

@@ -21,7 +21,7 @@ const contractCall = async (method, ...args) => {
 
 	try {
 
-		const txResponse = await Product[method](...args);
+		const txResponse = await Product[method](...args, {gasLimit: 600000});
 		const receipt = await txResponse.wait();
 		const logs = abiDecoder.decodeLogs(receipt.logs);
 
@@ -106,7 +106,11 @@ const underwrite = async (args) => {
 		error(msg, {_id});
 		throw new Meteor.Error(msg);
 	}
-
+	
+	if (!bc) {
+		bc = {bpKey: uuid2bpKey(_id)};
+	}
+	
 	const {receipt: {transactionHash, blockNumber}} = await contractCall('underwrite', bc.bpKey);
 
 	bc = {
@@ -133,6 +137,10 @@ const claim = async (args) => {
 		const msg = `Policy ${_id} already claimed`;
 		error(msg, {_id});
 		throw new Meteor.Error(msg);
+	}
+
+	if (!bc) {
+		bc = {bpKey: uuid2bpKey(_id)};
 	}
 
 	const {text, hash} = keccak256(payout);
@@ -168,6 +176,10 @@ const payout = async (args) => {
 		throw new Meteor.Error(msg);
 	}
 	
+	if (!bc) {
+		bc = {bpKey: uuid2bpKey(_id)};
+	}
+
 	const logNewPayout = bc.claim.logs.find(log => log.name === 'LogNewPayout');
 	const payoutId = parseInt(logNewPayout.events.find(event => event.name === 'payoutId').value);
 	
