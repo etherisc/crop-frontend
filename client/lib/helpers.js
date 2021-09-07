@@ -71,7 +71,7 @@ const mapVal = (key, val, data) => {
 			return currency(val);
 
 		case "location":
-			return val.name;
+			return val.name ? val.name : val;
 
 		case "timestamp":
 		case "created_at":
