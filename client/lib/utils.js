@@ -179,11 +179,25 @@ const showActionButton = function(method) {
 
 const policyPayouts = function(claims) {
 	console.log(claims);
-	const payout =  {
-		total_amount: 1.0,
-		actual_amount: 2.0,
-		deductible_amount: 3.0
+
+	let payout = {
+		total_amount: 0.0,
+		actual_amount: 0.0,
+		deductible_amount: 0.0
 	};
+
+	claims.forEach(claim => {
+		if (!claim.amount) return;
+		payout.ip_actual_amount += claim.amount;
+		if (claim.name == 'Deductible') {
+			payout.ip_deductible_amount += claim.amount;
+		} else {
+			payout.ip_total_amount += claim.amount;
+		}
+
+
+	});
+
 	return json2table(payout);
 };
 
