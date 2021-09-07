@@ -28,9 +28,24 @@ const calc_gp_aggregates = function () {
 			gp_agg_count += 1;
 			gp_agg_sum_insured += ip_item.sum_insured_amount;
 			gp_agg_sum_premium += ip_item.premium_amount;
+			
+			
+			const claims = ip_item.claims;
+			claims.forEach(claim => {
+				if (!claim.amount) return;
+				gp_agg_actual_amount += claim.amount;
+				if (claim.name == 'Deductible') {
+					gp_agg_deductible_amount += claim.amount;
+				} else {
+					gp_agg_total_amount += claim.amount;
+				}
+			})
+					
+			/*			
 			gp_agg_total_amount += ip_item.payout.total_amount;
 			gp_agg_deductible_amount += ip_item.payout.deductible_amount;
 			gp_agg_actual_amount += ip_item.payout.actual_amount;
+			*/	
 			
 			Policies.update({_id: ip_item._id}, {$set: {
 				gp_id: gp_item._id
@@ -39,6 +54,7 @@ const calc_gp_aggregates = function () {
 		});
 
 		GroupPolicies.update({_id: gp_item._id}, {$set: {
+			_id: uuidv4(),
 			gp_agg_count,
 			gp_agg_sum_insured,
 			gp_agg_sum_premium,

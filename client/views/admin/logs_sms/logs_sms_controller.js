@@ -19,11 +19,11 @@ this.AdminLogsSmsController = RouteController.extend({
 	isReady: function() {
 		this.loglineSmsListPagedExtraParams = {
 			searchText: Session.get("LoglineSmsListPagedSearchString") || "",
-			searchFields: Session.get("LoglineSmsListPagedSearchFields") || ["timestamp", "mobile_num", "message", "status", "status_message", "unique_id", "credits", "delivery_status_desc", "date_received", "amount", "total_cost"],
+			searchFields: Session.get("LoglineSmsListPagedSearchFields") || ["timestamp", "mobile_num", "message", "status", "status_message", "unique_id", "credits", "delivery_status_desc", "date_received", "amount", "total_cost", "prefix"],
 			sortBy: Session.get("LoglineSmsListPagedSortBy") || "",
 			sortAscending: Session.get("LoglineSmsListPagedSortAscending"),
 			pageNo: Session.get("LoglineSmsListPagedPageNo") || 0,
-			pageSize: Session.get("LoglineSmsListPagedPageSize") || 0
+			pageSize: Session.get("LoglineSmsListPagedPageSize") || 20
 		};
 
 
