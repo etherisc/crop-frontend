@@ -95,8 +95,6 @@ const bpKey2uuid = (bpKey) => {
 
 const pre = (text) => new Handlebars.SafeString(`<pre class="code">${text}</pre>`);
 const safeStr = (str) => new Handlebars.SafeString(str ? str : '');
-const currency = currency;
-const percentage = percentage;
 
 const payout_schedule_status2Str = (status) => 
 [
