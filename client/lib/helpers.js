@@ -44,6 +44,8 @@ const mapHeader = (key) => {
 		"timestamp": "Timestamp",
 		"transaction_no": "hidden",
 		"stage_info": "hidden",
+		"stage_config": "hidden",
+		"stage_blocks": "hidden",
 		"amount": "Amount"
 
 	}; 
