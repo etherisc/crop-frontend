@@ -183,8 +183,7 @@ const showActionButton = function(method) {
 
 
 const policyPayouts = function(claims) {
-	console.log(claims);
-
+	
 	let payout = {
 		ip_total_amount: 0.0,
 		ip_actual_amount: 0.0,
