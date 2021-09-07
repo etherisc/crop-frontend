@@ -95,7 +95,6 @@ const bpKey2uuid = (bpKey) => {
 
 const pre = (text) => new Handlebars.SafeString(`<pre class="code">${text}</pre>`);
 const safeStr = (str) => new Handlebars.SafeString(str ? str : '');
-const round2 = round2;
 const currency = currency;
 const percentage = percentage;
 
