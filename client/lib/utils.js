@@ -50,7 +50,9 @@ const mapHeader = (key) => {
 		"stage_info": "hidden",
 		"stage_config": "hidden",
 		"stage_blocks": "hidden",
-		"amount": "Amount"
+		"amount": "Amount",
+		"business_tx_id": "Business Task",
+		"task_id": "Task ID"
 
 	}; 
 	return dict[key] === 'hidden' ? null : (dict[key] ? dict[key] : key);
