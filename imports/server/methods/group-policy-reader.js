@@ -55,15 +55,15 @@ const calc_gp_aggregates = function () {
 		});
 
 		const gp_item_new = {
+			...gp_item,
 			_id,
 			gp_agg_count,
 			gp_agg_sum_insured,
 			gp_agg_sum_premium,
 			gp_agg_total_amount,
 			gp_agg_deductible_amount,
-			gp_agg_actual_amount,
-			...gp_item
-		};
+			gp_agg_actual_amount
+		};		
 		
 		GroupPolicies.insert(gp_item_new);
 		GroupPolicies.remove({_id: gp_item._id});
