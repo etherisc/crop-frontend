@@ -190,14 +190,14 @@ const policyPayouts = function(claims) {
 		if (!claim.amount) return;
 		payout.ip_actual_amount += claim.amount;
 		if (claim.name == 'Deductible') {
-			payout.ip_deductible_amount += claim.amount;
+			payout.ip_deductible_amount -= claim.amount;
 		} else {
 			payout.ip_total_amount += claim.amount;
 		}
-
-
 	});
 
+	if (payout.ip_actual_amount < 0) payout.ip_actual_amount = 0.0;
+	
 	return json2table(payout);
 };
 

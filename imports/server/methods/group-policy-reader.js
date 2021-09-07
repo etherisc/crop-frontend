@@ -36,7 +36,7 @@ const calc_gp_aggregates = function () {
 				if (!claim.amount) return;
 				gp_agg_actual_amount += claim.amount;
 				if (claim.name == 'Deductible') {
-					gp_agg_deductible_amount += claim.amount;
+					gp_agg_deductible_amount -= claim.amount;
 				} else {
 					gp_agg_total_amount += claim.amount;
 				}
