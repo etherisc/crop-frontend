@@ -56,12 +56,12 @@ Template.GroupPoliciesGpAggregates.events({
 var GroupPoliciesViewExport = function(fileType) {
 	var extraParams = {
 		searchText: Session.get("GroupPolicyListPagedSearchString") || "",
-		searchFields: Session.get("GroupPolicyListPagedSearchFields") || ["id", "location.name", "sow_window", "sow_date", "begin_date", "end_date", "payout.total_amount", "payout.deductible_amount", "payout.actual_amount", "gp_agg_count", "gp_agg_actual_amount"],
+		searchFields: Session.get("GroupPolicyListPagedSearchFields") || ["id", "location.name", "sow_window", "sow_date", "begin_date", "end_date", "gp_agg_count", "gp_agg_total_amount", "gp_agg_deductible_amount", "gp_agg_actual_amount"],
 		sortBy: Session.get("GroupPolicyListPagedSortBy") || "",
 		sortAscending: Session.get("GroupPolicyListPagedSortAscending") || true
 	};
 
-	var exportFields = ["id", "location.name", "sow_window", "sow_date", "begin_date", "end_date", "payout.total_amount", "payout.deductible_amount", "payout.actual_amount", "gp_agg_count", "gp_agg_actual_amount"];
+	var exportFields = ["id", "location.name", "sow_window", "sow_date", "begin_date", "end_date", "gp_agg_count", "gp_agg_total_amount", "gp_agg_deductible_amount", "gp_agg_actual_amount"];
 
 	
 

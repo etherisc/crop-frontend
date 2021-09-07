@@ -39,13 +39,13 @@
 					</p>
 				</div>
 			</div>
-			<div class="form-group  field-location">
-				<label for="location" class="col-sm-3 control-label">
+			<div class="form-group  field-location-name">
+				<label for="location.name" class="col-sm-3 control-label">
 					Location
 				</label>
 				<div class="input-div col-sm-9">
-					<p class="form-control-static  control-field-location">
-						{{json2table group_policy.location group_policy}}
+					<p class="form-control-static  control-field-location-name">
+						{{json2table group_policy.location.name group_policy}}
 					</p>
 				</div>
 			</div>
@@ -55,17 +55,7 @@
 				</label>
 				<div class="input-div col-sm-9">
 					<p class="form-control-static  control-field-sow_window">
-						{{group_policy.sow_window}}
-					</p>
-				</div>
-			</div>
-			<div class="form-group  field-sow_date">
-				<label for="sow_date" class="col-sm-3 control-label">
-					Sow Date
-				</label>
-				<div class="input-div col-sm-9">
-					<p class="form-control-static  control-field-sow_date">
-						{{formatDate group_policy.sow_date 'MMM-DD'}}
+						{{json2table group_policy.sow_window group_policy}}
 					</p>
 				</div>
 			</div>

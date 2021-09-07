@@ -168,17 +168,14 @@
 				<th class="th-sortable" data-sort="end_date">
 					Date End
 				</th>
-				<th class="th-sortable" data-sort="payout.total_amount">
-					Total
-				</th>
-				<th class="th-sortable" data-sort="payout.deductible_amount">
-					Deductible
-				</th>
-				<th class="th-sortable" data-sort="payout.actual_amount">
-					Actual
-				</th>
 				<th class="th-sortable" data-sort="gp_agg_count">
 					# Policies
+				</th>
+				<th class="th-sortable" data-sort="gp_agg_total_amount">
+					Total
+				</th>
+				<th class="th-sortable" data-sort="gp_agg_deductible_amount">
+					Deductible
 				</th>
 				<th class="th-sortable" data-sort="gp_agg_actual_amount">
 					Actual Amount
@@ -206,16 +203,13 @@
 			{{formatDate end_date 'MMM-DD'}}
 		</td>
 		<td>
-			{{percentage payout.total_amount this}}
-		</td>
-		<td>
-			{{percentage payout.deductible_amount this}}
-		</td>
-		<td>
-			{{percentage payout.actual_amount this}}
-		</td>
-		<td>
 			{{gp_agg_count}}
+		</td>
+		<td>
+			{{percentage gp_agg_total_amount this}}
+		</td>
+		<td>
+			{{percentage gp_agg_deductible_amount this}}
 		</td>
 		<td>
 			{{currency gp_agg_actual_amount this}}
