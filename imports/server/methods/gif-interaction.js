@@ -12,7 +12,7 @@ let policyABI = '';
 const contractCall = async (method, ...args) => {
 
 	if (policyABI == '') {
-		const PolicyContract = await gif.getContractConfig(settings('PolicyController'));
+		const PolicyContract = await gif.getContractConfig('PolicyController');
 		policyABI = PolicyContract.abi;
         abiDecoder.addABI(policyABI);
 	}
