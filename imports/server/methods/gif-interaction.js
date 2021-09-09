@@ -7,15 +7,16 @@ import { settings } from '/imports/server/methods/settings.js';
 import { productABI } from '/both/lib/contract-abi.js';
 
 
-const PolicyContract = gif.getContractConfig('PolicyController');
-const policyABI = PolicyContract.abi;
-
-console.log(PolicyContract);
-
-abiDecoder.addABI(policyABI);
+let policyABI = '';
 
 const contractCall = async (method, ...args) => {
 
+	if (policyABI == '') {
+		const PolicyContract = await gif.getContractConfig(settings('PolicyController'));
+		policyABI = PolicyContract.abi;
+        abiDecoder.addABI(policyABI);
+	}
+	
 	const Product = new eth.ethers.Contract(
 		settings('gif.product.address'), 						
 		productABI, 
