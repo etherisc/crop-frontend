@@ -130,7 +130,7 @@
 		},
 		{
 			"path": "client/views/admin/admin.html",
-			"checksum": "355d8800deb13f63a002632166deeb1541bf34de"
+			"checksum": "6a5ea38b276ce9b5a203c70a22694874c39403f5"
 		},
 		{
 			"path": "client/views/admin/admin.js",
@@ -1226,7 +1226,7 @@
 		},
 		{
 			"path": "imports/server/methods/gif-interaction.js",
-			"checksum": "1b6a4f844e0e75d4805c453d196d9b218a0e7ff4"
+			"checksum": "796974c3bf1dbf6bf293bdac6dd138596cdbd6a4"
 		},
 		{
 			"path": "imports/server/methods/sendmail.js",
