@@ -130,7 +130,7 @@
 		},
 		{
 			"path": "client/views/admin/admin.html",
-			"checksum": "a7c022045d56fd2133e18859529c9c8d23486f52"
+			"checksum": "4df523ac1b537cfd276ea0817b027c856224d7ff"
 		},
 		{
 			"path": "client/views/admin/admin.js",
@@ -1226,7 +1226,7 @@
 		},
 		{
 			"path": "imports/server/methods/gif-interaction.js",
-			"checksum": "e01f22a80841c0b9435032f21af15def8ec356bf"
+			"checksum": "1b6a4f844e0e75d4805c453d196d9b218a0e7ff4"
 		},
 		{
 			"path": "imports/server/methods/sendmail.js",
@@ -1234,7 +1234,7 @@
 		},
 		{
 			"path": "imports/server/methods/ethereum-provider.js",
-			"checksum": "f31ae2be1f276967d6395871576c1e255a5e0c15"
+			"checksum": "043370837ddf1bf7318de9ed1c0197c1d66479c4"
 		},
 		{
 			"path": "both/utils.js",
@@ -1246,7 +1246,7 @@
 		},
 		{
 			"path": "both/lib/contract-abi.js",
-			"checksum": "9a3b67e9c7d234e1401dfb5571628c10ce183c68"
+			"checksum": "bd55d94330948c467412d115e69c1b6908c36b7d"
 		},
 		{
 			"path": "imports/server/methods/telegram-transport.js",
@@ -1611,6 +1611,7 @@
 			"nodemailer",
 			"abi-decoder",
 			"node-telegram-bot-api",
+			"@etherisc/gif-connect",
 			"bcrypt"
 		],
 		"mrt": [

@@ -6,6 +6,7 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.11.2",
+    "@etherisc/gif-connect": "^1.0.6",
     "abi-decoder": "^2.4.0",
     "axios": "^0.21.1",
     "bcrypt": "^5.0.1",
