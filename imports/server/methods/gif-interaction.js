@@ -73,7 +73,9 @@ const applyForPolicy = async (args) => {
 		sum_insured_amount,
 		created_at});
 
+	console.log('here');
 	const {receipt: {transactionHash, blockNumber}} = await contractCall('applyForPolicy', bc.bpKey, hash);
+	console.log('there');
 
 	bc = {
 		apply: {
