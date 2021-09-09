@@ -2,12 +2,13 @@ console.log('loading gif-interaction.js');
 
 const abiDecoder = require('abi-decoder');
 
-
-import { eth } from '/imports/server/methods/ethereum-provider.js';
+import { eth, gif } from '/imports/server/methods/ethereum-provider.js';
 import { settings } from '/imports/server/methods/settings.js';
-import { productABI, policyABI } from '/both/lib/contract-abi.js';
+import { productABI } from '/both/lib/contract-abi.js';
 
 
+const PolicyContract = gif.getContractConfig('PolicyController');
+const policyABI = PolicyContract.abi;
 
 abiDecoder.addABI(policyABI);
 
@@ -49,13 +50,6 @@ const bpKey2uuid = (bpKey) => {
 	const raw = Buffer.from(bpKey.slice(2), 'hex').toString('hex').replace(/(00)+$/, '');
 	return `${raw.slice(0,8)}-${raw.slice(8,12)}-${raw.slice(12,16)}-${raw.slice(16,20)}-${raw.slice(20,32)}`;
 }
-
-/*
-const applyForPolicy = (bpKey, data) => contractCall('applyForPolicy', bpKey, data);
-const underwrite = (bpKey) => contractCall('underwrite', bpKey);
-const claim = (bpKey, data) => contractCall('newClaim', bpKey, data);
-const payout = (bpKey, payoutId, data) => contractCall('payout', bpKey, payoutId, data);
-*/
 
 const applyForPolicy = async (args) => {
 

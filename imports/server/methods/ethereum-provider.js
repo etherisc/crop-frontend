@@ -58,4 +58,7 @@ eth = {
 	s32b
 };
 
-module.exports = { eth };
+const Gif = require('@etherisc/gif-connect');
+const gif = new Gif.instance(settings('gif.http_provider'),	settings('gif.product.address'));
+
+module.exports = { eth, gif };
