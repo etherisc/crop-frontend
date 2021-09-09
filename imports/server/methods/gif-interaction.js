@@ -57,7 +57,7 @@ const bpKey2uuid = (bpKey) => {
 const applyForPolicy = async (args) => {
 
 	const {policy: {_id}} = args;
-	let {bc, group_policy_id, gp_id, phone_no, premium_amount, sum_insured_amount, activation: {timestamp}} = Policies.findOne({_id});
+	let {bc, group_policy_id, gp_id, phone_no, premium_amount, sum_insured_amount, meta: {created_at}} = Policies.findOne({_id});
 
 	if (bc && bc.apply) {
 		const msg = `Policy ${_id} already applied`;
@@ -71,7 +71,7 @@ const applyForPolicy = async (args) => {
 		phone_no,
 		premium_amount,
 		sum_insured_amount,
-		timestamp});
+		created_at});
 
 	const {receipt: {transactionHash, blockNumber}} = await contractCall('applyForPolicy', bc.bpKey, hash);
 
