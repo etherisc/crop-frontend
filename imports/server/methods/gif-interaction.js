@@ -10,7 +10,7 @@ import { productABI } from '/both/lib/contract-abi.js';
 const PolicyContract = gif.getContractConfig('PolicyController');
 const policyABI = PolicyContract.abi;
 
-abiDecoder.addABI(policyABI);
+// abiDecoder.addABI(policyABI);
 
 const contractCall = async (method, ...args) => {
 
