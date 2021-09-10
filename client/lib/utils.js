@@ -94,6 +94,7 @@ const mapVal = (key, val, data) => {
 
 const short = (txt, len) => `${txt.slice(0, len)}...`;
 const bpKey2uuid = (bpKey) => {
+	if (!bpKey || bpKey == '') return '';
 	const raw = Buffer.from(bpKey.slice(2), 'hex').toString('hex').replace(/(00)+$/, '');
 	return `${raw.slice(0,8)}-${raw.slice(8,12)}-${raw.slice(12,16)}-${raw.slice(16,20)}-${raw.slice(20,32)}`;
 }
