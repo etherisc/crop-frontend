@@ -110,6 +110,9 @@
 				<th class="th-sortable" data-sort="sum_insured_amount">
 					Sum Insured
 				</th>
+				<th class="th-sortable" data-sort="BP_Key">
+					bc.bpKey
+				</th>
 			</tr>
 		</thead>
 		<tbody id="dataview-table-items">
@@ -131,6 +134,9 @@
 		</td>
 		<td>
 			{{currency sum_insured_amount this}}
+		</td>
+		<td>
+			{{BP_Key}}
 		</td>
 	</tr>
 </template>
