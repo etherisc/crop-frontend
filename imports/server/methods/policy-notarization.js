@@ -12,11 +12,14 @@ const notarizePolicy = async (policy) => {
 	try { await underwrite({ policy }); } catch (err) { error(err); }
 	
 	if (policy.claims) {
-		policy.claims.forEach((claim, claimIndex) => {
+		
+		for (let claimIndex = 0; claimIndex < policy.claims.length; claimIndex += 1) {
+			const claim = policy.claims[claimIndex]
 			if (claim.name != "Deductible" && claim.status == "Confirmed") {
 				try { await claim({ policy }, claimIndex); } catch (err) { error(err); }
 			}
-		})
+		}
+		
 	}
 	
 }
