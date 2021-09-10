@@ -19,16 +19,16 @@ tgBot.connectBot = () => {
 				error('Could not start telegram bot, not token provided');
 				return;
 			}
-			
+
 			tgBot.bot = new TelegramBot(tgBot.token, {polling: true});
-			
+
 			tgBot.bot.on('polling_error', Meteor.bindEnvironment(({message, stack}) => {
 				tgBot.bot.stopPolling();
 				error('Telegram polling error, stopping polling... maybe other bot instance running?', {message, stack});
 				tgBot.chatId = '';
 				tgBot.pollingError = true;
 			}));
-			
+
 			tgBot.bot.onText(/\/start/, async (msg) => {
 				if (tgBot.connected()) {
 					await tgBot.bot.sendMessage(tgBot.chatId, 'Hello, bot is already listening!');	
@@ -47,8 +47,8 @@ tgBot.connectBot = () => {
 
 tgBot.sendTelegram = async (msg) => {
 
-	if (!tgBot.connected()) connectBot();
 	try {
+		if (!tgBot.connected()) connectBot();
 		await tgBot.bot.sendMessage(tgBot.chatId, msg);
 	} catch ({message, stack}) {
 		error('Error sending Telegram Message', {message, stack});
