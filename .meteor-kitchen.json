@@ -130,7 +130,7 @@
 		},
 		{
 			"path": "client/views/admin/admin.html",
-			"checksum": "adac99a0e694f2eb7cc5b221990f113b08e7030a"
+			"checksum": "e4504baf08dbfc451ca050519b894f4dc94dacfc"
 		},
 		{
 			"path": "client/views/admin/admin.js",
@@ -778,15 +778,15 @@
 		},
 		{
 			"path": "client/views/policies_page/policies_page.html",
-			"checksum": "d555124c4343fa4ed265ec29cdb2e574dbbf550c"
+			"checksum": "077c4a8b8d0bb86c5ee2195ac7a6eec145fbd096"
 		},
 		{
 			"path": "client/views/policies_page/policies_page.js",
-			"checksum": "7d1004db87bb8a599a478f66e453ad491776a8cc"
+			"checksum": "8a268daa7337875f1e7101d86d55445268d61b51"
 		},
 		{
 			"path": "client/views/policies_page/policies_page_controller.js",
-			"checksum": "0e847c641e45d180c8a21da5e16a1baf97b19eb2"
+			"checksum": "0a831cc9a33469fba480c7407db4600dbe66be07"
 		},
 		{
 			"path": "client/views/policies_page/details/details.html",
@@ -1262,7 +1262,7 @@
 		},
 		{
 			"path": "imports/server/methods/policy-notarization.js",
-			"checksum": "3c0c0a5754b21c951fe89cf0d7942893930e77cc"
+			"checksum": "e62943fa8c56a0844b39c4730d857fe0db227bc4"
 		},
 		{
 			"path": "lib/string_utils.js",

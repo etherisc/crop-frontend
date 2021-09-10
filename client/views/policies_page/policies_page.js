@@ -26,7 +26,7 @@ Template.PoliciesPage.helpers({
 var PoliciesPageViewExport = function(fileType) {
 	var extraParams = {
 		searchText: Session.get("PolicyListPagedSearchString") || "",
-		searchFields: Session.get("PolicyListPagedSearchFields") || ["id", "gp_id", "group_policy_id", "phone_no", "premium_amount", "sum_insured_amount"],
+		searchFields: Session.get("PolicyListPagedSearchFields") || ["id", "gp_id", "group_policy_id", "phone_no", "premium_amount", "sum_insured_amount", "BP_Key"],
 		sortBy: Session.get("PolicyListPagedSortBy") || "",
 		sortAscending: Session.get("PolicyListPagedSortAscending") || true
 	};

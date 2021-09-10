@@ -10,15 +10,15 @@ const notarizePolicy = async (policy) => {
 	
 	info('NotarizePolicy', policy);
 	
-	try { await applyForPolicy({ policy }); } catch (err) { console.log(err); }
-	try { await underwrite({ policy }); } catch (err) { console.log(err); }
+	try { await applyForPolicy({ policy }); } catch (err) { noop(); }
+	try { await underwrite({ policy }); } catch (err) { noop(); }
 	
 	if (policy.claims) {
 		
 		for (let claimIndex = 0; claimIndex < policy.claims.length; claimIndex += 1) {
 			const thisClaim = policy.claims[claimIndex]
 			if (thisClaim.name != "Deductible" && thisClaim.status == "Confirmed") {
-				try { await claim({ policy }, claimIndex); } catch (err) { console.log(err); }
+				try { await claim({ policy }, claimIndex); } catch (err) { noop(); }
 			}
 		}
 		
