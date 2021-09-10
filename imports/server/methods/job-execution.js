@@ -1,3 +1,6 @@
+console.log('loading job-execution.js');
+
+
 import { readActivationsFile, countActivations, createPartners } from '/imports/server/methods/activations-reader.js';
 import { exportActivations } from '/imports/server/methods/activations-export.js';
 import { readLocationsFile, augmentLocations, readSiteTableLocations } from '/imports/server/methods/locations-reader.js';
