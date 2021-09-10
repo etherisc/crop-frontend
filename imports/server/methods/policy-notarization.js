@@ -17,11 +17,14 @@ const notarizePolicy = async (policy) => {
 		
 		for (let claimIndex = 0; claimIndex < policy.claims.length; claimIndex += 1) {
 			const claim = policy.claims[claimIndex]
+			info('> Claim', claim);
 			if (claim.name != "Deductible" && claim.status == "Confirmed") {
 				try { await claim({ policy }, claimIndex); } catch (err) { console.log(err); }
 			}
 		}
 		
+	} else {
+		info(`No claims for Policy ${policy._id}`);
 	}
 	
 }
