@@ -32,7 +32,7 @@ const pauseFor = async (milliSec) => await new Promise((resolve) => setTimeout(r
 
 const notarizeManyPolicies = async ({ filter, maxPolicies }) => {
 
-	const policies = Policies.find(filter);
+	const policies = Policies.find(filter).fetch();
 	
 console.log(policies);	
 	
