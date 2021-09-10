@@ -177,8 +177,11 @@ const displayUserEmail = function(emails, self){
 
 const showActionButton = function(method) {
 	return true;
+	
+	/*
 	if (!this.policy.bc && method === 'apply') return true;
 	return (this.policy.bc && this.policy.bc.next_action && method === this.policy.bc.next_action);
+	*/
 }
 
 
