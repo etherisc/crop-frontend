@@ -14,6 +14,13 @@ const Product = new eth.ethers.Contract(
 	eth.wallet()
 );	
 
+let lock = false;
+
+const unlock = async () => {
+	const pauseFor = async (milliSec) => await new Promise((resolve) => setTimeout(resolve, milliSec));
+	while (lock) await pauseFor(100);
+}
+	
 
 const contractCall = async (method, ...args) => {
 
@@ -23,9 +30,12 @@ const contractCall = async (method, ...args) => {
 		abiDecoder.addABI(policyABI);
 	}
 
+	if (lock) await unlock();
+	
 	try {
-
+		lock = true;
 		const txResponse = await Product[method](...args, {gasLimit: 600000});
+		lock = false;
 		const receipt = await txResponse.wait();
 		const logs = abiDecoder.decodeLogs(receipt.logs);
 
