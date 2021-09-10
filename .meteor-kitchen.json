@@ -130,7 +130,7 @@
 		},
 		{
 			"path": "client/views/admin/admin.html",
-			"checksum": "ccc888fa2a9b08c9ca0973a3ca54ddcd50dba3b1"
+			"checksum": "3b76fc5a4283d2a85cd1bc7f983955464567f708"
 		},
 		{
 			"path": "client/views/admin/admin.js",
@@ -778,15 +778,15 @@
 		},
 		{
 			"path": "client/views/policies_page/policies_page.html",
-			"checksum": "f92fe3cd20d5d6d05cbedd8afbbba728ebfae193"
+			"checksum": "5aa4f36ce431017ed4da6b4981ab760c8e226b44"
 		},
 		{
 			"path": "client/views/policies_page/policies_page.js",
-			"checksum": "c025531d4acb632b83afad09e56865a524fe1a17"
+			"checksum": "150f9af6542ffc5dc8ec2c223b911d05cabbe0e5"
 		},
 		{
 			"path": "client/views/policies_page/policies_page_controller.js",
-			"checksum": "47e4099139d0f29335f8544b7e548d0a9d9f928b"
+			"checksum": "0131c53ced2df9d3c35dd10dd261844c77ceb8d8"
 		},
 		{
 			"path": "client/views/policies_page/details/details.html",
