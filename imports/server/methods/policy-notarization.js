@@ -34,7 +34,7 @@ const notarizeManyPolicies = async ({ filter, maxPolicies }) => {
 
 	const policies = Policies.find(filter);
 	
-	info('Notarize Many', policies);
+	info('Notarize Many', JSON.stringify(policies, null, 2));
 	
 	
 	for (let pIndex = 0; pIndex < maxPolicies; pIndex += 1) {
