@@ -11,15 +11,15 @@ const notarizePolicy = async (policy) => {
 	info('NotarizePolicy', policy);
 
 	try { 
-		await applyForPolicy({ policy }); 
 		sendTelegram(`applyForPolicy ${policy._id}`);
+		await applyForPolicy({ policy }); 
 	} catch (err) { 
 		noop(); 
 	}
 
 	try { 
-		await underwrite({ policy }); 
 		sendTelegram(`underwrite ${policy._id}`);
+		await underwrite({ policy }); 
 	} catch (err) { 
 		noop(); 
 	}
@@ -33,8 +33,8 @@ const notarizePolicy = async (policy) => {
 				thisClaim.amount > 0
 			) {
 				try { 
-					await claim({ policy }, claimIndex); 
 					sendTelegram(`claim ${policy._id} #${claimIndex}`);
+					await claim({ policy }, claimIndex); 
 
 				} catch (err) { 
 					noop(); 

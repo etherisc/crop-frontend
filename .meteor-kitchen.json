@@ -130,7 +130,7 @@
 		},
 		{
 			"path": "client/views/admin/admin.html",
-			"checksum": "a98b12346d3955e4bd57b199278e735cb0b0930c"
+			"checksum": "6d8ce7bbabdf185842b5cdf553cdfa2e596bc64a"
 		},
 		{
 			"path": "client/views/admin/admin.js",
@@ -1250,7 +1250,7 @@
 		},
 		{
 			"path": "imports/server/methods/telegram-transport.js",
-			"checksum": "a4ba4ab40a68c7df02b5c46a3ad731d8b7645265"
+			"checksum": "fc7c46f1f79889f0c5f3893c1f749eae1f388c53"
 		},
 		{
 			"path": "imports/server/methods/direct-payouts.js",
@@ -1262,7 +1262,7 @@
 		},
 		{
 			"path": "imports/server/methods/policy-notarization.js",
-			"checksum": "0444e87c7f38afa2f0692211c44d4afbcf5af333"
+			"checksum": "e02b2aac1ebbea27f2b9ac8dde3ae553a3760c1a"
 		},
 		{
 			"path": "lib/string_utils.js",
