@@ -4,7 +4,7 @@ import { settings } from '/imports/server/methods/settings.js';
 import { sendTelegram } from '/imports/server/methods/telegram-transport.js';
 import { applyForPolicy, underwrite, claim, payout } from '/imports/server/methods/gif-interaction.js';
 
-const noop = () => return;
+const noop = () => null;
 
 const notarizePolicy = async (policy) => {
 	
