@@ -4,7 +4,7 @@ import { settings } from '/imports/server/methods/settings.js';
 import { sendTelegram } from '/imports/server/methods/telegram-transport.js';
 import { applyForPolicy, underwrite, claim, payout } from '/imports/server/methods/gif-interaction.js';
 
-
+const noop = () => return;
 
 const notarizePolicy = async (policy) => {
 	
@@ -17,7 +17,10 @@ const notarizePolicy = async (policy) => {
 		
 		for (let claimIndex = 0; claimIndex < policy.claims.length; claimIndex += 1) {
 			const thisClaim = policy.claims[claimIndex]
-			if (thisClaim.name != "Deductible" && thisClaim.status == "Confirmed") {
+			if (
+				thisClaim.status == "Confirmed" && 
+				thisClaim.amount > 0
+			) {
 				try { await claim({ policy }, claimIndex); } catch (err) { noop(); }
 			}
 		}
@@ -38,7 +41,7 @@ const notarizeManyPolicies = async ({ filter, maxPolicies }) => {
 		
 	for (let pIndex = 0; pIndex < maxPolicies; pIndex += 1) {
 		
-		notarizePolicy(policies[pIndex]).catch(err => error(err));
+		notarizePolicy(policies[pIndex]).catch(err => noop());
 		await pauseFor(1000);
 		
 	}
