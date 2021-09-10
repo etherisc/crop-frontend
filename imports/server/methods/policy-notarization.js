@@ -36,9 +36,7 @@ const pauseFor = async (milliSec) => await new Promise((resolve) => setTimeout(r
 const notarizeManyPolicies = async ({ filter, maxPolicies }) => {
 
 	const policies = Policies.find(filter).fetch();
-	
-console.log(policies);	
-	
+		
 	for (let pIndex = 0; pIndex < maxPolicies; pIndex += 1) {
 		
 		notarizePolicy(policies[pIndex]).catch(err => error(err));
