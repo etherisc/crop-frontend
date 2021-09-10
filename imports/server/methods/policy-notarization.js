@@ -16,9 +16,8 @@ const notarizePolicy = async (policy) => {
 	if (policy.claims) {
 		
 		for (let claimIndex = 0; claimIndex < policy.claims.length; claimIndex += 1) {
-			const claim = policy.claims[claimIndex]
-			info('> Claim', claim);
-			if (claim.name != "Deductible" && claim.status == "Confirmed") {
+			const thisClaim = policy.claims[claimIndex]
+			if (thisClaim.name != "Deductible" && thisClaim.status == "Confirmed") {
 				try { await claim({ policy }, claimIndex); } catch (err) { console.log(err); }
 			}
 		}
@@ -35,8 +34,7 @@ const pauseFor = async (milliSec) => await new Promise((resolve) => setTimeout(r
 
 const notarizeManyPolicies = async ({ filter, maxPolicies }) => {
 
-	console.log(filter);
-	const policies = Policies.find({bc: null}).fetch();
+	const policies = Policies.find().fetch();
 		
 	for (let pIndex = 0; pIndex < maxPolicies; pIndex += 1) {
 		
