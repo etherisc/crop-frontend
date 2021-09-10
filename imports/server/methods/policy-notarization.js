@@ -8,6 +8,8 @@ import { applyForPolicy, underwrite, claim, payout } from '/imports/server/metho
 
 const notarizePolicy = async (policy) => {
 	
+	info('NotarizePolicy', policy);
+	
 	try { await applyForPolicy({ policy }); } catch (err) { console.log(err); }
 	try { await underwrite({ policy }); } catch (err) { console.log(err); }
 	
