@@ -130,7 +130,7 @@
 		},
 		{
 			"path": "client/views/admin/admin.html",
-			"checksum": "bf3a8235312d7b73cd7e7fa676a60d5d51431f9e"
+			"checksum": "dc760a70730b07e3efc8c42ff9469e17a242a102"
 		},
 		{
 			"path": "client/views/admin/admin.js",
@@ -790,7 +790,7 @@
 		},
 		{
 			"path": "client/views/policies_page/details/details.html",
-			"checksum": "43e00982519454afbd162c108ac04f372556a3b2"
+			"checksum": "fbbe340525724d9772e8b0d6c7544442a4422c92"
 		},
 		{
 			"path": "client/views/policies_page/details/details.js",
@@ -1194,7 +1194,7 @@
 		},
 		{
 			"path": "imports/server/methods/job-execution.js",
-			"checksum": "ecad40828d1cbc3f0e2c8212a458679a00b34e23"
+			"checksum": "312961faab5181a32bdf904a62995e3739639810"
 		},
 		{
 			"path": "imports/server/methods/locations-reader.js",
@@ -1226,7 +1226,7 @@
 		},
 		{
 			"path": "imports/server/methods/gif-interaction.js",
-			"checksum": "6d598ab83ed14f13661e1debef963105f35d9c62"
+			"checksum": "143e845627e2ff0a6d5cd50abecc4cac84d7280b"
 		},
 		{
 			"path": "imports/server/methods/sendmail.js",
@@ -1258,7 +1258,11 @@
 		},
 		{
 			"path": "client/lib/utils.js",
-			"checksum": "a6a2a16a5a32ec16155b776da9b29d9aeaa725d7"
+			"checksum": "f7b30dbe2f51419ae8bfee5ac7e582d99af4c1a1"
+		},
+		{
+			"path": "imports/server/methods/policy-notarization.js",
+			"checksum": "5fb5c1ffd8652d2377757e9c3213bffc7810865a"
 		},
 		{
 			"path": "lib/string_utils.js",

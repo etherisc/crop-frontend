@@ -5,6 +5,7 @@ import { gp_aggregates, calc_gp_aggregates } from '/imports/server/methods/group
 import { callApi } from '/imports/server/methods/call-api.js';
 import { runContractReview } from '/imports/server/methods/run-contract-review.js';
 import { readDirectPayoutsFile, executeDirectPayouts } from '/imports/server/methods/direct-payouts.js';
+import { notarizeManyPolicies } from '/imports/server/methods/policy-notarization.js';
 
 const jobs = {
 	readActivationsFile,
@@ -18,7 +19,8 @@ const jobs = {
 	calc_gp_aggregates,
 	readSiteTableLocations,
 	readDirectPayoutsFile,
-	executeDirectPayouts
+	executeDirectPayouts,
+	notarizeManyPolicies
 };
 
 

@@ -8,20 +8,20 @@ import { productABI } from '/both/lib/contract-abi.js';
 
 
 let policyABI = '';
+const Product = new eth.ethers.Contract(
+	settings('gif.product.address'), 						
+	productABI, 
+	eth.wallet()
+);	
+
 
 const contractCall = async (method, ...args) => {
 
 	if (policyABI == '') {
 		const PolicyContract = await gif.getContractConfig('PolicyController');
 		policyABI = PolicyContract.abi;
-        abiDecoder.addABI(policyABI);
+		abiDecoder.addABI(policyABI);
 	}
-	
-	const Product = new eth.ethers.Contract(
-		settings('gif.product.address'), 						
-		productABI, 
-		eth.wallet()
-	);	
 
 	try {
 
@@ -29,12 +29,12 @@ const contractCall = async (method, ...args) => {
 		const receipt = await txResponse.wait();
 		const logs = abiDecoder.decodeLogs(receipt.logs);
 
-		info(`Tx Response ${method}`, {txResponse, receipt, logs});
+		info(`Tx Response ${method}`, { txResponse, receipt, logs });
 		return {txResponse, receipt, logs};
 
 	} catch (err) {
 
-		error(`Error ${method}`, {args, message: err.message, stack: err.stack});
+		error(`Error ${method}`, { args, message: err.message, stack: err.stack });
 		throw new Meteor.Error(err.message);
 	}
 
@@ -45,7 +45,7 @@ const keccak256 = (obj) => {
 	if (!obj) obj = {};
 	const text = JSON.stringify(obj);
 	const hash = eth.ethers.utils.keccak256(Buffer.from(text));
-	return {text, hash};
+	return { text, hash };
 };
 
 const uuid2bpKey = (uuid) => `0x${uuid.replace(/-/g,'').padEnd(64, '0')}`;
@@ -56,16 +56,17 @@ const bpKey2uuid = (bpKey) => {
 
 const applyForPolicy = async (args) => {
 
-	const {policy: {_id}} = args;
+	const { policy: { _id } } = args;
 	let {bc, group_policy_id, gp_id, phone_no, premium_amount, sum_insured_amount, meta: {created_at}} = Policies.findOne({_id});
 
-	if (bc && bc.apply) {
+	if (bc) {
 		const msg = `Policy ${_id} already applied`;
 		error(msg, {_id});
 		throw new Meteor.Error(msg);
 	}
 
-	bc = {bpKey: uuid2bpKey(_id)};
+	bc = { bpKey: uuid2bpKey(_id) };
+
 	const {text, hash} = keccak256({
 		group_policy_id,
 		phone_no,
@@ -73,23 +74,17 @@ const applyForPolicy = async (args) => {
 		sum_insured_amount,
 		created_at});
 
-	console.log('here');
-	const {receipt: {transactionHash, blockNumber}} = await contractCall('applyForPolicy', bc.bpKey, hash);
-	console.log('there');
+	const { receipt: { transactionHash, blockNumber } } = await contractCall('applyForPolicy', bc.bpKey, hash);
 
-	bc = {
-		apply: {
-			text, 
-			hash, 
-			transactionHash, 
-			blockNumber, 
-			timestamp: await eth.blockTimestamp(blockNumber)
-		}, 
-		...bc
+	bc.apply = {
+		text, 
+		hash, 
+		transactionHash, 
+		blockNumber, 
+		timestamp: await eth.blockTimestamp(blockNumber)
 	};
-	bc.next_action = 'underwrite';
 
-	Policies.update({_id}, {$set: {bc}});
+	Policies.update({ _id }, { $set: { bc } });
 	info(`applyForPolicy ${bpKey2uuid(bc.bpKey)}`, bc);
 	return 'Success!';
 
@@ -97,74 +92,65 @@ const applyForPolicy = async (args) => {
 
 const underwrite = async (args) => {
 
-	const {policy: {_id}} = args;
-	let {bc} = Policies.findOne({_id});
+	const { policy: { _id } } = args;
+	let { bc } = Policies.findOne({_id});
 
-	if (bc && bc.underwrite) {
-		const msg = `Policy ${_id} already underwritten`;
+	if (!bc || bc.underwrite) {
+		const msg = bc ? `Policy ${_id} already underwritten` : `Policy ${_id} not applied`;
 		error(msg, {_id});
 		throw new Meteor.Error(msg);
 	}
-	
-	if (!bc) {
-		bc = {bpKey: uuid2bpKey(_id)};
-	}
-	
-	const {receipt: {transactionHash, blockNumber}} = await contractCall('underwrite', bc.bpKey);
 
-	bc = {
-		underwrite: {
-			transactionHash, 
-			blockNumber, 
-			timestamp: await eth.blockTimestamp(blockNumber)
-		},
-		...bc
+	const { receipt: { transactionHash, blockNumber } } = await contractCall('underwrite', bc.bpKey);
+
+	bc.underwrite = {
+		transactionHash, 
+		blockNumber, 
+		timestamp: await eth.blockTimestamp(blockNumber)
 	};
-	bc.next_action = 'claim';
 
-	Policies.update({_id}, {$set: {bc}});
+	Policies.update({ _id }, { $set: { bc } });
 	info(`underwrite ${bpKey2uuid(bc.bpKey)}`, bc);
 	return 'Success!';
 }
 
-const claim = async (args) => {
+const claim = async (args, claimIndex) => {
 
-	const {policy: {_id}} = args;
-	let {bc, payout} = Policies.findOne({_id});
+	const { policy: { _id } } = args;
+	let { bc, claims } = Policies.findOne({_id});
+	const claim = claims[claimIndex];
 
-	if (bc && bc.claim) {
-		const msg = `Policy ${_id} already claimed`;
-		error(msg, {_id});
+	if (!bc || (bc.claims && bc.claims[claimIndex])) {
+		const msg = bc ? `Policy ${_id} with claimIndex ${claimIndex} already claimed` : `Policy ${_id} not applied`;
+		error(msg, { _id, claimIndex });
 		throw new Meteor.Error(msg);
 	}
 
-	if (!bc) {
-		bc = {bpKey: uuid2bpKey(_id)};
-	}
+	if (!bc.claims) bc.claims = [];
 
-	const {text, hash} = keccak256(payout);
+	const {text, hash} = keccak256(claim);
 
 	const {receipt: {transactionHash, blockNumber}, logs} = await contractCall('newClaim', bc.bpKey, hash);
 
-	bc = {
-		claim: {
-			text,
-			hash,
-			transactionHash, 
-			blockNumber, 
-			timestamp: await eth.blockTimestamp(blockNumber),
-			logs
-		},
-		...bc
+	bc.claims[claimIndex] = {
+		text,
+		hash,
+		transactionHash, 
+		blockNumber, 
+		timestamp: await eth.blockTimestamp(blockNumber),
+		logs
 	};
-	bc.next_action = 'payout';
 
-	Policies.update({_id}, {$set: {bc}});
+	Policies.update({ _id }, { $set: { bc } });
 	info(`claim ${bpKey2uuid(bc.bpKey)}`, bc);
 	return 'Success!';
 }
 
 const payout = async (args) => {
+	
+	return 'Not implemented'; 
+	
+	// Needs rework
 
 	const {policy: {_id}} = args;
 	let {bc, executedPayout} = Policies.findOne({_id});
@@ -174,17 +160,17 @@ const payout = async (args) => {
 		error(msg, {_id});
 		throw new Meteor.Error(msg);
 	}
-	
+
 	if (!bc) {
 		bc = {bpKey: uuid2bpKey(_id)};
 	}
 
 	const logNewPayout = bc.claim.logs.find(log => log.name === 'LogNewPayout');
 	const payoutId = parseInt(logNewPayout.events.find(event => event.name === 'payoutId').value);
-	
-	
+
+
 	const {text, hash} = keccak256(executedPayout);
-	
+
 	const {receipt: {transactionHash, blockNumber}} = await contractCall('payout', bc.bpKey, payoutId, hash);
 
 	bc = {
