@@ -47,10 +47,11 @@ tgBot.connectBot = () => {
 
 tgBot.sendTelegram = async (msg) => {
 
-	if (tgBot.connected()) {
+	if (!tgBot.connected()) connectBot();
+	try {
 		await tgBot.bot.sendMessage(tgBot.chatId, msg);
-	} else {
-		connectBot();
+	} catch ({message, stack}) {
+		error('Error sending Telegram Message', {message, stack});
 	}
 };
 
