@@ -142,7 +142,7 @@ const claim = async (args, claimIndex) => {
 	};
 
 	Policies.update({ _id }, { $set: { bc } });
-	info(`claim ${bpKey2uuid(bc.bpKey)}`, bc);
+	info(`claim ${bpKey2uuid(bc.bpKey)} claimIndex ${claimIndex}`, bc);
 	return 'Success!';
 }
 
