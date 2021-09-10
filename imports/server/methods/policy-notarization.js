@@ -30,7 +30,7 @@ const pauseFor = async (milliSec) => await new Promise((resolve) => setTimeout(r
 
 const notarizeManyPolicies = async ({ filter, maxPolicies }) => {
 
-	const policies = Policies.find(JSON.parse(filter));
+	const policies = Policies.find(filter);
 	
 	
 	for (let pIndex = 0; pIndex < maxPolicies; pIndex += 1) {
