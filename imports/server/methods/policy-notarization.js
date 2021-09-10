@@ -1,4 +1,4 @@
-console.log('loading payout-schedule.js');
+console.log('loading policy-notarization.js');
 
 import { settings } from '/imports/server/methods/settings.js';
 import { sendTelegram } from '/imports/server/methods/telegram-transport.js';
