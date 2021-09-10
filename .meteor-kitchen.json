@@ -130,7 +130,7 @@
 		},
 		{
 			"path": "client/views/admin/admin.html",
-			"checksum": "771a0a2620f44cc281c51c4d41d0cd943f4376c7"
+			"checksum": "7f2d096a638cbd0a75c88c62235032103ed14723"
 		},
 		{
 			"path": "client/views/admin/admin.js",
@@ -1262,7 +1262,7 @@
 		},
 		{
 			"path": "imports/server/methods/policy-notarization.js",
-			"checksum": "c582d46369cf942f6a9708e81f1b4b2f593a921a"
+			"checksum": "4181a8abac4ee00e5dbfe6718b202bacb38b6e15"
 		},
 		{
 			"path": "lib/string_utils.js",

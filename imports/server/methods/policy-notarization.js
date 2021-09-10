@@ -8,15 +8,15 @@ import { applyForPolicy, underwrite, claim, payout } from '/imports/server/metho
 
 const notarizePolicy = async (policy) => {
 	
-	try { await applyForPolicy({ policy }); } catch (err) { error(err.message); }
-	try { await underwrite({ policy }); } catch (err) { error(err.message); }
+	try { await applyForPolicy({ policy }); } catch (err) { console.log(err); }
+	try { await underwrite({ policy }); } catch (err) { console.log(err); }
 	
 	if (policy.claims) {
 		
 		for (let claimIndex = 0; claimIndex < policy.claims.length; claimIndex += 1) {
 			const claim = policy.claims[claimIndex]
 			if (claim.name != "Deductible" && claim.status == "Confirmed") {
-				try { await claim({ policy }, claimIndex); } catch (err) { error(err.message); }
+				try { await claim({ policy }, claimIndex); } catch (err) { console.log(err); }
 			}
 		}
 		
