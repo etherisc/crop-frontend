@@ -25,6 +25,7 @@ const mapHeader = (key) => {
 		"begin_date": "Begin",
 		"end_date": "End",
 		"days": "Days",
+		"config": "hidden",
 		"block_length": "Length",
 		"block_step": "Step",
 		"blocks": "#",
@@ -33,6 +34,7 @@ const mapHeader = (key) => {
 		"status": "Status",
 		"latitude": "Lat",
 		"longitude": "Lng",
+		"location": "hidden",
 		"ip_total_amount": "Total",
 		"ip_deductible_amount": "Deductible",
 		"ip_actual_amount": "Actual",
@@ -66,14 +68,14 @@ const mapVal = (key, val, data) => {
 
 		case "payout":
 		case "weight":
-		case "total_amount":
-		case "deductible_amount": 
-		case "actual_amount":
 			return percentage(val);
 
 		case "ip_total_amount":
 		case "ip_deductible_amount": 
 		case "ip_actual_amount":
+		case "total_amount":
+		case "deductible_amount": 
+		case "actual_amount":
 			return currency(val);
 
 		case "location":

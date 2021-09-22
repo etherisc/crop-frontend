@@ -29,12 +29,12 @@ const contractCall = async (method, ...args) => {
 		policyABI = PolicyContract.abi;
 		abiDecoder.addABI(policyABI);
 	}
-
+	
 	if (lock) await unlock();
 	
 	try {
 		lock = true;
-		const txResponse = await Product[method](...args, {gasLimit: 600000});
+		const txResponse = await Product[method](...args, {gasPrice: 2000000000, gasLimit: 600000});
 		lock = false;
 		const receipt = await txResponse.wait();
 		const logs = abiDecoder.decodeLogs(receipt.logs);
@@ -43,7 +43,7 @@ const contractCall = async (method, ...args) => {
 		return {txResponse, receipt, logs};
 
 	} catch (err) {
-
+		lock = false;
 		error(`Error ${method}`, { args, message: err.message, stack: err.stack });
 		throw new Meteor.Error(err.message);
 	}

@@ -59,6 +59,12 @@ eth = {
 };
 
 const Gif = require('@etherisc/gif-connect');
-const gif = new Gif.Instance(settings('gif.http_provider'),	settings('gif.registry.address'));
+
+let gif = null;
+const httpProvider = settings('gif.http_provider');
+const registryAddress = settings('gif.registry.address');
+if (httpProvider && registryAddress) {
+	gif = new Gif.Instance(httpProvider, registryAddress);
+}
 
 module.exports = { eth, gif };

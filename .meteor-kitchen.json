@@ -130,7 +130,7 @@
 		},
 		{
 			"path": "client/views/admin/admin.html",
-			"checksum": "05b9b5e5bc44b04994db731525d1433278ee0845"
+			"checksum": "895247396d46ff0995a5d9052a7957db1cea8606"
 		},
 		{
 			"path": "client/views/admin/admin.js",
@@ -598,7 +598,7 @@
 		},
 		{
 			"path": "client/views/group_policies/group_policies.html",
-			"checksum": "1dc9843b46a98110b0396fbcdee6f9c65e61bf51"
+			"checksum": "370f703c58bd49485f59ea7d596473379aedc871"
 		},
 		{
 			"path": "client/views/group_policies/group_policies.js",
@@ -610,15 +610,15 @@
 		},
 		{
 			"path": "client/views/group_policies/details/details.html",
-			"checksum": "ccbafa4cca4b790c25e40a1d66b4b0594f916c69"
+			"checksum": "9a160b668a519151f57384f190bf8dc5fef55a41"
 		},
 		{
 			"path": "client/views/group_policies/details/details.js",
-			"checksum": "0bdf32ee14f7bdef25753e08ff55031e18506c18"
+			"checksum": "63efdfcca859cd5a487d1c71132fc0cc893f030b"
 		},
 		{
 			"path": "client/views/group_policies/details/details_controller.js",
-			"checksum": "38f9fd4e6f1a75e0ddd33493f66731776255251e"
+			"checksum": "ceed15071a3a2b8d19607a6ce34352c9c97ee0bb"
 		},
 		{
 			"path": "client/views/group_policies/details/details/details.html",
@@ -1226,7 +1226,7 @@
 		},
 		{
 			"path": "imports/server/methods/gif-interaction.js",
-			"checksum": "49d5a31a484ec7814b9cb341f37d7c0ea579f96f"
+			"checksum": "84f84eae762b548e9a5d3176fd9a89022e1db02d"
 		},
 		{
 			"path": "imports/server/methods/sendmail.js",
@@ -1234,7 +1234,7 @@
 		},
 		{
 			"path": "imports/server/methods/ethereum-provider.js",
-			"checksum": "4aa632ec32d11cb743bcb484292c564337d5761c"
+			"checksum": "bf7a38a16dfec70ea6dd4c8b09c907d48ad86744"
 		},
 		{
 			"path": "both/utils.js",
@@ -1258,11 +1258,11 @@
 		},
 		{
 			"path": "client/lib/utils.js",
-			"checksum": "920864a6e9fbb966305439f3d7003349bde92429"
+			"checksum": "a9f1275c7253cab501f2e3c49fc6df84023620f9"
 		},
 		{
 			"path": "imports/server/methods/policy-notarization.js",
-			"checksum": "e02b2aac1ebbea27f2b9ac8dde3ae553a3760c1a"
+			"checksum": "c51909bd0a425685c43369458ebc26ff6d9e62ba"
 		},
 		{
 			"path": "lib/string_utils.js",

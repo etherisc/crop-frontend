@@ -148,7 +148,7 @@ Template.GroupPoliciesDetailsForm.helpers({
 var GroupPoliciesDetailsGpIndividualPoliciesExport = function(fileType) {
 	var extraParams = {
 		searchText: Session.get("GpIndividualPoliciesPagedSearchString") || "",
-		searchFields: Session.get("GpIndividualPoliciesPagedSearchFields") || ["id", "group_policy_id", "phone_no", "premium_amount", "sum_insured_amount", "activation", "payments", "payout", "meta", "payout.total_amount", "payout.deductible_amount", "payout.actual_amount"],
+		searchFields: Session.get("GpIndividualPoliciesPagedSearchFields") || ["id", "group_policy_id", "phone_no", "premium_amount", "sum_insured_amount", "activation", "payments", "payout", "meta"],
 		sortBy: Session.get("GpIndividualPoliciesPagedSortBy") || "",
 		sortAscending: Session.get("GpIndividualPoliciesPagedSortAscending") || true
 	};
@@ -376,7 +376,7 @@ Template.GroupPoliciesDetailsGpIndividualPoliciesTableItems.events({
 		var itemId = item ? item._id : null;
 
 		
-		Router.go("group_policies.details.details", mergeObjects(Router.currentRouteParams(), {policyId: this._id}));
+		/**/
 		return false;
 	},
 
