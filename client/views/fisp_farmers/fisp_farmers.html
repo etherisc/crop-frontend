@@ -1,0 +1,119 @@
+<template name="FispFarmers">
+	<div class="page-container container" id="content">
+		<div class="row" id="title_row">
+			<div class="col-md-12">
+			</div>
+		</div>
+		{{> FispFarmersView}}
+	</div>
+</template>
+
+<template name="FispFarmersView">
+	<div id="fisp-farmers-view" class="">
+		<h2 id="component-title">
+			Fisp Farmers
+		</h2>
+		<form id="dataview-controls" class="form-inline">
+			<div id="dataview-controls-search">
+				<div id="dataview-controls-search-group" class="input-group">
+					<input type="text" class="form-control" id="dataview-search-input" placeholder="Search" name="search" value="{{searchString}}" autofocus="autofocus">
+					<span class="input-group-btn">
+						<button type="button" id="dataview-search-button" class="btn btn-primary">
+							<span class="fa fa-search">
+							</span>
+						</button>
+					</span>
+				</div>
+			</div>
+		</form>
+		{{#if isNotEmpty}}
+		<div id="dataview-data">
+			{{#if viewAsTable}} {{> FispFarmersViewTable}} {{/if}}
+		</div>
+		<nav aria-label="...">
+			<ul class="pager">
+				{{#if gotPrevPage}}
+				<li>
+					<a href="#" class="prev-page-link">
+						Previous page
+					</a>
+					&nbsp;
+				</li>
+				{{/if}}
+					{{#if gotNextPage}}
+				<li>
+					&nbsp;
+					<a href="#" class="next-page-link">
+						Next page
+					</a>
+				</li>
+				{{/if}}
+			</ul>
+		</nav>
+		{{else}}
+			{{#if isNotFound}}
+		<div class="alert alert-warning">
+			"{{searchString}}" not found.
+		</div>
+		{{else}}
+		<div class="alert alert-info">
+			Empty.
+		</div>
+		{{/if}}
+		{{/if}}
+	</div>
+</template>
+
+<template name="FispFarmersViewTable">
+	<table id="dataview-table" class="table table-striped table-hover">
+		<thead id="dataview-table-header">
+			<tr id="dataview-table-header-row">
+				<th class="th-sortable" data-sort="name">
+					Name
+				</th>
+				<th class="th-sortable" data-sort="camp">
+					Camp
+				</th>
+				<th class="th-sortable" data-sort="mobile_num">
+					Mobile Num
+				</th>
+				<th class="th-sortable" data-sort="national_registration_number">
+					National Registration Number
+				</th>
+				<th class="th-sortable" data-sort="fisp_member">
+					Fisp Member
+				</th>
+				<th class="th-sortable" data-sort="verified">
+					Verified
+				</th>
+			</tr>
+		</thead>
+		<tbody id="dataview-table-items">
+			{{#each fisp_farmer_list_paged}} {{> FispFarmersViewTableItems}} {{/each}}
+		</tbody>
+	</table>
+</template>
+
+<template name="FispFarmersViewTableItems">
+	<tr id="dataview-table-items-row">
+		<td>
+			{{name}}
+		</td>
+		<td>
+			{{camp}}
+		</td>
+		<td>
+			{{mobile_num}}
+		</td>
+		<td>
+			{{national_registration_number}}
+		</td>
+		<td>
+			<input type="checkbox" class="inline-checkbox {{editButtonClass}}" data-field="fisp_member" {{checked fisp_member}}>
+		</td>
+		<td>
+			<input type="checkbox" class="inline-checkbox {{editButtonClass}}" data-field="verified" {{checked verified}}>
+		</td>
+	</tr>
+</template>
+

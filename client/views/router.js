@@ -74,7 +74,9 @@ Router.privateRoutes = [
 	"policies_page.details",
 	"user_settings",
 	"user_settings.profile",
-	"user_settings.change_pass"
+	"user_settings.change_pass",
+	"fisp_farmers",
+	"fisp_farmers.details"
 ];
 
 Router.freeRoutes = [
@@ -237,4 +239,6 @@ Router.map(function () {
 	this.route("/user_settings", {name: "user_settings", title: "", controller: "UserSettingsController"});
 	this.route("/user_settings/profile", {name: "user_settings.profile", title: "", controller: "UserSettingsProfileController"});
 	this.route("/user_settings/change_pass", {name: "user_settings.change_pass", title: "", controller: "UserSettingsChangePassController"});
+	this.route("/fisp_farmers", {name: "fisp_farmers", title: "", controller: "FispFarmersController"});
+	this.route("/fisp_farmers/details/:fispFarmerId", {name: "fisp_farmers.details", title: "", controller: "FispFarmersDetailsController"});
 });
