@@ -11,17 +11,15 @@ const notarizePolicy = async (policy) => {
 	info('NotarizePolicy', policy);
 
 	try { 
-		sendTelegram(`applyForPolicy ${policy._id}`);
 		await applyForPolicy({ policy }); 
-	} catch (err) { 
-		noop(); 
+	} catch ({ message, stack }) { 
+		error(message, { message, stack });
 	}
 
 	try { 
-		sendTelegram(`underwrite ${policy._id}`);
 		await underwrite({ policy }); 
-	} catch (err) { 
-		noop(); 
+	} catch ({ message, stack }) { 
+		error(message, { message, stack });
 	}
 
 	if (policy.claims) {
@@ -33,11 +31,10 @@ const notarizePolicy = async (policy) => {
 				thisClaim.amount > 0
 			) {
 				try { 
-					sendTelegram(`claim ${policy._id} #${claimIndex}`);
 					await claim({ policy }, claimIndex); 
 
-				} catch (err) { 
-					noop(); 
+				} catch ({ message, stack }) { 
+					error(message, { message, stack });
 				}
 			}
 		}
@@ -55,14 +52,16 @@ const pauseFor = async (milliSec) => await new Promise((resolve) => setTimeout(r
 const notarizeManyPolicies = async ({ filter, maxPolicies }) => {
 
 	const policies = Policies.find().fetch();
-
+	
 	for (let pIndex = 0; pIndex < maxPolicies; pIndex += 1) {
 
-		notarizePolicy(policies[pIndex]).catch(err => noop());
-		await pauseFor(1000);
+		await notarizePolicy(policies[pIndex]);
+		// await pauseFor(1000);
 
 	}
 
+
+	return "Notarization complete";
 }
 
 
