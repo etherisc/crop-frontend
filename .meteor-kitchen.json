@@ -130,7 +130,7 @@
 		},
 		{
 			"path": "client/views/admin/admin.html",
-			"checksum": "576fce2b408edca30713d8b65b775869d8594b30"
+			"checksum": "1f043cddcaa0b4aa2568419ec5bae4fb05fdcb69"
 		},
 		{
 			"path": "client/views/admin/admin.js",
@@ -838,7 +838,7 @@
 		},
 		{
 			"path": "client/views/fisp_farmers/fisp_farmers.html",
-			"checksum": "c2c7e35e7ccea9d1aef382910268b6e9695c47f7"
+			"checksum": "e49dc30c2cccf9ee86044af000f063647a8c29d0"
 		},
 		{
 			"path": "client/views/fisp_farmers/fisp_farmers.js",
@@ -850,7 +850,7 @@
 		},
 		{
 			"path": "client/views/fisp_farmers/insert/insert.html",
-			"checksum": "b041d9c2f35895e695ec7bd288d4db0d35a40041"
+			"checksum": "7d2b5f526e2446094a2f39150644972a784a107b"
 		},
 		{
 			"path": "client/views/fisp_farmers/insert/insert.js",
@@ -862,7 +862,7 @@
 		},
 		{
 			"path": "client/views/fisp_farmers/update/update.html",
-			"checksum": "3f69569701fc098d4c0f91bc01a5334abdb7e9e3"
+			"checksum": "0019f3f728291ff9ea4bb295ecb988788bec0e41"
 		},
 		{
 			"path": "client/views/fisp_farmers/update/update.js",
@@ -874,7 +874,7 @@
 		},
 		{
 			"path": "client/views/fisp_farmers/details/details.html",
-			"checksum": "c63e9790d3995457cdc50c0e6e4731df7fa85a1d"
+			"checksum": "6ad114be1cf8d16ac8c95f9c322093e477dbd09a"
 		},
 		{
 			"path": "client/views/fisp_farmers/details/details.js",
