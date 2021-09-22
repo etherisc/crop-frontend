@@ -1,0 +1,117 @@
+<template name="FispFarmersUpdate">
+	<div class="page-container container" id="content">
+		<div class="row" id="title_row">
+			<div class="col-md-12">
+			</div>
+		</div>
+		{{> FispFarmersUpdateForm}}
+	</div>
+</template>
+
+<template name="FispFarmersUpdateForm">
+	<div id="fisp-farmers-update-form" class="">
+		<h2 id="component-title">
+			Edit Fisp Farmer
+		</h2>
+		<form role="form">
+			{{#if errorMessage}}
+			<div class="alert alert-warning">
+				{{errorMessage}}
+			</div>
+			{{/if}}
+
+			{{#if infoMessage}}
+			<div class="alert alert-success">
+				{{infoMessage}}
+			</div>
+			{{/if}}
+			<div class="form-group  field-name">
+				<label for="name">
+					Name
+				</label>
+				<div class="input-div">
+					<input type="text" name="name" value="{{fisp_farmer1.name}}" class="form-control " autofocus="autofocus" data-type="string">
+					<span id="help-text" class="help-block">
+					</span>
+					<span id="error-text" class="help-block">
+					</span>
+				</div>
+			</div>
+			<div class="form-group  field-camp">
+				<label for="camp">
+					Camp
+				</label>
+				<div class="input-div">
+					<input type="text" name="camp" value="{{fisp_farmer1.camp}}" class="form-control " data-type="string">
+					<span id="help-text" class="help-block">
+					</span>
+					<span id="error-text" class="help-block">
+					</span>
+				</div>
+			</div>
+			<div class="form-group  field-mobile_num">
+				<label for="mobile_num">
+					Mobile Num
+				</label>
+				<div class="input-div">
+					<input type="text" name="mobile_num" value="{{fisp_farmer1.mobile_num}}" class="form-control " data-type="string">
+					<span id="help-text" class="help-block">
+					</span>
+					<span id="error-text" class="help-block">
+					</span>
+				</div>
+			</div>
+			<div class="form-group  field-national_registration_number">
+				<label for="national_registration_number">
+					National Registration Number
+				</label>
+				<div class="input-div">
+					<input type="text" name="national_registration_number" value="{{fisp_farmer1.national_registration_number}}" class="form-control " data-type="string">
+					<span id="help-text" class="help-block">
+					</span>
+					<span id="error-text" class="help-block">
+					</span>
+				</div>
+			</div>
+			<div class="form-group  field-fisp_member">
+				<div class="input-div">
+					<div class="checkbox">
+						<label>
+							<input type="checkbox" value="{{fisp_farmer1.fisp_member}}" name="fisp_member" data-type="bool" {{itemIsChecked fisp_farmer1.fisp_member true}}>
+							Fisp Member
+						</label>
+					</div>
+					<span id="help-text" class="help-block">
+					</span>
+					<span id="error-text" class="help-block">
+					</span>
+				</div>
+			</div>
+			<div class="form-group  field-verified">
+				<div class="input-div">
+					<div class="checkbox">
+						<label>
+							<input type="checkbox" value="{{fisp_farmer1.verified}}" name="verified" data-type="bool" {{itemIsChecked fisp_farmer1.verified true}}>
+							Verified
+						</label>
+					</div>
+					<span id="help-text" class="help-block">
+					</span>
+					<span id="error-text" class="help-block">
+					</span>
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="submit-div">
+					<a href="#" id="form-cancel-button" class="btn btn-default">
+						Cancel
+					</a>
+					<button id="form-submit-button" class="btn btn-success" type="submit">
+						Save
+					</button>
+				</div>
+			</div>
+		</form>
+	</div>
+</template>
+

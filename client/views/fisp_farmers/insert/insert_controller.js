@@ -1,5 +1,5 @@
-this.FispFarmersDetailsController = RouteController.extend({
-	template: "FispFarmersDetails",
+this.FispFarmersInsertController = RouteController.extend({
+	template: "FispFarmersInsert",
 	
 
 	yieldTemplates: {
@@ -21,7 +21,7 @@ this.FispFarmersDetailsController = RouteController.extend({
 		
 
 		var subs = [
-			Meteor.subscribe("fisp_farmer1", this.params.fispFarmerId)
+			Meteor.subscribe("fisp_farmers_null")
 		];
 		var ready = true;
 		_.each(subs, function(sub) {
@@ -36,7 +36,7 @@ this.FispFarmersDetailsController = RouteController.extend({
 
 		var data = {
 			params: this.params || {},
-			fisp_farmer1: FispFarmers.findOne({_id:this.params.fispFarmerId}, {})
+			fisp_farmers_null: FispFarmers.findOne({_id:null}, {})
 		};
 		
 

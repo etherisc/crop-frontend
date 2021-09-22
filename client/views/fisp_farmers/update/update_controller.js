@@ -1,5 +1,5 @@
-this.FispFarmersDetailsController = RouteController.extend({
-	template: "FispFarmersDetails",
+this.FispFarmersUpdateController = RouteController.extend({
+	template: "FispFarmersUpdate",
 	
 
 	yieldTemplates: {
