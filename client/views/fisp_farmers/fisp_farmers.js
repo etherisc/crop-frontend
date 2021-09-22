@@ -25,17 +25,17 @@ Template.FispFarmers.helpers({
 
 var FispFarmersViewExport = function(fileType) {
 	var extraParams = {
-		searchText: Session.get("FispFarmerListPagedSearchString") || "",
-		searchFields: Session.get("FispFarmerListPagedSearchFields") || ["name", "camp", "mobile_num", "national_registration_number", "fisp_member", "verified"],
-		sortBy: Session.get("FispFarmerListPagedSortBy") || "",
-		sortAscending: Session.get("FispFarmerListPagedSortAscending") || true
+		searchText: Session.get("FispFarmerList1PagedSearchString") || "",
+		searchFields: Session.get("FispFarmerList1PagedSearchFields") || ["name", "camp", "mobile_num", "national_registration_number", "fisp_member", "verified"],
+		sortBy: Session.get("FispFarmerList1PagedSortBy") || "",
+		sortAscending: Session.get("FispFarmerList1PagedSortAscending") || true
 	};
 
 	var exportFields = [];
 
 	
 
-	Meteor.call("fispFarmerListPagedExport", extraParams, exportFields, fileType, function(e, data) {
+	Meteor.call("fispFarmerList1PagedExport", extraParams, exportFields, fileType, function(e, data) {
 		if(e) {
 			alert(e);
 			return;
@@ -72,7 +72,7 @@ Template.FispFarmersView.events({
 			if(searchInput) {
 				searchInput.focus();
 				var searchString = searchInput.val();
-				Session.set("FispFarmerListPagedSearchString", searchString);
+				Session.set("FispFarmerList1PagedSearchString", searchString);
 			}
 
 		}
@@ -88,7 +88,7 @@ Template.FispFarmersView.events({
 				var searchInput = form.find("#dataview-search-input");
 				if(searchInput) {
 					var searchString = searchInput.val();
-					Session.set("FispFarmerListPagedSearchString", searchString);
+					Session.set("FispFarmerList1PagedSearchString", searchString);
 				}
 
 			}
@@ -103,7 +103,7 @@ Template.FispFarmersView.events({
 				var searchInput = form.find("#dataview-search-input");
 				if(searchInput) {
 					searchInput.val("");
-					Session.set("FispFarmerListPagedSearchString", "");
+					Session.set("FispFarmerList1PagedSearchString", "");
 				}
 
 			}
@@ -115,7 +115,7 @@ Template.FispFarmersView.events({
 
 	"click #dataview-insert-button": function(e, t) {
 		e.preventDefault();
-		/**/
+		Router.go("fisp_farmers.insert", mergeObjects(Router.currentRouteParams(), {}));
 	},
 
 	"click #dataview-export-default": function(e, t) {
@@ -140,17 +140,17 @@ Template.FispFarmersView.events({
 
 	"click .prev-page-link": function(e, t) {
 		e.preventDefault();
-		var currentPage = Session.get("FispFarmerListPagedPageNo") || 0;
+		var currentPage = Session.get("FispFarmerList1PagedPageNo") || 0;
 		if(currentPage > 0) {
-			Session.set("FispFarmerListPagedPageNo", currentPage - 1);
+			Session.set("FispFarmerList1PagedPageNo", currentPage - 1);
 		}
 	},
 
 	"click .next-page-link": function(e, t) {
 		e.preventDefault();
-		let currentPage = Session.get("FispFarmerListPagedPageNo") || 0;
-		if(currentPage < this.fisp_farmer_list_paged_page_count - 1) {
-			Session.set("FispFarmerListPagedPageNo", currentPage + 1);
+		let currentPage = Session.get("FispFarmerList1PagedPageNo") || 0;
+		if(currentPage < this.fisp_farmer_list1paged_page_count - 1) {
+			Session.set("FispFarmerList1PagedPageNo", currentPage + 1);
 		}
 	}
 
@@ -164,22 +164,22 @@ Template.FispFarmersView.helpers({
 	},
 
 	"isEmpty": function() {
-		return !this.fisp_farmer_list_paged || this.fisp_farmer_list_paged.count() == 0;
+		return !this.fisp_farmer_list1_paged || this.fisp_farmer_list1_paged.count() == 0;
 	},
 	"isNotEmpty": function() {
-		return this.fisp_farmer_list_paged && this.fisp_farmer_list_paged.count() > 0;
+		return this.fisp_farmer_list1_paged && this.fisp_farmer_list1_paged.count() > 0;
 	},
 	"isNotFound": function() {
-		return this.fisp_farmer_list_paged && this.fisp_farmer_list_paged.count() == 0 && Session.get("FispFarmerListPagedSearchString");
+		return this.fisp_farmer_list1_paged && this.fisp_farmer_list1_paged.count() == 0 && Session.get("FispFarmerList1PagedSearchString");
 	},
 	"gotPrevPage": function() {
-		return !!Session.get("FispFarmerListPagedPageNo");
+		return !!Session.get("FispFarmerList1PagedPageNo");
 	},
 	"gotNextPage": function() {
-		return (Session.get("FispFarmerListPagedPageNo") || 0) < this.fisp_farmer_list_paged_page_count - 1;
+		return (Session.get("FispFarmerList1PagedPageNo") || 0) < this.fisp_farmer_list1paged_page_count - 1;
 	},
 	"searchString": function() {
-		return Session.get("FispFarmerListPagedSearchString");
+		return Session.get("FispFarmerList1PagedSearchString");
 	},
 	"viewAsTable": function() {
 		return Session.get("FispFarmersViewStyle") == "table";
@@ -213,18 +213,18 @@ Template.FispFarmersViewTable.onRendered(function() {
 Template.FispFarmersViewTable.events({
 	"click .th-sortable": function(e, t) {
 		e.preventDefault();
-		var oldSortBy = Session.get("FispFarmerListPagedSortBy");
+		var oldSortBy = Session.get("FispFarmerList1PagedSortBy");
 		var newSortBy = $(e.target).attr("data-sort");
 
-		Session.set("FispFarmerListPagedSortBy", newSortBy);
+		Session.set("FispFarmerList1PagedSortBy", newSortBy);
 		if(oldSortBy == newSortBy) {
-			var sortAscending = Session.get("FispFarmerListPagedSortAscending");
+			var sortAscending = Session.get("FispFarmerList1PagedSortAscending");
 			if(typeof sortAscending == "undefined") {
 				sortAscending = true;
 			}
-			Session.set("FispFarmerListPagedSortAscending", !sortAscending);
+			Session.set("FispFarmerList1PagedSortAscending", !sortAscending);
 		} else {
-			Session.set("FispFarmerListPagedSortAscending", true);
+			Session.set("FispFarmerList1PagedSortAscending", true);
 		}
 	}
 });
@@ -307,7 +307,7 @@ Template.FispFarmersViewTableItems.events({
 	},
 	"click #edit-button": function(e, t) {
 		e.preventDefault();
-		/**/
+		Router.go("fisp_farmers.update", mergeObjects(Router.currentRouteParams(), {fispFarmerId: this._id}));
 		return false;
 	}
 });

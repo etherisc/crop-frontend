@@ -14,6 +14,13 @@
 			Fisp Farmers
 		</h2>
 		<form id="dataview-controls" class="form-inline">
+			<div id="dataview-controls-insert" class="form-group {{insertButtonClass}}">
+				<button type="submit" id="dataview-insert-button" class="btn btn-success">
+					<span class="fa fa-plus">
+					</span>
+					Add new
+				</button>
+			</div>
 			<div id="dataview-controls-search">
 				<div id="dataview-controls-search-group" class="input-group">
 					<input type="text" class="form-control" id="dataview-search-input" placeholder="Search" name="search" value="{{searchString}}" autofocus="autofocus">
@@ -86,10 +93,16 @@
 				<th class="th-sortable" data-sort="verified">
 					Verified
 				</th>
+				<th>
+					&nbsp;
+				</th>
+				<th>
+					&nbsp;
+				</th>
 			</tr>
 		</thead>
 		<tbody id="dataview-table-items">
-			{{#each fisp_farmer_list_paged}} {{> FispFarmersViewTableItems}} {{/each}}
+			{{#each fisp_farmer_list1_paged}} {{> FispFarmersViewTableItems}} {{/each}}
 		</tbody>
 	</table>
 </template>
@@ -113,6 +126,14 @@
 		</td>
 		<td>
 			<input type="checkbox" class="inline-checkbox {{editButtonClass}}" data-field="verified" {{checked verified}}>
+		</td>
+		<td class="td-icon">
+			<span id="edit-button" class="fa fa-pencil {{editButtonClass}}" title="Edit">
+			</span>
+		</td>
+		<td class="td-icon">
+			<span id="delete-button" class="fa fa-trash-o {{deleteButtonClass}}" title="Delete">
+			</span>
 		</td>
 	</tr>
 </template>

@@ -2,7 +2,7 @@
 	"output_files": [
 		{
 			"path": "client/views/router.js",
-			"checksum": "e2a09db96934c80f73d6bc7d7c4239b5026f1829"
+			"checksum": "b7c1f30c6788193eea16986ef9968e6da0617d73"
 		},
 		{
 			"path": "server/controllers/router.js",
@@ -130,7 +130,7 @@
 		},
 		{
 			"path": "client/views/admin/admin.html",
-			"checksum": "b6668cf5266783b5fc52645b92bb099180253e2b"
+			"checksum": "50bc30c2e1219626a77ccd4deae3bf90978c750e"
 		},
 		{
 			"path": "client/views/admin/admin.js",
@@ -838,19 +838,43 @@
 		},
 		{
 			"path": "client/views/fisp_farmers/fisp_farmers.html",
-			"checksum": "5a1d093e010db9985a5fbd8dcd50a6bd1a3757f2"
+			"checksum": "c2c7e35e7ccea9d1aef382910268b6e9695c47f7"
 		},
 		{
 			"path": "client/views/fisp_farmers/fisp_farmers.js",
-			"checksum": "179aa50636ce0fd85175b4319785e5fda43cce61"
+			"checksum": "0c37cb1e34130b6a16ee949e83fd134f127e2eea"
 		},
 		{
 			"path": "client/views/fisp_farmers/fisp_farmers_controller.js",
-			"checksum": "26a26035d4ff27abe2a7fe99689cce7bc5a3d19b"
+			"checksum": "ae92d5f7cf6b2232ffc77a967bfeb653082ed0ab"
+		},
+		{
+			"path": "client/views/fisp_farmers/insert/insert.html",
+			"checksum": "d9db3fbd60f2f6e4758d100177588cc99b79b157"
+		},
+		{
+			"path": "client/views/fisp_farmers/insert/insert.js",
+			"checksum": "cb0e6acbbb1789810e175a4b6d21300fa06ab406"
+		},
+		{
+			"path": "client/views/fisp_farmers/insert/insert_controller.js",
+			"checksum": "141e4b3548d5ba9538b51ced130722ec9eddda15"
+		},
+		{
+			"path": "client/views/fisp_farmers/update/update.html",
+			"checksum": "4a9aa71acf34e5859c73db424464104369913098"
+		},
+		{
+			"path": "client/views/fisp_farmers/update/update.js",
+			"checksum": "f0c1cfbadfca2ef115c3e5576e6d14aa3ed42897"
+		},
+		{
+			"path": "client/views/fisp_farmers/update/update_controller.js",
+			"checksum": "0a1ba33496483d3ee06a531534f80156f3cf20cd"
 		},
 		{
 			"path": "client/views/fisp_farmers/details/details.html",
-			"checksum": "c264011403268635c17f0de3d9a7b21d763761b1"
+			"checksum": "5d705eafd70b119a2e92aecd7c387a8a227a5432"
 		},
 		{
 			"path": "client/views/fisp_farmers/details/details.js",
@@ -858,7 +882,7 @@
 		},
 		{
 			"path": "client/views/fisp_farmers/details/details_controller.js",
-			"checksum": "798c44c10388f36ff0a1d0987b17c63e674add9f"
+			"checksum": "8d0aa455d7fbc5866c657cf8bc3dbd7e2851717b"
 		},
 		{
 			"path": "both/collections/activations.js",
@@ -1150,7 +1174,7 @@
 		},
 		{
 			"path": "server/publish/fisp_farmers.js",
-			"checksum": "30e17c2026a18edc4ecc7a5d3a61c458607ec07b"
+			"checksum": "fa905e0d37176a5483519ffcd68ed867edc3458c"
 		},
 		{
 			"path": "client/styles/user_styles.less",
@@ -1569,6 +1593,8 @@
 		"client/views/dashboard/",
 		"client/views/fisp_farmers/",
 		"client/views/fisp_farmers/details/",
+		"client/views/fisp_farmers/insert/",
+		"client/views/fisp_farmers/update/",
 		"client/views/forgot_password/",
 		"client/views/group_policies/",
 		"client/views/group_policies/details/",

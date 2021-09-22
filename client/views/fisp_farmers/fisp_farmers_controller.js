@@ -16,13 +16,13 @@ this.FispFarmersController = RouteController.extend({
 	},
 
 	isReady: function() {
-		this.fispFarmerListPagedExtraParams = {
-			searchText: Session.get("FispFarmerListPagedSearchString") || "",
-			searchFields: Session.get("FispFarmerListPagedSearchFields") || ["name", "camp", "mobile_num", "national_registration_number", "fisp_member", "verified"],
-			sortBy: Session.get("FispFarmerListPagedSortBy") || "",
-			sortAscending: Session.get("FispFarmerListPagedSortAscending"),
-			pageNo: Session.get("FispFarmerListPagedPageNo") || 0,
-			pageSize: Session.get("FispFarmerListPagedPageSize") || 0
+		this.fispFarmerList1PagedExtraParams = {
+			searchText: Session.get("FispFarmerList1PagedSearchString") || "",
+			searchFields: Session.get("FispFarmerList1PagedSearchFields") || ["name", "camp", "mobile_num", "national_registration_number", "fisp_member", "verified"],
+			sortBy: Session.get("FispFarmerList1PagedSortBy") || "",
+			sortAscending: Session.get("FispFarmerList1PagedSortAscending"),
+			pageNo: Session.get("FispFarmerList1PagedPageNo") || 0,
+			pageSize: Session.get("FispFarmerList1PagedPageSize") || 0
 		};
 
 
@@ -30,8 +30,8 @@ this.FispFarmersController = RouteController.extend({
 		
 
 		var subs = [
-			Meteor.subscribe("fisp_farmer_list_paged", this.fispFarmerListPagedExtraParams),
-			Meteor.subscribe("fisp_farmer_list_paged_count", this.fispFarmerListPagedExtraParams)
+			Meteor.subscribe("fisp_farmer_list1_paged", this.fispFarmerList1PagedExtraParams),
+			Meteor.subscribe("fisp_farmer_list1_paged_count", this.fispFarmerList1PagedExtraParams)
 		];
 		var ready = true;
 		_.each(subs, function(sub) {
@@ -46,15 +46,15 @@ this.FispFarmersController = RouteController.extend({
 
 		var data = {
 			params: this.params || {},
-			fisp_farmer_list_paged: FispFarmers.find(databaseUtils.extendFilter({}, this.fispFarmerListPagedExtraParams), databaseUtils.extendOptions({}, this.fispFarmerListPagedExtraParams)),
-			fisp_farmer_list_paged_count: Counts.get("fisp_farmer_list_paged_count")
+			fisp_farmer_list1_paged: FispFarmers.find(databaseUtils.extendFilter({}, this.fispFarmerList1PagedExtraParams), databaseUtils.extendOptions({}, this.fispFarmerList1PagedExtraParams)),
+			fisp_farmer_list1_paged_count: Counts.get("fisp_farmer_list1_paged_count")
 		};
 		
 
 		
-		data.fisp_farmer_list_paged_page_count = this.fispFarmerListPagedExtraParams && this.fispFarmerListPagedExtraParams.pageSize ? Math.ceil(data.fisp_farmer_list_paged_count / this.fispFarmerListPagedExtraParams.pageSize) : 1;
-		if(this.isReady() && this.fispFarmerListPagedExtraParams.pageNo >= data.fisp_farmer_list_paged_page_count) {
-			Session.set("FispFarmerListPagedPageNo", data.fisp_farmer_list_paged_page_count > 0 ? data.fisp_farmer_list_paged_page_count - 1 : 0);
+		data.fisp_farmer_list1_paged_page_count = this.fispFarmerList1PagedExtraParams && this.fispFarmerList1PagedExtraParams.pageSize ? Math.ceil(data.fisp_farmer_list1_paged_count / this.fispFarmerList1PagedExtraParams.pageSize) : 1;
+		if(this.isReady() && this.fispFarmerList1PagedExtraParams.pageNo >= data.fisp_farmer_list1_paged_page_count) {
+			Session.set("FispFarmerList1PagedPageNo", data.fisp_farmer_list1_paged_page_count > 0 ? data.fisp_farmer_list1_paged_page_count - 1 : 0);
 		}
 
 
