@@ -24,9 +24,6 @@ contractAbi = [
 ];
 
 
-acreContract = null;
-// acreAddress = "0x34Ff840808E4738863430542Dc7BB6FE0C63Bc6B";
-acreAddress = "0x9ED89E55a9Dcf1bfE92DD21E89907D81F927E2aE";
 
 connectMetamask = function (cb){
 	if (ethereum) {
@@ -100,6 +97,5 @@ notarize = function (type, message, payload, updateMethod) {
 		
 }
 
-// GoogleMaps.load({ v: '3', key: 'AIzaSyAIjsbPvYSEBicJeKvPeI679eS9VW3w5zg', libraries: 'places' });
-GoogleMaps.load({ v: '3', key: 'AIzaSyAuGOT9cn2Rp8O4gicXER-clMjVBMszlyY', libraries: 'places' });
+GoogleMaps.load({ v: '3', key: '', libraries: 'places' });
 
