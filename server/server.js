@@ -12,7 +12,7 @@ Meteor.startup(function() {
 
 	// Email templates config
 	if(Accounts.emailTemplates) {
-		Accounts.emailTemplates.siteName = "Acre Africa BimaPima";
+		Accounts.emailTemplates.siteName = "Generic Crop Insurance Frontend";
 		Accounts.emailTemplates.from = "";
 	}
 
